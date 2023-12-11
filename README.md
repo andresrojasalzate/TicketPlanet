@@ -1,9 +1,5 @@
 # gr3-bernabeu-rojas-picazo
-
-## Proyecto
-TicketPlanet 
-
-![Logo](Images/Logo.png)
+![Logo](Images/Logo.png){:width="100px" height="100px"}
 
 ## Miembros
 - Adria Bernabeu
