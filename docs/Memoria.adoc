@@ -1,0 +1,28 @@
+== Projecte Tiquets
+
+=== Membres de l'equip
+* [underline]#Adrian Bernabeu#
+* [underline]#Salma Picazo#
+* [underline]#Andres Rojas#
+
+== Introducció
+
+=== Objectiu de l'aplicacio
+
+== Disseny base de dades
+
+== Sketching i Mockup d'interficies
+
+=== Sketching
+
+=== Mockups
+
+== La guia d'estil
+
+== Confecció del manual d’instal·lació i distribució de l’aplicació
+
+== Línies futures
+
+== Conclusions
+
+== Presentacio del projecte 
