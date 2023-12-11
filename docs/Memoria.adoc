@@ -17,9 +17,9 @@
 
 *TicketPlanet*
 
-image::Images/Logo.png[Logo principal, width=50%]
+image::Images/Logo.png[Logo principal, width=40%]
 
-*Miembros*
+*Miembros*  
 
 - Adria Bernabeu
 
