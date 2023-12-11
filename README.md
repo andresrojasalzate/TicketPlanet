@@ -3,7 +3,7 @@
 ## Proyecto
 TicketPlanet 
 
-image::Image/Logo.png [si width=100, height=100]
+![Logo](Images/Logo.png)
 
 ## Miembros
 - Adria Bernabeu
