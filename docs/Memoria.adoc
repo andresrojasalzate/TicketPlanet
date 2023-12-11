@@ -1,28 +1,66 @@
-== Projecte Tiquets
+= Proyecto Tickets
 
-=== Membres de l'equip
-* [underline]#Adrian Bernabeu#
-* [underline]#Salma Picazo#
-* [underline]#Andres Rojas#
+:toc-title: ÍNDICE
+:figure-caption: Figura
+:table-caption: Taula
+:example-caption: Exemple
+:revnumber: 1.12
+:doctype: book
+:encoding: utf-8
+:lang: es
+:toc: left
+:toclevels: 5
+:sectnums:
+:icons: font
 
-== Introducció
+== INTRODUCCIÓN
 
-=== Objectiu de l'aplicacio
+*TicketPlanet*
 
-== Disseny base de dades
+image::Images/Logo.png[Logo principal, width=50%]
 
-== Sketching i Mockup d'interficies
+*Miembros*
 
-=== Sketching
+- Adria Bernabeu
 
-=== Mockups
+- Salma Picazo
 
-== La guia d'estil
+- Andres Rojas
 
-== Confecció del manual d’instal·lació i distribució de l’aplicació
+=== Objetivo de la aplicación
 
-== Línies futures
+== PLANIFICACIÓN Y SEGUIMIENTO
 
-== Conclusions
+=== Semana 1
 
-== Presentacio del projecte 
+=== Semana 2
+
+=== Semana 3
+
+=== Semana 4
+
+
+== DISEÑO
+
+=== Base de datos
+
+=== Interfícies
+    
+==== Sketching
+
+==== Figma
+
+=== Guía de estilos
+Link a la guía de estilos de Figma https://www.figma.com/file/7RISOKUOjvDXdzufahisrv/Gu%C3%ADa-de-estilos?type=design&node-id=0%3A1&mode=design&t=QgHjfUcq2g73B829-1[aquí]. 
+
+== MANUAL DE INSTALACIÓN
+
+        
+
+== CONCLUSIÓN   
+
+=== Líneas futuras
+
+=== Webgrafia
+
+=== Presentación
