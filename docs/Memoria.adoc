@@ -1,17 +1,18 @@
-= Proyecto Tickets
+= TICKETPLANET 
+Adria Bernabeu, Salma Picazo, Andres Rojas
 
 :toc-title: ÍNDICE
 :figure-caption: Figura
 :table-caption: Taula
 :example-caption: Exemple
-:revnumber: 1.12
 :doctype: book
 :encoding: utf-8
 :lang: es
 :toc: left
 :toclevels: 5
 :sectnums:
-:icons: font
+:icons: font   
+:numbered:
 
 == INTRODUCCIÓN
 
@@ -43,6 +44,27 @@ image::Images/Logo.png[Logo principal, width=40%]
 == DISEÑO
 
 === Base de datos
+
+[plantuml,,png]
+----
+class Eventos{
+nombre: String
+ubicacion: String
+imagen: String
+}
+
+class Categoria{
+nombre: String  
+}
+
+class Sesion{
+fecha: Date
+hora: Time
+}
+
+Eventos "0...n" -- "1" Categoria
+Eventos "1" - "1...n" Sesion 
+----
 
 === Interfícies
     
