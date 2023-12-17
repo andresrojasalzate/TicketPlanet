@@ -48,21 +48,33 @@ image::Images/Logo.png[Logo principal, width=40%]
 [plantuml,,png]
 ----
 class Eventos{
-nombre: String
-ubicacion: String
-imagen: String
+id: int
+nombre: string
+imagen: string
+idCategoria: int
+idRecinto: int      
 }
 
 class Categoria{
-nombre: String  
+idCategoria: int    
+nombre: string  
 }
 
 class Sesion{
+idSesion: int   
 fecha: Date
 hora: Time
 }
 
+class Recinto{
+idRecinto: int      
+nombre: string
+dirección: string
+capacidad: int
+}   
+
 Eventos "0...n" -- "1" Categoria
+Eventos "0...n" -- "1" Recinto  
 Eventos "1" - "1...n" Sesion 
 ----
 
@@ -71,6 +83,7 @@ Eventos "1" - "1...n" Sesion
 ==== Sketching
 
 ==== Figma
+Link a las interfícies de Figma https://www.figma.com/file/V47MqQzp5biMSzsQ5m7gZU/Mockups?type=design&node-id=0-1&mode=design&t=IMIfO6zr6hBVFlYG-0[aquí]. 
 
 === Guía de estilos
 Link a la guía de estilos de Figma https://www.figma.com/file/7RISOKUOjvDXdzufahisrv/Gu%C3%ADa-de-estilos?type=design&node-id=0%3A1&mode=design&t=QgHjfUcq2g73B829-1[aquí]. 
