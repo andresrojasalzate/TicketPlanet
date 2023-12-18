@@ -18,9 +18,9 @@ class EventFactory extends Factory
     {
         return [
             'name' =>fake()->name(),
-            'site' => fake()->text(),
-            'category' => fake()->text(),
-            'image' => fake()->text(),
+            'site' => fake()->address(),
+            'category' => fake()->name(),
+            'image' => fake()->image(),
         ];
     }
 }
