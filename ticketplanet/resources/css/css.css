@@ -8,13 +8,15 @@ header{
   grid-template-columns: 60px auto;
 }
 .dropdown{
+  display: flex;
+  float: left;
   grid-row: 1;
   background-color: #0642F9;  
 }
 .header{
   grid-row: 1;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding-left: 5%;
   padding-right: 5%;
   background-color: #0642F9;
@@ -23,38 +25,52 @@ header{
   grid-column: 1/3;
   display: flex;
   justify-content: center;
-  border: 1px solid blue;
+  border: 2px solid blue;
 }
 footer{
-  margin-top: auto;
-  display: table;
-  width: 100%;
-  height: 15%;
-  background-color: #424242;
-  color:#fff;
+  display: grid;
+  grid-template-rows: repeat(4,1fr);
+  grid-template-columns: repeat(2,1fr);
   text-align: center;
+  background-color: #424242;
+  position: static;
+  width: 100%;
+  bottom: 0;
 }
-
+.item-2{
+  grid-row: 2/3;
+}
+.item-3{
+  grid-row: 3/4;
+}
+.item-4{
+  grid-row: 4/5;
+}
+.item-5{
+  grid-row: 4/5;
+}
 .layout{
-  height: 70%;
+  min-height: 54vh;
+  position: relative;
 }
 .contenedorBuscador{
   display: flex;
   justify-content: center;
   align-items: center;
   height: 30%;
+  padding-top: 2%;
 }
 .buscador{
   height: 50px;
-  width: 50%;
+  width: 60%;
   max-width: 700px;
   background-color: #0643f96d;
   border-radius: 5px;
+  text-indent: 40px;
 }
 .botonBuscador{
   width: 20%;
   height: 30px;
-  margin-left: 1%;
   background-color: #F9BD06;
   border-radius: 5px;
   max-width: 100px;
@@ -70,10 +86,6 @@ footer{
   height: 50px;
   border: none;
 }
-.dropdown{
-  display: flex;
-  float: left;
-}
 .dropdown-content {
   position: absolute;
   padding-top: 30px;
@@ -83,6 +95,7 @@ footer{
   display: none;
   overflow: auto;
   border-top: 1px solid black;
+  z-index: 2;
 }
 .dropdown:hover .dropdown-content {
   background-color: #0642F9;
@@ -107,13 +120,37 @@ footer{
   .h1 {
     display: flex;
   }
+  .header{
+    justify-content: space-between;
+  }
 }
-.imagenFooter{
-  display: flex;
-  padding: 4%;
+@media screen and (max-width: 300px) {
+  .imagenNombre{
+    width: 200px;
+  }
+  footer{
+    font-size: 15px;
+  }
 }
+
 .imagenUsuarioDespegable{
   padding-left: 40px;
+}
+.ImagenFiltrar{
+  position: relative;
+  right: 40px;
+  z-index: 1;
+}
+.imagenLupa{
+  position: relative;
+  right: -40px;
+}
+.buscador::placeholder {
+  text-indent: 40px;
+}
+
+input[type="search"]::-webkit-search-cancel-button{
+    display: none;
 }
 
 

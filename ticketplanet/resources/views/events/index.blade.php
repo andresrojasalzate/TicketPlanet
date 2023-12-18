@@ -49,9 +49,29 @@
             <button class="botonBuscador" type="button">Buscar</button>
         </div>
     </div>
-    <footer>
-        <img class="imagenFooter" src="imagenes/LogoNombre.png" alt="" height="50">
-    </footer>
+    <img class="imagenUsuario"  src="imagenes/Usuario.png" alt="" width="40">
+    </div>
+    <div class="nombre">
+
+      <img class="imagenNombre" src="Imagenes/nombre.PNG" alt="" width="300">
+
+    </div>
+  </header>
+  <div class="layout">
+    <div class="contenedorBuscador">
+      <img  class="imagenLupa" src="Imagenes/lupa.png" alt="" height="30">
+      <input class="buscador" type="search" placeholder="Buscar">
+      <img  class="ImagenFiltrar" src="Imagenes/Filtrar.png" alt="" height="30">
+    <button class="botonBuscador" type="button">Buscar</button>
+    </div>
+  </div>
+  <footer>
+    <p class="item-1">Home Promotor</p>
+    <p class="item-2">Sobre nosaltres</p>
+    <p class="item-3">Avisos legales</p>
+    <p class="item-4">Mostrar Esdeveniments</p>
+    <p class="item-5">Comprar entrades</p>
+  </footer>
 </body>
 
 </html>
