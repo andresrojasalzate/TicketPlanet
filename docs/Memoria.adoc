@@ -18,7 +18,7 @@ Adria Bernabeu, Salma Picazo, Andres Rojas
 
 *TicketPlanet*
 
-image::Images/Logo.png[Logo principal, width=40%]
+image::Images/Logo.png[Logo principal, width=10%]
 
 *Miembros*  
 
@@ -51,12 +51,13 @@ class Eventos{
 id: int
 nombre: string
 imagen: string
+precio: float               
 idCategoria: int
-idRecinto: int      
+idRecinto: int         
 }
 
 class Categoria{
-idCategoria: int    
+idCategoria: int                      
 nombre: string  
 }
 
