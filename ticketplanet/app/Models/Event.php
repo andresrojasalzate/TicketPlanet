@@ -34,7 +34,7 @@ class Event extends Model
             $eventos = $eventos->where('category', $category);
         }
 
-        $eventos = $eventos->get();
+        $eventos = $eventos->with('sessions')->get();
         return $eventos;
     }
 
