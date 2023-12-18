@@ -6,7 +6,7 @@ header{
   display: grid;
   grid-template-rows: 60px auto;
   grid-template-columns: 60px auto;
-}
+} 
 .dropdown{
   display: flex;
   float: left;

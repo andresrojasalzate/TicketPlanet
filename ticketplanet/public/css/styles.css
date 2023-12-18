@@ -10,7 +10,7 @@ body {
     height: 110px;
     background-color: #0642F9;
     display: grid;
-    grid-template-columns: 0.5fr 4fr 0.5fr;
+    grid-template-columns: 0.5fr 0.5fr 4fr 0.5fr;
     align-items: center;
 }
 
@@ -68,7 +68,7 @@ li {
     text-decoration: none;
 }
 
-.auth img{
+.auth img {
     width: 25%;
 }
 
@@ -93,7 +93,7 @@ li {
     width: 10%;
 }
 
-.contenedorBuscador{
+.contenedorBuscador {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -101,19 +101,98 @@ li {
     margin-top: 1.5%;
 }
 
-.buscador{
+.buscador {
     width: 20%;
     height: 30px;
     border-radius: 10px;
     margin-right: 0.7%;
 }
 
-.btnBuscador{
+.btnBuscador {
     border-radius: 7px;
 }
 
+/*------------------------------------------------------*/
+
+.dropdown {
+    display: flex;
+    justify-content: start;
+    grid-row: 1;
+    background-color: #0642F9;
+}
+
+.menuIMG {
+    cursor: pointer;
+    width: 40%;
+    margin-left: 15%;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 11.3%;
+    width: 60%;
+    height: 88.5%;
+    display: none;
+    overflow: auto;
+    border-top: 0.5px solid black;
+    z-index: 2;
+}
+
+.dropdown:hover .dropdown-content {
+    background-color: #0642F9;
+    display: block;
+    margin: 0%;
+    max-width: 500px;
+}
+
+.dropdown-content p {
+    display: block;
+    color: #FFFFFF;
+    padding: 10px 0px 10px 50px;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-family: 'Work Sans';
+}
+
+.imagenUsuarioDespegable {
+    padding-left: 40px;
+}
+
+.linksFooter {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 0.5fr);
+    text-align: center;
+    background-color: #424242;
+    position: static;
+    width: 100%;
+    bottom: 0;
+}
+.item-1 {
+    grid-row: 2/1; /*Home Promotor*/
+}
+
+.item-2 {
+    grid-row: 2/3; /*Sobre nosaltres*/
+}
+
+.item-3 {
+    grid-row: 3/3; /*Avisos legales*/
+}
+
+.item-4 {
+    grid-row: 1/1; /*Mostrar Esdeveniments*/
+}
+
+.item-5 {
+    grid-row: 2/3; /*Comprar entrades*/
+}
+
+
+
 /*PANTALLA MÓVIL*/
 @media screen and (max-width: 375px) {
+
     /*header*/
     .nav {
         display: grid;
@@ -137,7 +216,7 @@ li {
         margin-top: 1rem;
     }
 
-    .auth img{
+    .auth img {
         width: 60%;
     }
 
@@ -156,5 +235,39 @@ li {
         width: 40%;
     }
 
-}
+    .linksFooter {
+        display: none;
+    }
 
+    /*Menu*/
+    .menuIMG {
+        width: 5rem;
+        height: 6.5rem;
+    }
+
+    .dropdown-content {
+        position: absolute;
+        top: 12.6%;
+        width: 60%;
+        height: 87.3%;
+        overflow: auto;
+        border-top: 0.5px solid black;
+        z-index: 2;
+    }
+
+    .dropdown-content p {
+        display: flex;
+        padding: 5% 0% 5% 10%;
+        color: #FFFFFF;
+        text-decoration: none;
+        font-size: 1rem;
+        font-family: 'Work Sans';
+    }
+
+    .imagenUsuarioDespegable {
+        display: flex;
+        padding-left: 5%;
+    }
+
+
+}

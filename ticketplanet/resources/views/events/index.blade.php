@@ -43,6 +43,8 @@
             <p>Nombre</p>
         </div>
     </header>
+
+    
     <div class="layout">
         <div class="contenedorBuscador">
             <input class="buscador" type="search" placeholder="Buscar">
