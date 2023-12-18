@@ -16,7 +16,7 @@ class SessionSeeder extends Seeder
     {
         if(count(Event::all()) > 0){
             $sessionNum = max((int) $this->command->ask('Introduce la cantidad de sessiones que quieres crear', 5), 1);
-            Session::factory()->count($sessionNum)->create();
+            Session::factory(SessionFactory::class)->count($sessionNum)->create();
             $this->command->info("Se han creado $sessionNum sessiones");
         } else{
             $this->command->info("No se pueden crear sessiones si no existen eventos en la base de datos");
