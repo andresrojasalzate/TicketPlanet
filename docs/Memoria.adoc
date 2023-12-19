@@ -34,6 +34,17 @@ image::Images/Logo.png[Logo principal, width=10%]
 
 === Semana 1
 
+==== Salma
+- Diseño Mockups pantalla home, versión movil y Web, Figma
+- Implementación Header y Footer
+- Diagrama de clases
+- Diagrama entorno Docker
+- Creación del Logo de la aplicación y favicon
+
+==== Andres
+
+==== Adria
+
 === Semana 2
 
 === Semana 3
