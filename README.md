@@ -7,7 +7,7 @@
 - Andres Rojas
 
 ## Diagrama de red
-![Diagrama](Images/diagrama-de-red.PNG){:width="300px" height="300px"}
+![Diagrama](Images/diagrama-de-red.PNG){:width="400px" height="400px"}
 
 ## Links
 - [Trello](https://trello.com/b/Z116unqK/gr3-bernabeu-rojas-picazo)
