@@ -43,16 +43,20 @@
   </header>
   <div class="layout">
     <div class="contenedorBuscador">
-      <img  class="imagenLupa" src="Imagenes/lupa.png" alt="" height="30">
-      <input class="buscador" type="search" placeholder="Buscar">
-      <img  class="ImagenFiltrar" src="Imagenes/Filtrar.png" alt="" height="30">
-    <button class="botonBuscador" type="button">Buscar</button>
+      <form class="form-buscador" action="{{ route('events.search') }}" method="post">
+        @csrf
+        <img  class="imagenLupa" src="Imagenes/lupa.png" alt="" height="30">     
+        <input class="buscador" type="search" name="busqueda" placeholder="Buscar">
+        <img  class="ImagenFiltrar" src="Imagenes/Filtrar.png" alt="" height="30">
+        <button class="botonBuscador" type="submit">Buscar</button>
+      </form>
     </div>
-    <div class="event-counter">
+   <div class="event-counter">
       @foreach  ($events as $event)
         <div>
           <x-event-component :event="$event"/>
         </div>
+        
       @endforeach
     </div>
   </div>
