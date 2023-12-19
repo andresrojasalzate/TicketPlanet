@@ -18,7 +18,7 @@ Adria Bernabeu, Salma Picazo, Andres Rojas
 
 *TicketPlanet*
 
-image::Images/Logo.png[Logo principal, width=40%]
+image::Images/Logo.png[Logo principal, width=10%]
 
 *Miembros*  
 
@@ -33,6 +33,17 @@ image::Images/Logo.png[Logo principal, width=40%]
 == PLANIFICACIÓN Y SEGUIMIENTO
 
 === Semana 1
+
+==== Salma
+- Diseño Mockups pantalla home, versión movil y Web, Figma
+- Implementación Header y Footer
+- Diagrama de clases
+- Diagrama entorno Docker
+- Creación del Logo de la aplicación y favicon
+
+==== Andres
+
+==== Adria
 
 === Semana 2
 
@@ -51,12 +62,13 @@ class Eventos{
 id: int
 nombre: string
 imagen: string
+precio: float               
 idCategoria: int
-idRecinto: int      
+idRecinto: int         
 }
 
 class Categoria{
-idCategoria: int    
+idCategoria: int                      
 nombre: string  
 }
 
