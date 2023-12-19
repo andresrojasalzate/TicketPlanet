@@ -1,23 +1,24 @@
-= Proyecto Tickets
+= TICKETPLANET 
+Adria Bernabeu, Salma Picazo, Andres Rojas
 
 :toc-title: ÍNDICE
 :figure-caption: Figura
 :table-caption: Taula
 :example-caption: Exemple
-:revnumber: 1.12
 :doctype: book
 :encoding: utf-8
 :lang: es
 :toc: left
 :toclevels: 5
 :sectnums:
-:icons: font
+:icons: font   
+:numbered:
 
 == INTRODUCCIÓN
 
 *TicketPlanet*
 
-image::Images/Logo.png[Logo principal, width=40%]
+image::Images/Logo.png[Logo principal, width=10%]
 
 *Miembros*  
 
@@ -44,11 +45,46 @@ image::Images/Logo.png[Logo principal, width=40%]
 
 === Base de datos
 
+[plantuml,,png]
+----
+class Eventos{
+id: int
+nombre: string
+imagen: string
+precio: float               
+idCategoria: int
+idRecinto: int         
+}
+
+class Categoria{
+idCategoria: int                      
+nombre: string  
+}
+
+class Sesion{
+idSesion: int   
+fecha: Date
+hora: Time
+}
+
+class Recinto{
+idRecinto: int      
+nombre: string
+dirección: string
+capacidad: int
+}   
+
+Eventos "0...n" -- "1" Categoria
+Eventos "0...n" -- "1" Recinto  
+Eventos "1" - "1...n" Sesion 
+----
+
 === Interfícies
     
 ==== Sketching
 
 ==== Figma
+Link a las interfícies de Figma https://www.figma.com/file/V47MqQzp5biMSzsQ5m7gZU/Mockups?type=design&node-id=0-1&mode=design&t=IMIfO6zr6hBVFlYG-0[aquí]. 
 
 === Guía de estilos
 Link a la guía de estilos de Figma https://www.figma.com/file/7RISOKUOjvDXdzufahisrv/Gu%C3%ADa-de-estilos?type=design&node-id=0%3A1&mode=design&t=QgHjfUcq2g73B829-1[aquí]. 
