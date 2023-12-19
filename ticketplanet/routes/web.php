@@ -8,6 +8,7 @@ use App\Http\Controllers\LinksController;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('events', [EventController::class, 'index'])->name('events.index');
+Route::post('/events', [EventController::class, 'search'])->name('events.search');
     
 Route::get('/links/home', [LinksController::class, 'home'])->name('links.home');
 Route::get('/links/aboutus', [LinksController::class, 'aboutUs'])->name('links.aboutus');
