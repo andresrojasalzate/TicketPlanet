@@ -1,0 +1,5 @@
+$start_time = microtime(true);
+// Código para atender la solicitud
+$end_time = microtime(true);
+$time_taken = $end_time - $start_time;
+Log::info('Tiempo que tarda el componente en atender la solicitud: ' . $time_taken . ' segundos');
