@@ -19,7 +19,7 @@ class EventFactory extends Factory
         return [
             'name' =>fake()->name(),
             'site' => fake()->address(),
-            'category' => fake()->name(),
+            'category' => fake()->randomElement(['teatro', 'cine', 'musica']),
             'image' => fake()->image(),
         ];
     }
