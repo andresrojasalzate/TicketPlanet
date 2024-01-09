@@ -81,7 +81,6 @@ li {
     height: 150px;
     background-color: #424242;
     bottom: 0%;
-    position: absolute;
 }
 
 .logo {
@@ -233,16 +232,18 @@ li {
 }
 
 .show-event-home {
-    width: 27vh;
-    height: 40vh;
+    width: 29vh;
+    height: 45vh;
     background-color: #ebebeb;
     margin-top: 50px;
     margin-bottom: 30px;
-    margin-left: 46px;
+    margin-left: 35px;
     border: 5px solid;
     border-color: #F9BD06;
     cursor: pointer;
     font-family: 'Work Sans';
+    overflow: hidden; 
+    text-overflow: ellipsis; 
 }
 
 .show-event-home:hover {
@@ -257,6 +258,9 @@ li {
 
 .show-event-home-title {
     font-size: 1.4rem;
+    margin: 5%;
+    overflow: hidden;
+    text-overflow: ellipsis; 
 }
 
 .elementsEvents {
@@ -268,6 +272,7 @@ li {
     display: flex;
     align-items: center;
     justify-content: left;
+    font-size: 1rem;
     margin: 5%;
 }
 
