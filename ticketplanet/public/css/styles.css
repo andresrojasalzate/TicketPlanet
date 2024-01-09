@@ -117,11 +117,13 @@ li {
 .imagenLupa{
     position: absolute;
     left: 33%;
+    margin-top: 5px;
 }
 
 .imagenFiltrar{
     position: absolute;
     right: 39%;
+     margin-top: 5px;
 }
 
 .botonBuscador {
@@ -138,6 +140,13 @@ li {
     background-color: #e6ad05;
     border-color: #0642F9;
 }
+
+.form-buscador{
+   width: 100%;
+   text-align: center;
+}
+
+
 
 
 
