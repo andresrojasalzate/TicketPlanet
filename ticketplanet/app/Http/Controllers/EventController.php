@@ -8,9 +8,15 @@ use App\Models\Event;
 
 class EventController extends Controller
 {
-    public function index() {
-        return view('events.index', ['events' => Event::with('sessions')->get()]);
-        //return Event::with('sessions')->get();
+    public function index(Request $request = null) {   
+        return view('events.index', ['events' => Event::with('sessions')->paginate(env('PAGINATION_LIMIT'))]);
+    }
 
+    public function search(Request $request){
+
+        $busqueda = $request->input('busqueda');
+        $categoria =  $request->input('category');
+
+       return view('events.index', ['events' => Event::eventosBuscados($busqueda, $categoria)]);
     }
 }
