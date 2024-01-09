@@ -242,6 +242,8 @@ li {
     border-color: #F9BD06;
     cursor: pointer;
     font-family: 'Work Sans';
+    overflow: hidden; 
+    text-overflow: ellipsis; 
 }
 
 .show-event-home:hover {
@@ -257,6 +259,8 @@ li {
 .show-event-home-title {
     font-size: 1.4rem;
     margin: 5%;
+    overflow: hidden;
+    text-overflow: ellipsis; 
 }
 
 .elementsEvents {
