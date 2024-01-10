@@ -7,20 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="favicon/logoFavicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-    <title>Document</title>
+    <title>@yield('title')</title>
 </head>
 
 <body>
     <header>
-        @include('components.header')
+        <x-header/>
     </header>
-    <div class="contenedorBuscador">
-        <input class="buscador" type="search" placeholder="Buscar">
-        <button class="btnBuscador" type="button">Buscar</button>
-    </div>
+    
+    @yield('content')
 
     <footer>
-        @include('components.footer')
+        <x-footer/>
     </footer>
 </body>
 
