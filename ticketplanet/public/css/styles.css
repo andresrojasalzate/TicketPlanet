@@ -23,6 +23,18 @@ body {
     justify-items: center;
 }
 
+body.body-login .navLogo {
+    display: none;
+}
+
+body.body-login .auth {
+    display: none;
+}
+
+body.body-login .menuIMG {
+    display: none;
+}
+
 .navLogo img {
     width: 210%;
 }
@@ -114,12 +126,12 @@ li {
     background-color: rgba(6, 66, 249, 0.133);
 }
 
-.imagenLupa{
+.imagenLupa {
     position: absolute;
     left: 33%;
 }
 
-.imagenFiltrar{
+.imagenFiltrar {
     position: absolute;
     right: 39%;
 }
@@ -242,8 +254,8 @@ li {
     border-color: #F9BD06;
     cursor: pointer;
     font-family: 'Work Sans';
-    overflow: hidden; 
-    text-overflow: ellipsis; 
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .show-event-home:hover {
@@ -260,7 +272,7 @@ li {
     font-size: 1.4rem;
     margin: 5%;
     overflow: hidden;
-    text-overflow: ellipsis; 
+    text-overflow: ellipsis;
 }
 
 .elementsEvents {
@@ -292,7 +304,7 @@ li {
     width: 17%;
 }
 
-.div_filtro p{
+.div_filtro p {
     margin: 0px;
     padding: 0px;
 }
@@ -310,11 +322,11 @@ li {
     display: flex;
     list-style: none;
     padding: 0;
-    margin: 20px 0; 
+    margin: 20px 0;
 }
 
 .pagination li {
-    margin-right: 5px; 
+    margin-right: 5px;
 }
 
 .pagination a,
@@ -344,7 +356,7 @@ li {
     cursor: not-allowed;
 }
 
-.contenedor-pagination-menu{
+.contenedor-pagination-menu {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -361,7 +373,7 @@ li {
     width: 17%;
 }
 
-.div_filtro p{
+.div_filtro p {
     margin: 0px;
     padding: 0px;
 }
@@ -379,11 +391,11 @@ li {
     display: flex;
     list-style: none;
     padding: 0;
-    margin: 20px 0; 
+    margin: 20px 0;
 }
 
 .pagination li {
-    margin-right: 5px; 
+    margin-right: 5px;
 }
 
 .pagination a,
@@ -413,28 +425,125 @@ li {
     cursor: not-allowed;
 }
 
-.contenedor-pagination-menu{
+.contenedor-pagination-menu {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }
 
-.info-pagination{
+.info-pagination {
     align-self: center;
     justify-self: center;
     margin-left: 9vh;
 }
 
-.info-pagination > p, .info-pagination > span{
-    font-weight: bold; 
+.info-pagination>p,
+.info-pagination>span {
+    font-weight: bold;
     font-size: 1.2em;
 }
 
-.pagination-menu{
+.pagination-menu {
     margin-right: 12vh;
 }
 
+
+/*LOGIN*/
+.login {
+    width: 50%;
+    height: 57.7%;
+    display: flex;
+    flex-direction: column;
+    background-color: #D9D9D9;
+    margin: 3% auto;
+    padding: 1% 2%;
+    font-family: 'Work Sans';
+    border: 0.188rem solid;
+    border-color: #0642F9;
+    border-radius: 0.313rem;
+}
+
+.titleLogin {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 2.25rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+
+.accede p {
+    font-size: 1.625rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.registrate p {
+    font-size: 1.375rem;
+    margin-top: 1%;
+    margin-bottom: 5%;
+}
+
+
+
+.correoLogin label,
+.contraLogin label {
+    display: block;
+    font-size: 1.5rem;
+}
+
+.correoLogin input,
+.contraLogin input {
+    width: 100%;
+    height: 25%;
+    font-size: 1rem;
+    padding: 0% 1%;
+    margin-top: 0.313rem;
+    margin-bottom: 0.938rem;
+}
+
+.password-container {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 16rem;
+    transform: translateY(-152%);
+    cursor: pointer;
+}
+
+.toggle-password img {
+    width: 20%; 
+    height: 15%;
+}
+
+.olvidadoContra {
+    text-align: right;
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.btnIniciaSesion {
+    width: 20%;
+    height: 30%;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.btnIniciaSesion:hover {
+    background-color: #e6ad05;
+    border-color: #0642F9;
+}
 
 /*PANTALLA MÓVIL*/
 @media screen and (max-width: 425px) {
@@ -524,7 +633,7 @@ li {
         position: relative;
         width: 100%;
         margin-top: 3%;
-        
+
     }
 
     .buscador {
@@ -536,12 +645,12 @@ li {
         padding-left: 46px;
     }
 
-    .imagenLupa{
+    .imagenLupa {
         position: absolute;
         left: 11%;
     }
-    
-    .imagenFiltrar{
+
+    .imagenFiltrar {
         position: absolute;
         right: 33%;
     }
@@ -561,7 +670,8 @@ li {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         height: calc(85vh - 110px - 110px);
-        overflow-y: auto; /*Scroll*/
+        overflow-y: auto;
+        /*Scroll*/
     }
 
     .show-event-home {
@@ -573,5 +683,3 @@ li {
         height: 27%;
     }
 }
-
-

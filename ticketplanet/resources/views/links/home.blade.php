@@ -1,1 +1,1 @@
-@extends('layouts.app')
+@extends('events.index')
