@@ -1,4 +1,19 @@
 @if ($paginator->hasPages())
+    <div class="info-pagination">
+            <p class="text-sm text-gray-700 leading-5">
+                 {!! __('Mostrando') !!}
+                @if ($paginator->firstItem())
+                    <span class="font-medium">{{ $paginator->firstItem() }}</span>
+                    {!! __('a') !!}
+                    <span class="font-medium">{{ $paginator->lastItem() }}</span>
+                @else
+                    {{ $paginator->count() }}
+                @endif
+                    {!! __('de') !!}
+                    <span class="font-medium">{{ $paginator->total() }}</span>
+                    {!! __('resultados') !!}
+                </p>
+        </div>
     <nav class="pagination-menu">
         <ul class="pagination">
             {{-- Previous Page Link --}}
