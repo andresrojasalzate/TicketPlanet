@@ -34,6 +34,8 @@
       </form>
     </div>
 
+    <a href="{{ route('events.crearEvento') }}">Crear evento</a>
+
         <div class="event-counter">
             @foreach ($events as $event)
                 <div>
