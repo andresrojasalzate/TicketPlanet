@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Event>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Category>
  */
-class EventFactory extends Factory
+class CategoryFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,9 +18,6 @@ class EventFactory extends Factory
     {
         return [
             'name' =>fake()->name(),
-            'site' => fake()->address(),
-            //'category' => fake()->randomElement(['teatro', 'cine', 'musica']),
-            'image' => fake()->image(),
         ];
     }
 }
