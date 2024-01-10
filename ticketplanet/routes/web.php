@@ -19,3 +19,7 @@ Route::get('/links/legalnotice', [LinksController::class, 'legalNotice'])->name(
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('auth.login');
 Route::post('/login', [LoginController::class, 'login'])->name('auth.login.validate');
 Route::get('/logout',[LoginController::class, 'logout'])->name('auth.logout');
+
+Route::get('/links/homePromotors', [LinksController::class, 'homePromotors'])->name('links.homePromotors');
+
+Route::get('/events/crearEvento', [EventController::class, 'crearEvento'])->name('events.crearEvento');
