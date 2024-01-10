@@ -35,6 +35,9 @@
                 </div>
                 <p class="olvidadoContra"><a href="">¿Has olvidado tu contraseña?</a></p>
                 <input type="submit" value="Iniciar sesión" class="btnIniciaSesion">
+                @if(session('status'))
+                    <span class="credenciales">{{ session('status') }}</span>
+                @endif
             </form>
         </div>
     @endsection

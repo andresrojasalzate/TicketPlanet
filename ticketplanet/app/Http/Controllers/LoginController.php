@@ -23,6 +23,7 @@ class LoginController extends Controller
             'password.required' => 'El campo contraseña es obligatorio.',
             'password.string' => 'Por favor, introduce una contraseña válida.',
         ]);
+        
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) { 

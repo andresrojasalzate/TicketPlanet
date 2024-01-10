@@ -492,7 +492,23 @@ li {
     margin-bottom: 2%;
 }
 
+.correoLogin span,
+.contraLogin span{
+    color: red;
+    font-size: 1rem;
+    font-family: 'Work Sans';
+    text-decoration: none;
+}
 
+.credenciales{
+    display: flex;
+    justify-content: center;
+    color: red;
+    margin-top: 1.5%;
+    font-size: 1.1rem;
+    font-family: 'Work Sans';
+    text-decoration: none;
+}
 
 .correoLogin label,
 .contraLogin label {
@@ -508,10 +524,6 @@ li {
     font-size: 1rem;
     padding: 0% 1%;
     margin-top: 0.313rem;
-}
-
-.password-container {
-    position: relative;
 }
 
 .toggle-password {
