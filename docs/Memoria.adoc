@@ -34,6 +34,17 @@ image::Images/Logo.png[Logo principal, width=10%]
 
 === Semana 1
 
+==== Salma
+- Diseño Mockups pantalla home, versión movil y Web, Figma
+- Implementación Header y Footer
+- Diagrama de clases
+- Diagrama entorno Docker
+- Creación del Logo de la aplicación y favicon
+
+==== Andres
+
+==== Adria
+
 === Semana 2
 
 === Semana 3
@@ -91,7 +102,110 @@ Link a la guía de estilos de Figma https://www.figma.com/file/7RISOKUOjvDXdzufa
 
 == MANUAL DE INSTALACIÓN
 
-        
+=== Paso 1: Instalar Apache
+
+Instala Apache en tu servidor Debian
+
+```bash
+sudo apt update
+sudo apt install apache2
+```
+
+Habilita el módulo de Apache necesario para ejecutar aplicaciones PHP.
+
+```bash
+sudo a2enmod php8.2
+sudo systemctl restart apache2
+```
+
+=== Paso 2: Instalar PHP y Extensiones Necesarias
+
+```bash
+sudo apt install php7.4 sudo apt install php8.2-curl php8.2-dom php8.2-mbstring php8.2-xml php8.2-pgsql zip unzip
+```
+
+=== Paso 3: Descargar proyecto laravel
+
+```bash
+cd /var/www/
+git pull https://git.copernic.cat/abernabeu/gr3-bernabeu-rojas-picazo.git
+```
+=== Paso 4: Configurar conexión a base de datos
+
+```bash
+cd /var/www/gr3-bernabeu-rojas-picazo/ticketplanet
+cp .env.example .env
+```
+Modficar el archivo .env 
+
+```bash
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=ticketplanet
+DB_USERNAME=usuario
+DB_PASSWORD=1234
+```
+
+=== Paso 6: Instalar Dependencias de Composer
+
+Instala las dependencias de Composer para tu proyecto Laravel.
+
+```bash
+cd /var/www/gr3-bernabeu-rojas-picazo/ticketplanet
+composer install --no-dev
+```
+
+=== Paso 7: Generar app key
+
+```bash
+cd /var/www/gr3-bernabeu-rojas-picazo/ticketplanet
+php artisan key:generate
+```
+
+=== Paso 8: Dar permisos
+```bash
+cd /var/www/gr3-bernabeu-rojas-picazo/ticketplanet
+chown -R www-data storage
+chown -R www-data bootstrap/cache
+```
+```bash
+chmod -R 755 storage
+chmod -R 755 bootstrap/cache
+```
+
+=== Paso 9: Configurar Virtual Host de Apache
+
+Crea un archivo de configuración de Virtual Host para tu proyecto Laravel
+
+```bash
+sudo nano /etc/apache2/sites-available/laravel.conf
+```
+Pon el siguiente contenido:
+
+```bash
+<VirtualHost *:80>
+    ServerName ticket.com
+    DocumentRoot /var/www/gr3-bernabeu-rojas-picazo/ticketplanet/public
+
+    <Directory /var/www/gr3-bernabeu-rojas-picazo/ticketplanet/public>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/demo-error.log
+    CustomLog ${APACHE_LOG_DIR}/demo-access.log combined
+</VirtualHost>
+```
+
+Guarda y cierra el archivo. Luego, habilita el Virtual Host y reinicia Apache.
+
+```bash
+sudo a2ensite laravel
+sudo systemctl restart apache2
+```
+
 
 == CONCLUSIÓN   
 

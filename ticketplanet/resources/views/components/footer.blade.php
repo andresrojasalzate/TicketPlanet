@@ -7,5 +7,6 @@
         <p class="item-3">Avisos legales</p>
         <p class="item-4">Mostrar Esdeveniments</p>
         <p class="item-5">Comprar entrades</p>
+        <a href="{{ route('links.homePromotors') }}">Home Promotors</a>
     </div>
 </div>
