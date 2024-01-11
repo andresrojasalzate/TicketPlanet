@@ -1,4 +1,5 @@
 <nav>
+
     <div class="nav">
         <!--Menu desplegable-->
         <div class="dropdown">
@@ -12,6 +13,12 @@
                 <p>Categoria 4</p>
                 <p>Categoria 5</p>
                 <hr>
+
+                <div class="logout">
+                    <a href="{{ route('auth.logout') }}" class="">Cerrar sesión</a>
+                    <img src="{{ asset('images/login/logout.png') }}" alt="cerrar sesion" width="20">
+                </div>
+                
 
                 <p>Sobre nosotros</p>
                 <p>Avisos legales</p>
@@ -35,10 +42,16 @@
         </div>
 
         <!--Login-->
+
         <div class="auth @yield('hide')">
             <img src="{{ asset('images/usuario.png') }}" alt="User">
-            <a href="{{ route('auth.login') }}">Acceder</a>
+            @guest
+                <a href="{{ route('auth.login') }}">Acceder</a>
+            @else
+                <span>{{ auth()->user()->name }}</span>
+            @endguest
         </div>
+
     </div>
 
     <!--Logo con el Nombre-->
@@ -46,4 +59,5 @@
         <img src="{{ asset('images/LogoNombre.png') }}" alt="User">
         <hr class="separator">
     </div>
+
 </nav>
