@@ -27,3 +27,8 @@ Route::get('/forgot-password', [ForgotPwdController::class, 'showResetPwd'])->na
 Route::post('/forgot-password', [ForgotPwdController::class, 'sendResetLinkEmail'])->name('password.email');
 Route::get('/reset-password/{token}', [ForgotPwdController::class, 'showResetForm'])->name('password.reset');
 Route::post('/reset-password', [ForgotPwdController::class, 'reset'])->name('password.update');
+
+
+Route::get('/links/homePromotors', [LinksController::class, 'homePromotors'])->name('links.homePromotors');
+
+Route::get('/events/crearEvento', [EventController::class, 'crearEvento'])->name('events.crearEvento');
