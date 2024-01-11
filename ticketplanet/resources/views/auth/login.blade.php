@@ -18,7 +18,7 @@
                 @csrf
                 <div class="correoLogin">
                     <label>Correo electrónico</label>
-                    <input type="text" name="email" value="{{ old('email') }}" maxlength="50">
+                    <input type="email" name="email" value="{{ old('email') }}" maxlength="50">
                     @if ($errors->has('email'))
                         <span>{{ $errors->first('email') }}</span>
                     @endif
@@ -33,7 +33,7 @@
                         <img src="{{ asset('images/login/ojono.png') }}" alt="Toggle Password Visibility" id="eyeIcon">
                     </div>
                 </div>
-                <p class="olvidadoContra"><a href="">¿Has olvidado tu contraseña?</a></p>
+                <p class="olvidadoContra"><a href="{{ route('password.request') }}">¿Has olvidado tu contraseña?</a></p>
                 <input type="submit" value="Iniciar sesión" class="btnIniciaSesion">
                 @if(session('status'))
                     <span class="credenciales">{{ session('status') }}</span>

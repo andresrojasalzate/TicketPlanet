@@ -14,7 +14,11 @@
                 <p>Categoria 5</p>
                 <hr>
 
-                <p><a href="{{ route('auth.logout') }}">Cerrar sesión</a></p>
+                <div class="logout">
+                    <a href="{{ route('auth.logout') }}" class="">Cerrar sesión</a>
+                    <img src="{{ asset('images/login/logout.png') }}" alt="cerrar sesion" width="20">
+                </div>
+                
 
                 <p>Sobre nosotros</p>
                 <p>Avisos legales</p>

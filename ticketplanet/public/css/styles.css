@@ -23,15 +23,18 @@ body {
     justify-items: center;
 }
 
-body.body-login .navLogo {
+body.body-login .navLogo,
+body.body-resetPwd .navLogo{
     display: none;
 }
 
-body.body-login .auth {
+body.body-login .auth,
+body.body-resetPwd .auth {
     display: none;
 }
 
-body.body-login .menuIMG {
+body.body-login .menuIMG,
+body.body-resetPwd .menuIMG  {
     display: none;
 }
 
@@ -203,6 +206,20 @@ li {
     text-decoration: none;
     font-size: 1.25rem;
     font-family: 'Work Sans';
+}
+
+.logout{
+    display: flex;
+    align-items: center;
+    padding: 10px 0px 10px 50px;
+}
+
+.logout a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-family: 'Work Sans';
+    padding-right: 3%;
 }
 
 .imagenUsuarioDespegable {
@@ -492,6 +509,11 @@ li {
     margin-bottom: 2%;
 }
 
+.registrate a {
+    text-decoration: none;
+    color: #0642F9;
+}
+
 .correoLogin span,
 .contraLogin span{
     color: red;
@@ -545,6 +567,11 @@ li {
     font-size: 1.25rem;
 }
 
+.olvidadoContra a{
+    text-decoration: none;
+    color: #0642F9;
+}
+
 .btnIniciaSesion {
     width: 20%;
     height: 30%;
@@ -560,6 +587,85 @@ li {
 }
 
 .btnIniciaSesion:hover {
+    background-color: #e6ad05;
+    border-color: #0642F9;
+}
+
+
+/*RESET PASSWORD*/
+.resetPwd {
+    width: 50%;
+    height: 58%;
+    display: flex;
+    flex-direction: column;
+    background-color: #D9D9D9;
+    margin: 3% auto;
+    padding: 1% 2%;
+    font-family: 'Work Sans';
+    border: 0.188rem solid;
+    border-color: #0642F9;
+    border-radius: 0.313rem;
+}
+
+.titleResetPwd {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 2.25rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+
+.txtResetPwd p {
+    font-size: 1.375rem;
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
+
+
+.correoReset label{
+    display: block;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+.correoReset input{
+    width: 100%;
+    height: 22%;
+    font-size: 1rem;
+    padding: 0% 1%;
+    margin-top: 0.313rem;
+}
+
+
+.volverInicioSesion {
+    text-align: left;
+    margin: 0;
+    margin-top: 10%;
+    font-size: 1.25rem;
+}
+
+.volverInicioSesion a{
+    text-decoration: none;
+    color: #0642F9;
+}
+
+.btnResetPwd {
+    width: 20%;
+    height: 25%;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    margin-top: 4%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.btnResetPwd:hover {
     background-color: #e6ad05;
     border-color: #0642F9;
 }
@@ -700,5 +806,114 @@ li {
     .show-event-home-img {
         width: 100%;
         height: 27%;
+    }
+
+    /*Login*/
+    .login {
+        width: 50px;
+        height: 60px;
+        display: flex;
+        flex-direction: column;
+        background-color: #D9D9D9;
+        margin: 3% auto;
+        padding: 1% 2%;
+        font-family: 'Work Sans';
+        border: 0.188rem solid;
+        border-color: #0642F9;
+        border-radius: 0.313rem;
+    }
+    
+    .titleLogin {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 2.25rem;
+        font-weight: bold;
+        margin: 0;
+    }
+    
+    
+    .accede p {
+        font-size: 1.625rem;
+        font-weight: bold;
+        margin: 0;
+    }
+    
+    .registrate p {
+        font-size: 1.375rem;
+        margin-top: 1%;
+        margin-bottom: 2%;
+    }
+    
+    .correoLogin span,
+    .contraLogin span{
+        color: red;
+        font-size: 1rem;
+        font-family: 'Work Sans';
+        text-decoration: none;
+    }
+    
+    .credenciales{
+        display: flex;
+        justify-content: center;
+        color: red;
+        margin-top: 1.5%;
+        font-size: 1.1rem;
+        font-family: 'Work Sans';
+        text-decoration: none;
+    }
+    
+    .correoLogin label,
+    .contraLogin label {
+        display: block;
+        font-size: 1.5rem;
+        margin-top: 0.938rem;
+    }
+    
+    .correoLogin input,
+    .contraLogin input {
+        width: 100%;
+        height: 25%;
+        font-size: 1rem;
+        padding: 0% 1%;
+        margin-top: 0.313rem;
+    }
+    
+    .toggle-password {
+        position: absolute;
+        right: 16rem;
+        transform: translateY(-120%);
+        cursor: pointer;
+    }
+    
+    .toggle-password img {
+        width: 20%; 
+        height: 15%;
+    }
+    
+    .olvidadoContra {
+        text-align: right;
+        margin: 0;
+        margin-top: 1%;
+        font-size: 1.25rem;
+    }
+    
+    .btnIniciaSesion {
+        width: 20%;
+        height: 30%;
+        border-radius: 7px;
+        background-color: #F9BD06;
+        border-color: #0642F9;
+        margin-top: 2%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
+    
+    .btnIniciaSesion:hover {
+        background-color: #e6ad05;
+        border-color: #0642F9;
     }
 }
