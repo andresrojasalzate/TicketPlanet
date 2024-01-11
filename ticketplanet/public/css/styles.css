@@ -583,4 +583,35 @@ li {
     }
 }
 
+/*Home*/
 
+.category-home{
+    
+    display: flex;
+    flex-direction: column;
+    margin-left: 3%;
+    margin-top: 3%;
+}
+
+.category-home > p{
+    margin: 0;
+    padding: 0;
+    margin-left: 2%; 
+    color: #0642F9;
+    font-family: 'Work Sans';
+    font-size: 4rem;
+}
+
+.events-category-home{
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto; 
+    align-items: center;
+    width: 100%;
+}
+
+.events-category-home > button{
+    margin-left: 3%;
+    font-size: medium;
+   
+}
