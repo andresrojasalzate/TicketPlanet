@@ -22,6 +22,7 @@
 
                 <p>Sobre nosotros</p>
                 <p>Avisos legales</p>
+                <a href="{{ route('links.homePromotors') }}">Home Promotors</a>
 
                 <img class="imagenUsuarioDespegable" src="{{ asset('images/logo.jpg') }}" alt="" width="80">
             </div>
