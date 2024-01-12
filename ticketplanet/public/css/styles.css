@@ -23,6 +23,21 @@ body {
     justify-items: center;
 }
 
+body.body-login .navLogo,
+body.body-resetPwd .navLogo{
+    display: none;
+}
+
+body.body-login .auth,
+body.body-resetPwd .auth {
+    display: none;
+}
+
+body.body-login .menuIMG,
+body.body-resetPwd .menuIMG  {
+    display: none;
+}
+
 .navLogo img {
     width: 210%;
 }
@@ -60,7 +75,7 @@ li {
     align-items: center;
 }
 
-.auth a {
+.auth a, span {
     margin-top: 0.5rem;
     color: white;
     font-size: 1.25rem;
@@ -114,13 +129,13 @@ li {
     background-color: rgba(6, 66, 249, 0.133);
 }
 
-.imagenLupa{
+.imagenLupa {
     position: absolute;
     left: 33%;
     margin-top: 5px;
 }
 
-.imagenFiltrar{
+.imagenFiltrar {
     position: absolute;
     right: 39%;
      margin-top: 5px;
@@ -193,6 +208,20 @@ li {
     font-family: 'Work Sans';
 }
 
+.logout{
+    display: flex;
+    align-items: center;
+    padding: 10px 0px 10px 50px;
+}
+
+.logout a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-family: 'Work Sans';
+    padding-right: 3%;
+}
+
 .imagenUsuarioDespegable {
     padding-left: 40px;
 }
@@ -251,8 +280,8 @@ li {
     border-color: #F9BD06;
     cursor: pointer;
     font-family: 'Work Sans';
-    overflow: hidden; 
-    text-overflow: ellipsis; 
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .show-event-home:hover {
@@ -269,7 +298,7 @@ li {
     font-size: 1.4rem;
     margin: 5%;
     overflow: hidden;
-    text-overflow: ellipsis; 
+    text-overflow: ellipsis;
 }
 
 .elementsEvents {
@@ -293,16 +322,13 @@ li {
 .div_filtro {
     border: 1px solid #000000;
     background-color: #B5B5B5;
-    margin-bottom: 20px;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
+    margin: auto;
+    margin-top: 1%;
     width: 17%;
     display: none;
 }
 
-.div_filtro p{
+.div_filtro p {
     margin: 0px;
     padding: 0px;
 }
@@ -320,11 +346,11 @@ li {
     display: flex;
     list-style: none;
     padding: 0;
-    margin: 20px 0; 
+    margin: 20px 0;
 }
 
 .pagination li {
-    margin-right: 5px; 
+    margin-right: 5px;
 }
 
 .pagination a,
@@ -354,7 +380,7 @@ li {
     cursor: not-allowed;
 }
 
-.contenedor-pagination-menu{
+.contenedor-pagination-menu {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -371,7 +397,7 @@ li {
     width: 17%;
 }
 
-.div_filtro p{
+.div_filtro p {
     margin: 0px;
     padding: 0px;
 }
@@ -389,11 +415,11 @@ li {
     display: flex;
     list-style: none;
     padding: 0;
-    margin: 20px 0; 
+    margin: 20px 0;
 }
 
 .pagination li {
-    margin-right: 5px; 
+    margin-right: 5px;
 }
 
 .pagination a,
@@ -423,25 +449,26 @@ li {
     cursor: not-allowed;
 }
 
-.contenedor-pagination-menu{
+.contenedor-pagination-menu {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }
 
-.info-pagination{
+.info-pagination {
     align-self: center;
     justify-self: center;
     margin-left: 9vh;
 }
 
-.info-pagination > p, .info-pagination > span{
-    font-weight: bold; 
+.info-pagination>p,
+.info-pagination>span {
+    font-weight: bold;
     font-size: 1.2em;
 }
 
-.pagination-menu{
+.pagination-menu {
     margin-right: 12vh;
 }
 
@@ -479,6 +506,245 @@ li {
 }
 
 
+/*Home*/
+
+.category-home{
+    
+    display: flex;
+    flex-direction: column;
+    margin-left: 3%;
+    margin-top: 3%;
+}
+
+.category-home > p{
+    margin: 0;
+    padding: 0;
+    margin-left: 2%; 
+    color: #0642F9;
+    font-family: 'Work Sans';
+    font-size: 4rem;
+}
+
+.events-category-home{
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto; 
+    align-items: center;
+    width: 100%;
+}
+
+.events-category-home > button{
+    margin-left: 3%;
+    font-size: medium;
+   
+}
+
+
+
+/*LOGIN*/
+.login {
+    width: 50%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    background-color: #D9D9D9;
+    margin: 3% auto;
+    padding: 1% 2%;
+    font-family: 'Work Sans';
+    border: 0.188rem solid;
+    border-color: #0642F9;
+    border-radius: 0.313rem;
+}
+
+.titleLogin {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 2.25rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+
+.accede p {
+    font-size: 1.625rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.registrate p {
+    font-size: 1.375rem;
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
+
+.registrate a {
+    text-decoration: none;
+    color: #0642F9;
+}
+
+.correoLogin span,
+.contraLogin span{
+    color: red;
+    font-size: 1rem;
+    font-family: 'Work Sans';
+    text-decoration: none;
+}
+
+.credenciales{
+    display: flex;
+    justify-content: center;
+    color: red;
+    margin-top: 1.5%;
+    font-size: 1.1rem;
+    font-family: 'Work Sans';
+    text-decoration: none;
+}
+
+.correoLogin label,
+.contraLogin label {
+    display: block;
+    font-size: 1.5rem;
+    margin-top: 0.938rem;
+}
+
+.correoLogin input,
+.contraLogin input {
+    width: 100%;
+    height: 25%;
+    font-size: 1rem;
+    padding: 0% 1%;
+    margin-top: 0.313rem;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 16rem;
+    transform: translateY(-120%);
+    cursor: pointer;
+}
+
+.toggle-password img {
+    width: 20%; 
+    height: 15%;
+}
+
+.olvidadoContra {
+    text-align: right;
+    margin: 0;
+    margin-top: 1%;
+    font-size: 1.25rem;
+}
+
+.olvidadoContra a{
+    text-decoration: none;
+    color: #0642F9;
+}
+
+.btnIniciaSesion {
+    width: 20%;
+    height: 30%;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.btnIniciaSesion:hover {
+    background-color: #e6ad05;
+    border-color: #0642F9;
+}
+
+
+/*RESET PASSWORD*/
+.resetPwd {
+    width: 50%;
+    height: 58%;
+    display: flex;
+    flex-direction: column;
+    background-color: #D9D9D9;
+    margin: 3% auto;
+    padding: 1% 2%;
+    font-family: 'Work Sans';
+    border: 0.188rem solid;
+    border-color: #0642F9;
+    border-radius: 0.313rem;
+}
+
+.titleResetPwd {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 2.25rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+
+.txtResetPwd p {
+    font-size: 1.375rem;
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
+
+
+.correoReset label{
+    display: block;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+.correoReset input{
+    width: 100%;
+    height: 22%;
+    font-size: 1rem;
+    padding: 0% 1%;
+    margin-top: 0.313rem;
+}
+
+
+.volverInicioSesion {
+    text-align: left;
+    margin: 0;
+    margin-top: 10%;
+    font-size: 1.25rem;
+}
+
+.volverInicioSesion a{
+    text-decoration: none;
+    color: #0642F9;
+}
+
+.btnResetPwd {
+    width: 20%;
+    height: 25%;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    margin-top: 4%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.btnResetPwd:hover {
+    background-color: #e6ad05;
+    border-color: #0642F9;
+}
+.events-category-home{
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto; 
+    align-items: center;
+    width: 100%;
+}
 
 /*PANTALLA MÓVIL*/
 @media screen and (max-width: 425px) {
@@ -568,7 +834,7 @@ li {
         position: relative;
         width: 100%;
         margin-top: 3%;
-        
+
     }
 
     .buscador {
@@ -580,12 +846,12 @@ li {
         padding-left: 46px;
     }
 
-    .imagenLupa{
+    .imagenLupa {
         position: absolute;
         left: 11%;
     }
-    
-    .imagenFiltrar{
+
+    .imagenFiltrar {
         position: absolute;
         right: 33%;
     }
@@ -597,7 +863,6 @@ li {
         background-color: #F9BD06;
         border-color: #0642F9;
         font-size: 1rem;
-        cursor: pointer;
     }
 
     /*Eventos*/
@@ -605,7 +870,8 @@ li {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         height: calc(85vh - 110px - 110px);
-        overflow-y: auto; /*Scroll*/
+        overflow-y: auto;
+        /*Scroll*/
     }
 
     .show-event-home {
@@ -617,12 +883,110 @@ li {
         height: 27%;
     }
 
-    .events-category-home{
+    /*Login*/
+    .login {
+        width: 95%;
+        height: 70%;
+        display: flex;
+        flex-direction: column;
+        background-color: transparent;
+        border: transparent;
+        font-family: 'Work Sans';
+    }
+    
+    .titleLogin {
         display: flex;
         flex-direction: row;
-        overflow-x: auto; 
-        align-items: center;
+        align-items: center ;
+        font-size: 2rem;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .titleLogin img{
+        width: 18%;
+        height: 70%;
+    }
+    
+    
+    .accede p {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-top: 5%;
+    }
+    
+    .registrate p {
+        font-size: 1.2rem;
+        margin-top: 1%;
+        margin-bottom: 2%;
+    }
+    
+    .correoLogin span,
+    .contraLogin span{
+        color: red;
+        font-size: 1rem;
+        font-family: 'Work Sans';
+        text-decoration: none;
+    }
+    
+    .credenciales{
+        display: flex;
+        justify-content: center;
+        color: red;
+        margin-top: 1.5%;
+        font-size: 1.1rem;
+        font-family: 'Work Sans';
+        text-decoration: none;
+    }
+    
+    .correoLogin label,
+    .contraLogin label {
+        display: block;
+        font-size: 1.3rem;
+        margin-top: 1.2rem;
+    }
+    
+    .correoLogin input,
+    .contraLogin input {
         width: 100%;
+        height: 25%;
+        font-size: 1rem;
+    }
+    
+    .toggle-password {
+        position: absolute;
+        width: auto;
+        transform: translateY(-150%);
+    }
+    
+    .toggle-password img {
+        width: 20%; 
+        height: 15%;
+        margin-left: 215%;
+    }
+    
+    .olvidadoContra {
+        text-align: right;
+        margin: 0;
+        margin-top: 3%;
+        font-size: 1.1rem;
+    }
+    
+    .btnIniciaSesion {
+        width: 40%;
+        height: 30%;
+        border-radius: 7px;
+        background-color: #F9BD06;
+        border-color: #0642F9;
+        margin-top: 10%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        font-size: 1.2rem;
+    }
+    
+    .btnIniciaSesion:hover {
+        background-color: #e6ad05;
+        border-color: #0642F9;
     }
 }
-
