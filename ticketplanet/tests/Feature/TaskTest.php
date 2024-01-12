@@ -10,7 +10,7 @@ use \Database\Factories\EventFactory;
 
 class TaskTest extends TestCase
 {
-  use RefreshDatabase;
+  //use RefreshDatabase;
     /**
      * A basic feature test example.
      */
@@ -31,29 +31,34 @@ class TaskTest extends TestCase
     // }
     public function test_when_write_on_seeker_with_mayus_show_event_list(): void
     {
-      $response = $this->get('/events');
-      $busqueda='PRUEBA';
-      $category=null;
-        $response->Event::eventosBuscados($busqueda,$category);
-        $response->assertOk();
+      
+      $response = $this->post(route('events.search'), ['busqueda' => 'A', 'category' => null]);
+      $response->assertOk();
+      $response->assertViewHas('events');
+  
+      $events = $response->original->getData()['events'];
+      $this->assertNotEmpty($events);
+      
       
     }
     public function test_when_write_on_seeker_with_min_show_event_list(): void
     {
-      $response = $this->get('/events');
-      $busqueda='prueba';
-      $category=null;
-        $response->Event::eventosBuscados($busqueda,$category);
-        $response->assertOk();
+      $response = $this->post(route('events.search'), ['busqueda' => 'a', 'category' => null]);
+      $response->assertOk();
+      $response->assertViewHas('events');
+  
+      $events = $response->original->getData()['events'];
+      $this->assertNotEmpty($events);
 
     }
     public function test_when_write_on_seeker_with_accent_show_event_list(): void
     {
-      $response = $this->get('/events');
-      $busqueda='pruéba';
-      $category=null;
-        $response->Event::eventosBuscados($busqueda,$category);
-        $response->assertOk();
+      $response = $this->post(route('events.search'), ['busqueda' => 'á', 'category' => null]);
+      $response->assertOk();
+      $response->assertViewHas('events');
+  
+      $events = $response->original->getData()['events'];
+      $this->assertNotEmpty($events);
 
     }
 }

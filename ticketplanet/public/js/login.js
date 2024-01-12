@@ -4,9 +4,9 @@ function togglePasswordVisibility() {
 
     if (passwordInput.type === 'password') {
         passwordInput.type = 'text';
-        eyeIcon.src = '{{ asset("images/login/ojosi.png") }}';
+        eyeIcon.src = "{{ asset('images/login/ojosi.png') }}";
     } else {
         passwordInput.type = 'password';
-        eyeIcon.src = '{{ asset("images/login/ojono.png") }}';
+        eyeIcon.src = "{{ asset('images/login/ojono.png') }}";
     }
 }
