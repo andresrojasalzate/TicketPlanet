@@ -21,6 +21,10 @@ class LinksController extends Controller
     {
         return view('links.legalnotice');
     }
+    public function crearEvento()
+    {
+      return view('links.crearEvento');
+    }
     public function homePromotors()
     {
       if(Auth()->user()){
