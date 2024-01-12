@@ -32,3 +32,5 @@ Route::post('/reset-password', [ForgotPwdController::class, 'reset'])->name('pas
 Route::get('/links/homePromotors', [LinksController::class, 'homePromotors'])->name('links.homePromotors');
 
 Route::get('/events/crearEvento', [EventController::class, 'crearEvento'])->name('events.crearEvento');
+
+
