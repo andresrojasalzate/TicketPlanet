@@ -11,6 +11,7 @@ use App\Http\Controllers\ForgotPwdController;
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('events', [EventController::class, 'index'])->name('events.index');
 Route::post('/events', [EventController::class, 'search'])->name('events.search');
+Route::post('/events/category', [EventController::class, 'category'])->name('events.category');
     
 /*HEADER LINKS*/
 Route::get('/links/aboutus', [LinksController::class, 'aboutUs'])->name('links.aboutus');
