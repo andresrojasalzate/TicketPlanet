@@ -47,6 +47,13 @@ image::Images/Logo.png[Logo principal, width=10%]
 
 === Semana 2
 
+==== Salma
+- Diseño Mockups pantalla Login, version movil y web, Figma
+- Implementación Funcionalidad Login
+- Diseño Mockups pantalla "Restablecer contraseña", versión movil y web, Figma
+- Implementación Funcionalidad Cerrar Sesión.
+- Arreglar CSS de la pantalla Home.
+
 === Semana 3
 
 === Semana 4
