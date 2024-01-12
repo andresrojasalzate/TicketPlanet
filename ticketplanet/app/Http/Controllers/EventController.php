@@ -19,4 +19,13 @@ class EventController extends Controller
 
        return view('events.index', ['events' => Event::eventosBuscados($busqueda, $categoria)]);
     }
+    public function crearEvento()
+    {
+      return view('links.crearEvento');
+    }
+
+    public function category(Request $request){
+        $categoria =  $request->input('category');
+        return view('events.index', ['events' => Event::where('category_id', $categoria)->with('sessions')->paginate(env('PAGINATION_LIMIT'))]);
+    }
 }
