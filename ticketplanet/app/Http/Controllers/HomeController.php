@@ -3,11 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Category;
 
 
 class HomeController extends Controller
 {
     public function home(){
-        return redirect()->route('events.index');
+        
+        /*$categories = Category::recuperarCategoriasHome();
+
+        return $categories;*/
+        return view('events.home', ['categories'=> Category::recuperarCategoriasHome()]);
+       
     }
 }
