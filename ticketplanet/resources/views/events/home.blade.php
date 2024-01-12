@@ -10,5 +10,5 @@
         <x-mostrar-categoria-component :nombreCategoria="$category->name" :events="$category->events"/>
       @endforeach
     </div>
-
+    <script src="{{ asset('js/home.js') }}"></script>
 @endsection
