@@ -7,7 +7,7 @@
     <div class="layout-home">
       <x-buscador/>
       @foreach ($categories as $category)
-        <x-mostrar-categoria-component :nombreCategoria="$category->name" :events="$category->events"/>
+        <x-mostrar-categoria-component :nombreCategoria="$category->name" :events="$category->events" :categoryId="$category->id"/>
       @endforeach
     </div>
     <script src="{{ asset('js/home.js') }}"></script>
