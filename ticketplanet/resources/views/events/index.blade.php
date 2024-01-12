@@ -19,9 +19,9 @@
       <form class="form-buscador" action="{{ route('events.search') }}" method="post">
         @csrf
         <img class="imagenLupa" src="images/buscador/lupa.png" alt="" height="30">
-            <input class="buscador" type="search" placeholder="Buscar">
-            <img class="imagenFiltrar" src="images/buscador/filter.png" alt="" height="30">
-            <button class="botonBuscador" type="button">Buscar</button>
+            <input class="buscador" type="search" name="busqueda" placeholder="Buscar">
+            <img id="filtro" class="imagenFiltrar" src="images/buscador/filter.png" alt="" height="30">
+            <button class="botonBuscador" type="submit">Buscar</button>
         <div class="div_filtro">
           <p>Filtrar por categoria:</p>
           <select class="filtro" name="category">
@@ -34,7 +34,7 @@
       </form>
     </div>
 
-    <a href="{{ route('events.crearEvento') }}">Crear evento</a>
+    <a href="{{ route('links.crearEvento') }}">Crear evento</a>
 
         <div class="event-counter">
             @foreach ($events as $event)
@@ -45,7 +45,7 @@
         </div>
 
         <div class="contenedor-pagination-menu">
-            {{ $events->links() }} 
+            {{ $events->links()}} 
         </div>
 
     </div>
@@ -53,6 +53,7 @@
     <footer>
         <x-footer/>
     </footer>
+    <script src="{{ asset('js/home.js') }}"></script>
 </body>
 
 </html>

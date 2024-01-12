@@ -328,6 +328,7 @@ span {
     margin: auto;
     margin-top: 1%;
     width: 17%;
+    display: none;
 }
 
 .div_filtro p {
@@ -473,6 +474,74 @@ span {
 .pagination-menu {
     margin-right: 12vh;
 }
+
+/*Home*/
+
+.category-home{
+    
+    display: flex;
+    flex-direction: column;
+    margin-left: 3%;
+    margin-top: 3%;
+}
+
+.category-home > p{
+    margin: 0;
+    padding: 0;
+    margin-left: 2%; 
+    color: #0642F9;
+    font-family: 'Work Sans';
+    font-size: 4rem;
+}
+
+.events-category-home{
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto; 
+    align-items: center;
+    width: 100%;
+}
+
+.events-category-home > button{
+    margin-left: 3%;
+    font-size: medium;
+   
+}
+
+
+/*Home*/
+
+.category-home{
+    
+    display: flex;
+    flex-direction: column;
+    margin-left: 3%;
+    margin-top: 3%;
+}
+
+.category-home > p{
+    margin: 0;
+    padding: 0;
+    margin-left: 2%; 
+    color: #0642F9;
+    font-family: 'Work Sans';
+    font-size: 4rem;
+}
+
+.events-category-home{
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto; 
+    align-items: center;
+    width: 100%;
+}
+
+.events-category-home > button{
+    margin-left: 3%;
+    font-size: medium;
+   
+}
+
 
 
 /*LOGIN*/
@@ -671,6 +740,13 @@ span {
 .btnResetPwd:hover {
     background-color: #e6ad05;
     border-color: #0642F9;
+}
+.events-category-home{
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto; 
+    align-items: center;
+    width: 100%;
 }
 
 /*PANTALLA MÓVIL*/
@@ -942,65 +1018,61 @@ span {
         border: transparent;
         font-family: 'Work Sans';        
     }
+}
 
-    .titleResetPwd {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 2rem;
-        font-weight: bold;
-        margin: 0;
-    }
+/* Home Promotor */
+.contenedorLayout{
+ display: flex;
+ justify-content: center;
+ margin: 5%;
+ flex-direction: column;
+}
+
+.formulario{
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.formulario1{
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}   
+.formulario2{
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.formulario3{
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+@media screen and (max-width: 500px) {
 
 
-    .txtResetPwd p {
-        font-size: 1.2em;
-    }
-
-
-    .titleResetPwd img{
-        width: 19%;
-        height: 50%;
-    }
-
-    .correoReset label {
-        display: block;
-        font-size: 1.3rem;
-        margin-top: 1.2rem;
-    }
-
-    .correoReset input {
-        width: 100%;
-        height: 30%;
-        font-size: 1rem;
-    }
-
-
-    .volverInicioSesion {
-        text-align: center;
-        margin: 0;
-        margin-top: 10%;
-        font-size: 1.25rem;
-    }
-
-    .volverInicioSesion a {
-        text-decoration: none;
-        color: #0642F9;
-    }
-
-    .btnResetPwd {
-        width: 30%;
-        height: 25%;
-        border-radius: 7px;
-        background-color: #F9BD06;
-        border-color: #0642F9;
-        margin-top: 10%;
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-        font-size: 1.2rem;
-        cursor: pointer;
-    }
-
+  .contenedorFormulario{
+    height: 700px;
+  }
+  .formulario{
+    height: 700px;
+  }
+  .formulario1{
+    width: 100%;
+    height: 30%;
+  }
+  .formulario2{
+    width: 100%;
+    height: 25%;
+  }
+  .formulario3{
+    width: 100%;
+    height: 40%;
+  }
 }

@@ -19,8 +19,4 @@ class EventController extends Controller
 
        return view('events.index', ['events' => Event::eventosBuscados($busqueda, $categoria)]);
     }
-    public function crearEvento()
-    {
-      return view('links.crearEvento');
-    }
 }
