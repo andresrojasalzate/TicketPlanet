@@ -4,12 +4,10 @@
    @foreach ($events as $event)
         <x-event-component :event="$event"/>
    @endforeach        
-   <form action="{{ route('events.category') }}" method="post">
+   </div>
+   <form  class="ver-mas-button"action="{{ route('events.category') }}" method="post">
       @csrf
       <input type="hidden" name="category" value="{{$categoryId}}">
-      <button class="botonBuscador" type="submit">ver mas</button>
+      <button class="botonBuscador" type="submit">Ver más</button>
    </form>
-     
-   </a>
-   </div>
 </div>
