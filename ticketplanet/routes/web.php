@@ -30,8 +30,10 @@ Route::get('/reset-password/{token}', [ForgotPwdController::class, 'showResetFor
 Route::post('/reset-password', [ForgotPwdController::class, 'reset'])->name('password.update');
 
 
+
 Route::get('/links/homePromotors', [LinksController::class, 'homePromotors'])->name('links.homePromotors');
 
+/*CREAR EVENTO*/
 Route::get('/links/crearEvento', [LinksController::class, 'crearEvento'])->name('links.crearEvento');
 Route::get('/links/comprarEntradas', [LinksController::class, 'comprarEntradas'])->name('links.comprarEntradas');
 
