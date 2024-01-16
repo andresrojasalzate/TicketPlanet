@@ -16,7 +16,6 @@ return new class extends Migration
             $table->timestamps();
             $table->date('date');
             $table->time('time');
-            $table->double('price');
             $table->foreignId('event_id')->references('id')->on('events')->onDelete('cascade')
             ->onUpdate('cascade');
 

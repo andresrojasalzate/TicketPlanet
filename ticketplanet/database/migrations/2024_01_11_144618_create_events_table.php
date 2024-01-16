@@ -21,6 +21,9 @@ return new class extends Migration
             $table->string('image');
             $table->string('description');
             $table->integer('maxCapacity');
+            $table->date('finishDate');
+            $table->time('finishTime');
+            $table->boolean('visible');
         });
     }
 
