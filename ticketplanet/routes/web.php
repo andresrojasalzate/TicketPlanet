@@ -7,6 +7,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\LinksController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ForgotPwdController;
+use App\Http\Controllers\SessionController;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('events', [EventController::class, 'index'])->name('events.index');
@@ -33,5 +34,7 @@ Route::post('/reset-password', [ForgotPwdController::class, 'reset'])->name('pas
 Route::get('/links/homePromotors', [LinksController::class, 'homePromotors'])->name('links.homePromotors');
 
 Route::get('/links/crearEvento', [LinksController::class, 'crearEvento'])->name('links.crearEvento');
+
+Route::get('/sessions-promotor', [SessionController::class, 'sessionsPromotor'])->name('sessions.promotor');
 
 
