@@ -20,7 +20,6 @@ return new class extends Migration
             ->onUpdate('cascade');
             $table->string('image');
             $table->string('description');
-            $table->integer('maxCapacity');
             $table->date('finishDate');
             $table->time('finishTime');
             $table->boolean('visible');
