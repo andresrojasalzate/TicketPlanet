@@ -1099,63 +1099,207 @@ span {
 .contenedorLayout {
     display: flex;
     justify-content: center;
-    margin: 5%;
+    margin: 3%;
     flex-direction: column;
 }
 
-.formulario {
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+.parte1formulario{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 1%;
+}
+.parte1formulario label,
+.parte5formulario label{
+  display: block;
+}
+.parte1formulario input,
+.parte5formulario input{
+  display: block;
+}
+.parte2formulario{
+  display: flex;
+  margin: 1%;
+}
+.descripcionFormulario,
+.videoFormulario
+{
+  width: 50%;
+}
+.descripcionFormularioInput,
+.videoFormularioInput{
+  width: 70%;
+}
+.parte2formulario input,
+.parte3formulario input{
+  height: 50px;
 }
 
-.formulario1 {
-    width: 30%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+
+.parte3formulario{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5%;
+}
+
+.parte4formulario{
+  display: flex;
+  margin: 1%;
+}
+.nombreLocalFormulario,
+.capacidadLocalFormulario
+{
+  width: 50%;
+}
+.nombreLocalFormularioInput,
+.capacidadLocalFormularioInput{
+  width: 70%;
+}
+.parte5formulario{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 1%;
+}
+
+.provinciaFormulario,
+.ciudadFormulario,
+.codigoPostalFormulario{
+  width: 33%;
+}
+.provinciaFormularioInput,
+.ciudadFormularioInput,
+.codigoPostalFormularioInput{
+  width: 70%;
+}
+
+.parte6formulario{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 1%;
+}
+
+.fechaCelebracionFormulario,
+.horaCelebracionFormulario,
+.aforoMaximoFormulario{
+  width: 33%;
+}
+.fechaCelebracionFormularioInput,
+.horaCelebracionFormularioInput,
+.aforoMaximoFormularioInput{
+  width: 70%;
+}
+.btnEntradas{
+  height: 40px;
+  border-radius: 7px;
+  background-color: #F9BD06;
+  border-color: #0642F9;
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+@media screen and (min-width: 720px) {
+.div1{
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+  float: left;
+}
+.div2{
+ height: 250px;
+ width: 50%;
+ float: right;
+}
+.parte1formulario{
+  width: 76%;
+}
+.parte3formulario{
+  width: 100%;
+}
+
+}
+
+.contenedorNombreEntradas{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 9%;
+}
+.nombreEntradas{
+  display: flex;
+  flex-direction: column;
+}
+.precioCantidadEntradas{
+  display: flex;
+  padding-left: 10%;
+}
+.precioCantidadEntradas input{
+  width: 70%;
+}
+.precioEntradas{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.cantidadEntradas{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.entradasNominales{
+  margin: 9%;
+  display: flex;
+  justify-content: center;
+
+}
+.entradasNominalesEleccion{
+  display: flex;
+  justify-content: space-around;
+}
+.btnCrearEvento{
+  height: 40px;
+  border-radius: 7px;
+  background-color: #F9BD06;
+  border-color: #0642F9;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 860px){
+  .contenedorNombreEntradas{
+    margin: 0%;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    padding-left: 10%;
+    align-items: center;
+  }
+  .nombreEntradas{
+    width: 50%;
+  }
+  .nombreEntradasInput{
+    width: 70%;
+  }
+  .precioCantidadEntradas{
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .cantidadEntradas{
+    margin-bottom: 2%;
+  }
+  .entradasNominales{
+    margin: 2%;
+  }
+  .entradasNominalesEleccion{
     justify-content: space-evenly;
-}
-
-.formulario2 {
-    width: 30%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-
-.formulario3 {
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-
-@media screen and (max-width: 500px) {
-
-
-    .contenedorFormulario {
-        height: 700px;
-    }
-
-    .formulario {
-        height: 700px;
-    }
-
-    .formulario1 {
-        width: 100%;
-        height: 30%;
-    }
-
-    .formulario2 {
-        width: 100%;
-        height: 25%;
-    }
-
-    .formulario3 {
-        width: 100%;
-        height: 40%;
-    }
+  }
 }
