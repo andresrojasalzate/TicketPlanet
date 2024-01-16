@@ -19,7 +19,8 @@ return new class extends Migration
             $table->foreignId('category_id')->references('id')->on('categories')->onDelete('cascade')
             ->onUpdate('cascade');
             $table->string('image');
-
+            $table->string('description');
+            $table->integer('maxCapacity');
         });
     }
 
