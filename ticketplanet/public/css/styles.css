@@ -1111,26 +1111,55 @@ span {
   display: flex;
   margin: 1%;
 }
-.descripcionFormulario,
-.videoFormulario
+.descripcionFormulario
 {
+  width: 40%;
+}
+.imagenFormulario{
   width: 50%;
+  display: flex;
+  flex-wrap: wrap;
 }
 .descripcionFormularioInput,
-.videoFormularioInput{
+.imagenFormularioInput{
   width: 70%;
 }
-.parte2formulario input,
-.parte3formulario input{
+.parte2formulario input{
   height: 50px;
 }
 
 
 .parte3formulario{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 1%;
+}
+.parteEntradasFormulario{
+  width: 100%;
+}
+.entradasVisibles{
+  display: flex;
+  justify-content: center;
   margin-top: 5%;
+
+}
+.entradasVisiblesEleccion{
+  margin-top: 5%;
+  margin-bottom: 5%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.numeroDireccionFormulario,
+.fechaFinFormulario,
+.horaFinFormulario{
+  width: 33%;
+}
+.numeroDireccionFormularioInput,
+.fechaFinFormularioInput,
+.HoraFinFormularioInput{
+  width: 70%;
 }
 
 .parte4formulario{
@@ -1181,17 +1210,18 @@ span {
 .aforoMaximoFormularioInput{
   width: 70%;
 }
-.btnEntradas{
+.btnGuardarEntradas{
   height: 40px;
   border-radius: 7px;
   background-color: #F9BD06;
   border-color: #0642F9;
   margin-top: 10%;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
   font-size: 1.2rem;
   cursor: pointer;
+}
+.botones{
+  display: flex;
+  justify-content: space-evenly;
 }
 @media screen and (min-width: 720px) {
 .div1{
