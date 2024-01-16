@@ -25,6 +25,10 @@ class LinksController extends Controller
     {
       return view('links.crearEvento');
     }
+    public function comprarEntradas()
+    {
+      return view('links.comprarEntradas');
+    }
     public function homePromotors()
     {
       if(Auth()->user()){

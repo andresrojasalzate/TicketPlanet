@@ -38,5 +38,6 @@ Route::get('/auth/expired', [ResetPwdController::class, 'showResetForm'])->name(
 Route::get('/links/homePromotors', [LinksController::class, 'homePromotors'])->name('links.homePromotors');
 
 Route::get('/links/crearEvento', [LinksController::class, 'crearEvento'])->name('links.crearEvento');
+Route::get('/links/comprarEntradas', [LinksController::class, 'comprarEntradas'])->name('links.comprarEntradas');
 
 
