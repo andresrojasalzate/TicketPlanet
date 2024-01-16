@@ -275,9 +275,10 @@ span {
 }
 
 .show-event-home {
-    width: 100%;
+    
     max-width: 30vh;
-    height: 45vh;
+    min-width: 30vh;
+    min-height: 45vh;
     background-color: #ebebeb;
     margin: auto;
     margin-bottom: 5%;
@@ -752,6 +753,11 @@ span {
     width: 100%;
 }
 
+.ver-mas-button{
+    align-self: self-end;
+    margin-right: 2%;
+}
+
 /*PANTALLA MÓVIL*/
 @media screen and (max-width: 425px) {
 
@@ -1080,6 +1086,10 @@ span {
         display: block;
         font-size: 1.2rem;
         cursor: pointer;
+    }
+
+    .events-category-home > div{
+        margin-left: 10%;
     }
 
 
