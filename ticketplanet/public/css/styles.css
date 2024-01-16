@@ -277,7 +277,7 @@ span {
 }
 
 .show-event-home {
-    
+
     max-width: 30vh;
     min-width: 30vh;
     min-height: 45vh;
@@ -770,9 +770,17 @@ span {
     width: 100%;
 }
 
-.ver-mas-button{
+.ver-mas-button {
     align-self: self-end;
     margin-right: 2%;
+}
+
+.card-expired a {
+    color: #0642F9;
+}
+
+.resetPwdExito {
+    color: green;
 }
 
 /*PANTALLA MÓVIL*/
@@ -1104,8 +1112,23 @@ span {
         cursor: pointer;
     }
 
-    .events-category-home > div{
+    .events-category-home>div {
         margin-left: 10%;
+    }
+
+    .card-expired {
+        width: 80%;
+        height: 45%;
+        display: flex;
+        flex-direction: column;
+        background-color: #D9D9D9;
+        margin: auto;
+        margin-top: 10%;
+        font-size: 0.9rem;
+        font-family: 'Work Sans';
+        border: 0.188rem solid;
+        border-color: #0642F9;
+        border-radius: 0.313rem;
     }
 
 
@@ -1119,203 +1142,231 @@ span {
     flex-direction: column;
 }
 
-.parte1formulario{
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  margin: 1%;
+.parte1formulario {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 1%;
 }
+
 .parte1formulario label,
-.parte5formulario label{
-  display: block;
+.parte5formulario label {
+    display: block;
 }
+
 .parte1formulario input,
-.parte5formulario input{
-  display: block;
+.parte5formulario input {
+    display: block;
 }
-.parte2formulario{
-  display: flex;
-  margin: 1%;
+
+.parte2formulario {
+    display: flex;
+    margin: 1%;
 }
+
 .descripcionFormulario,
-.videoFormulario
-{
-  width: 50%;
+.videoFormulario {
+    width: 50%;
 }
+
 .descripcionFormularioInput,
-.videoFormularioInput{
-  width: 70%;
+.videoFormularioInput {
+    width: 70%;
 }
+
 .parte2formulario input,
-.parte3formulario input{
-  height: 50px;
+.parte3formulario input {
+    height: 50px;
 }
 
 
-.parte3formulario{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 5%;
+.parte3formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
 }
 
-.parte4formulario{
-  display: flex;
-  margin: 1%;
+.parte4formulario {
+    display: flex;
+    margin: 1%;
 }
+
 .nombreLocalFormulario,
-.capacidadLocalFormulario
-{
-  width: 50%;
+.capacidadLocalFormulario {
+    width: 50%;
 }
+
 .nombreLocalFormularioInput,
-.capacidadLocalFormularioInput{
-  width: 70%;
+.capacidadLocalFormularioInput {
+    width: 70%;
 }
-.parte5formulario{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 1%;
+
+.parte5formulario {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 1%;
 }
 
 .provinciaFormulario,
 .ciudadFormulario,
-.codigoPostalFormulario{
-  width: 33%;
-}
-.provinciaFormularioInput,
-.ciudadFormularioInput,
-.codigoPostalFormularioInput{
-  width: 70%;
+.codigoPostalFormulario {
+    width: 33%;
 }
 
-.parte6formulario{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 1%;
+.provinciaFormularioInput,
+.ciudadFormularioInput,
+.codigoPostalFormularioInput {
+    width: 70%;
+}
+
+.parte6formulario {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 1%;
 }
 
 .fechaCelebracionFormulario,
 .horaCelebracionFormulario,
-.aforoMaximoFormulario{
-  width: 33%;
+.aforoMaximoFormulario {
+    width: 33%;
 }
+
 .fechaCelebracionFormularioInput,
 .horaCelebracionFormularioInput,
-.aforoMaximoFormularioInput{
-  width: 70%;
-}
-.btnEntradas{
-  height: 40px;
-  border-radius: 7px;
-  background-color: #F9BD06;
-  border-color: #0642F9;
-  margin-top: 10%;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  font-size: 1.2rem;
-  cursor: pointer;
-}
-@media screen and (min-width: 720px) {
-.div1{
-  display: flex;
-  flex-wrap: wrap;
-  width: 50%;
-  float: left;
-}
-.div2{
- height: 250px;
- width: 50%;
- float: right;
-}
-.parte1formulario{
-  width: 76%;
-}
-.parte3formulario{
-  width: 100%;
-}
-
-}
-
-.contenedorNombreEntradas{
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  margin: 9%;
-}
-.nombreEntradas{
-  display: flex;
-  flex-direction: column;
-}
-.precioCantidadEntradas{
-  display: flex;
-  padding-left: 10%;
-}
-.precioCantidadEntradas input{
-  width: 70%;
-}
-.precioEntradas{
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-}
-.cantidadEntradas{
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-}
-.entradasNominales{
-  margin: 9%;
-  display: flex;
-  justify-content: center;
-
-}
-.entradasNominalesEleccion{
-  display: flex;
-  justify-content: space-around;
-}
-.btnCrearEvento{
-  height: 40px;
-  border-radius: 7px;
-  background-color: #F9BD06;
-  border-color: #0642F9;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  font-size: 1.2rem;
-  cursor: pointer;
-}
-
-@media screen and (min-width: 860px){
-  .contenedorNombreEntradas{
-    margin: 0%;
-    margin-top: 5%;
-    margin-bottom: 2%;
-    padding-left: 10%;
-    align-items: center;
-  }
-  .nombreEntradas{
-    width: 50%;
-  }
-  .nombreEntradasInput{
+.aforoMaximoFormularioInput {
     width: 70%;
-  }
-  .precioCantidadEntradas{
-    flex-direction: column-reverse;
-    align-items: center;
-  }
-  .cantidadEntradas{
-    margin-bottom: 2%;
-  }
-  .entradasNominales{
-    margin: 2%;
-  }
-  .entradasNominalesEleccion{
-    justify-content: space-evenly;
-  }
+}
+
+.btnEntradas {
+    height: 40px;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 720px) {
+    .div1 {
+        display: flex;
+        flex-wrap: wrap;
+        width: 50%;
+        float: left;
+    }
+
+    .div2 {
+        height: 250px;
+        width: 50%;
+        float: right;
+    }
+
+    .parte1formulario {
+        width: 76%;
+    }
+
+    .parte3formulario {
+        width: 100%;
+    }
+
+}
+
+.contenedorNombreEntradas {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 9%;
+}
+
+.nombreEntradas {
+    display: flex;
+    flex-direction: column;
+}
+
+.precioCantidadEntradas {
+    display: flex;
+    padding-left: 10%;
+}
+
+.precioCantidadEntradas input {
+    width: 70%;
+}
+
+.precioEntradas {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.cantidadEntradas {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.entradasNominales {
+    margin: 9%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.entradasNominalesEleccion {
+    display: flex;
+    justify-content: space-around;
+}
+
+.btnCrearEvento {
+    height: 40px;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 860px) {
+    .contenedorNombreEntradas {
+        margin: 0%;
+        margin-top: 5%;
+        margin-bottom: 2%;
+        padding-left: 10%;
+        align-items: center;
+    }
+
+    .nombreEntradas {
+        width: 50%;
+    }
+
+    .nombreEntradasInput {
+        width: 70%;
+    }
+
+    .precioCantidadEntradas {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .cantidadEntradas {
+        margin-bottom: 2%;
+    }
+
+    .entradasNominales {
+        margin: 2%;
+    }
+
+    .entradasNominalesEleccion {
+        justify-content: space-evenly;
+    }
 }
