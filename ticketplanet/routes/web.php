@@ -33,5 +33,6 @@ Route::post('/reset-password', [ForgotPwdController::class, 'reset'])->name('pas
 Route::get('/links/homePromotors', [LinksController::class, 'homePromotors'])->name('links.homePromotors');
 
 Route::get('/links/crearEvento', [LinksController::class, 'crearEvento'])->name('links.crearEvento');
+Route::get('/links/comprarEntradas', [LinksController::class, 'comprarEntradas'])->name('links.comprarEntradas');
 
 
