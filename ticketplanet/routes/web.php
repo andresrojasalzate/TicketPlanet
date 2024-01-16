@@ -36,8 +36,10 @@ Route::post('/reset-password', [ResetPwdController::class, 'reset'])->name('pass
 
 Route::get('/auth/expired', [ResetPwdController::class, 'showResetForm'])->name('auth.expired');
 
+
 Route::get('/links/homePromotors', [LinksController::class, 'homePromotors'])->name('links.homePromotors');
 
+/*CREAR EVENTO*/
 Route::get('/links/crearEvento', [LinksController::class, 'crearEvento'])->name('links.crearEvento');
 
 Route::get('/sessions-promotor', [SessionController::class, 'sessionsPromotor'])->name('sessions.promotor');
