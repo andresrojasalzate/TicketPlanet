@@ -33,26 +33,65 @@
                         <label for="Descripcion Esdeveniment">Descripcion Esdeveniment</label>
                         <input class="descripcionFormularioInput" type="text" name="descripcioEsdeveniment"
                             id="descripcioEsdeveniment">
+                    </div>
+                      <div class="imagenFormulario">
+                      <label for="Imagen Principal de l'esdeveniment">Imagen principal de l'esdeveniment</label>
+                      <input type="file" name="imagenEsdeveniment" id="imagenEsdeveniment">
 
                     </div>
-
-
-                    <div class="videoFormulario">
-
-                        <label for="Video Promocional">Video Promocional</label>
-                        <input class="videoFormularioInput" type="url" name="videoPromocional"
-                            id="videoPromocional">
-
-                    </div>
-
+                    
                 </div>
 
                 <div class="parte3formulario">
 
-                    <label for="Imagen Principal de l'esdeveniment">Imagen principal de l'esdeveniment</label>
-                    <input type="file" name="imagenEsdeveniment" id="imagenEsdeveniment">
+                  <div class="numeroDireccionFormulario">
+
+                    <label for="numeroDireccion">Numero Direccion</label>
+                    <input class="numeroDireccionFormularioInput" type="text" name="numeroDireccion" id="numeroDireccion">
 
                 </div>
+
+                <div class="fechaFinFormulario">
+
+                    <label for="fechaFin">Fecha Fin</label>
+                    <input class="fechaFinFormularioInput" type="text" name="fechaFin" id="fechaFin">
+
+                </div>
+
+                <div class="horaFinFormulario">
+
+                  <label for="horaFin">Hora Fin</label>
+                  <input class="HoraFinFormularioInput" type="text" name="HoraFin" id="HoraFin">
+
+              </div>
+
+                </div>
+
+                <div class="parteEntradasFormulario">
+
+                  <div class="entradasVisibles">
+
+                    <label for="entradasVisibles">Entradas Visibles</label>
+            
+                  </div>
+                  <div class="entradasVisiblesEleccion">
+            
+                    <div class="eleccionSi">
+            
+                      <input type="radio" name="SiNo" value="1">Si
+            
+                    </div>
+            
+                    <div class="eleccionNo">
+            
+                      <input type="radio" name="SiNo" value="2">No
+            
+                    </div>
+                    
+            
+                  </div>
+
+            </div>
             </div>
 
             <div class="div2">
@@ -129,7 +168,13 @@
 
 
                 </div>
-                <button class="btnEntradas" type="submit">Entradas</button>
+                <div class="botones">
+
+                  <button class="btnGuardarEntradas" type="submit">Entradas</button>
+                  <button class="btnGuardarEntradas" type="submit">Guardar Evento</button>
+                  
+                </div>
+
             </div>
 
 
