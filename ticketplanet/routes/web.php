@@ -41,6 +41,8 @@ Route::get('/links/homePromotors', [LinksController::class, 'homePromotors'])->n
 
 /*CREAR EVENTO*/
 Route::get('/links/crearEvento', [LinksController::class, 'crearEvento'])->name('links.crearEvento');
+Route::post('/links/guardarEvento', [LinksController::class, 'guardarEvento'])->name('links.guardarEvento');
+
 
 Route::get('/sessions-promotor', [SessionController::class, 'sessionsPromotor'])->name('sessions.promotor');
 Route::get('/links/comprarEntradas', [LinksController::class, 'comprarEntradas'])->name('links.comprarEntradas');

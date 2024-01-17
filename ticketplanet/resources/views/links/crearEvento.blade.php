@@ -14,7 +14,7 @@
         <x-header />
     </header>
     <div class="contenedorLayout">
-        <form action="" method="post">
+        <form action="{{ route('links.guardarEvento') }}" method="post">
             @csrf
             <div class="div1">
                 <div class="parte1formulario">
@@ -170,7 +170,7 @@
                 </div>
                 <div class="botones">
 
-                  <button class="btnGuardarEntradas" type="submit">Entradas</button>
+                  <button class="btnGuardarEntradas" type="button">Entradas</button>
                   <button class="btnGuardarEntradas" type="submit">Guardar Evento</button>
                   
                 </div>
