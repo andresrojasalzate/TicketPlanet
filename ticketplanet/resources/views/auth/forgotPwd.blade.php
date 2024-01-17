@@ -8,9 +8,22 @@
                 <p>RESTABLECER LA CONTRASEÑA</p>
                 <img src="{{ asset('images/logo.jpg') }}" alt="" height="80">
             </div>
+                        
             <div class="txtResetPwd">
                 <p>Introduce tu correo electrónico y te enviaremos instrucciones para poder restablecer la contraseña.</p>
             </div>
+
+            @if (session('status'))
+                <div class="resetPwdExito" >
+                    {{ session('status') }}
+                </div>
+            @endif
+
+            @if ($errors->has('email'))
+                <div class="resetPwdError" >
+                    {{ $errors->first('email') }}
+                </div>
+            @endif
             <form method="POST" action="{{ route('password.email') }}">
                 @csrf
                 <div class="correoReset">

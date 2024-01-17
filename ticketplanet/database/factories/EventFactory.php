@@ -24,6 +24,7 @@ class EventFactory extends Factory
             'finishDate' => fake()->date(),
             'finishTime' => fake()->time(),
             'visible' => fake()->randomElement([true, false]),
+            'capacity' => mt_rand(0, 200),
         ];
     }
 }
