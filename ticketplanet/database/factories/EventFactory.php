@@ -19,8 +19,11 @@ class EventFactory extends Factory
         return [
             'name' =>fake()->name(),
             'site' => fake()->address(),
-            //'category' => fake()->randomElement(['teatro', 'cine', 'musica']),
             'image' => fake()->image(),
+            'description' => fake()->text(),
+            'finishDate' => fake()->date(),
+            'finishTime' => fake()->time(),
+            'visible' => fake()->randomElement([true, false]),
         ];
     }
 }

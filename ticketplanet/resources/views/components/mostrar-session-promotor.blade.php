@@ -1,5 +1,4 @@
-<div class="show-session-promotor">
-    
+<div class="show-session-promotor"> 
     <img class="imagen-sesion-promotor" src="https://s3.amazonaws.com/cdn.wp.m4ecnet/wp-content/uploads/2018/01/16095118/Depositphotos_3667865_m-2015-compressor.jpg" alt="">
     <div>
         <p>Nombre Evento</p>
