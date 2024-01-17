@@ -7,9 +7,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Cookie;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Http\Response;
 
 class LinksController extends Controller
 {
