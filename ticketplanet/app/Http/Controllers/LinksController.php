@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Http\Response;
 
 class LinksController extends Controller
 {
@@ -32,20 +35,31 @@ class LinksController extends Controller
     public function guardarEvento(Request $request)
     {
       $nombreLocal = $request->input('nombreLocal');
+      $provincia =  $request->input('provincia');
+      $ciudad = $request->input('ciudad');
+      $codigoPostal = $request->input('codigoPostal');
 
-      if ($request->hasCookie('direccion')) {
+      if ($request->hasCookie('direcciones')) {
 
 
         Log::info("se ha encotrado la cookie");
 
-        return "cookie existe";
+        return json_decode($request->cookie('direcciones'), true);
+
+        //return response('Hello World')->withCookie(Cookie::forget('direccion'));
 
       } else {
 
-        $response = new Response("Cookie no existe");
-        $response->withCookie(Cookie::forever('direccion', $nombreLocal));
+        $direcciones = [
+          'nombreLocal' => [$nombreLocal],
+          'provincia' => [$provincia],
+          'ciudad' => [$ciudad],
+          'codigoPostal' => [$codigoPostal],
+      ];
+
+        //return  $direcciones;
         Log::info("Se crea la cookie"); 
-        return $response;
+        return response('dddd')->withCookie(Cookie::forever('direcciones', json_encode($direcciones)));
 
       }
 
