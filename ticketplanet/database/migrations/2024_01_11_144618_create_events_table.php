@@ -23,6 +23,7 @@ return new class extends Migration
             $table->date('finishDate');
             $table->time('finishTime');
             $table->boolean('visible');
+            $table->integer('capacity');
         });
     }
 
