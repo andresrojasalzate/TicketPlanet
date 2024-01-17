@@ -758,6 +758,42 @@ span {
     margin-right: 2%;
 }
 
+.titulo-sessions-promotor{
+    text-align: center;
+    color: #0642F9;
+}
+
+.show-session-promotor{
+    display: flex;
+    flex-direction: row;
+    background-color: #B5B5B5;
+    border: 5px solid;
+    border-color: #F9BD06;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.buttons-sessions-promotor{
+   display: flex;
+   flex-direction: column;
+   justify-self: end;
+   display: none;
+}
+
+.imagen-sesion-promotor{
+    max-height: 30vh;
+    max-width: 15vh;
+    margin-right: 10%;
+}
+
+.card-expired a {
+    color: #0642F9;
+}
+
+.resetPwdExito {
+    color: green;
+}
+
 /*PANTALLA MÓVIL*/
 @media screen and (max-width: 425px) {
 

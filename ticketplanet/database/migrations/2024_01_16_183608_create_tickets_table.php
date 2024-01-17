@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('quantity');
             $table->double('price');
             $table->boolean('nominal');
-            $table->foreignId('sesion_id')->references('id')->on('sessions')->onDelete('cascade')
+            $table->foreignId('session_id')->references('id')->on('sessions')->onDelete('cascade')
             ->onUpdate('cascade');
         });
     }

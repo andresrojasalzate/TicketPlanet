@@ -7,6 +7,8 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\LinksController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ForgotPwdController;
+use App\Http\Controllers\SessionController;
+use App\Http\Controllers\ResetPwdController;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('events', [EventController::class, 'index'])->name('events.index');
@@ -35,6 +37,8 @@ Route::get('/links/homePromotors', [LinksController::class, 'homePromotors'])->n
 
 /*CREAR EVENTO*/
 Route::get('/links/crearEvento', [LinksController::class, 'crearEvento'])->name('links.crearEvento');
+
+Route::get('/sessions-promotor', [SessionController::class, 'sessionsPromotor'])->name('sessions.promotor');
 Route::get('/links/comprarEntradas', [LinksController::class, 'comprarEntradas'])->name('links.comprarEntradas');
 
 
