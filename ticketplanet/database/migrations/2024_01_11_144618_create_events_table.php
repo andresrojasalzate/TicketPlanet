@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->string('site');
+            $table->string('address');
+            $table->string('city');
+            $table->string('name_site');
             $table->foreignId('category_id')->references('id')->on('categories')->onDelete('cascade')
             ->onUpdate('cascade');
             $table->string('image');
