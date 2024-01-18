@@ -48,6 +48,9 @@ Route::post('/links/guardarEvento', [LinksController::class, 'guardarEvento'])->
 Route::get('/sessions-promotor', [SessionController::class, 'sessionsPromotor'])->name('sessions.promotor');
 Route::get('/links/comprarEntradas', [LinksController::class, 'comprarEntradas'])->name('links.comprarEntradas');
 
+Route::post('/links/crearEvento/save', [LinksController::class, 'store'])->name('links.store');
+
+Route::post('/links/comprarEntradas/save', [LinksController::class, 'storeComprarEntradas'])->name('links.storeComprarEntradas');
 
 /*MOSTRAR EVENTOS*/
 Route::get('/events/{id}', [ShowEventController::class, 'mostrarEvento'])->name('events.mostrar');

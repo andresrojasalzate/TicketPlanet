@@ -21,6 +21,21 @@ class Event extends Model
         return $this->belongsTo(Category::class);
     }
 
+    protected $fillable = [
+      'name',
+      'address',
+      'city',
+      'name_site',
+      'image',
+      'description',
+      'finishDate',
+      'finishTime',
+      'visible',
+      'capacity',
+      'category_id',
+      'user_id'
+    ];
+
     /**
     * Busca eventos en la base de datos que coincidan con el texto de entrada y, opcionalmente, con una categoría específica.
     *
@@ -32,7 +47,8 @@ class Event extends Model
     public static function eventosBuscados(string $inputText, string $category = null){
         $eventos = Event::where(function($query) use ($inputText) {
             $query->whereRaw('lower(unaccent(name)) LIKE unaccent(?)', [trim(strtolower($inputText)).'%'])
-                ->orWhereRaw('lower(unaccent(site)) LIKE unaccent(?)', [trim(strtolower($inputText)).'%']);
+                ->orWhereRaw('lower(unaccent(city)) LIKE unaccent(?)', [trim(strtolower($inputText)).'%'])
+                ->orWhereRaw('lower(unaccent(name_site)) LIKE unaccent(?)', [trim(strtolower($inputText)).'%']);
         });
         
         if(isset($category)){

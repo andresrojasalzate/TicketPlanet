@@ -13,14 +13,14 @@
     <x-header/>
   </header>
 
-  <form action="" method="post">
-
+  <form action="{{ route('links.storeComprarEntradas') }}" method="post">
+      @csrf
       <div class="contenedorNombreEntradas">
 
         <div class="nombreEntradas">
 
           <label for="nombre">Nombre</label>
-          <input class="nombreEntradasInput" type="text" name="nombre" id="nombre">
+          <input class="nombreEntradasInput" type="text" name="name" id="nombre">
 
         </div>
 
@@ -32,14 +32,14 @@
         <div class="precioEntradas">
 
           <label for="precio">Precio</label>
-          <input class="precioEntradasInput" type="text" name="precio" id="precio">
+          <input class="precioEntradasInput" type="text" name="price" id="precio">
   
         </div>
   
         <div class="cantidadEntradas">
   
           <label for="cantidad">Cantidad Entradas</label>
-          <input class="cantidadEntradasInput" type="text" name="cantidadEntradas" id="cantidadEntradas">
+          <input class="cantidadEntradasInput" type="text" name="quantity" id="cantidadEntradas">
   
         </div>
 
@@ -54,13 +54,13 @@
 
         <div class="eleccionSi">
 
-          <input type="radio" name="SiNo" value="1">Si
+          <input type="radio" name="nominal" value="true">Si
 
         </div>
 
         <div class="eleccionNo">
 
-          <input type="radio" name="SiNo" value="2">No
+          <input type="radio" name="nominal" value="false">No
 
         </div>
         
