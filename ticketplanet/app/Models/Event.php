@@ -32,7 +32,8 @@ class Event extends Model
       'finishTime',
       'visible',
       'capacity',
-      'category_id'
+      'category_id',
+      'user_id'
     ];
 
     /**
