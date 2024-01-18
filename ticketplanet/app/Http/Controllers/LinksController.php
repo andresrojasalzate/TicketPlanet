@@ -73,19 +73,29 @@ class LinksController extends Controller
     }
     public function storeComprarEntradas(Request $request)
     {
+      $quantity;
+      if(empty($request->quantity)){
+        $sesion = Session::find($request->session()->get('sesionId'));
+        $quantity = $sesion->maxCapacity;
+      } else{
+        $quantity = $request->quantity;
+      }
+
       Ticket::create([
         'name' => $request->name,
-        'quantity' => $request->quantity,
+        'quantity' => $quantity,
         'price' => $request->price,
-        'nominal' => $request->nominal
-
+        'nominal' => $request->nominal,
+        'session_id' => $request->session()->get('sesionId')
       ]);
+
+      return redirect()->route('links.comprarEntradas');
       
     }
     
     public function store(Request $request)
     {
-      $eventoCrear=Event::create([
+      $eventoCrear = Event::create([
         'name' => $request->name,
         'address' => $request->address,
         'city' => $request->city,
@@ -100,19 +110,23 @@ class LinksController extends Controller
         'category_id' => $request->categoria
       ]);
 
-      // Category::create([
-      //   'category' => $request->category
-      // ]);
+      $this->crearSesion($request, $eventoCrear->id);
+    
+      return redirect()->route('links.comprarEntradas');
+    }
 
-      Session::create([
+    private function crearSesion(Request $request, $eventId){
+
+      $sesionCreada = Session::create([
         'date' => $request->date,
         'time' => $request->time,
         'maxCapacity' => $request->maxCapacity,
-        'event_id' => $eventoCrear->id
+        'event_id' => $eventId
       ]);
-      
-      return redirect()->route('home');
+
+      $request->session()->put('sesionId', $sesionCreada->id);
     }
+
     public function homePromotors()
     {
       if(Auth()->user()){
