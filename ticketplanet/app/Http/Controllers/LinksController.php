@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
+use App\Models\Category;
+use App\Models\Ticket;
+use App\Models\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
@@ -26,7 +30,8 @@ class LinksController extends Controller
     }
     public function crearEvento()
     {
-      return view('links.crearEvento');
+      return view('links.crearEvento',["categorias" => Category::all()]);
+
     }
 
     public function guardarEvento(Request $request)
@@ -65,6 +70,48 @@ class LinksController extends Controller
     public function comprarEntradas()
     {
       return view('links.comprarEntradas');
+    }
+    public function storeComprarEntradas(Request $request)
+    {
+      Ticket::create([
+        'name' => $request->name,
+        'quantity' => $request->quantity,
+        'price' => $request->price,
+        'nominal' => $request->nominal
+
+      ]);
+      
+    }
+    
+    public function store(Request $request)
+    {
+      $eventoCrear=Event::create([
+        'name' => $request->name,
+        'address' => $request->address,
+        'city' => $request->city,
+        'name_site' => $request->name_site,
+        'site' => $request->site,
+        'image' => $request->image,
+        'description' => $request->description,
+        'finishDate' => $request->finishDate,
+        'finishTime' => $request->finishTime,
+        'visible' => $request->visible,
+        'capacity' => $request->capacity,
+        'category_id' => $request->categoria
+      ]);
+
+      // Category::create([
+      //   'category' => $request->category
+      // ]);
+
+      Session::create([
+        'date' => $request->date,
+        'time' => $request->time,
+        'maxCapacity' => $request->maxCapacity,
+        'event_id' => $eventoCrear->id
+      ]);
+      
+      return redirect()->route('home');
     }
     public function homePromotors()
     {

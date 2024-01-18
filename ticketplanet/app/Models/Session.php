@@ -20,4 +20,10 @@ class Session extends Model
     {
         return $this->hasMany(Ticket::class);
     }
+    protected $fillable = [
+      'date',
+      'time',
+      'maxCapacity',
+      'event_id'
+    ];
 }

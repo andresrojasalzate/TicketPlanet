@@ -21,6 +21,20 @@ class Event extends Model
         return $this->belongsTo(Category::class);
     }
 
+    protected $fillable = [
+      'name',
+      'address',
+      'city',
+      'name_site',
+      'image',
+      'description',
+      'finishDate',
+      'finishTime',
+      'visible',
+      'capacity',
+      'category_id'
+    ];
+
     /**
     * Busca eventos en la base de datos que coincidan con el texto de entrada y, opcionalmente, con una categoría específica.
     *

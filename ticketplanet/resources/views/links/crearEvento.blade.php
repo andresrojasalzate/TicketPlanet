@@ -14,16 +14,21 @@
         <x-header />
     </header>
     <div class="contenedorLayout">
-        <form action="{{ route('links.guardarEvento') }}" method="post">
+        <form action="{{ route('links.store') }}" method="post">
             @csrf
             <div class="div1">
                 <div class="parte1formulario">
 
                     <label for="title">Titulo</label>
-                    <input type="text" name="title" id="title">
+                    <input type="text" name="name" id="title">
 
                     <label for="Categoria">Categoria</label>
-                    <input type="text" name="categoria" id="categoria">
+
+                    <select name="categoria">
+                      @foreach ($categorias as $categoria)
+                          <option value=" {{$categoria->id}} ">{{$categoria->name}} </option>
+                      @endforeach
+                    </select>
                 </div>
 
 
@@ -31,12 +36,12 @@
                     <div class="descripcionFormulario">
 
                         <label for="Descripcion Esdeveniment">Descripcion Esdeveniment</label>
-                        <input class="descripcionFormularioInput" type="text" name="descripcioEsdeveniment"
+                        <input class="descripcionFormularioInput" type="text" name="description"
                             id="descripcioEsdeveniment">
                     </div>
                       <div class="imagenFormulario">
                       <label for="Imagen Principal de l'esdeveniment">Imagen principal de l'esdeveniment</label>
-                      <input type="file" name="imagenEsdeveniment" id="imagenEsdeveniment">
+                      <input type="text" name="image" id="imagenEsdeveniment">
 
                     </div>
                     
@@ -44,26 +49,12 @@
 
                 <div class="parte3formulario">
 
-                  <div class="numeroDireccionFormulario">
+                  <div class="adrecaFormulario">
 
-                    <label for="numeroDireccion">Numero Direccion</label>
-                    <input class="numeroDireccionFormularioInput" type="text" name="numeroDireccion" id="numeroDireccion">
-
-                </div>
-
-                <div class="fechaFinFormulario">
-
-                    <label for="fechaFin">Fecha Fin</label>
-                    <input class="fechaFinFormularioInput" type="text" name="fechaFin" id="fechaFin">
+                    <label for="numeroDireccion">Numero Direccion Codigo Postal Provincia</label>
+                    <input type="text" name="address" id="numeroDireccion">
 
                 </div>
-
-                <div class="horaFinFormulario">
-
-                  <label for="horaFin">Hora Fin</label>
-                  <input class="HoraFinFormularioInput" type="text" name="HoraFin" id="HoraFin">
-
-              </div>
 
                 </div>
 
@@ -78,13 +69,13 @@
             
                     <div class="eleccionSi">
             
-                      <input type="radio" name="SiNo" value="1">Si
+                      <input type="radio" name="visible" value="true">Si
             
                     </div>
             
                     <div class="eleccionNo">
             
-                      <input type="radio" name="SiNo" value="2">No
+                      <input type="radio" name="visible" value="false">No
             
                     </div>
                     
@@ -100,14 +91,14 @@
                     <div class="nombreLocalFormulario">
 
                         <label for="Nombre del local">Nombre del Local</label>
-                        <input class="nombreLocalFormularioInput" type="text" name="nombreLocal" id="nombreLocal">
+                        <input class="nombreLocalFormularioInput" type="text" name="name_site" id="nombreLocal">
 
                     </div>
 
                     <div class="capacidadLocalFormulario">
 
                         <label for="Capacidad del local">Capacidad del local</label>
-                        <input class="capacidadLocalFormularioInput" type="number" name="capacidadLocal"
+                        <input class="capacidadLocalFormularioInput" type="number" name="capacity"
                             id="capacidadLocal">
 
                     </div>
@@ -116,27 +107,26 @@
                 </div>
 
                 <div class="parte5formulario">
-                    <div class="provinciaFormulario">
-
-                        <label for="Provincia">Provincia</label>
-                        <input class="provinciaFormularioInput" type="text" name="provincia" id="provincia">
-
-                    </div>
 
                     <div class="ciudadFormulario">
 
                         <label for="Ciudad">Ciudad</label>
-                        <input class="ciudadFormularioInput" type="text" name="ciudad" id="ciudad">
+                        <input class="ciudadFormularioInput" type="text" name="city" id="ciudad">
 
                     </div>
+                    <div class="fechaFinFormulario">
 
-                    <div class="codigoPostalFormulario">
-
-                        <label for="Codigo Postal">Codigo Postal</label>
-                        <input class="codigoPostalFormularioInput" type="number" name="codigoPostal" id="codigoPostal">
-
-                    </div>
-
+                      <label for="fechaFin">Fecha Fin</label>
+                      <input class="fechaFinFormularioInput" type="date" name="finishDate" id="fechaFin">
+  
+                  </div>
+  
+                  <div class="horaFinFormulario">
+  
+                    <label for="horaFin">Hora Fin</label>
+                    <input class="HoraFinFormularioInput" type="time" name="finishTime" id="HoraFin">
+  
+                </div>
 
                 </div>
 
@@ -145,7 +135,7 @@
                     <div class="fechaCelebracionFormulario">
 
                         <label for="Fecha celebracion">Fecha celebracion</label>
-                        <input class="fechaCelebracionFormularioInput" type="date" name="fechaCelebracion"
+                        <input class="fechaCelebracionFormularioInput" type="date" name="date"
                             id="fechaCelebracion">
 
                     </div>
@@ -153,7 +143,7 @@
                     <div class="horaCelebracionFormulario">
 
                         <label for="Hora celebracion">Hora celebracion</label>
-                        <input class="horaCelebracionFormularioInput" type="time" name="horaCelebracion"
+                        <input class="horaCelebracionFormularioInput" type="time" name="time"
                             id="horaCelebracion">
 
                     </div>
@@ -161,7 +151,7 @@
                     <div class="aforoMaximoFormulario">
 
                         <label for="Aforo Maximo">Aforo Maximo</label>
-                        <input class="aforoMaximoFormularioInput" type="number" name="aforoMaximo" id="aforoMaximo">
+                        <input class="aforoMaximoFormularioInput" type="number" name="maxCapacity" id="aforoMaximo">
 
                     </div>
 
