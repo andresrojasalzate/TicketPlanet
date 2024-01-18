@@ -1,3 +1,4 @@
+<a href="{{ route('events.mostrar', ['id' => $event->id]) }}">
 <div class="show-event-home">
     <img class="show-event-home-img" src="{{ $event->image }}" alt="">
         <p class="show-event-home-title">{{ $event->name }}</p>
@@ -8,3 +9,4 @@
         </p>
     </div>
 </div>
+</a>

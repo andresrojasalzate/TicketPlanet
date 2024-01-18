@@ -33,6 +33,8 @@ class ForgotPwdController extends Controller
             // Genera un token y actualiza la base de datos
             $token = $this->generateToken();
 
+            Log::info('Token generado: ' . $token);
+
             $user->update(['reset_token' => $token]);
 
             // Envía el correo
@@ -46,7 +48,7 @@ class ForgotPwdController extends Controller
         return back()->withErrors(['email' => 'Usuario no encontrado']);
     }
 
-    protected function validateEmail(Request $request)
+    public function validateEmail(Request $request)
     {
         $request->validate([
             'email' => 'required|email',
@@ -56,10 +58,10 @@ class ForgotPwdController extends Controller
         ]);
     }
 
-    protected function generateToken()
+    public function generateToken()
     {
         // Implementa la lógica de generación de token
-        return Str::random(64); 
+        return Str::random(64);
     }
 
 }

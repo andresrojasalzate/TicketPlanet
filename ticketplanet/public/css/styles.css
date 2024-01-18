@@ -267,19 +267,19 @@ span {
 }
 
 .show-event-home {
-  
-  max-width: 30vh;
-  min-width: 30vh;
-  min-height: 45vh;
-  background-color: #ebebeb;
-  margin: auto;
-  margin-bottom: 5%;
-  border: 5px solid;
-  border-color: #F9BD06;
-  cursor: pointer;
-  font-family: 'Work Sans';
-  overflow: hidden;
-  text-overflow: ellipsis;
+    max-width: 30vh;
+    min-width: 30vh;
+    min-height: 45vh;
+    background-color: #ebebeb;
+    margin: auto;
+    margin-bottom: 5%;
+    border: 5px solid;
+    border-color: #F9BD06;
+    cursor: pointer;
+    font-family: 'Work Sans';
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
 }
 
 .show-event-home:hover {
@@ -494,11 +494,7 @@ span {
   flex-direction: row;
   overflow-x: auto;
   align-items: center;
-  width: 180vh;
-}
-
-.events-category-home > div{
-  margin-left: 5%;
+  width: 100%;
 }
 
 .events-category-home>button {
@@ -508,19 +504,88 @@ span {
 }
 
 
-/*LOGIN*/
-.login {
-  width: 50%;
-  height: 60%;
+/*Home*/
+
+.category-home {
+
   display: flex;
   flex-direction: column;
-  background-color: #D9D9D9;
-  margin: 3% auto;
-  padding: 1% 2%;
+  margin-left: 3%;
+  margin-top: 3%;
+}
+
+.category-home>p {
+  margin: 0;
+  padding: 0;
+  margin-left: 2%;
+  color: #0642F9;
   font-family: 'Work Sans';
-  border: 0.188rem solid;
-  border-color: #0642F9;
-  border-radius: 0.313rem;
+  font-size: 4rem;
+}
+
+.events-category-home {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  align-items: center;
+  width: 100%;
+}
+
+.events-category-home>button {
+  margin-left: 3%;
+  font-size: medium;
+
+}
+
+
+
+/*LOGIN*/
+.login{
+    width: 50%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    background-color: #D9D9D9;
+    margin: 3% auto;
+    padding: 1% 2%;
+    font-family: 'Work Sans';
+    border: 0.188rem solid;
+    border-color: #0642F9;
+    border-radius: 0.313rem;
+}
+
+.card-reset{
+    width: 100%;
+    height: 100%;
+
+}
+
+.card-form-reset {
+    width: 45%;
+    height: 55%;
+    display: flex;
+    flex-direction: column;
+    background-color: #D9D9D9;
+    margin: 3% auto;
+    padding: 1% 2%;
+    font-family: 'Work Sans';
+    border: 0.188rem solid;
+    border-color: #0642F9;
+    border-radius: 0.313rem;
+}
+
+.card-expired {
+    width: 30%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    background-color: #D9D9D9;
+    margin: 3% auto;
+    padding: 1% 2%;
+    font-family: 'Work Sans';
+    border: 0.188rem solid;
+    border-color: #0642F9;
+    border-radius: 0.313rem;
 }
 
 .titleLogin {
@@ -558,14 +623,15 @@ span {
   text-decoration: none;
 }
 
-.credenciales {
-  display: flex;
-  justify-content: center;
-  color: red;
-  margin-top: 1.5%;
-  font-size: 1.1rem;
-  font-family: 'Work Sans';
-  text-decoration: none;
+.credenciales,
+.emailerror,
+.passworderror,
+.resetPwdError, 
+.invalid-feedback {
+    color: red;
+    font-size: 1.1rem;
+    font-family: 'Work Sans';
+    text-decoration: none;
 }
 
 .correoLogin label,
@@ -577,11 +643,11 @@ span {
 
 .correoLogin input,
 .contraLogin input {
-  width: 100%;
-  height: 25%;
-  font-size: 1rem;
-  padding: 0% 1%;
-  margin-top: 0.313rem;
+    width: 100%;
+    height: 22%;
+    font-size: 1rem;
+    padding: 0% 1%;
+    margin-top: 0.313rem;
 }
 
 .toggle-password {
@@ -625,6 +691,25 @@ span {
 .btnIniciaSesion:hover {
   background-color: #e6ad05;
   border-color: #0642F9;
+}
+
+.btnResetSesion {
+    width: 20%;
+    height: 25%;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.btnResetSesion:hover {
+    background-color: #e6ad05;
+    border-color: #0642F9;
 }
 
 
@@ -706,9 +791,53 @@ span {
   border-color: #0642F9;
 }
 
-.ver-mas-button{
-  align-self: self-end;
-  margin-right: 2%;
+.events-category-home {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  align-items: center;
+  width: 100%;
+}
+
+.ver-mas-button {
+    align-self: self-end;
+    margin-right: 2%;
+}
+
+.titulo-sessions-promotor {
+    text-align: center;
+    color: #0642F9;
+}
+
+.show-session-promotor {
+    display: flex;
+    flex-direction: row;
+    background-color: #B5B5B5;
+    border: 5px solid;
+    border-color: #F9BD06;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.buttons-sessions-promotor {
+    display: flex;
+    flex-direction: column;
+    justify-self: end;
+    display: none;
+}
+
+.imagen-sesion-promotor {
+    max-height: 30vh;
+    max-width: 15vh;
+    margin-right: 10%;
+}
+
+.card-expired a {
+    color: #0642F9;
+}
+
+.resetPwdExito, .credenciales-success {
+    color: green;
 }
 
 /*PANTALLA MÓVIL*/
@@ -729,9 +858,9 @@ span {
       display: none;
   }
 
-  .navLogo img {
-      width: 120%;
-  }
+    .navLogo img {
+        width: 100vw;
+    }
 
   .auth {
       margin-top: 1rem;
@@ -760,11 +889,11 @@ span {
       display: none;
   }
 
-  /*Menu*/
-  .menuIMG {
-      width: 3rem;
-      height: 4rem;
-  }
+    /*Menu*/
+    .menuIMG {
+        width: 15vw;
+        height: 20vw;
+    }
 
   .dropdown {
       display: flex;
@@ -927,12 +1056,12 @@ span {
       margin-top: 1.2rem;
   }
 
-  .correoLogin input,
-  .contraLogin input {
-      width: 100%;
-      height: 25%;
-      font-size: 1rem;
-  }
+    .correoLogin input,
+    .contraLogin input {
+        width: 100%;
+        height: 22%;
+        font-size: 1rem;
+    }
 
   .toggle-password {
       position: absolute;
@@ -1049,6 +1178,15 @@ span {
   .events-category-home > div{
       margin-left: 10%;
   }
+
+    .card-showEvent {
+        width: 90vw;
+        height: 117vw;
+        background-color: #D9D9D9;
+        margin: 10vw auto;
+        border: 3px solid;
+        border-color: #F9BD06;
+    }
 
 
 }
