@@ -22,8 +22,7 @@
                     <label for="title">Titulo</label>
                     <input type="text" name="name" id="title">
 
-                    {{-- <label for="Categoria">Categoria</label>
-                    <input type="text" name="category" id="categoria"> --}}
+                    <label for="Categoria">Categoria</label>
 
                     <select name="categoria">
                       @foreach ($categorias as $categoria)
@@ -42,7 +41,7 @@
                     </div>
                       <div class="imagenFormulario">
                       <label for="Imagen Principal de l'esdeveniment">Imagen principal de l'esdeveniment</label>
-                      <input type="file" name="image" id="imagenEsdeveniment">
+                      <input type="text" name="image" id="imagenEsdeveniment">
 
                     </div>
                     
@@ -50,26 +49,12 @@
 
                 <div class="parte3formulario">
 
-                  <div class="numeroDireccionFormulario">
+                  <div class="adrecaFormulario">
 
-                    <label for="numeroDireccion">Numero Direccion</label>
-                    <input class="numeroDireccionFormularioInput" type="text" name="address" id="numeroDireccion">
-
-                </div>
-
-                <div class="fechaFinFormulario">
-
-                    <label for="fechaFin">Fecha Fin</label>
-                    <input class="fechaFinFormularioInput" type="date" name="finishDate" id="fechaFin">
+                    <label for="numeroDireccion">Numero Direccion Codigo Postal Provincia</label>
+                    <input type="text" name="address" id="numeroDireccion">
 
                 </div>
-
-                <div class="horaFinFormulario">
-
-                  <label for="horaFin">Hora Fin</label>
-                  <input class="HoraFinFormularioInput" type="time" name="finishTime" id="HoraFin">
-
-              </div>
 
                 </div>
 
@@ -122,12 +107,6 @@
                 </div>
 
                 <div class="parte5formulario">
-                    <div class="provinciaFormulario">
-
-                        <label for="Provincia">Provincia</label>
-                        <input class="provinciaFormularioInput" type="text" name="site" id="provincia">
-
-                    </div>
 
                     <div class="ciudadFormulario">
 
@@ -135,14 +114,19 @@
                         <input class="ciudadFormularioInput" type="text" name="city" id="ciudad">
 
                     </div>
+                    <div class="fechaFinFormulario">
 
-                    <div class="codigoPostalFormulario">
-
-                        <label for="Codigo Postal">Codigo Postal</label>
-                        <input class="codigoPostalFormularioInput" type="number" name="site" id="codigoPostal">
-
-                    </div>
-
+                      <label for="fechaFin">Fecha Fin</label>
+                      <input class="fechaFinFormularioInput" type="date" name="finishDate" id="fechaFin">
+  
+                  </div>
+  
+                  <div class="horaFinFormulario">
+  
+                    <label for="horaFin">Hora Fin</label>
+                    <input class="HoraFinFormularioInput" type="time" name="finishTime" id="HoraFin">
+  
+                </div>
 
                 </div>
 

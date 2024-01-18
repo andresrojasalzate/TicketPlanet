@@ -1142,9 +1142,14 @@ height: 50px;
 .parte3formulario{
 display: flex;
 flex-wrap: wrap;
-justify-content: space-between;
 margin: 1%;
 }
+.adrecaFormulario{
+  width: 76%;
+  display: flex;
+  flex-direction: column;
+}
+
 .parteEntradasFormulario{
 width: 100%;
 }
@@ -1249,7 +1254,10 @@ float: right;
 width: 76%;
 }
 .parte3formulario{
-width: 100%;
+width: 76%;
+}
+.adrecaFormulario{
+  width: 100%;
 }
 
 }
