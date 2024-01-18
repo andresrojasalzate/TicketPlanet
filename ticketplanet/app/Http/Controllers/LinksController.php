@@ -30,11 +30,23 @@ class LinksController extends Controller
     }
     public function crearEvento()
     {
-      return view('links.crearEvento',["categorias" => Category::all()]);
+      if (Auth::check()) {
+        $user = Auth::user();
+      }
 
+      //return Event::select(['name_site'])->where('user_id', $user->id)->get();
+
+      return view('links.crearEvento')->with([
+        'categorias' => Category::all(),
+        'addresses' =>  Event::select(['address'])->where('user_id', $user->id)->get(),
+        'citys' =>  Event::select(['city'])->where('user_id', $user->id)->get(),
+        'nameSites' =>  Event::select(['name_site'])->where('user_id', $user->id)->get(),
+        'capacitys' => Event::select(['capacity'])->where('user_id', $user->id)->get()
+      ]);
+     
     }
 
-    public function guardarEvento(Request $request)
+    /*public function guardarEvento(Request $request)
     {
       $nombreLocal = $request->input('nombreLocal');
       $provincia =  $request->input('provincia');
@@ -65,7 +77,7 @@ class LinksController extends Controller
 
       }
 
-    }
+    }*/
 
     public function comprarEntradas()
     {
@@ -95,6 +107,20 @@ class LinksController extends Controller
     
     public function store(Request $request)
     {
+
+      if (Auth::check()) {
+
+        $idEvento = $this->guardarEvento($request);
+        $this->crearSesion($request, $idEvento);
+      
+        return redirect()->route('links.comprarEntradas');
+      }
+    }
+
+    private function guardarEvento(Request $request){
+
+      $user = Auth::user();
+
       $eventoCrear = Event::create([
         'name' => $request->name,
         'address' => $request->address,
@@ -107,12 +133,11 @@ class LinksController extends Controller
         'finishTime' => $request->finishTime,
         'visible' => $request->visible,
         'capacity' => $request->capacity,
-        'category_id' => $request->categoria
+        'category_id' => $request->categoria,
+        'user_id' => $user->id
       ]);
 
-      $this->crearSesion($request, $eventoCrear->id);
-    
-      return redirect()->route('links.comprarEntradas');
+      return $eventoCrear->id;
     }
 
     private function crearSesion(Request $request, $eventId){
