@@ -127,9 +127,7 @@ class LinksController extends Controller
         'user_id' => $user->id
       ]);
 
-      $this->crearSesion($request, $eventoCrear->id);
-    
-      return redirect()->route('links.comprarEntradas');
+      return $eventoCrear->id;
     }
 
     private function crearSesion(Request $request, $eventId){
