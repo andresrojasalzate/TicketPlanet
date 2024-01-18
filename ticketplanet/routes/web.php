@@ -9,6 +9,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ForgotPwdController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\ResetPwdController;
+use App\Http\Controllers\ShowEventController;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('events', [EventController::class, 'index'])->name('events.index');
@@ -47,4 +48,7 @@ Route::post('/links/guardarEvento', [LinksController::class, 'guardarEvento'])->
 Route::get('/sessions-promotor', [SessionController::class, 'sessionsPromotor'])->name('sessions.promotor');
 Route::get('/links/comprarEntradas', [LinksController::class, 'comprarEntradas'])->name('links.comprarEntradas');
 
+
+/*MOSTRAR EVENTOS*/
+Route::get('/events/{id}', [ShowEventController::class, 'mostrarEvento'])->name('events.mostrar');
 
