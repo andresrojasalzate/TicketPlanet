@@ -277,7 +277,6 @@ span {
 }
 
 .show-event-home {
-
     max-width: 30vh;
     min-width: 30vh;
     min-height: 45vh;
@@ -290,6 +289,7 @@ span {
     font-family: 'Work Sans';
     overflow: hidden;
     text-overflow: ellipsis;
+    text-decoration: none;
 }
 
 .show-event-home:hover {
@@ -550,10 +550,29 @@ span {
 
 
 /*LOGIN*/
-.login,
-.card-form-reset {
+.login{
     width: 50%;
     height: 60%;
+    display: flex;
+    flex-direction: column;
+    background-color: #D9D9D9;
+    margin: 3% auto;
+    padding: 1% 2%;
+    font-family: 'Work Sans';
+    border: 0.188rem solid;
+    border-color: #0642F9;
+    border-radius: 0.313rem;
+}
+
+.card-reset{
+    width: 100%;
+    height: 100%;
+
+}
+
+.card-form-reset {
+    width: 45%;
+    height: 55%;
     display: flex;
     flex-direction: column;
     background-color: #D9D9D9;
@@ -617,7 +636,8 @@ span {
 .credenciales,
 .emailerror,
 .passworderror,
-.resetPwdError {
+.resetPwdError, 
+.invalid-feedback {
     color: red;
     font-size: 1.1rem;
     font-family: 'Work Sans';
@@ -634,7 +654,7 @@ span {
 .correoLogin input,
 .contraLogin input {
     width: 100%;
-    height: 25%;
+    height: 22%;
     font-size: 1rem;
     padding: 0% 1%;
     margin-top: 0.313rem;
@@ -679,6 +699,25 @@ span {
 }
 
 .btnIniciaSesion:hover {
+    background-color: #e6ad05;
+    border-color: #0642F9;
+}
+
+.btnResetSesion {
+    width: 20%;
+    height: 25%;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.btnResetSesion:hover {
     background-color: #e6ad05;
     border-color: #0642F9;
 }
@@ -775,12 +814,12 @@ span {
     margin-right: 2%;
 }
 
-.titulo-sessions-promotor{
+.titulo-sessions-promotor {
     text-align: center;
     color: #0642F9;
 }
 
-.show-session-promotor{
+.show-session-promotor {
     display: flex;
     flex-direction: row;
     background-color: #B5B5B5;
@@ -790,14 +829,14 @@ span {
     margin-right: 5%;
 }
 
-.buttons-sessions-promotor{
-   display: flex;
-   flex-direction: column;
-   justify-self: end;
-   display: none;
+.buttons-sessions-promotor {
+    display: flex;
+    flex-direction: column;
+    justify-self: end;
+    display: none;
 }
 
-.imagen-sesion-promotor{
+.imagen-sesion-promotor {
     max-height: 30vh;
     max-width: 15vh;
     margin-right: 10%;
@@ -807,7 +846,7 @@ span {
     color: #0642F9;
 }
 
-.resetPwdExito {
+.resetPwdExito, .credenciales-success {
     color: green;
 }
 
@@ -830,7 +869,7 @@ span {
     }
 
     .navLogo img {
-        width: 120%;
+        width: 100vw;
     }
 
     .auth {
@@ -862,8 +901,8 @@ span {
 
     /*Menu*/
     .menuIMG {
-        width: 3rem;
-        height: 4rem;
+        width: 15vw;
+        height: 20vw;
     }
 
     .dropdown {
@@ -1032,7 +1071,7 @@ span {
     .correoLogin input,
     .contraLogin input {
         width: 100%;
-        height: 25%;
+        height: 22%;
         font-size: 1rem;
     }
 
@@ -1157,6 +1196,15 @@ span {
         border: 0.188rem solid;
         border-color: #0642F9;
         border-radius: 0.313rem;
+    }
+
+    .card-showEvent {
+        width: 90vw;
+        height: 117vw;
+        background-color: #D9D9D9;
+        margin: 10vw auto;
+        border: 3px solid;
+        border-color: #F9BD06;
     }
 
 
