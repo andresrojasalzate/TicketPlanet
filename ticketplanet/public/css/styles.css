@@ -494,7 +494,11 @@ span {
   flex-direction: row;
   overflow-x: auto;
   align-items: center;
-  width: 100%;
+  width: 180vh;
+}
+
+.events-category-home > div{
+  margin-left: 5%;
 }
 
 .events-category-home>button {
@@ -502,41 +506,6 @@ span {
   font-size: medium;
 
 }
-
-
-/*Home*/
-
-.category-home {
-
-  display: flex;
-  flex-direction: column;
-  margin-left: 3%;
-  margin-top: 3%;
-}
-
-.category-home>p {
-  margin: 0;
-  padding: 0;
-  margin-left: 2%;
-  color: #0642F9;
-  font-family: 'Work Sans';
-  font-size: 4rem;
-}
-
-.events-category-home {
-  display: flex;
-  flex-direction: row;
-  overflow-x: auto;
-  align-items: center;
-  width: 100%;
-}
-
-.events-category-home>button {
-  margin-left: 3%;
-  font-size: medium;
-
-}
-
 
 
 /*LOGIN*/
@@ -737,14 +706,6 @@ span {
   border-color: #0642F9;
 }
 
-.events-category-home {
-  display: flex;
-  flex-direction: row;
-  overflow-x: auto;
-  align-items: center;
-  width: 100%;
-}
-
 .ver-mas-button{
   align-self: self-end;
   margin-right: 2%;
@@ -882,7 +843,6 @@ span {
   }
 
   .botonBuscador {
-      width: 20%;
       height: 40px;
       border-radius: 7px;
       background-color: #F9BD06;
@@ -898,8 +858,6 @@ span {
       height: calc(85vh - 110px - 110px);
       overflow-y: auto;
   }
-
-
 
   .show-event-home-img {
       width: 100%;
@@ -1078,6 +1036,14 @@ span {
       display: block;
       font-size: 1.2rem;
       cursor: pointer;
+  }
+
+  .events-category-home {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    align-items: center;
+    width: auto;
   }
 
   .events-category-home > div{
