@@ -26,6 +26,8 @@ return new class extends Migration
             $table->time('finishTime');
             $table->boolean('visible');
             $table->integer('capacity');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade')
+            ->onUpdate('cascade');
         });
     }
 

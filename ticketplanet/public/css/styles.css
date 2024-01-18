@@ -163,10 +163,6 @@ span {
   text-align: center;
 }
 
-
-
-
-
 /*------------------------------------------------------*/
 
 /*MENU*/
@@ -183,10 +179,6 @@ span {
   margin-left: 15%;
 }
 
-.disable-interaction {
-  pointer-events: none;
-  overflow: hidden;
-}
 
 .dropdown-content {
   position: fixed;
