@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Log;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 class ResetPwdController extends Controller
@@ -21,12 +22,11 @@ class ResetPwdController extends Controller
     {
 
         // Verifica si el token ha expirado
-        $tokenData = DB::table('password_reset_tokens')->where('token', $token)->first();
+        $tokenData = DB::table('users')->where('reset_token', $token)->first();
 
         if (!$tokenData || $this->tokenExpired($tokenData->created_at)) {
             return view('auth.expired'); // Nombre de la vista para el enlace expirado
         }
-
 
         Log::info('Token recibido: ' . $token);
 
@@ -61,31 +61,55 @@ class ResetPwdController extends Controller
             'password.regex' => 'La contraseña debe contener al menos una minúscula, una mayúscula, un dígito y un carácter especial entre @$!%*?&.',
         ]);
 
-        $status = Password::reset(
-            $request->only('email', 'password', 'password_confirmation', 'token'),
-            function ($user, $password) {
-                $user->forceFill([
-                    'password' => bcrypt($password),
-                    'remember_token' => Str::random(60),
-                ])->save();
+        // $status = User::reset(
+        //     $request->only('email', 'password', 'password_confirmation', 'token'),
+        //     function ($user, $password) {
+        //         $user->forceFill([
+        //             'password' => bcrypt($password),
+        //             'remember_token' => $user->reset_token,
+        //             'reset_token' => null,
+        //         ])->save();
+        //         Log::info('Contraseña: ' . ($password));
 
-                Auth::guard()->login($user);
-            }
-        );
+        //         Auth::guard()->login($user);
+        //     }
+        // );
 
-        return $status == Password::PASSWORD_RESET
-                    ? redirect()->route('home')->with('status', __($status))
-                    : back()->withErrors(['email' => [__($status)]]);
+        // return $status == Password::PASSWORD_RESET
+        //     ? redirect()->route('home')->with('status', __($status))
+        //     : back()->withErrors(['email' => [__($status)]]);
+
+
+        $contra = $request->input('password');
+
+        $usuario = $request->input('email');
+
+        $token = $request->input('token');
+
+        $a = User::UserEmail($usuario);
+        $a->setAttribute('password', bcrypt($contra));
+
+        // Añadir la gestión del token
+        $a->forceFill([
+            'remember_token' => $a->reset_token,
+            'reset_token' => null,
+        ])->save();
+
+        return redirect()->route('auth.login')->with('status', ['message' => 'Contraseña restablecida exitosamente. Inicia sesión con tu nueva contraseña.', 'class' => 'success']);
+
+
 
     }
 
-    protected function tokenExpired($createdAt)
+    public function tokenExpired($createdAt)
     {
         $expirationTime = config('auth.passwords.users.expire') * 60;
         $isExpired = strtotime($createdAt) + $expirationTime < now()->timestamp;
 
         Log::info('¿Token expirado? ' . ($isExpired ? 'Sí' : 'No'));
-    
+
         return $isExpired;
+
+
     }
 }
