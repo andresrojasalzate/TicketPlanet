@@ -52,7 +52,12 @@
                   <div class="adrecaFormulario">
 
                     <label for="numeroDireccion">Numero Direccion Codigo Postal Provincia</label>
-                    <input type="text" name="address" id="numeroDireccion">
+                    <input type="text" name="address" list="addresses" id="numeroDireccion">
+                    <datalist id="addresses">
+                            @foreach ($addresses as $address)
+                                <option>{{$address->address}}</option>
+                            @endforeach
+                        </datalist>
 
                 </div>
 
@@ -91,15 +96,24 @@
                     <div class="nombreLocalFormulario">
 
                         <label for="Nombre del local">Nombre del Local</label>
-                        <input class="nombreLocalFormularioInput" type="text" name="name_site" id="nombreLocal">
-
+                        <input class="nombreLocalFormularioInput" type="text" list="nameSites" name="name_site" id="nombreLocal">
+                        <datalist id="nameSites">
+                            @foreach ($nameSites as $nameSite)
+                                <option>{{$nameSite->name_site}}</option>
+                            @endforeach
+                        </datalist>
                     </div>
 
                     <div class="capacidadLocalFormulario">
 
                         <label for="Capacidad del local">Capacidad del local</label>
-                        <input class="capacidadLocalFormularioInput" type="number" name="capacity"
+                        <input class="capacidadLocalFormularioInput" type="number" list="capacitys" name="capacity"
                             id="capacidadLocal">
+                        <datalist id="capacitys">
+                            @foreach ($capacitys as $capacity)
+                                <option>{{$capacity->capacity}}</option>
+                            @endforeach
+                        </datalist>
 
                     </div>
 
@@ -111,7 +125,12 @@
                     <div class="ciudadFormulario">
 
                         <label for="Ciudad">Ciudad</label>
-                        <input class="ciudadFormularioInput" type="text" name="city" id="ciudad">
+                        <input class="ciudadFormularioInput" type="text" list="citys" name="city" id="ciudad">
+                        <datalist id="citys">
+                            @foreach ($citys as $city)
+                                <option>{{$city->city}}</option>
+                            @endforeach
+                        </datalist>
 
                     </div>
                     <div class="fechaFinFormulario">
