@@ -42,6 +42,13 @@ image::Images/Logo.png[Logo principal, width=10%]
 - Creación del Logo de la aplicación y favicon
 
 ==== Andres
+- Diseño de la guia de estilos
+- Configuración del Docker
+- Congiguración de las migraciones 
+- Configuración de los factorys y seeders 
+- Función para mostrar todos los eventos en home
+- Función para el buscador 
+- Configuración del Isard
 
 ==== Adria
 
@@ -53,6 +60,12 @@ image::Images/Logo.png[Logo principal, width=10%]
 - Diseño Mockups pantalla "Restablecer contraseña", versión movil y web, Figma
 - Implementación Funcionalidad Cerrar Sesión.
 - Arreglar CSS de la pantalla Home.
+
+==== Andrés
+- Diseño de mockups para pantalla de movil y web de la nueva pantalla home
+- Creación de la nueva tabla Cateorias y modificación de la base de datos para ajustarse a la nueva tabla
+- Plantilla para las vistas de la web
+- Funcion para mostar las categorias y sus eventos en la nueva pantalla home
 
 === Semana 3
 
