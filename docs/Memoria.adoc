@@ -56,6 +56,13 @@ image::Images/Logo.png[Logo principal, width=10%]
 
 === Semana 3
 
+==== Salma
+- Diseño Mockups pantalla Mostrar info evento, version movil y web, Figma
+- Implementación Funcionalidad Restablecer contraseña
+- Arreglar CSS de varias pantallas.
+- Implementación Mostrar Información del Evento en pantalla "ShowEvent". (Pendiente implementación entradas, etc.).
+- Modificadas migraciones de eventos y sesiones para funcionalidad Crear Eventos.  
+
 === Semana 4
 
 

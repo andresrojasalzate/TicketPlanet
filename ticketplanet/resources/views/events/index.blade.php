@@ -38,7 +38,9 @@
         <div class="event-counter">
             @foreach ($events as $event)
                 <div>
-                    <x-event-component :event="$event" />
+                    
+                        <x-event-component :event="$event" />
+                    
                 </div>
             @endforeach
         </div>

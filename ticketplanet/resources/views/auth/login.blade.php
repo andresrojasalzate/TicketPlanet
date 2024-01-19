@@ -21,9 +21,9 @@
             @if ($errors->has('password'))
                 <span class="passworderror">{{ $errors->first('password') }}</span>
             @endif
-            @if (session('status'))
+            {{-- @if (session('status'))
                 <span class="credenciales">{{ session('status') }}</span>
-            @endif
+            @endif --}}
 
             <form action="{{ route('auth.login') }}" method="post">
                 @csrf
