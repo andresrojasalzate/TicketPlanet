@@ -65,7 +65,7 @@ image::Images/Logo.png[Logo principal, width=10%]
 - Implementación Funcionalidad Cerrar Sesión.
 - Arreglar CSS de la pantalla Home.
 
-==== Andrés
+==== Andres
 - Diseño de mockups para pantalla de movil y web de la nueva pantalla home
 - Creación de la nueva tabla Cateorias y modificación de la base de datos para ajustarse a la nueva tabla
 - Plantilla para las vistas de la web
