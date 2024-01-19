@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Log;
 
 class User extends Authenticatable
 {
@@ -21,6 +23,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'reset_token',
     ];
 
     /**
@@ -42,4 +45,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function scopeUserEmail(Builder $query, string $email)
+    {
+        try {
+            return $query->where('email', $email)->first();
+        } catch (\Exception $e) {
+            Log::error('Error en la función scopeUserEmail en el modelo User', [
+                'email' => $email,
+                'error_message' => $e->getMessage()
+            ]);
+        }
+    }
 }
