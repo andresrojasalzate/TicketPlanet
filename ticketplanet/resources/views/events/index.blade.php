@@ -1,20 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="shortcut icon" href="favicon/logoFavicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-</head>
+@section('title', "Eventos") 
 
-<body>
-    <header>
-        <x-header/>
-    </header>
-    
-    <div class="layout">
+@section('content')
+
+<div class="layout">
     <div class="contenedorBuscador">
       <form class="form-buscador" action="{{ route('events.search') }}" method="post">
         @csrf
@@ -37,8 +27,7 @@
 
         <div class="event-counter">
             @foreach ($events as $event)
-                <div>
-                    
+                <div>             
                         <x-event-component :event="$event" />
                     
                 </div>
@@ -50,11 +39,5 @@
         </div>
 
     </div>
-    
-    <footer>
-        <x-footer/>
-    </footer>
     <script src="{{ asset('js/home.js') }}"></script>
-</body>
-
-</html>
+@endsection
