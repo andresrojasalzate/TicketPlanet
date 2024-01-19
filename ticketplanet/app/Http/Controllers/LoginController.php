@@ -29,7 +29,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) { 
             $request->session()->regenerate(); 
 
-            return redirect()->intended(route('events.index')); 
+            return redirect()->intended(route('links.homePromotors')); 
         }
 
         session()->flash('status','Las credenciales no son correctas!');

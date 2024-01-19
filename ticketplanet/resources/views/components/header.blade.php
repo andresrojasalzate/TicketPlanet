@@ -35,7 +35,7 @@
         <!--Links-->
         <div class="links">
             <ul>
-                <li><a href="{{ route('events.index') }}">Home</a></li>
+                <li><a href="{{ route('home') }}">Home</a></li>
                 <li><a href="{{ route('links.aboutus') }}">Sobre nosotros</a></li>
                 <li><a href="{{ route('links.legalnotice') }}">Avisos legales</a></li>
             </ul>

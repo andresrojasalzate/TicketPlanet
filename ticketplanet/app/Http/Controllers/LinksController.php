@@ -33,7 +33,7 @@ class LinksController extends Controller
       if (Auth::check()) {
         $user = Auth::user();
       }
-      
+
       return view('links.crearEvento')->with([
         'categorias' => Category::all(),
         'addresses' =>  Event::select(['address'])->where('user_id', $user->id)->get(),
@@ -101,7 +101,7 @@ class LinksController extends Controller
         'date' => $request->date,
         'time' => $request->time,
         'maxCapacity' => $request->maxCapacity,
-        'event_id' => $$eventId
+        'event_id' => $eventId
       ]);
       
       return redirect()->route('home');

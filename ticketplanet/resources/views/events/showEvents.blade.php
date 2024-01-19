@@ -15,8 +15,7 @@
             <div class="ubicacion-showEvent">
                 <div class="ubicacion-title-showEvent">
                     <h3>Ubicación</h3>
-                    <img src="{{ asset('images/eventos/iconGoogleMaps.png') }}" alt="Icono de Ubicación" width="15"
-                        height="20">
+                    <img src="{{ asset('images/eventos/iconGoogleMaps.png') }}" alt="Icono de Ubicación" width="15" height="20">
                 </div>
                 <p>{{ $evento->address }}</p>
             </div>
@@ -27,16 +26,16 @@
                 @if ($evento->sessions && count($evento->sessions) > 0)
                     <div class="select-wrapper">
                         <select id="dropdownSesiones" name="sesion">
-                            <option value="" disabled selected>Selecciona un dia...</option>
+                            <option value="" disabled selected>Selecciona un día...</option>
                             @foreach ($evento->sessions as $sesion)
-                                <option value="{{ $sesion->id }}">{{ $sesion->date }}</option>
+                                <option value="{{ $sesion->id }}" data-date="{{ $sesion->date }}">{{ $sesion->date }}</option>
                             @endforeach
                         </select>
                     </div>
 
-                    <ul>
+                    <ul class="card-timeSesion">
                         @foreach ($evento->sessions as $sesion)
-                            <li>{{ $sesion->time }}</li>
+                            <li class="session-time" data-date="{{ $sesion->date }}" style="display: none;">{{ $sesion->time }}</li>
                         @endforeach
                     </ul>
                 @else
@@ -45,4 +44,6 @@
             </div>
         </div>
     </div>
+
+    <script src="{{ asset('js/showEvent.js') }}"></script>
 @endsection
