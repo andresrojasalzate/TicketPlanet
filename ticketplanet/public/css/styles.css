@@ -1279,11 +1279,21 @@ span {
 }
 
 
-.parte3formulario {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 1%;
+.parte3formulario{
+display: flex;
+flex-wrap: wrap;
+margin: 1%;
 }
+.adrecaFormulario{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.layoutHomePromotor{
+  height: 200px; 
+  margin-top:1%;
+}
+
 
 .adrecaFormulario {
     width: 76%;
@@ -1390,30 +1400,24 @@ span {
 }
 
 @media screen and (min-width: 720px) {
-    .div1 {
-        display: flex;
-        flex-wrap: wrap;
-        width: 50%;
-        float: left;
-    }
+.div1{
+display: flex;
+flex-wrap: wrap;
+width: 50%;
+float: left;
+}
+.div2{
+height: 250px;
+width: 50%;
+float: right;
+}
+.parte1formulario{
+width: 76%;
+}
+.parte3formulario{
+width: 76%;
+}
 
-    .div2 {
-        height: 250px;
-        width: 50%;
-        float: right;
-    }
-
-    .parte1formulario {
-        width: 76%;
-    }
-
-    .parte3formulario {
-        width: 76%;
-    }
-
-    .adrecaFormulario {
-        width: 100%;
-    }
 
 }
 
