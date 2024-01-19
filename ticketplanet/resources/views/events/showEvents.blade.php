@@ -24,19 +24,19 @@
             <div class="sesions-showEvent">
                 <h3>Sesiones:</h3>
 
-                @if ($evento->sesiones && count($evento->sesiones) > 0)
+                @if ($evento->sessions && count($evento->sessions) > 0)
                     <div class="select-wrapper">
                         <select id="dropdownSesiones" name="sesion">
-                            <option value="" disabled selected>Selecciona un dia</option>
-                            @foreach ($evento->sesiones as $sesion)
-                                <option value="{{ $sesion->id }}">{{ $sesion->fecha }} - {{ $sesion->hora }}</option>
+                            <option value="" disabled selected>Selecciona un dia...</option>
+                            @foreach ($evento->sessions as $sesion)
+                                <option value="{{ $sesion->id }}">{{ $sesion->date }}</option>
                             @endforeach
                         </select>
                     </div>
 
                     <ul>
-                        @foreach ($evento->sesiones as $sesion)
-                            <li>{{ $sesion->fecha }} - {{ $sesion->hora }}</li>
+                        @foreach ($evento->sessions as $sesion)
+                            <li>{{ $sesion->time }}</li>
                         @endforeach
                     </ul>
                 @else
