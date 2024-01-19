@@ -33,9 +33,7 @@ class LinksController extends Controller
       if (Auth::check()) {
         $user = Auth::user();
       }
-
-      //return Event::select(['name_site'])->where('user_id', $user->id)->get();
-
+      
       return view('links.crearEvento')->with([
         'categorias' => Category::all(),
         'addresses' =>  Event::select(['address'])->where('user_id', $user->id)->get(),
@@ -45,39 +43,6 @@ class LinksController extends Controller
       ]);
      
     }
-
-    /*public function guardarEvento(Request $request)
-    {
-      $nombreLocal = $request->input('nombreLocal');
-      $provincia =  $request->input('provincia');
-      $ciudad = $request->input('ciudad');
-      $codigoPostal = $request->input('codigoPostal');
-
-      if ($request->hasCookie('direcciones')) {
-
-
-        Log::info("se ha encotrado la cookie");
-
-        return json_decode($request->cookie('direcciones'), true);
-
-        //return response('Hello World')->withCookie(Cookie::forget('direccion'));
-
-      } else {
-
-        $direcciones = [
-          'nombreLocal' => [$nombreLocal],
-          'provincia' => [$provincia],
-          'ciudad' => [$ciudad],
-          'codigoPostal' => [$codigoPostal],
-      ];
-
-        //return  $direcciones;
-        Log::info("Se crea la cookie"); 
-        return response('dddd')->withCookie(Cookie::forever('direcciones', json_encode($direcciones)));
-
-      }
-
-    }*/
 
     public function comprarEntradas()
     {
@@ -136,7 +101,7 @@ class LinksController extends Controller
         'date' => $request->date,
         'time' => $request->time,
         'maxCapacity' => $request->maxCapacity,
-        'event_id' => $eventoCrear->id
+        'event_id' => $$eventId
       ]);
       
       return redirect()->route('home');
