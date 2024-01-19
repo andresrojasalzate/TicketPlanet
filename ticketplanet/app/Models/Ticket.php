@@ -14,8 +14,7 @@ class Ticket extends Model
       'name',
       'quantity',
       'price',
-      'nominal',
-      'session_id'
+      'nominal'
     ];
     public function session(): BelongsTo
     {
