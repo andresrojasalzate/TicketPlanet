@@ -85,23 +85,13 @@ class LinksController extends Controller
     }
     public function storeComprarEntradas(Request $request)
     {
-      $quantity;
-      if(empty($request->quantity)){
-        $sesion = Session::find($request->session()->get('sesionId'));
-        $quantity = $sesion->maxCapacity;
-      } else{
-        $quantity = $request->quantity;
-      }
-
       Ticket::create([
         'name' => $request->name,
-        'quantity' => $quantity,
+        'quantity' => $request->quantity,
         'price' => $request->price,
-        'nominal' => $request->nominal,
-        'session_id' => $request->session()->get('sesionId')
-      ]);
+        'nominal' => $request->nominal
 
-      return redirect()->route('links.comprarEntradas');
+      ]);
       
     }
     
@@ -146,12 +136,11 @@ class LinksController extends Controller
         'date' => $request->date,
         'time' => $request->time,
         'maxCapacity' => $request->maxCapacity,
-        'event_id' => $eventId
+        'event_id' => $eventoCrear->id
       ]);
-
-      $request->session()->put('sesionId', $sesionCreada->id);
+      
+      return redirect()->route('home');
     }
-
     public function homePromotors()
     {
       if(Auth()->user()){

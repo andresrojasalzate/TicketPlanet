@@ -13,8 +13,8 @@
     <x-header/>
   </header>
 
-  <form action="{{ route('links.storeComprarEntradas') }}" method="post">
-      @csrf
+  <form action="" method="post">
+
       <div class="contenedorNombreEntradas">
 
         <div class="nombreEntradas">

@@ -21,13 +21,9 @@
             @if ($errors->has('password'))
                 <span class="passworderror">{{ $errors->first('password') }}</span>
             @endif
-            @if (session('status'))
-                @if (session('status')['class'] === 'success')
-                    <span class="credenciales credenciales-success">{{ session('status')['message'] }}</span>
-                @else
-                    <span class="credenciales">{{ session('status')['message'] }}</span>
-                @endif
-            @endif
+            {{-- @if (session('status'))
+                <span class="credenciales">{{ session('status') }}</span>
+            @endif --}}
 
             <form action="{{ route('auth.login') }}" method="post">
                 @csrf
