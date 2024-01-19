@@ -299,6 +299,11 @@ span {
     text-overflow: ellipsis;
 }
 
+.show-event-home a{
+    color: #000000;
+    text-decoration: none;
+}
+
 .elementsEvents {
     display: flex;
     flex-direction: column;
@@ -830,7 +835,7 @@ span {
 .ubicacion-title-showEvent {
     display: flex;
     align-items: center;
-    width: 100%;
+    
 }
 
 .ubicacion-title-showEvent img {
@@ -843,18 +848,13 @@ span {
     margin: 0;
 }
 
-.sesions-showEvent {
-    width: 100%;
-}
-
 .select-wrapper {
     position: relative;
-    width: 80%;
     margin-top: 5px;
 }
 
 .select-wrapper select {
-    width: 100%;
+    width: 80%;
     height: 2vw;
 }
 
