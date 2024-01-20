@@ -31,7 +31,11 @@ class LinksController extends Controller
     public function crearEvento()
     {
       if (Auth::check()) {
+
         $user = Auth::user();
+
+      }else{
+        return redirect()->route('auth.login');
       }
 
       return view('links.crearEvento')->with([
@@ -75,6 +79,19 @@ class LinksController extends Controller
     private function guardarEvento(Request $request){
 
       $user = Auth::user();
+      
+      $request->validate([
+        'name' => 'required',
+        'address' => 'required',
+        'city' => 'required',
+        'name_site' => 'required',
+        'image' => 'required',
+        'description' => 'required',
+        'finishDate' => 'required',
+        'finishTime' => 'required',
+        'visible' => 'required',
+        'capacity' => 'required'
+      ]);
 
       $eventoCrear = Event::create([
         'name' => $request->name,
@@ -82,20 +99,26 @@ class LinksController extends Controller
         'city' => $request->city,
         'name_site' => $request->name_site,
         'site' => $request->site,
-        'image' => $request->image,
+        'imagen' => $request->file("image"),
         'description' => $request->description,
         'finishDate' => $request->finishDate,
         'finishTime' => $request->finishTime,
         'visible' => $request->visible,
         'capacity' => $request->capacity,
         'category_id' => $request->categoria,
-        'user_id' => $user->id
+        'user_id' => $user->id,
       ]);
 
       return $eventoCrear->id;
     }
 
     private function crearSesion(Request $request, $eventId){
+
+      $request->validate([
+        'date' => 'required',
+        'time' => 'required',
+        'maxCapacity' => 'required'
+      ]);
 
       $sesionCreada = Session::create([
         'date' => $request->date,
