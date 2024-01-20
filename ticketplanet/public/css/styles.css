@@ -6,7 +6,7 @@ body {
 }
 
 .nav {
-    width: 100%;
+    
     height: 110px;
     background-color: #0642F9;
     display: grid;
@@ -824,6 +824,10 @@ span {
     height: 20%;
 }
 
+.img-showEvent img{
+    width: 100%;
+}
+
 .info-showEvent {
     flex: 1;
     font-family: 'Work Sans';
@@ -1244,7 +1248,6 @@ span {
     .card-timeSesion .session-time {
         background-color: #F9BD06;
         border-radius: 7px;
-        cursor: pointer;
         margin-bottom: 5px;
     }
 

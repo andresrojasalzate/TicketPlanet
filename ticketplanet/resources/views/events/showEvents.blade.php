@@ -5,7 +5,7 @@
 @section('content')
     <div class="card-showEvent">
         <div class="img-showEvent">
-            <img src="{{ asset('images/eventos/festival.jpg') }}" alt="" width="100%">
+            <img src="{{ asset('images/eventos/festival.jpg') }}" alt="">
         </div>
         <div class="info-showEvent">
             <h2>{{ $evento->name }}</h2>
