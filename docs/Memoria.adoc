@@ -99,36 +99,82 @@ image::Images/Logo.png[Logo principal, width=10%]
 
 [plantuml,,png]
 ----
-class Eventos{
-id: int
-nombre: string
-imagen: string
-precio: float               
-idCategoria: int
-idRecinto: int         
+class Users {
+  +id: int
+  name: string
+  email: string
+  email_verified_at: timestamp
+  password: string
+  reset_token: string
+  remember_token: string
+  created_at: timestamp
+  updated_at: timestamp
 }
 
-class Categoria{
-idCategoria: int                      
-nombre: string  
+class FailedJobs {
+  +id: int
+  uuid: string
+  connection: text
+  queue: text
+  payload: longtext
+  exception: longtext
+  failed_at: timestamp
 }
 
-class Sesion{
-idSesion: int   
-fecha: Date
-hora: Time
+class Categories {
+  +id: int
+  created_at: timestamp
+  updated_at: timestamp
+  name: string
 }
 
-class Recinto{
-idRecinto: int      
-nombre: string
-dirección: string
-capacidad: int
-}   
+class Events {
+  +id: int
+  created_at: timestamp
+  updated_at: timestamp
+  name: string
+  address: string
+  city: string
+  name_site: string
+  category_id: int
+  image: string
+  description: string
+  finishDate: date
+  finishTime: time
+  visible: boolean
+  capacity: int
+  user_id: int
+}
 
-Eventos "0...n" -- "1" Categoria
-Eventos "0...n" -- "1" Recinto  
-Eventos "1" - "1...n" Sesion 
+class Sessions {
+  +id: int
+  created_at: timestamp
+  updated_at: timestamp
+  date: date
+  time: time
+  maxCapacity: int
+  event_id: int
+}
+
+class Tickets {
+  +id: int
+  created_at: timestamp
+  updated_at: timestamp
+  name: string
+  quantity: int
+  price: double
+  nominal: boolean
+  session_id: int
+}
+
+Users "1" -- "0...n" Events
+Events "1" -- "0...n" Sessions : event_id
+Categories "1" -- "0...n" Events
+Events "1" -- "1" Users : user_id
+Sessions "1" -- "0...n" Tickets : session_id
+Events "0...n" -- "1" Categories : category_id
+Events "0...n" -- "1" Users : user_id
+Tickets "1" -- "0...n" Sessions : session_id
 ----
 
 === Interfícies
