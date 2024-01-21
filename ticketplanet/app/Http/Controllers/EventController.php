@@ -17,7 +17,15 @@ class EventController extends Controller
        
         $busqueda = $request->input('busqueda');
         $categoria =  $request->input('category');
-       
+        
+        if($busqueda !== null){
+            $request->session()->put('busqueda', $busqueda);
+            $request->session()->put('category', $categoria);
+        }else if($request->session()->get('busqueda') !== null && $busqueda !== null){
+            $categoria = $request->session()->get('category'); 
+            $busqueda = $request->session()->get('busqueda'); 
+        }
+
         return view('events.index')->with([
         'events' => Event::eventosBuscados($busqueda, $categoria),
         'categories' => Category::all()
@@ -25,7 +33,14 @@ class EventController extends Controller
     }
 
     public function category(Request $request){
-        $categoria =  $request->input('category');
+        $categoria = $request->input('category');
+        if(isset($categoria)){
+            $request->session()->put('categoria', $categoria);
+        }else{
+            $categoria = $request->session()->get('categoria'); 
+            $request->session()->forget('categoria');
+        }
+
         return view('events.index')->with([
             'events' => Event::where('category_id', $categoria)->with('sessions')->paginate(env('PAGINATION_LIMIT')),
             'categories' => Category::all()
