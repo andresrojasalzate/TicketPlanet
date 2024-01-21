@@ -483,27 +483,28 @@ span {
     flex-direction: column;
     margin-left: 3%;
     margin-top: 3%;
+    margin-right: 3%;
 }
 
-.category-home>p {
+.category-home > p {
     margin: 0;
     padding: 0;
-    margin-left: 2%;
     color: #0642F9;
     font-family: 'Work Sans';
     font-size: 4rem;
+    margin-bottom: 2%;
 }
 
 .events-category-home {
     display: flex;
     flex-direction: row;
     overflow-x: auto;
-    align-items: center;
-    width: 190vh;
+    align-items: center;   
 }
 
 .events-category-home > div {
     margin-right: 5%;
+    margin-bottom: 2%;
 }
 
 .events-category-home>button {
@@ -767,7 +768,8 @@ span {
 
 .ver-mas-button {
     align-self: self-end;
-    margin-right: 4%;
+    margin-top: 2%;
+    margin-bottom: 1%;
 }
 
 .titulo-sessions-promotor {
