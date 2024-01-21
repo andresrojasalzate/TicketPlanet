@@ -5,7 +5,7 @@
 @section('content')
 
     <div class="layout-home">
-      <x-buscador/>
+      <x-buscador :categories="$categories"/>
       @foreach ($categories as $category)
         <x-mostrar-categoria-component :nombreCategoria="$category->name" :events="$category->events" :categoryId="$category->id"/>
       @endforeach
