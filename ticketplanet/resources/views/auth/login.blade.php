@@ -35,7 +35,7 @@
                     <label>Contraseña</label>
                     <input type="password" name="password" id="passwordInput" value="" maxlength="20">
                     <div class="toggle-password" onclick="togglePasswordVisibility()">
-                        <img src="{{ asset('images/login/ojono.png') }}" alt="Toggle Password Visibility" id="eyeIcon">
+                        <img src="{{ asset('images/login/ojono.png') }}" alt="Toggle Password Visibility" id="eyeIcon" width="60">
                     </div>
                 </div>
                 <p class="olvidadoContra"><a href="{{ route('password.request') }}">¿Has olvidado tu contraseña?</a></p>
