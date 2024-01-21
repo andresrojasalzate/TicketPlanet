@@ -99,82 +99,70 @@ image::Images/Logo.png[Logo principal, width=10%]
 
 [plantuml,,png]
 ----
-class Users {
-  +id: int
-  name: string
-  email: string
-  email_verified_at: timestamp
-  password: string
-  reset_token: string
-  remember_token: string
-  created_at: timestamp
-  updated_at: timestamp
+
+class events{
+id: int 
+created_at: Timestamp
+updated_at: Timestamp
+name: string
+description: string
+address: string
+imagen: string   
+city: string
+name_site: string  
+finishDate: Date
+finishTime: Time
+visible: boolean
+capacity: int
+category_id: int
+user_id: int     
 }
 
-class FailedJobs {
-  +id: int
-  uuid: string
-  connection: text
-  queue: text
-  payload: longtext
-  exception: longtext
-  failed_at: timestamp
+class categories{
+id: int                      
+name: string
+created_at: Timestamp
+updated_at: Timestamp
 }
 
-class Categories {
-  +id: int
-  created_at: timestamp
-  updated_at: timestamp
-  name: string
+class sessions{
+id: int  
+created_at: Timestamp
+updated_at: Timestamp
+date: Date
+time: Time
+maxCapacity: int
+event_id: int
 }
 
-class Events {
-  +id: int
-  created_at: timestamp
-  updated_at: timestamp
-  name: string
-  address: string
-  city: string
-  name_site: string
-  category_id: int
-  image: string
-  description: string
-  finishDate: date
-  finishTime: time
-  visible: boolean
-  capacity: int
-  user_id: int
-}
+class tickets{
+id: int      
+created_at: Timestamp
+updated_at: Timestamp
+name: string
+quantity: int
+price: int
+nominal: boolean
+session_id: int
+}   
 
-class Sessions {
-  +id: int
-  created_at: timestamp
-  updated_at: timestamp
-  date: date
-  time: time
-  maxCapacity: int
-  event_id: int
-}
+class users{
+id: int      
+created_at: Timestamp
+updated_at: Timestamp
+name: string
+email: string
+email_verified_at: Timestamp
+password: string
+reset_token: string
+remember_token: string
+} 
 
-class Tickets {
-  +id: int
-  created_at: timestamp
-  updated_at: timestamp
-  name: string
-  quantity: int
-  price: double
-  nominal: boolean
-  session_id: int
-}
 
-Users "1" -- "0...n" Events
-Events "1" -- "0...n" Sessions : event_id
-Categories "1" -- "0...n" Events
-Events "1" -- "1" Users : user_id
-Sessions "1" -- "0...n" Tickets : session_id
-Events "0...n" -- "1" Categories : category_id
-Events "0...n" -- "1" Users : user_id
-Tickets "1" -- "0...n" Sessions : session_id
+events "0...n" -- "1" categories 
+events "1" -- "1" users 
+events "1" -- "0...n" sessions
+sessions "1" -- "0...n" tickets 
 ----
 
 === Interfícies
