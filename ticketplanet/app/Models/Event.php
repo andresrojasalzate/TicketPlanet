@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\Log;
 
 class Event extends Model
 {
@@ -44,20 +45,22 @@ class Event extends Model
     *
     * @return Event[] Colección de eventos que coinciden con los criterios de búsqueda.
     */
-    public static function eventosBuscados(string $inputText, string $category = null){
-        $eventos = Event::where(function($query) use ($inputText) {
-            $query->whereRaw('lower(unaccent(name)) LIKE unaccent(?)', [trim(strtolower($inputText)).'%'])
-                ->orWhereRaw('lower(unaccent(city)) LIKE unaccent(?)', [trim(strtolower($inputText)).'%'])
-                ->orWhereRaw('lower(unaccent(name_site)) LIKE unaccent(?)', [trim(strtolower($inputText)).'%']);
-        });
-        
-        if(isset($category)){
+    public static function eventosBuscados(string $inputText = null, string $category = null){
+        if(isset($inputText)){
+            $eventos = Event::where(function($query) use ($inputText) {
+                $query->whereRaw('lower(unaccent(name)) LIKE unaccent(?)', [trim(strtolower($inputText)).'%'])
+                    ->orWhereRaw('lower(unaccent(city)) LIKE unaccent(?)', [trim(strtolower($inputText)).'%'])
+                    ->orWhereRaw('lower(unaccent(name_site)) LIKE unaccent(?)', [trim(strtolower($inputText)).'%']);
+            });
             
-            $eventos = $eventos->where('category', $category);
+            if(isset($category)){     
+                $eventos = $eventos->where('category_id', $category);
+            }
+        
+            return $eventos->paginate(env('PAGINATION_LIMIT'));
+        }else{
+            return null;
         }
-
-        $eventos = $eventos->with('sessions')->paginate(env('PAGINATION_LIMIT'));
-        return $eventos;
     }
 
 }
