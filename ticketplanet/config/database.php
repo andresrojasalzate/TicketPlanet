@@ -93,6 +93,19 @@ return [
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
 
+        'testbench' => [
+            'driver' => 'mysql', // Puedes ajustar esto según tu preferencia
+            'host' => env('DB_TEST_HOST', '127.0.0.1'),
+            'port' => env('DB_TEST_PORT', '3306'),
+            'database' => env('DB_TEST_DATABASE', 'ticketplanet_test'),
+            'username' => env('DB_TEST_USERNAME', 'usuario'),
+            'password' => env('DB_TEST_PASSWORD', '1234'),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+        ],
+
     ],
 
     /*
