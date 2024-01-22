@@ -24,5 +24,10 @@ class DatabaseSeeder extends Seeder
         $user2=\App\Models\User::create(['name'=>'promotor2','email'=>'promotor2@test.com','password'=>'p2345678']); 
         $this->command->info("Creat usuari de proves $user->name, $user->email, p12345678 ");
         $this->command->info("Creat usuari de proves $user2->name, $user2->email, p2345678 ");
+
+        $this->call(CategorySeeder::class);
+        $this->call(EventSeeder::class);
+        $this->call(SessionSeeder::class);
+        $this->call(TicketSeeder::class);
     }
 }
