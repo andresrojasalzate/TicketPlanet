@@ -26,6 +26,15 @@ class EventController extends Controller
             $busqueda = $request->session()->get('busqueda'); 
         }
 
+        
+        if($busqueda !== null){
+            $request->session()->put('busqueda', $busqueda);
+            $request->session()->put('category', $categoria);
+        }else if($request->session()->get('busqueda') !== null && $busqueda !== null){
+            $categoria = $request->session()->get('category'); 
+            $busqueda = $request->session()->get('busqueda'); 
+        }
+
         return view('events.index')->with([
         'events' => Event::eventosBuscados($busqueda, $categoria),
         'categories' => Category::all()
@@ -38,7 +47,6 @@ class EventController extends Controller
             $request->session()->put('categoria', $categoria);
         }else{
             $categoria = $request->session()->get('categoria'); 
-            $request->session()->forget('categoria');
         }
 
         return view('events.index')->with([
