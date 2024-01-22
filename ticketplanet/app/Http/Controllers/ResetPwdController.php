@@ -24,7 +24,7 @@ class ResetPwdController extends Controller
         // Verifica si el token ha expirado
         $tokenData = DB::table('users')->where('reset_token', $token)->first();
 
-        if (!$tokenData || $this->tokenExpired($tokenData->created_at)) {
+        if (!$tokenData || $this->tokenExpired($tokenData->reset_token_created_at)) {
             return view('auth.expired'); // Nombre de la vista para el enlace expirado
         }
 
@@ -106,6 +106,15 @@ class ResetPwdController extends Controller
 
         $user = User::UserEmail($usuario);
 
+        // Verifica si el token ha expirado por tiempo
+        if ($this->tokenExpired($user->reset_token_created_at)) {
+            // Si ha pasado 1 hora o más, establece reset_token_created_at a null
+            $user->reset_token_created_at = null;
+            $user->save();
+
+            return redirect()->route('auth.expired');
+        }
+
         // Actualiza la contraseña y restablece el token
         $user->fill([
             'password' => bcrypt($contra),
@@ -127,6 +136,7 @@ class ResetPwdController extends Controller
         $isExpired = strtotime($tokenCreatedAt) + $expirationTime < now()->timestamp;
 
         Log::info('¿Token expirado? ' . ($isExpired ? 'Sí' : 'No'));
+        Log::info($expirationTime);
 
         return $isExpired;
     }
