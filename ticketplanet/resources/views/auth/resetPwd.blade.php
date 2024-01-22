@@ -26,31 +26,28 @@
 
             <div class="correoLogin">
                 <label for="email">{{ __('Correo electrónico') }}</label>
-                <div class="correoLogin">
+                <div class="contraLoginInput">
                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
                         name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
                 </div>
             </div>
             <div class="contraLogin">
-                <label for="password">{{ __('Nueva contraseña') }}</label>
-                <div class="contraLogin">
+                <label class="password" for="password">{{ __('Nueva contraseña') }}</label>
+                <div class="contraLoginInput">
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
                         name="password" required autocomplete="new-password">
                 </div>
             </div>
             <div class="contraLogin">
-                <label for="password-confirm">{{ __('Vuelve a escribir la contraseña') }}</label>
-                <div class="contraLogin">
+                <label class="password" for="password-confirm">{{ __('Vuelve a escribir la contraseña') }}</label>
+                <div class="contraLoginInput">
                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
                         required autocomplete="new-password">
                 </div>
             </div>
             <div>
-                <div>
-                    <input type="submit" class="btnResetSesion" value="Guardar">
-                </div>
+                <input type="submit" class="btnResetSesion" value="Guardar">
             </div>
-            
         </form>
     </div>
 </div>
