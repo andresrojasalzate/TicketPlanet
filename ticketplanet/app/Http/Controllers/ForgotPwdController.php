@@ -35,17 +35,26 @@ class ForgotPwdController extends Controller
 
             Log::info('Token generado: ' . $token);
 
-            $user->update(['reset_token' => $token]);
+            //$user->update(['reset_token' => $token]);
+            //$user->update(['reset_token' => $token, 'reset_token_created_at' => now()]);
+            
+            // Actualiza el usuario con el token y la fecha de creación
+            $user->update([
+                'reset_token' => $token,
+                'reset_token_created_at' => now(),
+            ]);
+
 
             // Envía el correo
             Mail::to($user->email)->send(new ResetPasswordMail($user, $token));
 
             Log::info('Correo de restablecimiento enviado a: ' . $user->email);
 
-            return back()->with('status', '¡Enlace de restablecimiento de contraseña enviado con éxito!');
+            //return back()->with('status', '¡Enlace de restablecimiento de contraseña enviado con éxito!');
         }
 
-        return back()->withErrors(['email' => 'Usuario no encontrado']);
+        return back()->with('status', '¡Enlace de restablecimiento de contraseña enviado con éxito!');
+        ;
     }
 
     public function validateEmail(Request $request)

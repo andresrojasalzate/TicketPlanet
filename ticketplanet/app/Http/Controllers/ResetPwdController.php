@@ -80,36 +80,54 @@ class ResetPwdController extends Controller
         //     : back()->withErrors(['email' => [__($status)]]);
 
 
+        // $contra = $request->input('password');
+
+        // $usuario = $request->input('email');
+
+        // $token = $request->input('token');
+
+        // $a = User::UserEmail($usuario);
+        // $a->setAttribute('password', bcrypt($contra));
+
+        // // Añadir la gestión del token
+        // $a->forceFill([
+        //     'remember_token' => $a->reset_token,
+        //     'reset_token' => null,
+        //     'reset_token_created_at' => now(),
+        // ])->save();
+
+        // return redirect()->route('auth.login')->with('status', ['message' => 'Contraseña restablecida exitosamente. Inicia sesión con tu nueva contraseña.', 'class' => 'success']);
+
+
+
         $contra = $request->input('password');
-
         $usuario = $request->input('email');
-
         $token = $request->input('token');
 
-        $a = User::UserEmail($usuario);
-        $a->setAttribute('password', bcrypt($contra));
+        $user = User::UserEmail($usuario);
 
-        // Añadir la gestión del token
-        $a->forceFill([
-            'remember_token' => $a->reset_token,
+        // Actualiza la contraseña y restablece el token
+        $user->fill([
+            'password' => bcrypt($contra),
+            'remember_token' => $user->reset_token,
             'reset_token' => null,
+            'reset_token_created_at' => null,
         ])->save();
 
-        return redirect()->route('auth.login')->with('status', ['message' => 'Contraseña restablecida exitosamente. Inicia sesión con tu nueva contraseña.', 'class' => 'success']);
-
-
+        return redirect()->route('auth.login')->with('status', [
+            'message' => 'Contraseña restablecida exitosamente. Inicia sesión con tu nueva contraseña.',
+            'class' => 'success'
+        ]);
 
     }
 
-    public function tokenExpired($createdAt)
+    public function tokenExpired($tokenCreatedAt)
     {
         $expirationTime = config('auth.passwords.users.expire') * 60;
-        $isExpired = strtotime($createdAt) + $expirationTime < now()->timestamp;
+        $isExpired = strtotime($tokenCreatedAt) + $expirationTime < now()->timestamp;
 
         Log::info('¿Token expirado? ' . ($isExpired ? 'Sí' : 'No'));
 
         return $isExpired;
-
-
     }
 }
