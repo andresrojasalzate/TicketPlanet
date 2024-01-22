@@ -14,7 +14,7 @@
         <x-header />
     </header>
     <div class="contenedorLayout">
-        <form action="{{ route('links.store') }}" method="post">
+        <form action="{{ route('links.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="div1">
                 <div class="parte1formulario">

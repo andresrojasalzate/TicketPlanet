@@ -38,7 +38,6 @@ class EventController extends Controller
             $request->session()->put('categoria', $categoria);
         }else{
             $categoria = $request->session()->get('categoria'); 
-            $request->session()->forget('categoria');
         }
 
         return view('events.index')->with([
