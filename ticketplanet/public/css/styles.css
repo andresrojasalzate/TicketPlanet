@@ -6,8 +6,7 @@ body {
 }
 
 .nav {
-    
-    height: 110px;
+    padding: 0.8vh;
     background-color: #0642F9;
     display: grid;
     grid-template-columns: 0.5fr 0.5fr 4fr 0.5fr;
@@ -222,40 +221,47 @@ span {
 
 .linksFooter {
     display: grid;
-    grid-template-rows: repeat(3, 1fr);
-    grid-template-columns: repeat(2, 0.5fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     text-align: center;
-    background-color: #424242;
     position: static;
-    width: 100%;
+    width: 100vw;
     bottom: 0;
 }
 
+.linksFooter a {
+    color: #000000;
+}
+
 .item-1 {
-    grid-row: 2/1;
-    /*Home Promotor*/
+    grid-row: 1/2;
+    grid-column: 1/2;
+    /* Home Promotor */
 }
 
 .item-2 {
-    grid-row: 2/3;
-    /*Sobre nosaltres*/
+    grid-row: 1/2;
+    grid-column: 2/3;
+    /* Sobre nosaltres */
 }
 
 .item-3 {
-    grid-row: 3/3;
-    /*Avisos legales*/
+    grid-row: 1/2;
+    grid-column: 3/4;
+    /* Avisos legales */
 }
 
 .item-4 {
-    grid-row: 1/1;
-    /*Mostrar Esdeveniments*/
+    grid-row: 2/3;
+    grid-column: 1/2;
+    /* Mostrar Esdeveniments */
 }
 
 .item-5 {
     grid-row: 2/3;
-    /*Comprar entrades*/
+    grid-column: 2/3;
+    /* Comprar entrades */
 }
-
 
 /*Eventos*/
 .event-counter {
@@ -518,7 +524,7 @@ span {
     display: grid;
     grid-template-columns: 1fr;
     background-color: #D9D9D9;
-    margin: 3% auto;
+    margin: 4.5% auto;
     padding: 2.5%;
     font-family: 'Work Sans';
     border: 0.188rem solid #0642F9;
@@ -526,19 +532,11 @@ span {
     width: 65vw;
 }
 
-.card-reset {
-    width: 100%;
-    height: 100%;
-
-}
 
 .card-form-reset {
-    width: 45%;
-    height: 55%;
-    display: flex;
-    flex-direction: column;
+    width: 40%;
     background-color: #D9D9D9;
-    margin: 3% auto;
+    margin: 2% auto;
     padding: 1% 2%;
     font-family: 'Work Sans';
     border: 0.188rem solid;
@@ -547,10 +545,7 @@ span {
 }
 
 .card-expired {
-    width: 30%;
-    height: 20%;
-    display: flex;
-    flex-direction: column;
+    width: 32%;
     background-color: #D9D9D9;
     margin: 3% auto;
     padding: 1% 2%;
@@ -588,6 +583,10 @@ span {
     color: #0642F9;
 }
 
+.contraLogin,
+.correoLogin{
+    margin-top: 1rem;
+}
 
 .correoLogin span,
 .contraLogin span,
@@ -606,6 +605,8 @@ span {
 .contraLogin label {
     font-size: 1.5rem;
 }
+
+
 
 .correoLogin input,
 .contraLogin input {
@@ -657,16 +658,15 @@ span {
 }
 
 .btnResetSesion {
-    width: 20%;
-    height: 25%;
     border-radius: 7px;
     background-color: #F9BD06;
     border-color: #0642F9;
-    margin-top: 2%;
+    margin-top: 3%;
     margin-left: auto;
     margin-right: auto;
     display: block;
     font-size: 1.2rem;
+    padding: 2vh;
     cursor: pointer;
 }
 
@@ -678,22 +678,24 @@ span {
 
 /*RESET PASSWORD*/
 .resetPwd {
-    width: 50%;
-    height: 58%;
-    display: flex;
-    flex-direction: column;
+    width: 65vw;
+    display: grid;
+    grid-template-columns: 1fr;
     background-color: #D9D9D9;
-    margin: 3% auto;
-    padding: 1% 2%;
+    margin: 4.5% auto;
+    padding: 2.5%;
     font-family: 'Work Sans';
     border: 0.188rem solid;
     border-color: #0642F9;
     border-radius: 0.313rem;
 }
 
+
+
 .titleResetPwd {
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
     font-size: 2.25rem;
     font-weight: bold;
@@ -716,17 +718,15 @@ span {
 
 .correoReset input {
     width: 100%;
-    height: 22%;
+    padding: 2vh;
     font-size: 1rem;
-    padding: 0% 1%;
     margin-top: 0.313rem;
 }
 
 
 .volverInicioSesion {
     text-align: left;
-    margin: 0;
-    margin-top: 10%;
+    margin-top: 1rem;
     font-size: 1.25rem;
 }
 
@@ -736,12 +736,11 @@ span {
 }
 
 .btnResetPwd {
-    width: 20%;
-    height: 25%;
+    padding: 2vh;
     border-radius: 7px;
     background-color: #F9BD06;
     border-color: #0642F9;
-    margin-top: 4%;
+    margin-top: 2.5%;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -792,7 +791,8 @@ span {
 }
 
 .resetPwdExito,
-.credenciales-success {
+.credenciales-success,
+.success {
     color: green;
 }
 
@@ -870,7 +870,8 @@ span {
     color: #0642F9;
     font-size: 40px;
     text-align: center;
-    height: 36.3vh;
+    justify-content: center;
+    padding: 19vh;
 }
 
 
@@ -884,7 +885,7 @@ span {
         text-align: center;
         justify-items: end;
         align-items: stretch;
-        height: 110px;
+        padding: 0.8vh;
     }
 
 
@@ -906,9 +907,7 @@ span {
 
     /*footer*/
     .footer {
-        width: 100%;
-        height: 120px;
-        
+        padding: 0.1vh;
     }
 
     .logo {
@@ -921,6 +920,7 @@ span {
     }
 
     .linksFooter {
+        width: 100vw;
         display: none;
     }
 
@@ -1030,10 +1030,7 @@ span {
 
     /*Login*/
     .login {
-        width: 95%;
-        height: 70%;
-        display: flex;
-        flex-direction: column;
+        width: 90vw;
         background-color: transparent;
         border: transparent;
         font-family: 'Work Sans';
@@ -1042,17 +1039,12 @@ span {
     .titleLogin {
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
         align-items: center;
         font-size: 2rem;
         font-weight: bold;
         margin: 0;
     }
-
-    .titleLogin img {
-        width: 18%;
-        height: 70%;
-    }
-
 
     .accede p {
         font-size: 1.5rem;
@@ -1094,22 +1086,19 @@ span {
 
     .correoLogin input,
     .contraLogin input {
+        position: relative;
         width: 100%;
-        height: 22%;
+        padding: 2vh;
         font-size: 1rem;
     }
 
     .toggle-password {
         position: absolute;
-        width: auto;
-        transform: translateY(-130%);
+        transform: translateY(-120%);
+        right: 9%;
     }
 
-    .toggle-password img {
-        width: 30%;
-        height: 20%;
-        margin-left: 210%;
-    }
+    
 
     .olvidadoContra {
         text-align: right;
@@ -1119,14 +1108,13 @@ span {
     }
 
     .btnIniciaSesion {
-        width: 40%;
-        height: 25%;
         border-radius: 7px;
         background-color: #F9BD06;
         border-color: #0642F9;
         margin-top: 10%;
         margin-left: auto;
         margin-right: auto;
+        padding: 2vh;
         display: block;
         font-size: 1.2rem;
     }
@@ -1167,7 +1155,7 @@ span {
 
     .correoReset input {
         width: 100%;
-        height: 27%;
+        padding: 2vh;
         font-size: 1rem;
     }
 
@@ -1254,6 +1242,25 @@ span {
         justify-items: center;
         grid-gap: 10px;
         align-items: center;
+    }
+
+    /*RESTABLECER CONTRASEÑA FORM*/
+    .card-form-reset {
+        width: 80vw;
+        background-color: #D9D9D9;
+        margin: 2% auto;
+        padding: 1% 2%;
+        font-family: 'Work Sans';
+        border: 0.188rem solid;
+        border-color: #0642F9;
+        border-radius: 0.313rem;
+    }
+
+    .card-expired {
+        width: 65vw;
+        margin: 3% auto;
+        padding: 1% 2%;
+
     }
 
 
