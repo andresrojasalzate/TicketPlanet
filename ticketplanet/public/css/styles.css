@@ -269,7 +269,8 @@ span {
 .show-event-home {
     max-width: 30vh;
     min-width: 30vh;
-    min-height: 45vh;
+    min-height: 50vh;
+    max-height: 50vh;
     background-color: #ebebeb;
     margin: auto;
     margin-bottom: 5%;
