@@ -19,7 +19,7 @@ class EventSeeder extends Seeder
 
         if ($this->command->confirm('Quieres crear sessiones para los eventos?', true)) {
             $sessionsNum = max((int) $this->command->ask('Introduce la cantidad de sessiones que quieres crear para cada evento', 2), 1);
-            Event::factory()->count($eventsNum)->has(Session::factory(SessionEventFactory::class)->count($sessionsNum)->has(Ticket::factory->count(1)))->create();
+            Event::factory()->count($eventsNum)->has(Session::factory(SessionEventFactory::class)->count($sessionsNum)->has(Ticket::factory()->count(1)))->create();
             $this->command->info("Se han creado $eventsNum eventos con $sessionsNum sessiones cada uno");
         } else{
             Event::factory()->count($eventsNum)->create();
