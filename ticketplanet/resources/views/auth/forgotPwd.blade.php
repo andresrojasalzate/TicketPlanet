@@ -17,6 +17,7 @@
                 <div class="resetPwdExito" >
                     {{ session('status') }}
                 </div>
+                <script src="{{ asset('js/forgotPwd.js') }}"></script>
             @endif
 
             @if ($errors->has('email'))
