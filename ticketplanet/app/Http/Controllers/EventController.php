@@ -17,11 +17,11 @@ class EventController extends Controller
        
         $busqueda = $request->input('busqueda');
         $categoria =  $request->input('category');
-        
+
         if($busqueda !== null){
-            $request->session()->put('busqueda', $busqueda);
-            $request->session()->put('category', $categoria);
-        }else if($request->session()->get('busqueda') !== null && $busqueda !== null){
+            session(['busqueda' => $busqueda]);
+            session(['category' => $categoria]);
+        }else if($request->has('page')){
             $categoria = $request->session()->get('category'); 
             $busqueda = $request->session()->get('busqueda'); 
         }
@@ -44,7 +44,7 @@ class EventController extends Controller
     public function category(Request $request){
         $categoria = $request->input('category');
         if(isset($categoria)){
-            $request->session()->put('categoria', $categoria);
+            session(['categoria' => $categoria]);
         }else{
             $categoria = $request->session()->get('categoria'); 
         }
