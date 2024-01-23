@@ -100,7 +100,7 @@ class LinksController extends Controller
         'finishDate' => 'required',
         'finishTime' => 'required',
         'visible' => 'required',
-        'capacity' => 'required'
+        'capacity' => 'required|min:1'
       ]);                           
 
       $foto = $request->file('image');
@@ -133,7 +133,7 @@ class LinksController extends Controller
       $request->validate([
         'date' => 'required',
         'time' => 'required',
-        'maxCapacity' => 'required'
+        'maxCapacity' => 'required|lte:capacity'
       ]);
 
       $sesionCreada = Session::create([
