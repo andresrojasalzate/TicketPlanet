@@ -30,19 +30,13 @@
 
         <!--Contenido header-->
         <!--Logo-->
-        <img src="{{ asset('images/logo.jpg') }}" alt="Logo" width="100">
+        <img src="{{ asset('images/logo.jpg') }}" alt="Logo" class="logoNav">
 
-        <!--Links-->
-        <div class="links">
-            <ul>
-                <li><a href="{{ route('home') }}">Home</a></li>
-                <li><a href="{{ route('links.aboutus') }}">Sobre nosotros</a></li>
-                <li><a href="{{ route('links.legalnotice') }}">Avisos legales</a></li>
-            </ul>
+        <div>
+            <!--Contenido vacio para la parte central del header-->
         </div>
 
         <!--Login-->
-
         <div class="auth @yield('hide')">
             <img src="{{ asset('images/usuario.png') }}" alt="User">
             @guest
@@ -60,28 +54,5 @@
         <hr class="separator">
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var menuIcon = document.getElementById('menuIcon');
-            var dropdownContent = document.querySelector('.dropdown-content');
-
-            menuIcon.addEventListener('click', function() {
-                // Alternar la visibilidad del menú desplegable al hacer clic en el icono
-                dropdownContent.style.display = (dropdownContent.style.display === 'none' || dropdownContent
-                    .style.display === '') ? 'block' : 'none';
-
-                // Alternar la clase que deshabilita la interacción y el scroll
-                document.body.classList.toggle('disable-interaction');
-            });
-
-            // Opcional: cerrar el menú desplegable al hacer clic fuera de él
-            document.addEventListener('click', function(event) {
-                if (!menuIcon.contains(event.target) && !dropdownContent.contains(event.target)) {
-                    dropdownContent.style.display = 'none';
-                    // Remover la clase que deshabilita la interacción y el scroll al cerrar el menú
-                    document.body.classList.remove('disable-interaction');
-                }
-            });
-        });
-    </script>
+    <script src="{{ asset('js/header.js') }}"></script>
 </nav>

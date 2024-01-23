@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
+use App\Models\Category;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Event>
@@ -15,19 +17,24 @@ class EventFactory extends Factory
      * @return array<string, mixed>
      */
     public function definition(): array
-    {
+    {   
+
+        $user = User::inRandomOrder()->first();
+        $categoria = Category::inRandomOrder()->first();
+
         return [
-            'name' =>fake()->name(),
+            'name' =>  fake()->name(),
             'address' => fake()->address(),
             'city' => fake()->city(),
             'name_site' => fake()->name(),
-            'image' => fake()->image(),
+            'image' => "event_default.jpeg",
             'description' => fake()->text(),
             'finishDate' => fake()->date(),
             'finishTime' => fake()->time(),
             'visible' => fake()->randomElement([true, false]),
             'capacity' => mt_rand(0, 200),
-            'user_id' => 2,
+            'user_id' => $user->id,
+            'category_id' => $categoria->id,
         ];
     }
 }

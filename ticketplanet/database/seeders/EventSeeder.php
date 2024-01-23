@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Event;
 use App\Models\Session;
+use App\Models\Ticket;
 
 class EventSeeder extends Seeder
 {
@@ -15,16 +16,9 @@ class EventSeeder extends Seeder
     public function run(): void
     {
         $eventsNum = max((int) $this->command->ask('Introduce la cantidad de eventos que quieres crear', 5), 1);
-
-        if ($this->command->confirm('Quieres crear sessiones para los eventos?', true)) {
-            $sessionsNum = max((int) $this->command->ask('Introduce la cantidad de sessiones que quieres crear para cada evento', 2), 1);
-            Event::factory()->count($eventsNum)->has(Session::factory(SessionEventFactory::class)->count($sessionsNum))->create();
-            $this->command->info("Se han creado $eventsNum eventos con $sessionsNum sessiones cada uno");
-        } else{
-            Event::factory()->count($eventsNum)->create();
-            $this->command->info("Se han creado $eventsNum eventos");
-        }
-        
+       
+        Event::factory()->count($eventsNum)->has(Session::factory(SessionEventFactory::class)->count(1)->has(Ticket::factory()->count(1)))->create();
+        $this->command->info("Se han creado $eventsNum eventos");
         
     }
 }

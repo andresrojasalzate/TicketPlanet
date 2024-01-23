@@ -17,10 +17,14 @@ class SessionFactory extends Factory
      */
     public function definition(): array
     {
+
+        $evento = Event::inRandomOrder()->first();
+
         return [
             'date' => fake()->date(),
             'time' => fake()->time(),
             'maxCapacity' => mt_rand(0, 200),
+            'event_id' => $evento->id
         ];
     }
 }

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Storage;
 
 class LinksController extends Controller
 {
@@ -54,14 +55,23 @@ class LinksController extends Controller
     }
     public function storeComprarEntradas(Request $request)
     {
+
+      if(empty($request->quantity)){
+        $sesion = Session::find($request->session()->get('sesionId'));
+        $quantity = $sesion->maxCapacity;
+      } else{
+        $quantity = $request->quantity;
+      }
+      
       Ticket::create([
         'name' => $request->name,
-        'quantity' => $request->quantity,
+        'quantity' => $quantity,
         'price' => $request->price,
-        'nominal' => $request->nominal
-
+        'nominal' => $request->nominal,
+        'session_id' => $request->session()->get('sesionId')
       ]);
-      
+
+      return redirect()->route('links.comprarEntradas');
     }
     
     public function store(Request $request)
@@ -91,7 +101,13 @@ class LinksController extends Controller
         'finishTime' => 'required',
         'visible' => 'required',
         'capacity' => 'required'
-      ]);
+      ]);                           
+
+      $foto = $request->file('image');
+      $nombre_foto = $foto->getClientOriginalName();
+      $extension = $foto->getClientOriginalExtension();
+      $nombre_unico = $nombre_foto . '_' . time() . '.' . $extension;
+      $foto->move(public_path('images/fotos-subidas/'), $nombre_unico);
 
       $eventoCrear = Event::create([
         'name' => $request->name,
@@ -99,7 +115,7 @@ class LinksController extends Controller
         'city' => $request->city,
         'name_site' => $request->name_site,
         'site' => $request->site,
-        'imagen' => $request->file("image"),
+        'image' => $nombre_unico,
         'description' => $request->description,
         'finishDate' => $request->finishDate,
         'finishTime' => $request->finishTime,
@@ -127,7 +143,7 @@ class LinksController extends Controller
         'event_id' => $eventId
       ]);
       
-      return redirect()->route('home');
+      $request->session()->put('sesionId', $sesionCreada->id);
     }
     public function homePromotors()
     {
