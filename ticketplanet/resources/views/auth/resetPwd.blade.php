@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+<link rel="stylesheet" href="{{ asset('css/styleSASS.css') }}">
 <div class="card-reset">
     <div class="card-form-reset">
         <h2>RESTABLECE LA CONTRASEÑA</h2>
@@ -7,7 +7,7 @@
             <input type="hidden" name="token" value="{{ $token }}">
 
             @if (session('status'))
-                <div class="alert alert-success" role="alert">
+                <div class="correcto" role="alert">
                     {{ session('status') }}
                 </div>
             @endif
@@ -28,7 +28,7 @@
                 <label for="email">{{ __('Correo electrónico') }}</label>
                 <div class="contraLoginInput">
                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                        name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
+                        name="email" value="{{ $email }}" required autocomplete="email" autofocus readonly>
                 </div>
             </div>
             <div class="contraLogin">

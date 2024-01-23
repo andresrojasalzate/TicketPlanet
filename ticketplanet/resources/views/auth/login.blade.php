@@ -25,7 +25,7 @@
                 <span class="credenciales">{{ session('status') }}</span>
             @endif --}}
             @if (session('status'))
-                <div class="success">
+                <div class="correcto">
                     {{ session('status')['message'] }}
                 </div>
             @endif
