@@ -9,17 +9,20 @@
                 <div class="homeMenu">
                     <img src="{{ asset('images/menu/home.png') }}" alt="home" width="20">
                     <a href="{{ route('home') }}">Home</a>
-                    
+
                 </div>
                 <div class="homePromotorMenu">
                     <img src="{{ asset('images/menu/homePromotor.png') }}" alt="home promotor" width="20">
-                    <a href="{{ route('links.homePromotors') }}">Home Promotors</a>
-                    
+                    <a href="{{ route('links.homePromotors') }}">Home Promotor</a>
+
                 </div>
                 <hr>
-                @foreach ($categories as $category)
-                    <p>{{ $category->name }}</p>
-                @endforeach
+                <div class="categoriasMenu">
+                    @foreach ($categories as $category)
+                        <p>{{ $category->name }}</p>
+                    @endforeach
+                </div>
+
                 <hr>
 
                 <div class="logout">
@@ -27,10 +30,14 @@
                     <a href="{{ route('auth.logout') }}" class="">Cerrar sesión</a>
                 </div>
 
-
-                <p>Sobre nosotros</p>
-                <p>Avisos legales</p>
-                
+                <div class="aboutusMenu">
+                    <img src="">
+                    <a href="{{ route('links.aboutus') }}">Sobre nosotros</a>
+                </div>
+                <div class="legalnoticeMenu">
+                    <img src="">
+                    <a href="{{ route('links.legalnotice') }}">Avisos legales</a>
+                </div>
 
                 <img class="imagenUsuarioDespegable" src="{{ asset('images/logo.jpg') }}" alt="" width="80">
             </div>
