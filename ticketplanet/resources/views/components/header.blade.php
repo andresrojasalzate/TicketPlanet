@@ -32,11 +32,11 @@
         <!--Logo-->
         <img src="{{ asset('images/logo.jpg') }}" alt="Logo" class="logoNav">
 
-       <div>
-        
-       </div>
-        <!--Login-->
+        <div>
+            <!--Contenido vacio para la parte central del header-->
+        </div>
 
+        <!--Login-->
         <div class="auth @yield('hide')">
             <img src="{{ asset('images/usuario.png') }}" alt="User">
             @guest
