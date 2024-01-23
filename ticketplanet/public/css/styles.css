@@ -166,10 +166,10 @@ span {
 
 .dropdown-content {
     position: fixed;
-    top: 11.3%;
+    top: 12.3vh;
     left: 0;
-    width: 25%;
-    height: 100%;
+    width: 40vh;
+    height: 100vh;
     display: none;
     overflow: auto;
     background-color: #0642F9;
@@ -186,10 +186,27 @@ span {
     font-family: 'Work Sans';
 }
 
-.logout {
+.dropdown-content a{
+    display: block;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-family: 'Work Sans';
+}
+
+
+.logout,
+.homeMenu,
+.homePromotorMenu  {
     display: flex;
     align-items: center;
-    padding: 10px 0px 10px 50px;
+    padding: 20px 0px 10px 50px;
+}
+
+.logout img,
+.homeMenu img,
+.homePromotorMenu img  {
+    padding-right: 1vh;
 }
 
 .logout a {
@@ -787,8 +804,10 @@ span {
 
 .resetPwdExito,
 .credenciales-success,
-.success {
+.correcto {
     color: green;
+    font-size: 1.1rem;
+    font-family: 'Work Sans';
 }
 
 .card-showEvent {
@@ -931,7 +950,9 @@ span {
         font-family: 'Work Sans';
     }
 
-    .logout {
+    .logout,
+    .homeMenu,
+    .homePromotorMenu {
         display: flex;
         align-items: center;
         padding: 5% 0% 5% 10%;
