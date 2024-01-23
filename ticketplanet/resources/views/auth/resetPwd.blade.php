@@ -28,7 +28,7 @@
                 <label for="email">{{ __('Correo electrónico') }}</label>
                 <div class="contraLoginInput">
                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                        name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
+                        name="email" value="{{ $email }}" required autocomplete="email" autofocus readonly>
                 </div>
             </div>
             <div class="contraLogin">
