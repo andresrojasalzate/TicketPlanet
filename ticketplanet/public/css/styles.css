@@ -186,7 +186,7 @@ span {
     font-family: 'Work Sans';
 }
 
-.dropdown-content a {
+.dropdown-content a{
     display: block;
     color: #FFFFFF;
     text-decoration: none;
@@ -195,10 +195,18 @@ span {
 }
 
 
-.logout {
+.logout,
+.homeMenu,
+.homePromotorMenu  {
     display: flex;
     align-items: center;
-    padding: 10px 0px 10px 50px;
+    padding: 20px 0px 10px 50px;
+}
+
+.logout img,
+.homeMenu img,
+.homePromotorMenu img  {
+    padding-right: 1vh;
 }
 
 .logout a {
@@ -796,8 +804,10 @@ span {
 
 .resetPwdExito,
 .credenciales-success,
-.success {
+.correcto {
     color: green;
+    font-size: 1.1rem;
+    font-family: 'Work Sans';
 }
 
 .card-showEvent {
@@ -940,7 +950,9 @@ span {
         font-family: 'Work Sans';
     }
 
-    .logout {
+    .logout,
+    .homeMenu,
+    .homePromotorMenu {
         display: flex;
         align-items: center;
         padding: 5% 0% 5% 10%;

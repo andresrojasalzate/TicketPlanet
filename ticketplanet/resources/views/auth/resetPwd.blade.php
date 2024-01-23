@@ -7,7 +7,7 @@
             <input type="hidden" name="token" value="{{ $token }}">
 
             @if (session('status'))
-                <div class="alert alert-success" role="alert">
+                <div class="correcto" role="alert">
                     {{ session('status') }}
                 </div>
             @endif
