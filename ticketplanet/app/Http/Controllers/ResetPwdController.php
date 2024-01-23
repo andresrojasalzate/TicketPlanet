@@ -28,9 +28,11 @@ class ResetPwdController extends Controller
             return view('auth.expired'); // Nombre de la vista para el enlace expirado
         }
 
+        $email = $tokenData->email;
+
         Log::info('Token recibido: ' . $token);
 
-        return view('auth.resetPwd')->with(['token' => $token]);
+        return view('auth.resetPwd')->with(['email' => $email, 'token' => $token]);
     }
 
     /**
