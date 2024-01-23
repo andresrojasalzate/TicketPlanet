@@ -18,9 +18,11 @@ class EventController extends Controller
         $busqueda = $request->input('busqueda');
         $categoria =  $request->input('category');
 
-        if($busqueda !== null){
-            session(['busqueda' => $busqueda]);
-            session(['category' => $categoria]);
+        session(['busqueda' => $busqueda]);
+        session(['category' => $categoria]);
+
+        /*if($busqueda !== null){
+            
         }else if($request->has('page')){
             $categoria = $request->session()->get('category'); 
             $busqueda = $request->session()->get('busqueda'); 
@@ -33,7 +35,18 @@ class EventController extends Controller
         }else if($request->session()->get('busqueda') !== null && $busqueda !== null){
             $categoria = $request->session()->get('category'); 
             $busqueda = $request->session()->get('busqueda'); 
-        }
+        }*/
+
+        return view('events.index')->with([
+        'events' => Event::eventosBuscados($busqueda, $categoria),
+        'categories' => Category::all()
+       ]);
+    }
+
+    public function searchGet(){
+       
+        $busqueda = session('busqueda');
+        $categoria = session('category');
 
         return view('events.index')->with([
         'events' => Event::eventosBuscados($busqueda, $categoria),
@@ -43,15 +56,23 @@ class EventController extends Controller
 
     public function category(Request $request){
         $categoria = $request->input('category');
-        if(isset($categoria)){
-            session(['categoria' => $categoria]);
-        }else{
-            $categoria = $request->session()->get('categoria'); 
-        }
-
+    
+        session(['categoria' => $categoria]);
+        
         return view('events.index')->with([
             'events' => Event::where('category_id', $categoria)->with('sessions')->paginate(env('PAGINATION_LIMIT')),
             'categories' => Category::all()
         ]);
     }
+
+    public function categoryGet(){
+        $categoria = session('categoria');
+        
+        return view('events.index')->with([
+            'events' => Event::where('category_id', $categoria)->with('sessions')->paginate(env('PAGINATION_LIMIT')),
+            'categories' => Category::all()
+        ]);
+    }
+
+    
 }
