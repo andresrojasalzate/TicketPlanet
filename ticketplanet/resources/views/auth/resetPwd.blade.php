@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+<link rel="stylesheet" href="{{ asset('css/styleSASS.css') }}">
 <div class="card-reset">
     <div class="card-form-reset">
         <h2>RESTABLECE LA CONTRASEÑA</h2>
