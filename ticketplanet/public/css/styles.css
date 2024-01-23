@@ -168,7 +168,7 @@ span {
     position: fixed;
     top: 12.3vh;
     left: 0;
-    width: 40vh;
+    width: 35vh;
     height: 100vh;
     display: none;
     overflow: auto;
@@ -197,10 +197,21 @@ span {
 
 .logout,
 .homeMenu,
-.homePromotorMenu  {
+.homePromotorMenu,
+.aboutusMenu,
+.legalnoticeMenu {
     display: flex;
     align-items: center;
-    padding: 20px 0px 10px 50px;
+    padding: 7% 0% 5% 10%;
+    transition: box-shadow 0.3s ease;
+}
+
+.logout:hover,
+.homeMenu:hover,
+.homePromotorMenu:hover,
+.aboutusMenu:hover,
+.legalnoticeMenu:hover{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Añadimos la sombra al pasar el cursor */
 }
 
 .logout img,
@@ -218,6 +229,7 @@ span {
 }
 
 .imagenUsuarioDespegable {
+    margin-top: 1vh;
     padding-left: 40px;
 }
 
@@ -923,47 +935,22 @@ span {
         width: 8vh;
     }
 
-    .dropdown {
-        display: flex;
-        justify-content: start;
-        grid-row: 1;
-        height: 100%;
-        background-color: #0642F9;
-        align-items: center;
-    }
 
     .dropdown-content {
-        position: absolute;
-        top: 12.6%;
-        width: 60%;
-        overflow: auto;
-        border-top: 0.5px solid black;
-        z-index: 2;
-    }
-
-    .dropdown-content p {
-        display: flex;
-        padding: 5% 0% 5% 10%;
-        color: #FFFFFF;
-        text-decoration: none;
-        font-size: 1rem;
-        font-family: 'Work Sans';
-    }
+        width: 30vh;
+    }   
+    
 
     .logout,
     .homeMenu,
-    .homePromotorMenu {
+    .homePromotorMenu,
+    .aboutusMenu,
+    .legalnoticeMenu {
         display: flex;
         align-items: center;
         padding: 5% 0% 5% 10%;
     }
 
-    .logout a {
-        color: #FFFFFF;
-        text-decoration: none;
-        font-size: 1rem;
-        font-family: 'Work Sans';
-    }
 
     .imagenUsuarioDespegable {
         display: flex;
