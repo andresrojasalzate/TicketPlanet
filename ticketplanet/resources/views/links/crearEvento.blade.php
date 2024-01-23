@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="favicon/logoFavicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/styleSASS.css') }}">
 </head>
 
 <body>
@@ -21,11 +21,11 @@
 
                     <label for="title">Titulo</label>
                     <input type="text" name="name" id="title" value="{{ old('name') }}">
-
+                  
                     @error('name')
                         <small style="color: red">{{ $message }}</small>
                     @enderror
-
+                    <br>
                     <label for="Categoria">Categoria</label>
 
                     <select name="categoria">
@@ -37,10 +37,10 @@
 
 
                 <div class="parte2formulario">
-                    <div class="descripcionFormulario">
+                  <div class="formularioDescripcion">
 
                         <label for="Descripcion Esdeveniment">Descripcion Esdeveniment</label>
-                        <input class="descripcionFormularioInput" type="text" name="description"
+                        <input class="formularioDescripcionInput" type="text" name="description"
                             id="descripcioEsdeveniment" value="{{ old('description') }}">
                         <br>
                         @error('description')
@@ -48,8 +48,8 @@
                         @enderror
                     </div>
 
-                    <div class="imagenFormulario">
-                        <label for="Imagen Principal de l'esdeveniment">Imagen principal de l'esdeveniment</label>
+                    <div class="formularioImagen">
+                      <label for="Imagen Principal de l'esdeveniment">Imagen principal</label>
                         <input type="file" name="image" id="imagenEsdeveniment" value="{{ old('image') }}">
 
                         @error('image')
@@ -62,9 +62,9 @@
 
                 <div class="parte3formulario">
 
-                    <div class="adrecaFormulario">
+                  <div class="formularioAdreca">
 
-                        <label for="numeroDireccion">Numero Direccion Codigo Postal Provincia</label>
+                        <label for="numeroDireccion">Numero Direccion | Codigo Postal | Provincia</label>
                         <input type="text" name="address" list="addresses" id="numeroDireccion"
                             value="{{ old('address') }}">
                         <datalist id="addresses">
@@ -90,14 +90,14 @@
                     </div>
                     <div class="entradasVisiblesEleccion">
 
-                        <div class="eleccionSi">
+                        <div>
 
                             <input type="radio" name="visible"
                                 value="true"{{ old('visible') == 'true' ? 'checked' : '' }}>Si
 
                         </div>
 
-                        <div class="eleccionNo">
+                        <div>
 
                             <input type="radio" name="visible"
                                 value="false"{{ old('visible') == 'false' ? 'checked' : '' }}>No
@@ -113,11 +113,10 @@
             <div class="div2">
                 <div class="parte4formulario">
 
-                    <div class="nombreLocalFormulario">
+                    <div class="formularioNombreLocal">
 
                         <label for="Nombre del local">Nombre del Local</label>
-                        <input class="nombreLocalFormularioInput" type="text" list="nameSites" name="name_site"
-                            id="nombreLocal" value="{{ old('name_site') }}">
+                        <input class="formularioNombreLocalInput" type="text" list="nameSites" name="name_site" id="nombreLocal" value="{{old('name_site')}}"{{ old('name_site') }}">
                         <datalist id="nameSites">
                             @foreach ($nameSites as $nameSite)
                                 <option>{{ $nameSite->name_site }}</option>
@@ -129,10 +128,10 @@
                         @enderror
                     </div>
 
-                    <div class="capacidadLocalFormulario">
+                    <div class="formularioCapacidadLocal">
 
                         <label for="Capacidad del local">Capacidad del local</label>
-                        <input class="capacidadLocalFormularioInput" type="number" list="capacitys" name="capacity"
+                        <input class="formularioCapacidadLocalInput" type="number" list="capacitys" name="capacity"
                             id="capacidadLocal" value="{{ old('capacity') }}">
                         <datalist id="capacitys">
                             @foreach ($capacitys as $capacity)
@@ -150,11 +149,10 @@
 
                 <div class="parte5formulario">
 
-                    <div class="ciudadFormulario">
+                    <div class="formularioCiudad">
 
                         <label for="Ciudad">Ciudad</label>
-                        <input class="ciudadFormularioInput" type="text" list="citys" name="city" id="ciudad"
-                            value="{{ old('city') }}">
+                        <input class="formularioCiudadInput" type="text" list="citys" name="city" id="ciudad" value="{{old('city')}}">
                         <datalist id="citys">
                             @foreach ($citys as $city)
                                 <option>{{ $city->city }}</option>
@@ -165,21 +163,20 @@
                         @enderror
 
                     </div>
-                    <div class="fechaFinFormulario">
+                    <div class="formularioFechaFin">
 
                         <label for="fechaFin">Fecha Fin</label>
-                        <input class="fechaFinFormularioInput" type="date" name="finishDate" id="fechaFin"
-                            value="{{ old('finishDate') }}">
+                        <input class="formularioFechaFinInput" type="date" name="finishDate" id="fechaFin" value="{{old('finishDate')}}">
 
                         @error('finishDate')
                             <small style="color: red">{{ $message }}</small>
                         @enderror
                     </div>
 
-                    <div class="horaFinFormulario">
+                    <div class="formularioHoraFin">
 
                         <label for="horaFin">Hora Fin</label>
-                        <input class="HoraFinFormularioInput" type="time" name="finishTime" id="HoraFin"
+                        <input class="formularioHoraFinInput" type="time" name="finishTime" id="HoraFin"
                             value="{{ old('finishTime') }}">
 
                         @error('finishTime')
@@ -191,10 +188,10 @@
 
                 <div class="parte6formulario">
 
-                    <div class="fechaCelebracionFormulario">
+                    <div class="formularioFechaCelebracion">
 
                         <label for="Fecha celebracion">Fecha celebracion</label>
-                        <input class="fechaCelebracionFormularioInput" type="date" name="date"
+                        <input class="formularioFechaCelebracionInput" type="date" name="date"
                             id="fechaCelebracion" value="{{ old('date') }}">
 
                         @error('date')
@@ -202,10 +199,10 @@
                         @enderror
                     </div>
 
-                    <div class="horaCelebracionFormulario">
+                    <div class="formularioHoraCelebracion">
 
                         <label for="Hora celebracion">Hora celebracion</label>
-                        <input class="horaCelebracionFormularioInput" type="time" name="time"
+                        <input class="formularioHoraCelebracionInput" type="time" name="time"
                             id="horaCelebracion" value="{{ old('time') }}">
 
                         @error('time')
@@ -213,10 +210,10 @@
                         @enderror
                     </div>
 
-                    <div class="aforoMaximoFormulario">
+                    <div class="formularioAforoMaximo">
 
                         <label for="Aforo Maximo">Aforo Maximo</label>
-                        <input class="aforoMaximoFormularioInput" type="number" name="maxCapacity" id="aforoMaximo"
+                        <input class="formularioAforoMaximoInput" type="number" name="maxCapacity" id="aforoMaximo"
                             value="{{ old('maxCapacity') }}">
 
                         @error('maxCapacity')
@@ -229,7 +226,6 @@
                 </div>
                 <div class="botones">
 
-                    <button class="btnGuardarEntradas" type="button">Entradas</button>
                     <button class="btnGuardarEntradas" type="submit">Guardar Evento</button>
 
                 </div>
@@ -241,7 +237,7 @@
 
 
         </form>
-        <a href="{{ route('links.comprarEntradas') }}">Entradas</a>
+
     </div>
     <footer>
         <x-footer />

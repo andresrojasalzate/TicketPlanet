@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="shortcut icon" href="favicon/logoFavicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/styleSASS.css') }}">
   <title>Document</title>
 </head>
 <body>
@@ -27,19 +27,19 @@
 
       </div>
 
-      <div class="precioCantidadEntradas">
+      <div class="entradasPrecioCantidad">
 
-        <div class="precioEntradas">
+        <div class="entradasPrecio">
 
           <label for="precio">Precio</label>
-          <input class="precioEntradasInput" type="text" name="price" id="precio">
+          <input type="text" name="price" id="precio">
   
         </div>
   
-        <div class="cantidadEntradas">
+        <div class="entradasCantidad">
   
           <label for="cantidad">Cantidad Entradas</label>
-          <input class="cantidadEntradasInput" type="text" name="quantity" id="cantidadEntradas">
+          <input type="text" name="quantity" id="cantidadEntradas">
   
         </div>
 
