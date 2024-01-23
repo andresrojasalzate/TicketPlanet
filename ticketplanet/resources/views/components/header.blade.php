@@ -6,8 +6,16 @@
             <img id="menuIcon" class="menuIMG @yield('hide')" src="{{ asset('images/menu.png') }}" alt="">
 
             <div class="dropdown-content">
-                <p><a href="{{ route('home') }}">Home</a></p>
-                <p><a href="{{ route('links.homePromotors') }}">Home Promotors</a></p>
+                <div class="homeMenu">
+                    <img src="{{ asset('images/menu/home.png') }}" alt="home" width="20">
+                    <a href="{{ route('home') }}">Home</a>
+                    
+                </div>
+                <div class="homePromotorMenu">
+                    <img src="{{ asset('images/menu/homePromotor.png') }}" alt="home promotor" width="20">
+                    <a href="{{ route('links.homePromotors') }}">Home Promotors</a>
+                    
+                </div>
                 <hr>
                 @foreach ($categories as $category)
                     <p>{{ $category->name }}</p>
@@ -15,8 +23,8 @@
                 <hr>
 
                 <div class="logout">
+                    <img src="{{ asset('images/login/logout.png') }}" alt="cerrar sesion" width="18">
                     <a href="{{ route('auth.logout') }}" class="">Cerrar sesión</a>
-                    <img src="{{ asset('images/login/logout.png') }}" alt="cerrar sesion" width="20">
                 </div>
 
 
