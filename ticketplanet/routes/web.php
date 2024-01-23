@@ -12,10 +12,10 @@ use App\Http\Controllers\ResetPwdController;
 use App\Http\Controllers\ShowEventController;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
-Route::get('events', [EventController::class, 'index'])->name('events.index');
-Route::get('/events', [EventController::class, 'search'])->name('events.search');
-Route::get('/events/category', [EventController::class, 'category'])->name('events.category');
-
+Route::get('/events', [EventController::class, 'searchGet'])->name('events.index');
+Route::post('/events', [EventController::class, 'search'])->name('events.search');
+Route::post('/events/category', [EventController::class, 'category'])->name('events.category');
+Route::get('/events/category', [EventController::class, 'categoryGet'])->name('events.category');
 /*HEADER LINKS*/
 Route::get('/links/aboutus', [LinksController::class, 'aboutUs'])->name('links.aboutus');
 Route::get('/links/legalnotice', [LinksController::class, 'legalNotice'])->name('links.legalnotice');
