@@ -6,15 +6,15 @@ menuIcon.addEventListener('click', function () {
     dropdownContent.style.display = (dropdownContent.style.display === 'none' || dropdownContent
         .style.display === '') ? 'block' : 'none';
 
-    // Alternar la clase que deshabilita la interacción y el scroll
-    document.body.classList.toggle('disable-interaction');
+    // Bloquear el desplazamiento vertical al abrir el menú
+    document.body.style.overflowY = (dropdownContent.style.display === 'none') ? 'auto' : 'hidden';
 });
 
-// Opcional: cerrar el menú desplegable al hacer clic fuera de él
+//cerrar el menú desplegable al hacer clic fuera de él
 document.addEventListener('click', function (event) {
     if (!menuIcon.contains(event.target) && !dropdownContent.contains(event.target)) {
         dropdownContent.style.display = 'none';
-        // Remover la clase que deshabilita la interacción y el scroll al cerrar el menú
-        document.body.classList.remove('disable-interaction');
+       // Permitir el desplazamiento vertical al cerrar el menú
+       document.body.style.overflowY = 'auto';
     }
 });

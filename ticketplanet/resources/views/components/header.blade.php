@@ -6,12 +6,12 @@
             <img id="menuIcon" class="menuIMG @yield('hide')" src="{{ asset('images/menu.png') }}" alt="">
 
             <div class="dropdown-content">
-                <p>Home</p>
-                <p>Categoria 1</p>
-                <p>Categoria 2</p>
-                <p>Categoria 3</p>
-                <p>Categoria 4</p>
-                <p>Categoria 5</p>
+                <p><a href="{{ route('home') }}">Home</a></p>
+                <p><a href="{{ route('links.homePromotors') }}">Home Promotors</a></p>
+                <hr>
+                @foreach ($categories as $category)
+                    <p>{{ $category->name }}</p>
+                @endforeach
                 <hr>
 
                 <div class="logout">
@@ -22,7 +22,7 @@
 
                 <p>Sobre nosotros</p>
                 <p>Avisos legales</p>
-                <a href="{{ route('links.homePromotors') }}">Home Promotors</a>
+                
 
                 <img class="imagenUsuarioDespegable" src="{{ asset('images/logo.jpg') }}" alt="" width="80">
             </div>

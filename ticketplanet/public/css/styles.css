@@ -166,10 +166,10 @@ span {
 
 .dropdown-content {
     position: fixed;
-    top: 11.3%;
+    top: 12.3vh;
     left: 0;
-    width: 25%;
-    height: 100%;
+    width: 40vh;
+    height: 100vh;
     display: none;
     overflow: auto;
     background-color: #0642F9;
@@ -185,6 +185,15 @@ span {
     font-size: 1.25rem;
     font-family: 'Work Sans';
 }
+
+.dropdown-content a {
+    display: block;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-family: 'Work Sans';
+}
+
 
 .logout {
     display: flex;
