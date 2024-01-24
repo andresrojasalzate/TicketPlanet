@@ -14,7 +14,7 @@ use \Database\Factories\EventFactory;
 
 class TaskTest extends TestCase
 {
-  //use RefreshDatabase;
+    use RefreshDatabase;
     /**
      * A basic feature test example.
      */
@@ -84,6 +84,45 @@ class TaskTest extends TestCase
     }
     public function test_when_write_on_seeker_with_min_show_event_list(): void
     {
+
+      $user = User::factory()->create([
+        'email' => 'test@example.com',
+        'password' => bcrypt('p2345678'),
+      ]);
+
+      $categoria = Category::factory()->create();
+
+      $evento = Event::create([
+        'name' => "anderson",
+        'address' => "direccion",
+        'city' => "ciudad",
+        'name_site' => "nombreSitio",
+        'image' => "imagen",
+        'description' => "descripcion",
+        'finishDate' => date('Y-m-d'),
+        'finishTime' => date('H:i:s'),
+        'visible' => true,
+        'capacity' => 100,
+        'category_id' => $categoria->id,
+        'user_id' => $user->id,
+      ]);
+
+      $sesion = Session::create([
+        'date' => date('Y-m-d'),
+        'time' => date('H:i:s'),
+        'maxCapacity' => 100,
+        'event_id' => $evento->id,
+      ]);
+      
+      Ticket::create([
+        'name' => "nombre",
+        'quantity' => 100,
+        'price' => 10.0,
+        'nominal' => true,
+        'session_id' => $sesion->id,
+      ]);
+
+
       $response = $this->post(route('events.search'), ['busqueda' => 'a', 'category' => null]);
       $response->assertOk();
       $response->assertViewHas('events');
@@ -95,6 +134,45 @@ class TaskTest extends TestCase
 
     public function test_when_write_on_seeker_with_accent_show_event_list(): void
     {
+
+      $user = User::factory()->create([
+        'email' => 'test@example.com',
+        'password' => bcrypt('p2345678'),
+      ]);
+
+      $categoria = Category::factory()->create();
+
+      $evento = Event::create([
+        'name' => "anderson",
+        'address' => "direccion",
+        'city' => "ciudad",
+        'name_site' => "nombreSitio",
+        'image' => "imagen",
+        'description' => "descripcion",
+        'finishDate' => date('Y-m-d'),
+        'finishTime' => date('H:i:s'),
+        'visible' => true,
+        'capacity' => 100,
+        'category_id' => $categoria->id,
+        'user_id' => $user->id,
+      ]);
+
+      $sesion = Session::create([
+        'date' => date('Y-m-d'),
+        'time' => date('H:i:s'),
+        'maxCapacity' => 100,
+        'event_id' => $evento->id,
+      ]);
+      
+      Ticket::create([
+        'name' => "nombre",
+        'quantity' => 100,
+        'price' => 10.0,
+        'nominal' => true,
+        'session_id' => $sesion->id,
+      ]);
+
+
       $response = $this->post(route('events.search'), ['busqueda' => 'á', 'category' => null]);
       $response->assertOk();
       $response->assertViewHas('events');
@@ -106,7 +184,46 @@ class TaskTest extends TestCase
 
     public function test_when_write_on_seeker_with_category_show_event_list(): void
     {
-      $response = $this->post(route('events.search'), ['busqueda' => 'á', 'category' => 1]);
+
+      $user = User::factory()->create([
+        'email' => 'test@example.com',
+        'password' => bcrypt('p2345678'),
+      ]);
+
+      $categoria = Category::factory()->create();
+
+      $evento = Event::create([
+        'name' => "anderson",
+        'address' => "direccion",
+        'city' => "ciudad",
+        'name_site' => "nombreSitio",
+        'image' => "imagen",
+        'description' => "descripcion",
+        'finishDate' => date('Y-m-d'),
+        'finishTime' => date('H:i:s'),
+        'visible' => true,
+        'capacity' => 100,
+        'category_id' => $categoria->id,
+        'user_id' => $user->id,
+      ]);
+
+      $sesion = Session::create([
+        'date' => date('Y-m-d'),
+        'time' => date('H:i:s'),
+        'maxCapacity' => 100,
+        'event_id' => $evento->id,
+      ]);
+      
+      Ticket::create([
+        'name' => "nombre",
+        'quantity' => 100,
+        'price' => 10.0,
+        'nominal' => true,
+        'session_id' => $sesion->id,
+      ]);
+
+
+      $response = $this->post(route('events.search'), ['busqueda' => 'á', 'category' => $categoria->id]);
       $response->assertOk();
       $response->assertViewHas('events');
   
