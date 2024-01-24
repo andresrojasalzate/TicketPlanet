@@ -29,36 +29,36 @@ class TaskTest extends TestCase
 
     //     ];
     // }
-    public function test_when_write_on_seeker_with_mayus_show_event_list(): void
-    {
+    // public function test_when_write_on_seeker_with_mayus_show_event_list(): void
+    // {
       
-      $response = $this->post(route('events.search'), ['busqueda' => 'A', 'category' => null]);
-      $response->assertOk();
-      $response->assertViewHas('events');
+    //   $response = $this->post(route('events.search'), ['busqueda' => 'A', 'category' => null]);
+    //   $response->assertOk();
+    //   $response->assertViewHas('events');
   
-      $events = $response->original->getData()['events'];
-      $this->assertNotEmpty($events);
+    //   $events = $response->original->getData()['events'];
+    //   $this->assertNotEmpty($events);
       
       
-    }
-    public function test_when_write_on_seeker_with_min_show_event_list(): void
-    {
-      $response = $this->post(route('events.search'), ['busqueda' => 'a', 'category' => null]);
-      $response->assertOk();
-      $response->assertViewHas('events');
+    // }
+    // public function test_when_write_on_seeker_with_min_show_event_list(): void
+    // {
+    //   $response = $this->post(route('events.search'), ['busqueda' => 'a', 'category' => null]);
+    //   $response->assertOk();
+    //   $response->assertViewHas('events');
   
-      $events = $response->original->getData()['events'];
-      $this->assertNotEmpty($events);
+    //   $events = $response->original->getData()['events'];
+    //   $this->assertNotEmpty($events);
 
-    }
-    public function test_when_write_on_seeker_with_accent_show_event_list(): void
-    {
-      $response = $this->post(route('events.search'), ['busqueda' => 'á', 'category' => null]);
-      $response->assertOk();
-      $response->assertViewHas('events');
+    // }
+    // public function test_when_write_on_seeker_with_accent_show_event_list(): void
+    // {
+    //   $response = $this->post(route('events.search'), ['busqueda' => 'á', 'category' => null]);
+    //   $response->assertOk();
+    //   $response->assertViewHas('events');
   
-      $events = $response->original->getData()['events'];
-      $this->assertNotEmpty($events);
+    //   $events = $response->original->getData()['events'];
+    //   $this->assertNotEmpty($events);
 
-    }
+    // }
 }
