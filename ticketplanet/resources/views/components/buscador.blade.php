@@ -1,5 +1,5 @@
 <div class="contenedorBuscador">
-      <form class="form-buscador" action="{{ route('events.search') }}" method="get">
+      <form class="form-buscador" action="{{ route('events.search') }}" method="post">
         @csrf
         <img class="imagenLupa" src="{{ asset('images/buscador/lupa.png') }}" alt="" height="30">
             <input class="buscador" type="search" name="busqueda" placeholder="Buscar">
