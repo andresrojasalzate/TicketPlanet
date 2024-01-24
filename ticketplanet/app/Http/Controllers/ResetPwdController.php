@@ -127,7 +127,7 @@ class ResetPwdController extends Controller
 
         return redirect()->route('auth.login')->with('status', [
             'message' => 'Contraseña restablecida exitosamente. Inicia sesión con tu nueva contraseña.',
-            'class' => 'success'
+            'class' => 'correcto'
         ]);
 
     }

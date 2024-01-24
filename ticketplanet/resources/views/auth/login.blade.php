@@ -24,8 +24,8 @@
             {{-- @if (session('status'))
                 <span class="credenciales">{{ session('status') }}</span>
             @endif --}}
-            @if (session('status'))
-                <div class="correcto">
+            @if (session('status') && session('status')['message'])
+                <div class="mensaje-estado {{ session('status')['class'] ?? '' }}">
                     {{ session('status')['message'] }}
                 </div>
             @endif

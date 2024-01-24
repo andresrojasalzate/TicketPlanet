@@ -21,22 +21,6 @@ class EventController extends Controller
         session(['busqueda' => $busqueda]);
         session(['category' => $categoria]);
 
-        /*if($busqueda !== null){
-            
-        }else if($request->has('page')){
-            $categoria = $request->session()->get('category'); 
-            $busqueda = $request->session()->get('busqueda'); 
-        }
-
-        
-        if($busqueda !== null){
-            $request->session()->put('busqueda', $busqueda);
-            $request->session()->put('category', $categoria);
-        }else if($request->session()->get('busqueda') !== null && $busqueda !== null){
-            $categoria = $request->session()->get('category'); 
-            $busqueda = $request->session()->get('busqueda'); 
-        }*/
-
         return view('events.index')->with([
         'events' => Event::eventosBuscados($busqueda, $categoria),
         'categories' => Category::all()
