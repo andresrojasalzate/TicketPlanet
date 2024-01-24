@@ -33,8 +33,8 @@ class TaskTest extends TestCase
 
     //     ];
     // }
-    // public function test_when_write_on_seeker_with_mayus_show_event_list(): void
-    // {
+    public function test_when_write_on_seeker_with_mayus_show_event_list(): void
+   {
       
       $user = User::factory()->create([
         'email' => 'test@example.com',
