@@ -5,7 +5,7 @@
         <p class="item-1"><a href="{{ route('links.homePromotors') }}">Home Promotor</a></p>
         <p class="item-2"><a href="{{ route('links.aboutus') }}">Sobre nosotros</a></p>
         <p class="item-3"><a href="{{ route('links.legalnotice') }}">Avisos legales</a></p>
-        {{-- <p class="item-4">Mostrar eventos</p>
-        <p class="item-5">Comprar entradas</p> --}}
+        {{-- <p class="item-4">Mostrar eventos</p> --}}
+        <p class="item-5"><a href="{{ route('links.crearEvento') }}">Crear Evento</a></p>
     </div>
 </div>

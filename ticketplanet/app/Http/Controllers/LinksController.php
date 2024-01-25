@@ -62,7 +62,30 @@ class LinksController extends Controller
     } else {
       $quantity = $request->quantity;
     }
+    $sesion = Session::find($request->session()->get('sesionId'));
+    $capacidadMaxima = $sesion->maxCapacity;
+    $cantidadEntradas = $request->quantity;
 
+
+
+      if ($cantidadEntradas < $capacidadMaxima) {
+        $request->validate([
+          'name' => 'required',
+          'quantity' => 'lte:capacidadMaxima',
+          'price' =>  'required',
+          'nominal' => 'required',
+        ]); 
+    }else{
+      Ticket::create([
+        'name' => $request->name,
+        'quantity' => $request->quantity,
+        'price' => $request->price,
+        'nominal' => $request->nominal,
+        'session_id' => $request->session()->get('sesionId')
+      ]); 
+    }
+    
+  
     Ticket::create([
       'name' => $request->name,
       'quantity' => $quantity,

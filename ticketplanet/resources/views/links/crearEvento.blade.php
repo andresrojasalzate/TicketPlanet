@@ -226,18 +226,14 @@
                 </div>
                 <div class="botones">
 
-                    <button class="btnGuardarEntradas" type="submit">Guardar Evento</button>
+                    <button class="btnGuardarEntradas" type="submit">Crear Evento</button>
 
                 </div>
 
             </div>
 
-
-
-
-
         </form>
-
+        
     </div>
     <footer>
         <x-footer />
