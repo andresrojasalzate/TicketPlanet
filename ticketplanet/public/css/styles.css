@@ -782,6 +782,11 @@ span {
     margin-bottom: 1%;
 }
 
+.mostar-sesiones-promotor{
+    max-height: 50%;
+    overflow-y: auto;
+}
+
 .titulo-sessions-promotor {
     text-align: center;
     color: #0642F9;
@@ -789,25 +794,57 @@ span {
 
 .show-session-promotor {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     background-color: #B5B5B5;
     border: 5px solid;
     border-color: #F9BD06;
     margin-left: 5%;
     margin-right: 5%;
+    margin-bottom: 10%;
+}
+
+.sesion-parte-superior{
+    display: flex;
+    flex-direction: row;
 }
 
 .buttons-sessions-promotor {
-    display: flex;
-    flex-direction: column;
-    justify-self: end;
     display: none;
+    flex-direction: column;
+    margin-top: 5%;
+
 }
+
+ .buttons-sessions-promotor > button{
+    margin-bottom: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+ }
 
 .imagen-sesion-promotor {
     max-height: 30vh;
     max-width: 15vh;
     margin-right: 10%;
+}
+
+.info-session-contenedor{
+    margin-right: 10%; 
+}
+
+.info-session {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.info-session > img{
+    margin-right: 5%;
 }
 
 .card-expired a {
@@ -900,8 +937,16 @@ span {
     padding: 19vh;
 }
 
+.mostrar-acciones{
+    display: flex;
+}
 
-
+.mostrar-acciones > img {
+    margin-top: auto;
+    margin-bottom: auto;
+    max-width: 40px;
+    
+}
 
 /*PANTALLA MÓVIL*/
 @media screen and (max-width: 425px) {
