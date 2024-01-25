@@ -80,6 +80,13 @@ ul{
   position: static;
   width: 100vw;
   bottom: 0;
+
+  & a{
+    font-size: 1.10rem;
+    text-decoration: none;
+    font-family: 'Work Sans';
+    color: white;
+  }
 }
 
 .imagen{
@@ -131,7 +138,13 @@ ul{
     }
   }
 }
-
+.alert {
+  display: none;
+  padding: 10px;
+  background-color: #f44336;
+  color: white;
+  margin-bottom: 15px;
+}
 .item{
   &-1{
     grid-row: 1/2;
@@ -914,6 +927,19 @@ flex-direction: column;
     cursor: pointer;
   }
   &CrearEvento{
+    height: 40px;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    cursor: pointer;
+    font-size: 15px;
+  }
+  &VerEventos{
     height: 40px;
     border-radius: 7px;
     background-color: #F9BD06;
