@@ -61,7 +61,7 @@ body.body-resetPwd .menuIMG {
 }
 
 .auth a,
-span {
+.userAuth {
     margin-top: 0.5rem;
     color: white;
     font-size: 1.25rem;
@@ -134,7 +134,8 @@ span {
     cursor: pointer;
 }
 
-.botonBuscador:hover {
+.botonBuscador:hover,
+#buy-button:hover {
     background-color: #e6ad05;
     border-color: #0642F9;
 }
@@ -172,7 +173,7 @@ span {
     overflow: auto;
     background-color: #0642F9;
     border-top: 0.5px solid black;
-    z-index: 2;
+    z-index: 10;
 }
 
 .dropdown-content p {
@@ -294,7 +295,6 @@ span {
     min-height: 50vh;
     max-height: 50vh;
     background-color: #ebebeb;
-
     margin-bottom: 5%;
     border: 5px solid;
     border-color: #F9BD06;
@@ -303,6 +303,7 @@ span {
     overflow: hidden;
     text-overflow: ellipsis;
     text-decoration: none;
+    position: relative;
 }
 
 .show-event-home:hover {
@@ -343,6 +344,64 @@ span {
 .elementsEvents img {
     padding-right: 2%;
 }
+
+.btneditEvent {
+    position: absolute;
+    top: 1vh;
+    right: 1vh; 
+    padding: 0.5vh;
+    background-color: #ebebeb;
+    border: 1px solid #000000;
+    border-radius: 1vh;
+    z-index: 3; 
+    cursor: pointer;
+}
+
+.btneditEvent:hover {
+    background-color: #D9D9D9;
+}
+
+/*HOME PROMOTOR BOTONES*/
+.btnHomePromotor {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    justify-content: center; 
+    margin: 26vh 2vh;
+}
+
+.btnCrearEvent,
+.btnAdministrarEvent,
+.btnListarSesionEvent {
+    padding: 2vh;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border: 2px solid #0642F9;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+
+}
+
+.btnCrearEvent a,
+.btnAdministrarEvent a,
+.btnListarSesionEvent a {
+    text-decoration: none;
+    text-align: center; 
+    color: black;
+    font-family: 'Work Sans';
+
+}
+
+.btnCrearEvent:hover,
+.btnAdministrarEvent:hover,
+.btnListarSesionEvent:hover {
+    background-color: #e6ad05;
+    border-color: #0642F9;
+}
+
+
 
 /*Filtro*/
 .div_filtro {
@@ -800,18 +859,6 @@ span {
     font-family: 'Work Sans';
 }
 
-.card-showEvent {
-    display: flex;
-    flex-wrap: wrap;
-    width: 90%;
-    flex-direction: row;
-    background-color: #D9D9D9;
-    margin: 5% auto;
-    border: 3px solid;
-    border-color: #F9BD06;
-    box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5);
-}
-
 .img-showEvent {
     flex: 1;
     height: 20%;
@@ -853,6 +900,7 @@ span {
 .select-wrapper select {
     width: 80%;
     height: 2vw;
+    cursor: pointer;
 }
 
 .card-timeSesion .session-time {
@@ -860,6 +908,7 @@ span {
     border-radius: 7px;
     cursor: pointer;
     margin-bottom: 5px;
+    padding: 1vh;
 }
 
 .card-timeSesion {
@@ -876,6 +925,87 @@ span {
     text-align: center;
     justify-content: center;
     padding: 19vh;
+}
+
+/*MOSTRAR EVENTOS*/
+.card-showEvent {
+    display: flex;
+    flex-wrap: wrap;
+    
+    flex-direction: row;
+    background-color: #D9D9D9;
+    margin: 5vh auto;
+    border: 3px solid;
+    border-color: #F9BD06;
+    box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+
+.card-showTickets{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.ticket-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2vh;
+    background-color: #D9D9D9;
+    margin: 5vh auto;
+    border: 3px solid;
+    border-color: #F9BD06;
+    box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5);
+    font-size: 1.1rem;
+}
+
+
+.ticket-container input{
+    padding: 2vh;
+    font-size: 1rem;
+    margin-left: auto;
+}
+
+#total-price-container{
+    width: 35vh;
+    display: grid;
+    grid-template-columns: 0.3fr 1.3fr 1fr ;
+    justify-items: center;
+    align-items: center;
+    margin: 2vh;
+    margin-left: auto;
+}
+
+#total-price-container p{
+    font-size: 1.2rem;
+    font-family: 'Work Sans';
+    color: #000000;
+
+}
+
+#buy-button{
+    padding: 2vh;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    margin: 1vh;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.card-margin{
+    margin: 5vh;
+}
+
+
+.card-showTickets{
+    display: none;
 }
 
 
@@ -1122,7 +1252,7 @@ span {
     .card-showEvent {
         display: flex;
         flex-direction: column;
-        width: 90%;
+        
         background-color: #D9D9D9;
         margin: 10vw auto;
         border: 3px solid;
@@ -1203,6 +1333,34 @@ span {
 
     }
 
+    .ticket-container input{
+        padding: 1vh;
+        font-size: 1rem;
+        margin-left: auto;
+    }
+
+    #total-price-container{
+        width: 30vh;
+        display: grid;
+        grid-template-columns: 1fr 5fr 1fr;
+        justify-items: center;
+        align-items: center;
+        margin: auto;
+        
+    }
+
+    /*HOME PROMOTOR*/
+    .btnHomePromotor {
+        display: grid;
+        grid-template-columns: repeat(1, 3fr); 
+        margin: 12vh ;
+    }
+
+    .btnCrearEvent,
+    .btnAdministrarEvent,
+    .btnListarSesionEvent {
+        margin-top: 3vh; /* Agrega margen superior a cada botón */
+    }
 
 }
 
@@ -1271,10 +1429,6 @@ span {
     flex-direction: column;
 }
 
-.layoutHomePromotor {
-    height: 200px;
-    margin-top: 1%;
-}
 
 
 .adrecaFormulario {
@@ -1283,10 +1437,6 @@ span {
     flex-direction: column;
 }
 
-.layoutHomePromotor {
-    height: 200px;
-    margin-top: 1%;
-}
 
 
 .parteEntradasFormulario {
