@@ -61,7 +61,7 @@ body.body-resetPwd .menuIMG {
 }
 
 .auth a,
-span {
+.userAuth {
     margin-top: 0.5rem;
     color: white;
     font-size: 1.25rem;
@@ -100,36 +100,33 @@ span {
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 100%;
     margin-top: 1.5%;
+    position: relative;
 }
 
 .buscador {
-    width: 30%;
-    height: 40px;
+    width: 30vw;
+    padding: 1vh;
     border-radius: 10px;
     margin-right: 0.5%;
     font-size: 1.25rem;
-    padding-left: 50px;
+    padding-left: 5vh;
     background-color: rgba(6, 66, 249, 0.133);
-    position: relative;
+
 }
 
 .imagenLupa {
     position: absolute;
-    left: 33%;
-    margin-top: 5px;
+    margin-left: 0.5vw;
 }
 
 .imagenFiltrar {
     position: absolute;
-    right: 39%;
-    margin-top: 5px;
+    right: 39vw;
 }
 
 .botonBuscador {
-    width: auto;
-    height: 40px;
+    padding: 1vh;
     border-radius: 7px;
     background-color: #F9BD06;
     border-color: #0642F9;
@@ -137,13 +134,15 @@ span {
     cursor: pointer;
 }
 
-.botonBuscador:hover {
+.botonBuscador:hover,
+#buy-button:hover {
     background-color: #e6ad05;
     border-color: #0642F9;
 }
 
 .form-buscador {
-    width: 100%;
+    display: flex;
+    align-items: center;
     text-align: center;
 }
 
@@ -174,7 +173,7 @@ span {
     overflow: auto;
     background-color: #0642F9;
     border-top: 0.5px solid black;
-    z-index: 2;
+    z-index: 10;
 }
 
 .dropdown-content p {
@@ -186,7 +185,7 @@ span {
     font-family: 'Work Sans';
 }
 
-.dropdown-content a{
+.dropdown-content a {
     display: block;
     color: #FFFFFF;
     text-decoration: none;
@@ -210,13 +209,14 @@ span {
 .homeMenu:hover,
 .homePromotorMenu:hover,
 .aboutusMenu:hover,
-.legalnoticeMenu:hover{
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Añadimos la sombra al pasar el cursor */
+.legalnoticeMenu:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* Añadimos la sombra al pasar el cursor */
 }
 
 .logout img,
 .homeMenu img,
-.homePromotorMenu img  {
+.homePromotorMenu img {
     padding-right: 1vh;
 }
 
@@ -295,7 +295,6 @@ span {
     min-height: 50vh;
     max-height: 50vh;
     background-color: #ebebeb;
-    margin: auto;
     margin-bottom: 5%;
     border: 5px solid;
     border-color: #F9BD06;
@@ -304,6 +303,7 @@ span {
     overflow: hidden;
     text-overflow: ellipsis;
     text-decoration: none;
+    position: relative;
 }
 
 .show-event-home:hover {
@@ -323,7 +323,7 @@ span {
     text-overflow: ellipsis;
 }
 
-.show-event-home a{
+.show-event-home a {
     color: #000000;
     text-decoration: none;
 }
@@ -345,13 +345,72 @@ span {
     padding-right: 2%;
 }
 
+.btneditEvent {
+    position: absolute;
+    top: 1vh;
+    right: 1vh; 
+    padding: 0.5vh;
+    background-color: #ebebeb;
+    border: 1px solid #000000;
+    border-radius: 1vh;
+    z-index: 3; 
+    cursor: pointer;
+}
+
+.btneditEvent:hover {
+    background-color: #D9D9D9;
+}
+
+/*HOME PROMOTOR BOTONES*/
+.btnHomePromotor {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    justify-content: center; 
+    margin: 26vh 2vh;
+}
+
+.btnCrearEvent,
+.btnAdministrarEvent,
+.btnListarSesionEvent {
+    padding: 2vh;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border: 2px solid #0642F9;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+
+}
+
+.btnCrearEvent a,
+.btnAdministrarEvent a,
+.btnListarSesionEvent a {
+    text-decoration: none;
+    text-align: center; 
+    color: black;
+    font-family: 'Work Sans';
+
+}
+
+.btnCrearEvent:hover,
+.btnAdministrarEvent:hover,
+.btnListarSesionEvent:hover {
+    background-color: #e6ad05;
+    border-color: #0642F9;
+}
+
+
+
 /*Filtro*/
 .div_filtro {
     border: 1px solid #000000;
     background-color: #B5B5B5;
     margin: auto;
     margin-top: 1%;
-    width: 17%;
+    padding: 2.5vh;
+    width: 30vh;
     display: none;
 }
 
@@ -368,7 +427,6 @@ span {
 
 
 /*Menu de paginación*/
-
 .pagination {
     display: flex;
     list-style: none;
@@ -411,28 +469,6 @@ span {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.div_filtro {
-    border: 1px solid #000000;
-    background-color: #B5B5B5;
-    margin-bottom: 20px;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    width: 17%;
-}
-
-.div_filtro p {
-    margin: 0px;
-    padding: 0px;
-}
-
-.filtro {
-    background-color: #ebeaea;
-    border-radius: 0;
-    width: 100%;
 }
 
 
@@ -495,7 +531,7 @@ span {
     font-size: 1.2em;
 }
 
-.font-medium{
+.font-medium {
     color: #000000;
 }
 
@@ -514,7 +550,7 @@ span {
     margin-right: 3%;
 }
 
-.category-home > p {
+.category-home>p {
     margin: 0;
     padding: 0;
     color: #0642F9;
@@ -527,10 +563,10 @@ span {
     display: flex;
     flex-direction: row;
     overflow-x: auto;
-    align-items: center;   
+    align-items: center;
 }
 
-.events-category-home > div {
+.events-category-home>div {
     margin-right: 5%;
     margin-bottom: 2%;
 }
@@ -607,13 +643,14 @@ span {
 }
 
 .contraLogin,
-.correoLogin{
+.correoLogin {
     margin-top: 1rem;
 }
 
 .correoLogin span,
 .contraLogin span,
 .credenciales,
+.mensaje-error,
 .emailerror,
 .passworderror,
 .resetPwdError,
@@ -859,24 +896,12 @@ span {
     font-family: 'Work Sans';
 }
 
-.card-showEvent {
-    display: flex;
-    flex-wrap: wrap;
-    width: 90%;
-    flex-direction: row;
-    background-color: #D9D9D9;
-    margin: 5% auto;
-    border: 3px solid;
-    border-color: #F9BD06;
-    box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5);
-}
-
 .img-showEvent {
     flex: 1;
     height: 20%;
 }
 
-.img-showEvent img{
+.img-showEvent img {
     width: 100%;
 }
 
@@ -891,7 +916,7 @@ span {
 .ubicacion-title-showEvent {
     display: flex;
     align-items: center;
-    
+
 }
 
 .ubicacion-title-showEvent img {
@@ -912,6 +937,7 @@ span {
 .select-wrapper select {
     width: 80%;
     height: 2vw;
+    cursor: pointer;
 }
 
 .card-timeSesion .session-time {
@@ -919,9 +945,10 @@ span {
     border-radius: 7px;
     cursor: pointer;
     margin-bottom: 5px;
+    padding: 1vh;
 }
 
-.card-timeSesion{
+.card-timeSesion {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     justify-items: center;
@@ -929,7 +956,7 @@ span {
     align-items: center;
 }
 
-.eventos-no-encontrados{
+.eventos-no-encontrados {
     color: #0642F9;
     font-size: 40px;
     text-align: center;
@@ -937,8 +964,85 @@ span {
     padding: 19vh;
 }
 
-.mostrar-acciones{
+/*MOSTRAR EVENTOS*/
+.card-showEvent {
     display: flex;
+    flex-wrap: wrap;
+    
+    flex-direction: row;
+    background-color: #D9D9D9;
+    margin: 5vh auto;
+    border: 3px solid;
+    border-color: #F9BD06;
+    box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+
+.card-showTickets{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.ticket-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2vh;
+    background-color: #D9D9D9;
+    margin: 5vh auto;
+    border: 3px solid;
+    border-color: #F9BD06;
+    box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5);
+    font-size: 1.1rem;
+}
+
+
+.ticket-container input{
+    padding: 2vh;
+    font-size: 1rem;
+    margin-left: auto;
+}
+
+#total-price-container{
+    width: 35vh;
+    display: grid;
+    grid-template-columns: 0.3fr 1.3fr 1fr ;
+    justify-items: center;
+    align-items: center;
+    margin: 2vh;
+    margin-left: auto;
+}
+
+#total-price-container p{
+    font-size: 1.2rem;
+    font-family: 'Work Sans';
+    color: #000000;
+
+}
+
+#buy-button{
+    padding: 2vh;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    margin: 1vh;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.card-margin{
+    margin: 5vh;
+}
+
+
+.card-showTickets{
+    display: none;
 }
 
 .mostrar-acciones > img {
@@ -983,8 +1087,8 @@ span {
 
     .dropdown-content {
         width: 30vh;
-    }   
-    
+    }
+
 
     .logout,
     .homeMenu,
@@ -1003,42 +1107,23 @@ span {
     }
 
     /*Buscador*/
-    .contenedorBuscador {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        width: 100%;
-        margin-top: 3%;
-
-    }
-
     .buscador {
-        width: 60%;
-        height: 40px;
-        border-radius: 10px;
-        margin-right: 1.5%;
-        font-size: 1.25rem;
-        padding-left: 46px;
+        width: 50vw;
     }
 
     .imagenLupa {
         position: absolute;
-        left: 11%;
+        margin-left: 1.5vw;
     }
 
-    .imagenFiltrar {
-        position: absolute;
-        right: 33%;
-    }
-
-    .botonBuscador {
-        height: 40px;
-        border-radius: 7px;
-        background-color: #F9BD06;
-        border-color: #0642F9;
-        font-size: 1rem;
+    .div_filtro {
+        border: 1px solid #000000;
+        background-color: #B5B5B5;
+        margin: auto;
+        margin-top: 1%;
+        padding: 2vh;
+        width: 24vh;
+        display: none;
     }
 
     /*Eventos*/
@@ -1125,7 +1210,7 @@ span {
         right: 9%;
     }
 
-    
+
 
     .olvidadoContra {
         text-align: right;
@@ -1209,7 +1294,7 @@ span {
     .card-showEvent {
         display: flex;
         flex-direction: column;
-        width: 90%;
+        
         background-color: #D9D9D9;
         margin: 10vw auto;
         border: 3px solid;
@@ -1263,7 +1348,7 @@ span {
         margin-bottom: 5px;
     }
 
-    .card-timeSesion{
+    .card-timeSesion {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
         justify-items: center;
@@ -1290,6 +1375,34 @@ span {
 
     }
 
+    .ticket-container input{
+        padding: 1vh;
+        font-size: 1rem;
+        margin-left: auto;
+    }
+
+    #total-price-container{
+        width: 30vh;
+        display: grid;
+        grid-template-columns: 1fr 5fr 1fr;
+        justify-items: center;
+        align-items: center;
+        margin: auto;
+        
+    }
+
+    /*HOME PROMOTOR*/
+    .btnHomePromotor {
+        display: grid;
+        grid-template-columns: repeat(1, 3fr); 
+        margin: 12vh ;
+    }
+
+    .btnCrearEvent,
+    .btnAdministrarEvent,
+    .btnListarSesionEvent {
+        margin-top: 3vh; /* Agrega margen superior a cada botón */
+    }
 
 }
 
@@ -1346,20 +1459,18 @@ span {
 }
 
 
-.parte3formulario{
-display: flex;
-flex-wrap: wrap;
-margin: 1%;
+.parte3formulario {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1%;
 }
-.adrecaFormulario{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+
+.adrecaFormulario {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
-.layoutHomePromotor{
-  height: 200px; 
-  margin-top:1%;
-}
+
 
 
 .adrecaFormulario {
@@ -1367,10 +1478,7 @@ margin: 1%;
     display: flex;
     flex-direction: column;
 }
-.layoutHomePromotor{
-  height: 200px; 
-  margin-top:1%;
-}
+
 
 
 .parteEntradasFormulario {
@@ -1472,23 +1580,26 @@ margin: 1%;
 }
 
 @media screen and (min-width: 720px) {
-.div1{
-display: flex;
-flex-wrap: wrap;
-width: 50%;
-float: left;
-}
-.div2{
-height: 250px;
-width: 50%;
-float: right;
-}
-.parte1formulario{
-width: 76%;
-}
-.parte3formulario{
-width: 76%;
-}
+    .div1 {
+        display: flex;
+        flex-wrap: wrap;
+        width: 50%;
+        float: left;
+    }
+
+    .div2 {
+        height: 250px;
+        width: 50%;
+        float: right;
+    }
+
+    .parte1formulario {
+        width: 76%;
+    }
+
+    .parte3formulario {
+        width: 76%;
+    }
 
 
 }
@@ -1586,3 +1697,4 @@ width: 76%;
         justify-content: space-evenly;
     }
 }
+

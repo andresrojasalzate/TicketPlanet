@@ -34,7 +34,7 @@ class LoginController extends Controller
 
         // session()->flash('status','Las credenciales no son correctas!');
 
-        return redirect(route('auth.login'))->with('status', ['message' => 'Las credenciales no son correctas!.']);
+        return redirect(route('auth.login'))->with('status', ['message' => 'Las credenciales no son correctas!.','class' => 'mensaje-error']);
     }
 
     public function logout()

@@ -1,24 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="favicon/logoFavicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="{{ asset('css/styleSASS.css') }}">
-</head>
+@section('title', 'Home Promotor')
 
-<body>
-    <header>
-        <x-header />
-    </header>
-    <div class="layoutHomePromotor">
-      <a href="{{ route('links.crearEvento') }}">Crear evento</a>
+@section('content')
+    <div class="btnHomePromotor">
+        <div class="btnCrearEvent">
+            <a href="{{ route('links.crearEvento') }}">Crear evento</a>
+        </div>
+
+        <div class="btnAdministrarEvent">
+            <a href="{{ route('links.administrarEvents') }}">Administrar evento</a>
+        </div>
+
+        <div class="btnListarSesionEvent">
+            <a href="{{ route('links.crearEvento') }}">Crear sesiones</a>
+        </div>
     </div>
 
-  <footer>
-    <x-footer />
-</footer>
-</body>
-</html>
+
+@endsection
