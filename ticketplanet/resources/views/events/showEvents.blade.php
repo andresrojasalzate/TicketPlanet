@@ -58,6 +58,7 @@
             @endforeach
 
             <div id="total-price-container">
+                <img src="{{ asset('images/eventos/shop.png') }}" alt="">
                 <p>Total: <span id="total-price">0€</span></p>
                 <button id="buy-button">Comprar</button>
             </div>
