@@ -2,6 +2,7 @@
 
 return[
   'required' => 'El campo :attribute es obligatorio',
+  'lte' => 'La :attribute tiene que ser menor que el aforo maximo',
   'attributes' => [
     'title' => 'titulo',
     'description' => 'descripcion',
@@ -15,6 +16,10 @@ return[
     'finishTime' => 'hora fin',
     'date' => 'fecha celebracion',
     'time' => 'hora celebracion',
-    'maxCapacity' => 'aforo maximo'
+    'maxCapacity' => 'aforo maximo',
+    'name' => 'nombre',
+    'quantity' => 'cantidad entradas',
+    'price' => 'precio',
+    'nominal' => 'entradas nominal'
   ]
 ];
