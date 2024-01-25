@@ -57,7 +57,7 @@
             @guest
                 <a href="{{ route('auth.login') }}">Acceder</a>
             @else
-                <span>{{ auth()->user()->name }}</span>
+                <span class="userAuth">{{ auth()->user()->name }}</span>
             @endguest
         </div>
 
