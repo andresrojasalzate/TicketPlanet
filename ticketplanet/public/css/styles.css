@@ -361,6 +361,48 @@ body.body-resetPwd .menuIMG {
     background-color: #D9D9D9;
 }
 
+/*HOME PROMOTOR BOTONES*/
+.btnHomePromotor {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    justify-content: center; 
+    margin: 26vh 2vh;
+}
+
+.btnCrearEvent,
+.btnAdministrarEvent,
+.btnListarSesionEvent {
+    padding: 2vh;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border: 2px solid #0642F9;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+
+}
+
+.btnCrearEvent a,
+.btnAdministrarEvent a,
+.btnListarSesionEvent a {
+    text-decoration: none;
+    text-align: center; 
+    color: black;
+    font-family: 'Work Sans';
+
+}
+
+.btnCrearEvent:hover,
+.btnAdministrarEvent:hover,
+.btnListarSesionEvent:hover {
+    background-color: #e6ad05;
+    border-color: #0642F9;
+}
+
+
+
 /*Filtro*/
 .div_filtro {
     border: 1px solid #000000;
@@ -1305,6 +1347,19 @@ body.body-resetPwd .menuIMG {
         align-items: center;
         margin: auto;
         
+    }
+
+    /*HOME PROMOTOR*/
+    .btnHomePromotor {
+        display: grid;
+        grid-template-columns: repeat(1, 3fr); 
+        margin: 12vh ;
+    }
+
+    .btnCrearEvent,
+    .btnAdministrarEvent,
+    .btnListarSesionEvent {
+        margin-top: 3vh; /* Agrega margen superior a cada botón */
     }
 
 }
