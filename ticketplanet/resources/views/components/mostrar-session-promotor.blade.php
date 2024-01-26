@@ -4,16 +4,16 @@
         <div class="info-session-contenedor">
             <p>{{$session->event->name}}</p>
             <div class="info-session">
-                <img src="images/eventos/calendar.png" alt="" height="25">
+                <img src="{{ asset('images/eventos/calendar.png') }}" alt="" height="25">
                 <p>{{$session->date}}</p>
             </div>
             <div class="info-session">
-                <img src="images/sesiones/ticket.png" alt="" height="25">
+                <img src="{{ asset('images/sesiones/ticket.png') }}" alt="" height="25">
                 <p>{{$session->ticketsSold}}/{{$session->maxCapacity}}</p>
             </div>  
         </div>
         <div class="mostrar-acciones">
-            <img class="imagen-mostar-acciones" src="images/sesiones/arrow-right.png" alt="">
+            <img class="imagen-mostar-acciones" src="{{ asset('images/sesiones/arrow-right.png') }}" alt="">
         </div>
     </div>
     <div class="buttons-sessions-promotor">
