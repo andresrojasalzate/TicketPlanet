@@ -66,5 +66,19 @@ class LoginTest extends TestCase
         $this->assertGuest();
     }
 
+    public function test_redirect_with_status_message(): void
+    {
+        $response = $this->post(route('auth.login'), [
+            'email' => 'nonexistent@example.com',
+            'password' => 'wrongpassword',
+        ]);
+
+        $response->assertRedirect(route('auth.login'))
+            ->assertSessionHas('status', [
+                'message' => 'Las credenciales no son correctas!.',
+                'class' => 'mensaje-error',
+            ]);
+    }
+
 
 }
