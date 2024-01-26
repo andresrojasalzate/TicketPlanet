@@ -58,18 +58,28 @@ class Event extends Model
     */
     public static function eventosBuscados(string $inputText = null, string $category = null){
         if(isset($inputText)){
+
+            Log::info("Recuperamos los eventos filtrando por el texto recibido en los campos 'name, 'city' y 'name_site'");
+
             $eventos = Event::where(function($query) use ($inputText) {
                 $query->whereRaw('lower(unaccent(name)) LIKE unaccent(?)', [trim(strtolower($inputText)).'%'])
                     ->orWhereRaw('lower(unaccent(city)) LIKE unaccent(?)', [trim(strtolower($inputText)).'%'])
                     ->orWhereRaw('lower(unaccent(name_site)) LIKE unaccent(?)', [trim(strtolower($inputText)).'%']);
             });
             
-            if(isset($category)){     
+            if(isset($category)){ 
+
+                Log::info("Filtramos los eventos por la categoria recibida");  
+
                 $eventos = $eventos->where('category_id', $category);
             }
-        
+
+            Log::info("Devolvemos los eventos encontrados");   
+
             return $eventos->paginate(env('PAGINATION_LIMIT'));
         }else{
+            
+            Log::info("Devolvemos null al inputText estar vacío");  
             return null;
         }
     }
