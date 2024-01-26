@@ -23,6 +23,11 @@ class Event extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class); 
+    }
+
     public function tickets(): HasManyThrough
     {
         return $this->hasManyThrough(Ticket::class, Session::class);
