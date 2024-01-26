@@ -1,12 +1,23 @@
 <div class="show-session-promotor"> 
-    <img class="imagen-sesion-promotor" src="https://s3.amazonaws.com/cdn.wp.m4ecnet/wp-content/uploads/2018/01/16095118/Depositphotos_3667865_m-2015-compressor.jpg" alt="">
-    <div>
-        <p>Nombre Evento</p>
-        <p><img src="images/eventos/calendar.png" alt="" height="25"> 00/00/00</p>
-        <p><img src="images/sesiones/ticket.png" alt="" height="25"> 00/00</p>
+    <div class="sesion-parte-superior">
+        <img class="imagen-sesion-promotor" src="{{ asset('images/fotos-subidas/' . $session->event->image) }}" alt="">
+        <div class="info-session-contenedor">
+            <p>{{$session->event->name}}</p>
+            <div class="info-session">
+                <img src="{{ asset('images/eventos/calendar.png') }}" alt="" height="25">
+                <p>{{$session->date}}</p>
+            </div>
+            <div class="info-session">
+                <img src="{{ asset('images/sesiones/ticket.png') }}" alt="" height="25">
+                <p>{{$session->ticketsSold}}/{{$session->maxCapacity}}</p>
+            </div>  
+        </div>
+        <div class="mostrar-acciones">
+            <img class="imagen-mostar-acciones" src="{{ asset('images/sesiones/arrow-right.png') }}" alt="">
+        </div>
     </div>
     <div class="buttons-sessions-promotor">
-        <button>Mostar evento</button>
+        <button onclick="window.location='{{ route('events.mostrar', ['id' => $session->event->id]) }}'">Mostar evento</button>
         <button>Administrar Evento</button>
         <button>Listado Entradas</button>
     </div>

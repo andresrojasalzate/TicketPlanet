@@ -92,6 +92,19 @@ image::Images/Logo.png[Logo principal, width=10%]
 
 === Semana 4
 
+==== Salma
+- Modificar css pantalla Login
+- Modifcar css pantalla recuperar contraseña
+- Token no funciona, restablecer contraseña
+- Modificar css header
+- Modificar css footer
+- Modificar css del menú desplegable
+- Arreglar css Buscador pantalla home, etc.
+- Acabar funcionalidad mostrar eventos, añadida lista entradas
+- Funcionalidad administrar eventos
+- Modificar Pantalla Home Promotor, añadidos botones
+- Creación de Test, LoginTest
+
 
 == DISEÑO
 
