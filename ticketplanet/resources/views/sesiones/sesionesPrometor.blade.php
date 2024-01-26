@@ -5,9 +5,9 @@
 @section('content')
 <h1 class="titulo-sessions-promotor">TUS SESIONES</h1>
 <div class="mostar-sesiones-promotor">
-@if ($events != null && !$events->isEmpty())
-    @foreach ($events->sessions as $session)
-        <x-mostrar-session-promotor :event = $event>
+@if ($sessions != null && !$sessions->isEmpty())
+    @foreach ($sessions as $session)
+        <x-mostrar-session-promotor :session="$session"/>
     @endforeach
 @else
     <div class="eventos-no-encontrados">

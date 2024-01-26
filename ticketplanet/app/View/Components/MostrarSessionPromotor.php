@@ -11,7 +11,7 @@ class MostrarSessionPromotor extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(public $event)
+    public function __construct(public $session)
     {
         //
     }

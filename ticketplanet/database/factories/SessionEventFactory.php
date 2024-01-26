@@ -20,6 +20,7 @@ class SessionEventFactory extends Factory
             'date' => fake()->date(),
             'time' => fake()->time(),
             'maxCapacity' => mt_rand(0, 200),
+            'ticketsSold' => mt_rand(0, 200),
         ];
     }
 }

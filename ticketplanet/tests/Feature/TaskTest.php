@@ -62,6 +62,7 @@ class TaskTest extends TestCase
         'date' => date('Y-m-d'),
         'time' => date('H:i:s'),
         'maxCapacity' => 100,
+        'ticketsSold' => 100,
         'event_id' => $evento->id,
       ]);
       
@@ -111,6 +112,7 @@ class TaskTest extends TestCase
         'date' => date('Y-m-d'),
         'time' => date('H:i:s'),
         'maxCapacity' => 100,
+        'ticketsSold' => 100,
         'event_id' => $evento->id,
       ]);
       
@@ -161,6 +163,7 @@ class TaskTest extends TestCase
         'date' => date('Y-m-d'),
         'time' => date('H:i:s'),
         'maxCapacity' => 100,
+        'ticketsSold' => 100,
         'event_id' => $evento->id,
       ]);
       
@@ -211,6 +214,7 @@ class TaskTest extends TestCase
         'date' => date('Y-m-d'),
         'time' => date('H:i:s'),
         'maxCapacity' => 100,
+        'ticketsSold' => 100,
         'event_id' => $evento->id,
       ]);
       
@@ -313,6 +317,7 @@ class TaskTest extends TestCase
               'date' => date('Y-m-d'),
               'time' => date('H:i:s'),
               'maxCapacity' => 100,
+              'ticketsSold' => 100,
               'event_id' => $evento->id,
             ]);
             

@@ -14,6 +14,7 @@ class SessionController extends Controller
         if (Auth::check()) {
             
             $usuario = $this->recuperarSesiones();
+            //return $usuario->sessions;
             Log::info("Mostrado las sesiones del promotor");
             return view('sesiones.sesionesPrometor', ['sessions' => $usuario->sessions]);
         } else{

@@ -819,71 +819,6 @@ body.body-resetPwd .menuIMG {
     margin-bottom: 1%;
 }
 
-.mostar-sesiones-promotor{
-    max-height: 50%;
-    overflow-y: auto;
-}
-
-.titulo-sessions-promotor {
-    text-align: center;
-    color: #0642F9;
-}
-
-.show-session-promotor {
-    display: flex;
-    flex-direction: column;
-    background-color: #B5B5B5;
-    border: 5px solid;
-    border-color: #F9BD06;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-bottom: 10%;
-}
-
-.sesion-parte-superior{
-    display: flex;
-    flex-direction: row;
-}
-
-.buttons-sessions-promotor {
-    display: none;
-    flex-direction: column;
-    margin-top: 5%;
-
-}
-
- .buttons-sessions-promotor > button{
-    margin-bottom: 2%;
-    margin-left: 5%;
-    margin-right: 5%;
-    padding-top: 5px;
-    padding-bottom: 5px;
-
-    border-radius: 7px;
-    background-color: #F9BD06;
-    border-color: #0642F9;
- }
-
-.imagen-sesion-promotor {
-    max-height: 30vh;
-    max-width: 15vh;
-    margin-right: 10%;
-}
-
-.info-session-contenedor{
-    margin-right: 10%; 
-}
-
-.info-session {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.info-session > img{
-    margin-right: 5%;
-}
-
 .card-expired a {
     color: #0642F9;
 }
@@ -1042,6 +977,75 @@ body.body-resetPwd .menuIMG {
 
 
 .card-showTickets{
+    display: none;
+}
+
+.mostar-sesiones-promotor{
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.titulo-sessions-promotor {
+    text-align: center;
+    color: #0642F9;
+}
+
+
+.buttons-sessions-promotor {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+
+}
+
+ .buttons-sessions-promotor > button{
+    margin-bottom: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+ }
+
+
+.info-session {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.info-session > img{
+    margin-right: 5%;
+}
+
+
+.show-session-promotor {
+    display: flex;
+    flex-direction: row;
+    background-color: #B5B5B5;
+    border: 5px solid;
+    border-color: #F9BD06;
+    margin-bottom: 5%;
+}
+
+.sesion-parte-superior{
+    display: flex;
+    flex-direction: row;
+}
+
+.imagen-sesion-promotor {
+    max-height: 30vh;
+    max-width: 15vh;
+    margin-right: 10%;
+}
+
+.info-session-contenedor{
+    margin-right: 10%; 
+}
+
+.mostrar-acciones{
     display: none;
 }
 
@@ -1402,6 +1406,48 @@ body.body-resetPwd .menuIMG {
     .btnAdministrarEvent,
     .btnListarSesionEvent {
         margin-top: 3vh; /* Agrega margen superior a cada botón */
+    }
+
+    .mostar-sesiones-promotor{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .show-session-promotor {
+        display: flex;
+        flex-direction: column;
+        background-color: #B5B5B5;
+        border: 5px solid;
+        border-color: #F9BD06;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-bottom: 10%;
+    }
+
+    .sesion-parte-superior{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .imagen-sesion-promotor {
+        max-height: 30vh;
+        max-width: 15vh;
+        margin-right: 10%;
+    }
+
+    .info-session-contenedor{
+        margin-right: 10%; 
+    }
+
+    .mostrar-acciones {
+        display: flex;
+    }
+
+    .buttons-sessions-promotor {
+        display: none;
+        flex-direction: column;
+        margin-top: 5%;
+    
     }
 
 }
