@@ -2,10 +2,10 @@
 body {
   margin: 0%;
   &.body-login{
-    
     .NavLogo{
       display: none;
     }
+    
     .auth{
       display: none;
     }
@@ -118,7 +118,7 @@ ul{
     overflow: auto;
     background-color: #0642F9;
     border-top: 0.5px solid black;
-    z-index: 2;
+    z-index: 10;
 
     & a{
       display: block;
@@ -192,9 +192,9 @@ ul{
   &-showHome{
     max-width: 30vh;
     min-width: 30vh;
-    min-height: 45vh;
+    min-height: 50vh;
+    max-height: 50vh;
     background-color: #ebebeb;
-    margin: auto;
     margin-bottom: 5%;
     border: 5px solid;
     border-color: #F9BD06;
@@ -203,6 +203,7 @@ ul{
     overflow: hidden;
     text-overflow: ellipsis;
     text-decoration: none;
+    position: relative;
 
     & a{
       color: #000000;
@@ -254,12 +255,11 @@ ul{
   &-div{
     border: 1px solid #000000;
     background-color: #B5B5B5;
-    margin-bottom: 20px;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    width: 17%;
+    margin: auto;
+    margin-top: 1%;
+    padding: 2.5vh;
+    width: 30vh;
+    display: none;
 
     & p {
       margin: 0px;
@@ -276,9 +276,8 @@ ul{
 
   &ContenedorMenu{
     display: flex;
-    flex-direction: row;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
   }
 
   &-menu{
@@ -329,7 +328,51 @@ ul{
     margin-right: 5px;
   }
 }
+#total-price-container{
+  width: 35vh;
+  display: grid;
+  grid-template-columns: 0.3fr 1.3fr 1fr ;
+  justify-items: center;
+  align-items: center;
+  margin: 2vh;
+  margin-left: auto;
+
+  & p{
+    font-size: 1.2rem;
+    font-family: 'Work Sans';
+    color: #000000;
+  }
+}
+#buy-button{
+  padding: 2vh;
+  border-radius: 7px;
+  background-color: #F9BD06;
+  border-color: #0642F9;
+  margin: 1vh;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
 .contenedor{
+  &-ticket{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2vh;
+    background-color: #D9D9D9;
+    margin: 5vh auto;
+    border: 3px solid;
+    border-color: #F9BD06;
+    box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5);
+    font-size: 1.1rem;
+
+    & input{
+      padding: 2vh;
+      font-size: 1rem;
+      margin-left: auto;
+    }
+  }
   &Menu{
     display: flex;
     justify-content: center;
@@ -354,16 +397,17 @@ flex-direction: column;
     flex-direction: column;
     margin-left: 3%;
     margin-top: 3%;
+    margin-right: 3%;
 
     &-events{
       display: flex;
       flex-direction: row;
       overflow-x: auto;
       align-items: center;
-      width: 190vh;
 
       &>div{
         margin-right: 5%;
+        margin-bottom: 2%;
       }
       &>button{
         margin-left: 3%;
@@ -374,145 +418,106 @@ flex-direction: column;
     &>p{
       margin: 0;
       padding: 0;
-      margin-left: 2%;
       color: #0642F9;
       font-family: 'Work Sans';
       font-size: 4rem;
+      margin-bottom: 2%;
     }
   }
 }
+.font-medium{
+  color: #000000;
+}
 .login{
-  width: 50%;
-  height: 60%;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   background-color: #D9D9D9;
-  margin: 3% auto;
-  padding: 1% 2%;
+  margin: 4.5% auto;
+  padding: 2.5%;
   font-family: 'Work Sans';
-  border: 0.188rem solid;
-  border-color: #0642F9;
+  border: 0.188rem solid #0642F9;
   border-radius: 0.313rem;
+  width: 65vw;
 
   &Correo{
     & span{
       color: red;
-      font-size: 1rem;
+      font-size: 1.1rem;
       font-family: 'Work Sans';
       text-decoration: none;
     }
     & label{
-      display: block;
       font-size: 1.5rem;
-      margin-top: 0.938rem;
     }
     & input {
+      position: relative;
       width: 100%;
-      height: 25%;
+      padding: 2vh;
       font-size: 1rem;
-      padding: 0% 1%;
-      margin-top: 0.313rem;
+      margin-top: 0.3rem;
     }
   }
   &Contra{
     & span{
       color: red;
-      font-size: 1rem;
+      font-size: 1.1rem;
       font-family: 'Work Sans';
       text-decoration: none;
     }
     & label{
-      display: block;
       font-size: 1.5rem;
-      margin-top: 0.938rem;
     }
     & input{
+      position: relative;
       width: 100%;
-      height: 25%;
+      padding: 2vh;
       font-size: 1rem;
-      padding: 0% 1%;
-      margin-top: 0.313rem;
+      margin-top: 0.3rem;
     }
   }
 
   &Title{
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
     font-size: 2.25rem;
     font-weight: bold;
     margin: 0;
   }
 }
-.legalNoticeMenu{
-  display: flex;
-  align-items: center;
-  padding: 7% 0% 5% 10%;
-  transition: box-shadow 0.3s ease;
-
-  &:hover{
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Añadimos la sombra al pasar el cursor */
-  }
+.logout,
+.homeMenu,
+.homePromotorMenu,
+.aboutusMenu,
+.legalnoticeMenu {
+    display: flex;
+    align-items: center;
+    padding: 7% 0% 5% 10%;
+    transition: box-shadow 0.3s ease;
 }
-.aboutusMenu{
-  display: flex;
-  align-items: center;
-  padding: 7% 0% 5% 10%;
-  transition: box-shadow 0.3s ease;
-
-  &:hover{
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Añadimos la sombra al pasar el cursor */
-  }
+.logout:hover,
+.homeMenu:hover,
+.homePromotorMenu:hover,
+.aboutusMenu:hover,
+.legalnoticeMenu:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* Añadimos la sombra al pasar el cursor */
 }
-.homeMenu{
-  display: flex;
-  align-items: center;
-  padding: 7% 0% 5% 10%;
-  transition: box-shadow 0.3s ease;
-
-  & img{
+.logout img,
+.homeMenu img,
+.homePromotorMenu img {
     padding-right: 1vh;
-  }
-
-  &:hover{
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Añadimos la sombra al pasar el cursor */
-  }
-}
-.homePromotorMenu{
-  display: flex;
-  align-items: center;
-  padding: 7% 0% 5% 10%;
-  transition: box-shadow 0.3s ease;
-
-  & img{
-    padding-right: 1vh;
-  }
-
-  &:hover{
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Añadimos la sombra al pasar el cursor */
-  }
 }
 .logout{
-  display: flex;
-  align-items: center;
-  padding: 10px 0px 10px 50px;
-
-  &:hover{
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Añadimos la sombra al pasar el cursor */
-  }
-
-  & img{
-    padding-right: 1vh;
-  }
-
-  & a{
+  & a {
     color: #FFFFFF;
     text-decoration: none;
     font-size: 1.25rem;
     font-family: 'Work Sans';
     padding-right: 3%;
   }
-}
+} 
 .CorreoReset{
   & label{
     display: block;
@@ -521,17 +526,15 @@ flex-direction: column;
   }
   & input{
     width: 100%;
-    height: 22%;
+    padding: 2vh;
     font-size: 1rem;
-    padding: 0% 1%;
     margin-top: 0.313rem;
   }
 }
 .volverInicioSession{
-  text-align: left;
-  margin: 0;
-  margin-top: 10%;
-  font-size: 1.25rem;
+    text-align: left;
+    margin-top: 1rem;
+    font-size: 1.25rem;
 
   & a{
     text-decoration: none;
@@ -540,15 +543,34 @@ flex-direction: column;
 }
 .credenciales-success{
   color: green;
+  font-size: 1.1rem;
+  font-family: 'Work Sans';
+}
+.correcto{
+  @extend .credenciales-success;
+}
+.titleResetPwd {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin: 0;
+
+  & p{
+    font-size: 1.375rem;
+    margin-top: 1%;
+    margin-bottom: 2%;
+  }
 }
 .resetPwd{
-  width: 50%;
-  height: 58%;
-  display: flex;
-  flex-direction: column;
+  width: 65vw;
+  display: grid;
+  grid-template-columns: 1fr;
   background-color: #D9D9D9;
-  margin: 3% auto;
-  padding: 1% 2%;
+  margin: 4.5% auto;
+  padding: 2.5%;
   font-family: 'Work Sans';
   border: 0.188rem solid;
   border-color: #0642F9;
@@ -585,9 +607,9 @@ flex-direction: column;
 }
 .toggle-password{
   position: absolute;
-  right: 16rem;
   transform: translateY(-120%);
   cursor: pointer;
+  right: 19%;
 
   & img{
     width: 20%;
@@ -610,7 +632,36 @@ flex-direction: column;
     margin-bottom: 2%;
   }
 }
+.eventos-no-encontrados {
+  color: #0642F9;
+  font-size: 40px;
+  text-align: center;
+  justify-content: center;
+  padding: 19vh;
+}
 .card{
+  &-margin{
+    margin: 5vh;
+  }
+  &-showTickets{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    // display: none; 2 clases repetidas
+  }
+  &-showEvent{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background-color: #D9D9D9;
+    margin: 5vh auto;
+    border: 3px solid;
+    border-color: #F9BD06;
+    box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5);
+  }
   &-timeSesion{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
@@ -626,10 +677,7 @@ flex-direction: column;
     }
   }
   &-expired{
-    width: 30%;
-    height: 20%;
-    display: flex;
-    flex-direction: column;
+    width: 32%;
     background-color: #D9D9D9;
     margin: 3% auto;
     padding: 1% 2%;
@@ -647,12 +695,9 @@ flex-direction: column;
     height: 100%;
 
     &-form{
-      width: 45%;
-      height: 55%;
-      display: flex;
-      flex-direction: column;
+      width: 40%;
       background-color: #D9D9D9;
-      margin: 3% auto;
+      margin: 2% auto;
       padding: 1% 2%;
       font-family: 'Work Sans';
       border: 0.188rem solid;
@@ -662,7 +707,90 @@ flex-direction: column;
   }
 
 }
+.info-session {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  &>img{
+    margin-right: 5%;
+  }
+}
+.sesion-parte-superior{
+  display: flex;
+  flex-direction: row;
+}
+.sessions-promotor{
+  &-imagen{
+    max-height: 30vh;
+    max-width: 15vh;
+    margin-right: 10%;
+  }
+  &-show{
+    display: flex;
+    flex-direction: row;
+    background-color: #B5B5B5;
+    border: 5px solid;
+    border-color: #F9BD06;
+    margin-bottom: 5%;
+  }
+  &-buttons{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+
+    &>button{
+      margin-bottom: 2%;
+      margin-left: 5%;
+      margin-right: 5%;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      border-radius: 7px;
+      background-color: #F9BD06;
+      border-color: #0642F9;
+    }
+  }
+  &-mostrar{
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+  &-titulo{
+    text-align: center;
+    color: #0642F9;
+  }
+}
+.info-session-contenedor{
+  margin-right: 10%;
+}
+.mostrar-acciones{
+  display: none;
+  &>img{
+    margin-top: auto;
+    margin-bottom: auto;
+    max-width: 40px;
+  }
+}
+.mensaje-error{
+  color: red;
+  font-size: 1.1rem;
+  font-family: 'Work Sans';
+  text-decoration: none;
+
+}
 .showEvent{
+  &-info{
+    flex: 1;
+    font-family: 'Work Sans';
+    font-size: 1.2rem;
+    margin: 20px;
+  }
+  &-img{
+    flex: 1;
+    height: 20%;
+    & img{
+      width: 100%;
+    }
+  }
   &-ubicacion{
     & p{
       margin: 0;
@@ -728,6 +856,7 @@ flex-direction: column;
   & select{
     width: 80%;
     height: 2vw;
+    cursor: pointer;
   }
 }
 
@@ -746,6 +875,11 @@ flex-direction: column;
 .resetPwdError{
   @extend .credenciales;
 }
+.resetPwdExito{
+  color: green;
+  font-size: 1.1rem;
+  font-family: 'Work Sans';
+}
 .invalid-feedback{
   @extend .credenciales;
 }
@@ -757,27 +891,26 @@ flex-direction: column;
 
 
 .buscador{
-  width: 30%;
-  height: 40px;
+  width: 30vw;
+  padding: 1vh;
   border-radius: 10px;
   margin-right: 0.5%;
   font-size: 1.25rem;
-  padding-left: 50px;
+  padding-left: 5vh;
   background-color: rgba(6, 66, 249, 0.133);
-  position: relative;
 
   &Contenedor{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    position: relative;
-    width: 100%;
     margin-top: 1.5%;
+    position: relative;
   }
 
   &-Form{
-    width: 100%;
+    display: flex;
+    align-items: center;
     text-align: center;
   }
 
@@ -806,6 +939,14 @@ flex-direction: column;
   flex-direction: column;
   align-items: center;
 
+  &User{
+    margin-top: 0.5rem;
+    color: white;
+    font-size: 1.25rem;
+    font-family: 'Work Sans';
+    text-decoration: none;
+  }
+
   & a,& span{
     margin-top: 0.5rem;
     color: white;
@@ -813,8 +954,8 @@ flex-direction: column;
     font-family: 'Work Sans';
     text-decoration: none;
   }
-  &-img{
-    width: 25%;
+  & img{
+    width: 5vh;
   }
 }
 .titulo-sessions-promotor {
@@ -839,6 +980,93 @@ flex-direction: column;
   justify-content: space-evenly;
 }
 .btn{
+  &ListarSesionEventPromotor{
+    padding: 2vh;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border: 2px solid #0642F9;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+
+    & a{
+      text-decoration: none;
+      text-align: center; 
+      color: black;
+      font-family: 'Work Sans';
+    }
+
+    &:hover{
+      background-color: #e6ad05;
+      border-color: #0642F9;
+    }
+  }
+
+  &AdministrarEventPromotor{
+    @extend .btnListarSesionEventPromotor;
+    & a{
+      text-decoration: none;
+      text-align: center; 
+      color: black;
+      font-family: 'Work Sans';
+    }
+    &:hover{
+      background-color: #e6ad05;
+      border-color: #0642F9;
+    }
+  }
+
+  &CrearEventPromotor{
+    padding: 2vh;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border: 2px solid #0642F9;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    & a{
+      text-decoration: none;
+      text-align: center; 
+      color: black;
+      font-family: 'Work Sans';
+    }
+    &:hover{
+      background-color: #e6ad05;
+      border-color: #0642F9;
+    }
+  }
+
+  &HomePromotor{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    justify-content: center; 
+    margin: 26vh 2vh;
+  }
+
+  &editEvent{
+    position: absolute;
+    top: 1vh;
+    right: 1vh; 
+    padding: 0.5vh;
+    background-color: #ebebeb;
+    border: 1px solid #000000;
+    border-radius: 1vh;
+    z-index: 3; 
+    cursor: pointer;
+
+    &:hover{
+      background-color: #D9D9D9;
+    }
+  }
+
+  &-buy:hover{
+    background-color: #e6ad05;
+    border-color: #0642F9;
+  }
   &Sessions-Promotor{
     display: flex;
     flex-direction: column;
@@ -850,12 +1078,11 @@ flex-direction: column;
     margin-right: 4%;
   }
   &IniciaSesion{
-    width: 20%;
-    height: 30%;
+    padding: 2vh;
     border-radius: 7px;
     background-color: #F9BD06;
     border-color: #0642F9;
-    margin-top: 2%;
+    margin-top: 1%;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -868,16 +1095,15 @@ flex-direction: column;
     }
   }
   &ResetSesion{
-    width: 20%;
-    height: 25%;
     border-radius: 7px;
     background-color: #F9BD06;
     border-color: #0642F9;
-    margin-top: 2%;
+    margin-top: 3%;
     margin-left: auto;
     margin-right: auto;
     display: block;
     font-size: 1.2rem;
+    padding: 2vh;
     cursor: pointer;
 
     &:hover{
@@ -886,12 +1112,11 @@ flex-direction: column;
     }
   }
   &ResetPwd{
-    width: 20%;
-    height: 25%;
+    padding: 2vh;
     border-radius: 7px;
     background-color: #F9BD06;
     border-color: #0642F9;
-    margin-top: 4%;
+    margin-top: 2.5%;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -904,8 +1129,7 @@ flex-direction: column;
     }
   }
   &Buscador{
-    width: auto;
-    height: 40px;
+    padding: 1vh;
     border-radius: 7px;
     background-color: #F9BD06;
     border-color: #0642F9;
@@ -952,6 +1176,11 @@ flex-direction: column;
     cursor: pointer;
     font-size: 15px;
   }
+}
+.ver-mas-button {
+  align-self: self-end;
+  margin-top: 2%;
+  margin-bottom: 1%;
 }
 .contenedorLayout{
   display: flex;
@@ -1167,8 +1396,14 @@ flex-direction: column;
   height: 110px;
 
   &Logo img{
-    width: 90vw;
+    padding: 0.1vh;
   }
+}
+.contenedorLayout{
+  display: flex;
+  justify-content: center;
+  margin: 3%;
+  flex-direction: column;
 }
 .footer{
   width: 100%;
@@ -1225,6 +1460,29 @@ flex-direction: column;
     overflow-y: auto;
   }
 }
+.ticket-container input{
+  padding: 1vh;
+  font-size: 1rem;
+  margin-left: auto;
+}
+#total-price-container{
+  width: 30vh;
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  justify-items: center;
+  align-items: center;
+  margin: auto;
+  
+}
+.div_filtro{
+  border: 1px solid #000000;
+  background-color: #B5B5B5;
+  margin: auto;
+  margin-top: 1%;
+  padding: 2vh;
+  width: 24vh;
+  display: none; 
+}
 .logout{
   display: flex;
   align-items: center;
@@ -1244,20 +1502,15 @@ flex-direction: column;
 .imagen{
   &Lupa{
     position: absolute;
-    left: 11%;
+    margin-left: 1.5vw;
   }
   &Filtrar{
     position: absolute;
-    right: 33%;
+    right: 39vw;
   }
 }
 .buscador{
-  width: 60%;
-  height: 40px;
-  border-radius: 10px;
-  margin-right: 1.5%;
-  font-size: 1.25rem;
-  padding-left: 46px;
+  width: 50vw;
 
   &Contenedor{
     display: flex;
@@ -1270,6 +1523,25 @@ flex-direction: column;
   }
 }
 .showEvent{
+  &-img{
+    flex: 1;
+    font-family: 'Work Sans';
+    margin: 10px;
+  }
+  &-card{
+    display: flex;
+    flex-direction: column;
+    
+    background-color: #D9D9D9;
+    margin: 10vw auto;
+    border: 3px solid;
+    border-color: #F9BD06;
+    box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5);
+  }
+  &-home-img{
+    width: 100%;
+    height: 27%;
+  }
   &-sessions{
     width: 100%;
   }
@@ -1332,10 +1604,15 @@ flex-direction: column;
   font-size: 1.3rem;
   margin-top: 1.2rem;
 }
+.correoReset input{
+  width: 100%;
+  padding: 2vh;
+  font-size: 1rem;
+}
 .toggle-password{
   position: absolute;
-  width: auto;
-  transform: translateY(-130%);
+  transform: translateY(-120%);
+  right: 9%;
 
   & img{
     width: 30%;
@@ -1344,19 +1621,25 @@ flex-direction: column;
   }
 }
 .login{
-  width: 95%;
-  height: 70%;
-  display: flex;
-  flex-direction: column;
+  width: 90vw;
   background-color: transparent;
   border: transparent;
   font-family: 'Work Sans';
 
   &Correo{
+    margin-top: 1rem;
+    &Reset{
+    & label{
+      display: block;
+      font-size: 1.3rem;
+      margin-top: 1.2rem;
+    }
+    }
     &login{
       & input{
+        position: relative;
         width: 100%;
-        height: 22%;
+        padding: 2vh;
         font-size: 1rem;
       }
       & label{
@@ -1373,10 +1656,12 @@ flex-direction: column;
     }
   }
   &Contra{
+    margin-top: 1rem;
     &login{
       & input{
+        position: relative;
         width: 100%;
-        height: 22%;
+        padding: 2vh;
         font-size: 1rem;
       }
       & label{
@@ -1397,6 +1682,7 @@ flex-direction: column;
   &Title{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     font-size: 2rem;
     font-weight: bold;
@@ -1418,6 +1704,7 @@ flex-direction: column;
   margin-top: 1%;
   margin-bottom: 2%;
 }
+
 .resetPwd{
   width: 95%;
   height: 69%;
@@ -1460,6 +1747,7 @@ flex-direction: column;
 }
 .category{
   &-home{
+
     &-events{
       display: flex;
       flex-direction: row;
@@ -1485,6 +1773,21 @@ flex-direction: column;
   }
 }
 .card{
+  &-expired{
+    width: 65vw;
+    margin: 3% auto;
+    padding: 1% 2%; 
+  }
+  &-form-reset{
+    width: 80vw;
+    background-color: #D9D9D9;
+    margin: 2% auto;
+    padding: 1% 2%;
+    font-family: 'Work Sans';
+    border: 0.188rem solid;
+    border-color: #0642F9;
+    border-radius: 0.313rem;
+  }
   &-timeSession{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
@@ -1499,17 +1802,231 @@ flex-direction: column;
     }
   }
 }
-
-.btn{
-  &IniciaSesion{
+.mostrar-acciones{
+  display: flex;
+}
+.sesiones{
+  &-contenedor-info{
+    margin-right: 10%;
+  }
+  &-parte-superior{
+    display: flex;
+    flex-direction: row;
+  }
+  &-promotor{
+    &-buttons{
+      display: none;
+      flex-direction: column;
+      margin-top: 5%;
+    }
+    &-imagen{
+      max-height: 30vh;
+      max-width: 15vh;
+      margin-right: 10%;
+    }
+    &-show{
+      display: flex;
+      flex-direction: column;
+      background-color: #B5B5B5;
+      border: 5px solid;
+      border-color: #F9BD06;
+      margin-left: 5%;
+      margin-right: 5%;
+      margin-bottom: 10%;
+    }
+    &-mostrar{
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+.parte{
+  &1formulario{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 1%;
+    & label{
+      display: block;
+    }
+    & input{
+      display: block;
+    }
+  }
+  &2formulario{
+    display: flex;
+    margin: 1%;
+  }
+  &3formulario{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1%;
+  }
+  &4formulario{
+    display: flex;
+    margin: 1%;
+  }
+  &5formulario{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 1%;
+    & label{
+      display: block;
+    }
+    & input{
+      display: block;
+    }
+  }
+  &6formulario{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 1%;
+  }
+}
+.formulario{
+  &AforoMaximo{
+    width: 33%;
+    & input{
+      width: 70%;
+    }
+  }
+  &HoraCelerbacion{
+    width: 33%;
+    & input{
+      width: 70%;
+    }
+  }
+  &FechaCelerbacion{
+    width: 33%;
+    & input{
+      width: 70%;
+    }
+  }
+  &CodigoPostal{
+    width: 33%;
+    & input{
+      width: 70%;
+    }
+  }
+  &Ciudad{
+    width: 33%;
+    & input{
+      width: 70%;
+    }
+  }
+  &Provincia{
+    width: 33%;
+    & input{
+      width: 70%;
+    }
+  }
+  &CapacidadLocal{
+    width: 50%;
+    & input{
+      width: 70%;
+    }
+  }
+  &NombreLocal{
+    width: 50%;
+    & input{
+      width: 70%;
+    }
+  }
+  &HoraFin{
+    width: 33%;
+    & input{
+      width: 70%;
+    }
+  }
+  &FechaFin{
+    width: 33%;
+    & input{
+      width: 70%;
+    }
+  }
+  &NumeroDireccion{
+    width: 33%;
+    & input {
+      width: 70%;
+    }
+  }
+  &ParteEntradas{
+    width: 100%;
+  }
+  &Adreca{
+    width: 76%;
+    display: flex;
+    flex-direction: column;
+  }
+  &Descripcion{
     width: 40%;
-    height: 25%;
+    & input{
+      height: 50px;
+    }
+  }
+  &Imagen{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+.entradasVisibles{
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+
+  &Eleccion{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    display: flex;
+    justify-content: space-around;
+  }
+}
+.botones{
+  display: flex;
+  justify-content: space-evenly;
+}
+.btn{
+  &CrearEventPromotor{
+    margin-top: 3vh;
+  }
+  &AdministrarEventPromotor{
+    padding: 2vh;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border: 2px solid #0642F9;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  &ListarSesionEventPromotor{
+    padding: 2vh;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border: 2px solid #0642F9;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  &HomePromotor{
+    display: grid;
+    grid-template-columns: repeat(1, 3fr); 
+    margin: 12vh ;
+  }
+  &IniciaSesion{
     border-radius: 7px;
     background-color: #F9BD06;
     border-color: #0642F9;
     margin-top: 10%;
     margin-left: auto;
     margin-right: auto;
+    padding: 2vh;
     display: block;
     font-size: 1.2rem;
   }
@@ -1519,6 +2036,15 @@ flex-direction: column;
     background-color: #F9BD06;
     border-color: #0642F9;
     font-size: 1rem;
+  }
+  &GuardarEntradas{
+    height: 40px;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    margin-top: 10%;
+    font-size: 1.2rem;
+    cursor: pointer;
   }
 }
 }
@@ -1543,8 +2069,46 @@ flex-direction: column;
   &3formulario{
     width: 100%;
   }
-  &EntradasFormulario{
-    margin-top: 0%;
+
+}
+.contenedor{
+  &NombreEntradas{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 9%;
+  }
+}
+.nombreEntradas{
+  display: flex;
+  flex-direction: column;
+}
+.entradas{
+  &Nominales{
+    margin: 9%;
+    display: flex;
+    justify-content: center;
+    &Eleccion{
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+  &Cantidad{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+  }
+  &Precio{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    &Cantidad{
+      display: flex;
+      padding-left: 10%;
+      & input{
+        width: 70%;
+      }
+    }
   }
 }
 .formulario{
@@ -1552,6 +2116,19 @@ flex-direction: column;
     width: 76%;
   }
 }
+}
+.btnCrearEvento{
+  height: 40px;
+  border-radius: 7px;
+  background-color: #F9BD06;
+  border-color: #0642F9;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 860px) {
