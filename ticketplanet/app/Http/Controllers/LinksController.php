@@ -49,9 +49,17 @@ class LinksController extends Controller
 
   }
 
-  public function comprarEntradas()
+  public function comprarEntradas(Request $request)
   {
-    return view('links.comprarEntradas');
+    $sesion = Session::find($request->session()->get('sesionId'));
+    
+    $cantidadEntradas = $request->quantity;
+
+    $capacidadMaxima = $sesion->maxCapacity;
+
+    $entradasRestantes = $capacidadMaxima - $cantidadEntradas;
+
+    return view('links.comprarEntradas')->with('entradasRestantes', $entradasRestantes);
   }
   public function storeComprarEntradas(Request $request)
   {
@@ -62,13 +70,17 @@ class LinksController extends Controller
     } else {
       $quantity = $request->quantity;
     }
-    $sesion = Session::find($request->session()->get('sesionId'));
-    $capacidadMaxima = $sesion->maxCapacity;
+    
     $cantidadEntradas = $request->quantity;
 
+    $sesion = Session::find($request->session()->get('sesionId'));
+    $capacidadMaxima = $sesion->maxCapacity;
 
+  
 
-      if ($cantidadEntradas < $capacidadMaxima) {
+    
+
+      if ($cantidadEntradas > $capacidadMaxima) {
         $request->validate([
           'name' => 'required',
           'quantity' => 'lte:capacidadMaxima',
@@ -76,6 +88,11 @@ class LinksController extends Controller
           'nominal' => 'required',
         ]); 
     }else{
+      $request->validate([
+        'name' => 'required',
+        'price' =>  'required',
+        'nominal' => 'required',
+      ]); 
       Ticket::create([
         'name' => $request->name,
         'quantity' => $request->quantity,
@@ -94,14 +111,15 @@ class LinksController extends Controller
       'session_id' => $request->session()->get('sesionId')
     ]);
 
-    return redirect()->route('links.comprarEntradas');
+    $entradasRestantes = $capacidadMaxima - $cantidadEntradas;
+    // return view('links.comprarEntradas')->with('entradasRestantes', $entradasRestantes);
   }
 
   public function store(Request $request)
   {
 
     if (Auth::check()) {
-
+      Log::info("Store");
       $idEvento = $this->guardarEvento($request);
       $this->crearSesion($request, $idEvento);
 
@@ -113,6 +131,7 @@ class LinksController extends Controller
   {
 
     $user = Auth::user();
+    Log::info("Guardar evento");
 
     $request->validate([
       'name' => 'required',
@@ -155,6 +174,8 @@ class LinksController extends Controller
   private function crearSesion(Request $request, $eventId)
   {
 
+    Log::info("Crear Sesion");
+
     $request->validate([
       'date' => 'required',
       'time' => 'required',
@@ -165,7 +186,8 @@ class LinksController extends Controller
       'date' => $request->date,
       'time' => $request->time,
       'maxCapacity' => $request->maxCapacity,
-      'event_id' => $eventId
+      'event_id' => $eventId,
+      'ticketsSold' => 0
     ]);
 
     $request->session()->put('sesionId', $sesionCreada->id);
