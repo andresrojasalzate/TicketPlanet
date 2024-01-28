@@ -21,7 +21,7 @@
         <div class="nombreEntradas">
 
           <label for="nombre">Nombre</label>
-          <input class="nombreEntradasInput" type="text" name="name" id="nombre" value="{{old('name')}}">
+          <input class="nombreEntradasInput" type="text" name="name" id="nombre"  value="{{old('name')}}">
           @error('name')
           <small style="color: red">{{ $message }}</small>
       @enderror
@@ -45,8 +45,8 @@
   
         <div class="entradasCantidad">
   
-          <label for="cantidad">Cantidad Entradas</label>
-          <input type="text" name="quantity" id="cantidadEntradas" value="{{old('quantity')}}">
+          <label for="cantidadEntradas">Cantidad Entradas</label>
+          <input type="text" name="quantity" id="cantidadEntradas" placeholder="{{$entradasRestantes}}" value="{{old('quantity')}}">
           @error('quantity')
           <small style="color: red">{{ $message }}</small>
       @enderror
@@ -57,7 +57,7 @@
 
       <div class="entradasNominales">
 
-        <label for="entradasNominales">Entradas Nominales</label>
+        <label >Entradas Nominales</label>
         
 
       </div>
