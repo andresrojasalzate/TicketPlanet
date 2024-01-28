@@ -2,7 +2,9 @@
     <div class="sesion-parte-superior">
         <img class="imagen-sesion-promotor" src="{{ asset('images/fotos-subidas/' . $session->event->image) }}" alt="">
         <div class="info-session-contenedor">
-            <p>{{$session->event->name}}</p>
+            <div class="info-session">
+                <p class="titulo-mostar-sesion-promotor">{{$session->event->name}}</p>
+            </div>   
             <div class="info-session">
                 <img src="{{ asset('images/eventos/calendar.png') }}" alt="" height="25">
                 <p>{{$session->date}}</p>

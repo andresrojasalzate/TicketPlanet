@@ -994,16 +994,18 @@ body.body-resetPwd .menuIMG {
 .buttons-sessions-promotor {
     display: flex;
     flex-direction: column;
-    margin-top: 5%;
+    margin-top: 2%;
+    width: 100%;
+    margin-right: 10%;
 
 }
 
  .buttons-sessions-promotor > button{
-    margin-bottom: 2%;
+    margin-bottom: 3%;
     margin-left: 5%;
     margin-right: 5%;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     border-radius: 7px;
     background-color: #F9BD06;
     border-color: #0642F9;
@@ -1036,13 +1038,12 @@ body.body-resetPwd .menuIMG {
 }
 
 .imagen-sesion-promotor {
-    max-height: 30vh;
-    max-width: 15vh;
+    max-width: 30%;
     margin-right: 10%;
 }
 
 .info-session-contenedor{
-    margin-right: 10%; 
+    margin-right: 20%; 
 }
 
 .mostrar-acciones{
@@ -1054,6 +1055,14 @@ body.body-resetPwd .menuIMG {
     margin-bottom: auto;
     max-width: 40px;
     
+}
+
+.titulo-mostar-sesion-promotor{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0;
+    margin-top: 10%;
+    margin-bottom: 5%;
 }
 
 /*PANTALLA MÓVIL*/
@@ -1437,6 +1446,7 @@ body.body-resetPwd .menuIMG {
 
     .info-session-contenedor{
         margin-right: 10%; 
+        width: 100%;
     }
 
     .mostrar-acciones {
@@ -1447,7 +1457,25 @@ body.body-resetPwd .menuIMG {
         display: none;
         flex-direction: column;
         margin-top: 5%;
-    
+    }
+
+    .buttons-sessions-promotor > button{
+        margin-bottom: 2%;
+        margin-left: 5%;
+        margin-right: 5%;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-radius: 7px;
+        background-color: #F9BD06;
+        border-color: #0642F9;
+     }
+
+     .titulo-mostar-sesion-promotor{
+        font-size: 16px;
+        font-weight: bold;
+        margin: auto;
+        margin-top: auto;
+        margin-bottom: auto;
     }
 
 }
