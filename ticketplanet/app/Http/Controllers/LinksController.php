@@ -52,35 +52,38 @@ class LinksController extends Controller
   public function comprarEntradas(Request $request)
   {
     $sesion = Session::find($request->session()->get('sesionId'));
-    
-    $cantidadEntradas = $request->quantity;
 
     $capacidadMaxima = $sesion->maxCapacity;
 
-    $entradasRestantes = $capacidadMaxima - $cantidadEntradas;
+    session(['capacidadMaxima' => $capacidadMaxima]);
 
-    return view('links.comprarEntradas')->with('entradasRestantes', $entradasRestantes);
+
+    return view('links.comprarEntradas')->with('entradasRestantes', $capacidadMaxima);
   }
   public function storeComprarEntradas(Request $request)
   {
 
     if (empty($request->quantity)) {
-      $sesion = Session::find($request->session()->get('sesionId'));
-      $quantity = $sesion->maxCapacity;
+      Log::info("Cantidad Entradas vacio");
+      $request->validate([
+        'name' => 'required',
+        'price' =>  'required',
+        'nominal' => 'required',
+      ]);
+      $capacidadMaxima = session('capacidadMaxima');
+  
+      $quantity = $capacidadMaxima; 
     } else {
       $quantity = $request->quantity;
     }
     
     $cantidadEntradas = $request->quantity;
 
-    $sesion = Session::find($request->session()->get('sesionId'));
-    $capacidadMaxima = $sesion->maxCapacity;
+    $capacidadMaxima = session('capacidadMaxima');
 
-  
-
-    
-
+ 
       if ($cantidadEntradas > $capacidadMaxima) {
+        Log::info("Cantidad entradas es menor que la capacidad maxima");
         $request->validate([
           'name' => 'required',
           'quantity' => 'lte:capacidadMaxima',
@@ -93,15 +96,18 @@ class LinksController extends Controller
         'price' =>  'required',
         'nominal' => 'required',
       ]); 
-      Ticket::create([
-        'name' => $request->name,
-        'quantity' => $request->quantity,
-        'price' => $request->price,
-        'nominal' => $request->nominal,
-        'session_id' => $request->session()->get('sesionId')
-      ]); 
     }
-    
+    Log::info("Validacion campos");
+    $request->validate([
+      'name' => 'required',
+      'price' =>  'required',
+      'nominal' => 'required',
+    ]);
+
+    if (session('capacidadMaxima') == 0) {
+      Log::info("Redirecciona al home cuando la capacidad maxima es 0");
+      return redirect()->route('home');
+    }
   
     Ticket::create([
       'name' => $request->name,
@@ -110,9 +116,9 @@ class LinksController extends Controller
       'nominal' => $request->nominal,
       'session_id' => $request->session()->get('sesionId')
     ]);
-
-    $entradasRestantes = $capacidadMaxima - $cantidadEntradas;
-    // return view('links.comprarEntradas')->with('entradasRestantes', $entradasRestantes);
+    $entradasRestantes = session('capacidadMaxima') - $cantidadEntradas;
+    session(['capacidadMaxima' => $entradasRestantes]);
+    return view('links.comprarEntradas')->with('entradasRestantes', $entradasRestantes);
   }
 
   public function store(Request $request)
@@ -157,7 +163,6 @@ class LinksController extends Controller
       'address' => $request->address,
       'city' => $request->city,
       'name_site' => $request->name_site,
-      'site' => $request->site,
       'image' => $nombre_unico,
       'description' => $request->description,
       'finishDate' => $request->finishDate,

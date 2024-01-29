@@ -544,8 +544,17 @@ ul {
     cursor: pointer;
     margin-bottom: 5px; }
 
-.card-expired a {
-  color: #0642F9; }
+.card-expired {
+  width: 32%;
+  background-color: #D9D9D9;
+  margin: 3% auto;
+  padding: 1% 2%;
+  font-family: 'Work Sans';
+  border: 0.188rem solid;
+  border-color: #0642F9;
+  border-radius: 0.313rem; }
+  .card-expired a {
+    color: #0642F9; }
 
 .card-reset {
   width: 100%;
@@ -1076,7 +1085,7 @@ ul {
     width: 70%; }
 
 .formularioImagen {
-  width: 50%;
+  width: 35%;
   display: flex;
   flex-wrap: wrap; }
   .formularioImagenInput {
@@ -1418,26 +1427,31 @@ ul {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    margin: 1%; }
+    margin-left: 1%;
+    margin-bottom: 10%; }
     .parte1formulario label {
       display: block; }
     .parte1formulario input {
       display: block; }
   .parte2formulario {
     display: flex;
-    margin: 1%; }
+    margin-left: 1%;
+    margin-bottom: 10%;
+    justify-content: space-between; }
   .parte3formulario {
     display: flex;
     flex-wrap: wrap;
     margin: 1%; }
   .parte4formulario {
     display: flex;
-    margin: 1%; }
+    margin-left: 1%;
+    margin-bottom: 10%; }
   .parte5formulario {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 1%; }
+    margin-left: 1%;
+    margin-bottom: 10%; }
     .parte5formulario label {
       display: block; }
     .parte5formulario input {
@@ -1494,7 +1508,6 @@ ul {
   .formularioParteEntradas {
     width: 100%; }
   .formularioAdreca {
-    width: 76%;
     display: flex;
     flex-direction: column; }
   .formularioDescripcion {
