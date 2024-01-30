@@ -13,8 +13,9 @@ class ShowEventController extends Controller
     {
         $evento = Event::findOrFail($id);
         $tickets = $evento->tickets;
+        $eventoId = $evento->id;
 
-        return view('events.showEvents', compact('evento', 'tickets'));
+        return view('events.showEvents', compact('evento', 'tickets', 'eventoId'));
     }
 
     // public function sesiones()

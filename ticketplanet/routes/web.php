@@ -10,6 +10,7 @@ use App\Http\Controllers\ForgotPwdController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\ResetPwdController;
 use App\Http\Controllers\ShowEventController;
+use App\Http\Controllers\ValoracionController;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/events', [EventController::class, 'searchGet'])->name('events.index');
@@ -57,3 +58,12 @@ Route::get('/events/{id}', [ShowEventController::class, 'mostrarEvento'])->name(
 
 
 Route::get('/links/administrarEvents', [LinksController::class, 'administrarEvento'])->name('links.administrarEvents');
+
+
+/*VALORACIÓN*/
+Route::get('/valoracion/formValoracion', [ValoracionController::class, 'mostrarFormulario'])->name('valoracion.form');
+
+Route::post('/guardar-valoracion', [ValoracionController::class, 'guardarValoracion'])->name('guardarValoracion');
+
+
+Route::post('/enviar-correo-valoracion', [ValoracionController::class, 'enviarCorreoValoracion'])->name('enviar.correo.valoracion');
