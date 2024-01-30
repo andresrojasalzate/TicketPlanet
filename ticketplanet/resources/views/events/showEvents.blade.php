@@ -13,6 +13,11 @@
                 <h2>{{ $evento->name }}</h2>
 
                 <p>{{ $evento->description }}</p>
+                <form method="POST" action="{{ route('enviar.correo.valoracion') }}">
+                    @csrf
+                    <input type="hidden" name="evento" value="{{ $eventoId }}">
+                    <button type="submit">Enviar correo Valoración</button>
+                </form>
 
                 <div class="ubicacion-showEvent">
                     <div class="ubicacion-title-showEvent">
@@ -62,8 +67,10 @@
                 <p>Total: <span id="total-price">0€</span></p>
                 <button id="buy-button">Comprar</button>
             </div>
-
+            <hr>
         </div>
+        
+        
     </div>
     <script src="{{ asset('js/showEvent.js') }}"></script>
 @endsection
