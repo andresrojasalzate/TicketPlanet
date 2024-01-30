@@ -31,7 +31,7 @@ class SessionTest extends TestCase
 
         $categoria = Category::factory()->create();
 
-        $evento = Event::create([
+        $evento = Event::factory()->create([
           'category_id' => $categoria->id,
           'user_id' => $user->id,
         ]);
