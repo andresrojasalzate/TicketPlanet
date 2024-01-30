@@ -30,42 +30,22 @@ class HomeTest extends TestCase
 
     public function test_when_click_ver_mas():void
     {
+       
+
+        $user = User::factory()->create();
+          
         $categoria = Category::factory()->create();
 
-        $user = User::factory()->create([
-            'email' => 'test@example.com',
-            'password' => bcrypt('p2345678'),
-          ]);
-    
-
-        $evento = Event::create([
-            'name' => "anderson",
-            'address' => "direccion",
-            'city' => "ciudad",
-            'name_site' => "nombreSitio",
-            'image' => "imagen",
-            'description' => "descripcion",
-            'finishDate' => date('Y-m-d'),
-            'finishTime' => date('H:i:s'),
-            'visible' => true,
-            'capacity' => 100,
+        $evento = Event::factory()->create([
             'category_id' => $categoria->id,
             'user_id' => $user->id,
           ]);
     
-          $sesion = Session::create([
-            'date' => date('Y-m-d'),
-            'time' => date('H:i:s'),
-            'maxCapacity' => 100,
-            'ticketsSold' => 100,
+          $sesion = Session::factory()->create([
             'event_id' => $evento->id,
           ]);
           
-          Ticket::create([
-            'name' => "nombre",
-            'quantity' => 100,
-            'price' => 10.0,
-            'nominal' => true,
+          Ticket::factory()->create([
             'session_id' => $sesion->id,
           ]);
 
