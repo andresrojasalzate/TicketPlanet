@@ -13,7 +13,7 @@
         </div>
 
         <div class="btnListarSesionEvent">
-            <a href="{{ route('links.crearEvento') }}">Crear sesiones</a>
+            <a href="{{ route('links.sessionEvents') }}">Crear sesiones</a>
         </div>
     </div>
 
