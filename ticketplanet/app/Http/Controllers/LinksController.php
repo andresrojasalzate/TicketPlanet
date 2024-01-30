@@ -52,56 +52,62 @@ class LinksController extends Controller
   public function comprarEntradas(Request $request)
   {
     $sesion = Session::find($request->session()->get('sesionId'));
+
     
-    $cantidadEntradas = $request->quantity;
-
-    $capacidadMaxima = $sesion->maxCapacity;
-
-    $entradasRestantes = $capacidadMaxima - $cantidadEntradas;
-
-    return view('links.comprarEntradas')->with('entradasRestantes', $entradasRestantes);
+    if ($request->session()->has('capacidadMaxima')) {
+      $capacidadMaxima = $request->session()->get('capacidadMaxima');
+    }else{
+      session(['capacidadMaxima' => $sesion->maxCapacity]);
+      $capacidadMaxima = $sesion->maxCapacity;
+      
+    }
+    
+    return view('links.comprarEntradas')->with('entradasRestantes', $capacidadMaxima);
   }
   public function storeComprarEntradas(Request $request)
   {
 
     if (empty($request->quantity)) {
-      $sesion = Session::find($request->session()->get('sesionId'));
-      $quantity = $sesion->maxCapacity;
+      Log::info("Cantidad Entradas vacio");
+      $request->validate([
+        'name' => 'required',
+        'price' =>  'required',
+        'nominal' => 'required',
+      ]);
+      $capacidadMaxima = session('capacidadMaxima');
+  
+      $quantity = $capacidadMaxima; 
     } else {
       $quantity = $request->quantity;
     }
     
     $cantidadEntradas = $request->quantity;
 
-    $sesion = Session::find($request->session()->get('sesionId'));
-    $capacidadMaxima = $sesion->maxCapacity;
+    $capacidadMaxima = session('capacidadMaxima');
 
-  
+    Log::info("Validacion campos");
+    $request->validate([
+      'name' => 'required',
+      'price' =>  'required',
+      'nominal' => 'required',
+    ]);
 
-    
-
+ 
       if ($cantidadEntradas > $capacidadMaxima) {
+        Log::info("Cantidad entradas es mayor que la capacidad maxima");
         $request->validate([
           'name' => 'required',
           'quantity' => 'lte:capacidadMaxima',
           'price' =>  'required',
           'nominal' => 'required',
         ]); 
-    }else{
-      $request->validate([
-        'name' => 'required',
-        'price' =>  'required',
-        'nominal' => 'required',
-      ]); 
-      Ticket::create([
-        'name' => $request->name,
-        'quantity' => $request->quantity,
-        'price' => $request->price,
-        'nominal' => $request->nominal,
-        'session_id' => $request->session()->get('sesionId')
-      ]); 
     }
     
+
+    if (session('capacidadMaxima') == 0) {
+      Log::info("Redirecciona al home cuando la capacidad maxima es 0");
+      return redirect()->route('home');
+    }
   
     Ticket::create([
       'name' => $request->name,
@@ -110,9 +116,10 @@ class LinksController extends Controller
       'nominal' => $request->nominal,
       'session_id' => $request->session()->get('sesionId')
     ]);
+    $entradasRestantes = session('capacidadMaxima') - $cantidadEntradas;
+    session(['capacidadMaxima' => $entradasRestantes]);
 
-    $entradasRestantes = $capacidadMaxima - $cantidadEntradas;
-    // return view('links.comprarEntradas')->with('entradasRestantes', $entradasRestantes);
+    return redirect()->route('links.comprarEntradas');
   }
 
   public function store(Request $request)
@@ -157,7 +164,6 @@ class LinksController extends Controller
       'address' => $request->address,
       'city' => $request->city,
       'name_site' => $request->name_site,
-      'site' => $request->site,
       'image' => $nombre_unico,
       'description' => $request->description,
       'finishDate' => $request->finishDate,
@@ -226,6 +232,39 @@ class LinksController extends Controller
         return redirect()->route('auth.login');
       
            
+    }
+
+    public function sessionEvents()
+    {
+      if (Auth()->user()) {
+        // Obtener los eventos del promotor
+        $events = Event::where('user_id', Auth()->user()->id)->with('sessions')->paginate(env('PAGINATION_LIMIT'));
+  
+        // Pasar los eventos a la vista
+        return view('links.sessionEvents', ['events' => $events]);
+      }
+  
+      return redirect()->route('auth.login');
+    }
+    public function crearMultiplesSesiones($Id)
+    {
+      if (Auth::check()) {
+
+        $user = Auth::user();
+  
+      } else {
+        return redirect()->route('auth.login');
+      }
+      
+      $event = Event::find($Id);
+      $sessions = Session::find($Id);
+
+
+return view('links.crearMultiplesSesiones',compact('event', 'sessions'))->with([
+    'event' => $event,
+    'sessions' => $sessions
+]);
+
     }
 
 }

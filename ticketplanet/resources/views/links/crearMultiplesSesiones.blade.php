@@ -20,7 +20,8 @@
                 <div class="parte1formulario">
 
                     <label for="title">Titulo</label>
-                    <input type="text" name="name" id="title" value="{{ old('name') }}">
+                    
+                    <input type="text" name="name" id="title" readonly value="{{ $event->name }}">
                   
                     @error('name')
                         <small style="color: red">{{ $message }}</small>
@@ -28,11 +29,8 @@
                     <br>
                     <label for="Categoria">Categoria</label>
 
-                    <select name="categoria">
-                        @foreach ($categorias as $categoria)
-                            <option value=" {{ $categoria->id }} ">{{ $categoria->name }} </option>
-                        @endforeach
-                    </select>
+                            {{-- <option value="{{ $event->name }}">{{ $categoria->name }} </option> --}}
+                            <input type="text" readonly value="{{ $event->category_id }}">
                 </div>
 
 
@@ -41,7 +39,7 @@
 
                         <label for="Descripcion Esdeveniment">Descripcion Esdeveniment</label>
                         <input  type="text" name="description"
-                            id="descripcioEsdeveniment" value="{{ old('description') }}">
+                            id="descripcioEsdeveniment" readonly value="{{ $event->description }}">
                         <br>
                         @error('description')
                             <small style="color: red">{{ $message }}</small>
@@ -50,7 +48,7 @@
 
                     <div class="formularioImagen">
                       <label for="Imagen Principal de l'esdeveniment">Imagen principal</label>
-                        <input type="file" name="image" id="imagenEsdeveniment" value="{{ old('image') }}">
+                        <input type="file" name="image" id="imagenEsdeveniment" readonly value="{{ $event->image }}">
 
                         @error('image')
                             <small style="color: red">{{ $message }}</small>
@@ -65,13 +63,8 @@
                   <div class="formularioAdreca">
 
                         <label for="numeroDireccion">Numero Direccion | Codigo Postal | Provincia</label>
-                        <input type="text" name="address" list="addresses" id="numeroDireccion"
-                            value="{{ old('address') }}">
-                        <datalist id="addresses">
-                            @foreach ($addresses as $address)
-                                <option>{{ $address->address }}</option>
-                            @endforeach
-                        </datalist>
+                        <input type="text" name="address" list="addresses" id="numeroDireccion" readonly
+                        value="{{ $event->address }}">
 
                         @error('address')
                             <small style="color: red">{{ $message }}</small>
@@ -93,14 +86,14 @@
                         <div>
 
                             <input type="radio" name="visible"
-                                value="true"{{ old('visible') == 'true' ? 'checked' : '' }}>Si
+                                value="true" readonly value="{{ $event->visible }}">Si
 
                         </div>
 
                         <div>
 
                             <input type="radio" name="visible"
-                                value="false"{{ old('visible') == 'false' ? 'checked' : '' }}>No
+                                value="false" readonly="{{ $event->visible }}">No
 
                         </div>
                     </div>
@@ -116,12 +109,7 @@
                     <div class="formularioNombreLocal">
 
                         <label for="Nombre del local">Nombre del Local</label>
-                        <input class="formularioNombreLocalInput" type="text" list="nameSites" name="name_site" id="nombreLocal" value="{{old('name_site')}}"{{ old('name_site') }}">
-                        <datalist id="nameSites">
-                            @foreach ($nameSites as $nameSite)
-                                <option>{{ $nameSite->name_site }}</option>
-                            @endforeach
-                        </datalist>
+                        <input class="formularioNombreLocalInput" type="text" list="nameSites" name="name_site" id="nombreLocal" readonly value="{{ $event->name_site }}">
                         <br>
                         @error('name_site')
                             <small style="color: red">{{ $message }}</small>
@@ -132,12 +120,7 @@
 
                         <label for="Capacidad del local">Capacidad del local</label>
                         <input class="formularioCapacidadLocalInput" type="number" list="capacitys" name="capacity"
-                            id="capacidadLocal" value="{{ old('capacity') }}">
-                        <datalist id="capacitys">
-                            @foreach ($capacitys as $capacity)
-                                <option>{{ $capacity->capacity }}</option>
-                            @endforeach
-                        </datalist>
+                            id="capacidadLocal" value="{{ $event->capacity }}">
                         <br>
                         @error('capacity')
                             <small style="color: red">{{ $message }}</small>
@@ -152,12 +135,7 @@
                     <div class="formularioCiudad">
 
                         <label for="Ciudad">Ciudad</label>
-                        <input class="formularioCiudadInput" type="text" list="citys" name="city" id="ciudad" value="{{old('city')}}">
-                        <datalist id="citys">
-                            @foreach ($citys as $city)
-                                <option>{{ $city->city }}</option>
-                            @endforeach
-                        </datalist>
+                        <input class="formularioCiudadInput" type="text" list="citys" name="city" id="ciudad" value="{{ $event->city }}">
                         @error('city')
                             <small style="color: red">{{ $message }}</small>
                         @enderror
@@ -166,7 +144,7 @@
                     <div class="formularioFechaFin">
 
                         <label for="fechaFin">Fecha Fin</label>
-                        <input class="formularioFechaFinInput" type="date" name="finishDate" id="fechaFin" value="{{old('finishDate')}}">
+                        <input class="formularioFechaFinInput" type="date" name="finishDate" id="fechaFin" readonly value="{{ $event->finishDate }}">
 
                         @error('finishDate')
                             <small style="color: red">{{ $message }}</small>
@@ -177,7 +155,7 @@
 
                         <label for="horaFin">Hora Fin</label>
                         <input class="formularioHoraFinInput" type="time" name="finishTime" id="HoraFin"
-                            value="{{ old('finishTime') }}">
+                         readonly value="{{ $event->finishTime }}">
 
                         @error('finishTime')
                             <small style="color: red">{{ $message }}</small>
@@ -214,7 +192,7 @@
 
                         <label for="Aforo Maximo">Aforo Maximo</label>
                         <input class="formularioAforoMaximoInput" type="number" name="maxCapacity" id="aforoMaximo"
-                            value="{{ old('maxCapacity') }}">
+                        readonly value="{{ $sessions->maxCapacity }}">
 
                         @error('maxCapacity')
                             <small style="color: red">{{ $message }}</small>
