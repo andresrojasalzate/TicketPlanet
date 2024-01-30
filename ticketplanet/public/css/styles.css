@@ -348,12 +348,12 @@ body.body-resetPwd .menuIMG {
 .btneditEvent {
     position: absolute;
     top: 1vh;
-    right: 1vh; 
+    right: 1vh;
     padding: 0.5vh;
     background-color: #ebebeb;
     border: 1px solid #000000;
     border-radius: 1vh;
-    z-index: 3; 
+    z-index: 3;
     cursor: pointer;
 }
 
@@ -364,8 +364,8 @@ body.body-resetPwd .menuIMG {
 /*HOME PROMOTOR BOTONES*/
 .btnHomePromotor {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    justify-content: center; 
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
     margin: 26vh 2vh;
 }
 
@@ -388,7 +388,7 @@ body.body-resetPwd .menuIMG {
 .btnAdministrarEvent a,
 .btnListarSesionEvent a {
     text-decoration: none;
-    text-align: center; 
+    text-align: center;
     color: black;
     font-family: 'Work Sans';
 
@@ -903,7 +903,7 @@ body.body-resetPwd .menuIMG {
 .card-showEvent {
     display: flex;
     flex-wrap: wrap;
-    
+
     flex-direction: row;
     background-color: #D9D9D9;
     margin: 5vh auto;
@@ -913,16 +913,16 @@ body.body-resetPwd .menuIMG {
 }
 
 
-.card-showTickets{
+.card-showTickets {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+
 }
 
-.ticket-container{
+.ticket-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     padding: 2vh;
@@ -935,30 +935,30 @@ body.body-resetPwd .menuIMG {
 }
 
 
-.ticket-container input{
+.ticket-container input {
     padding: 2vh;
     font-size: 1rem;
     margin-left: auto;
 }
 
-#total-price-container{
+#total-price-container {
     width: 35vh;
     display: grid;
-    grid-template-columns: 0.3fr 1.3fr 1fr ;
+    grid-template-columns: 0.3fr 1.3fr 1fr;
     justify-items: center;
     align-items: center;
     margin: 2vh;
     margin-left: auto;
 }
 
-#total-price-container p{
+#total-price-container p {
     font-size: 1.2rem;
     font-family: 'Work Sans';
     color: #000000;
 
 }
 
-#buy-button{
+#buy-button {
     padding: 2vh;
     border-radius: 7px;
     background-color: #F9BD06;
@@ -971,16 +971,16 @@ body.body-resetPwd .menuIMG {
     cursor: pointer;
 }
 
-.card-margin{
+.card-margin {
     margin: 5vh;
 }
 
 
-.card-showTickets{
+.card-showTickets {
     display: none;
 }
 
-.mostar-sesiones-promotor{
+.mostar-sesiones-promotor {
     margin-left: 20%;
     margin-right: 20%;
 }
@@ -1000,7 +1000,7 @@ body.body-resetPwd .menuIMG {
 
 }
 
- .buttons-sessions-promotor > button{
+.buttons-sessions-promotor>button {
     margin-bottom: 3%;
     margin-left: 5%;
     margin-right: 5%;
@@ -1009,7 +1009,7 @@ body.body-resetPwd .menuIMG {
     border-radius: 7px;
     background-color: #F9BD06;
     border-color: #0642F9;
- }
+}
 
 
 .info-session {
@@ -1018,7 +1018,7 @@ body.body-resetPwd .menuIMG {
     align-items: center;
 }
 
-.info-session > img{
+.info-session>img {
     margin-right: 5%;
 }
 
@@ -1032,7 +1032,7 @@ body.body-resetPwd .menuIMG {
     margin-bottom: 5%;
 }
 
-.sesion-parte-superior{
+.sesion-parte-superior {
     display: flex;
     flex-direction: row;
 }
@@ -1042,22 +1042,22 @@ body.body-resetPwd .menuIMG {
     margin-right: 10%;
 }
 
-.info-session-contenedor{
-    margin-right: 20%; 
+.info-session-contenedor {
+    margin-right: 20%;
 }
 
-.mostrar-acciones{
+.mostrar-acciones {
     display: none;
 }
 
-.mostrar-acciones > img {
+.mostrar-acciones>img {
     margin-top: auto;
     margin-bottom: auto;
     max-width: 40px;
-    
+
 }
 
-.titulo-mostar-sesion-promotor{
+.titulo-mostar-sesion-promotor {
     font-size: 30px;
     font-weight: bold;
     margin: 0;
@@ -1075,10 +1075,10 @@ body.body-resetPwd .menuIMG {
 
 /*VALORACIÓN*/
 .card-form-valoracion {
-    width: 30%;
+    width: 53vh;
     background-color: #D9D9D9;
-    margin: 2% auto;
-    padding: 1% 2%;
+    margin: 1vh auto;
+    padding: 1vh 2vh;
     align-items: center;
     font-family: 'Work Sans';
     font-size: 1.1rem;
@@ -1088,20 +1088,22 @@ body.body-resetPwd .menuIMG {
 }
 
 
-.card-form-valoracion input, textarea{
+.card-form-valoracion input,
+textarea {
     position: relative;
     width: 100%;
     padding: 2vh;
     font-size: 1rem;
     margin-top: 0.3rem;
+    resize: none;
 }
 
-.btnEnviarValoracion{
+.btnEnviarValoracion {
     padding: 2vh;
     border-radius: 7px;
     background-color: #F9BD06;
     border-color: #0642F9;
-    margin-top: 1%;
+    margin-top: 1vh;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -1109,25 +1111,29 @@ body.body-resetPwd .menuIMG {
     cursor: pointer;
 }
 
-.rating:hover img{
+.rating:hover img {
     cursor: pointer;
 }
 
 .ratingSmile {
-    margin: 2vh auto 1vh auto;
+    margin: 2vh auto 0 auto;
     display: grid;
-    grid-template-columns: repeat(5, 1fr); 
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
     justify-items: center;
 }
 
-.ratingSmileRadio {
+.ratingSmileRadio{
     display: grid;
-    grid-template-columns: repeat(5, 1fr); 
-    justify-items: center;
+    align-items: center;
+    justify-content: center;
 }
+
+
 
 .ratingSmileRadio input[type="radio"] {
     transform: scale(1.3);
+    margin: 1vh auto 2vh auto;
 }
 
 
@@ -1381,7 +1387,7 @@ body.body-resetPwd .menuIMG {
     .card-showEvent {
         display: flex;
         flex-direction: column;
-        
+
         background-color: #D9D9D9;
         margin: 10vw auto;
         border: 3px solid;
@@ -1462,36 +1468,37 @@ body.body-resetPwd .menuIMG {
 
     }
 
-    .ticket-container input{
+    .ticket-container input {
         padding: 1vh;
         font-size: 1rem;
         margin-left: auto;
     }
 
-    #total-price-container{
+    #total-price-container {
         width: 30vh;
         display: grid;
         grid-template-columns: 1fr 5fr 1fr;
         justify-items: center;
         align-items: center;
         margin: auto;
-        
+
     }
 
     /*HOME PROMOTOR*/
     .btnHomePromotor {
         display: grid;
-        grid-template-columns: repeat(1, 3fr); 
-        margin: 12vh ;
+        grid-template-columns: repeat(1, 3fr);
+        margin: 12vh;
     }
 
     .btnCrearEvent,
     .btnAdministrarEvent,
     .btnListarSesionEvent {
-        margin-top: 3vh; /* Agrega margen superior a cada botón */
+        margin-top: 3vh;
+        /* Agrega margen superior a cada botón */
     }
 
-    .mostar-sesiones-promotor{
+    .mostar-sesiones-promotor {
         margin-left: auto;
         margin-right: auto;
     }
@@ -1507,7 +1514,7 @@ body.body-resetPwd .menuIMG {
         margin-bottom: 10%;
     }
 
-    .sesion-parte-superior{
+    .sesion-parte-superior {
         display: flex;
         flex-direction: row;
     }
@@ -1518,8 +1525,8 @@ body.body-resetPwd .menuIMG {
         margin-right: 10%;
     }
 
-    .info-session-contenedor{
-        margin-right: 10%; 
+    .info-session-contenedor {
+        margin-right: 10%;
         width: 100%;
     }
 
@@ -1533,7 +1540,7 @@ body.body-resetPwd .menuIMG {
         margin-top: 5%;
     }
 
-    .buttons-sessions-promotor > button{
+    .buttons-sessions-promotor>button {
         margin-bottom: 2%;
         margin-left: 5%;
         margin-right: 5%;
@@ -1542,15 +1549,86 @@ body.body-resetPwd .menuIMG {
         border-radius: 7px;
         background-color: #F9BD06;
         border-color: #0642F9;
-     }
+    }
 
-     .titulo-mostar-sesion-promotor{
+    .titulo-mostar-sesion-promotor {
         font-size: 16px;
         font-weight: bold;
         margin: auto;
         margin-top: auto;
         margin-bottom: auto;
     }
+
+
+    /*------------------------------------------------------------------------------------*/
+    /*------------------------------------------------------------------------------------*/
+    /*------------------------------------------------------------------------------------*/
+    /*------------------------------------------------------------------------------------*/
+    /*------------------------------------------------------------------------------------*/
+    /*------------------------------------------------------------------------------------*/
+
+    /*VALORACIÓN*/
+    .card-form-valoracion {
+        width: 85vw;
+        background-color: #D9D9D9;
+        margin: 2% auto;
+        padding: 1% 2%;
+        align-items: center;
+        font-family: 'Work Sans';
+        font-size: 1.1rem;
+        border: 0.188rem solid;
+        border-color: #0642F9;
+        border-radius: 0.313rem;
+    }
+
+
+    .card-form-valoracion input,
+    textarea {
+        position: relative;
+        width: 100%;
+        padding: 2vh;
+        font-size: 1rem;
+        margin-top: 0.3rem;
+    }
+
+    .btnEnviarValoracion {
+        padding: 2vh;
+        border-radius: 7px;
+        background-color: #F9BD06;
+        border-color: #0642F9;
+        margin-top: 1%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
+
+    .rating:hover img {
+        cursor: pointer;
+    }
+
+    .ratingSmile {
+        margin: 2vh auto 1vh auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+
+    .ratingSmile input[type="radio"] {
+        transform: scale(1.3);
+    }
+
+
+    /*------------------------------------------------------------------------------------*/
+    /*------------------------------------------------------------------------------------*/
+    /*------------------------------------------------------------------------------------*/
+    /*------------------------------------------------------------------------------------*/
+    /*------------------------------------------------------------------------------------*/
+    /*------------------------------------------------------------------------------------*/
+
+
 
 }
 
@@ -1845,4 +1923,3 @@ body.body-resetPwd .menuIMG {
         justify-content: space-evenly;
     }
 }
-
