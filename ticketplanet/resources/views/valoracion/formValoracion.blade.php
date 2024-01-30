@@ -9,18 +9,26 @@
 
         <label>Que te ha parecido?</label>
         <div class="ratingSmile">
-            <img src="{{ asset('images/valoracion/faces/faceBad.png') }}" width="60">
-            <img src="{{ asset('images/valoracion/faces/faceBd.png') }}" width="60">
-            <img src="{{ asset('images/valoracion/faces/faceRegular.png') }}" width="60">
-            <img src="{{ asset('images/valoracion/faces/faceGood.png') }}" width="60">
-            <img src="{{ asset('images/valoracion/faces/faceVeryGood.png') }}" width="60">
-        </div>
-        <div class="ratingSmileRadio">
-            <input type="radio" name="caraSeleccionada" value="muy_mal">
-            <input type="radio" name="caraSeleccionada" value="mal">
-            <input type="radio" name="caraSeleccionada" value="regular">
-            <input type="radio" name="caraSeleccionada" value="bueno">
-            <input type="radio" name="caraSeleccionada" value="muy_bueno">
+            <div class="ratingSmileRadio">
+                <img src="{{ asset('images/valoracion/faces/faceBad.png') }}" width="60">
+                <input type="radio" name="caraSeleccionada" value="muy_mal">
+            </div>
+            <div class="ratingSmileRadio">
+                <img src="{{ asset('images/valoracion/faces/faceBd.png') }}" width="60">
+                <input type="radio" name="caraSeleccionada" value="mal">
+            </div>
+            <div class="ratingSmileRadio">
+                <img src="{{ asset('images/valoracion/faces/faceRegular.png') }}" width="60">
+                <input type="radio" name="caraSeleccionada" value="regular">
+            </div>
+            <div class="ratingSmileRadio">
+                <img src="{{ asset('images/valoracion/faces/faceGood.png') }}" width="60">
+                <input type="radio" name="caraSeleccionada" value="bueno">
+            </div>
+            <div class="ratingSmileRadio">
+                <img src="{{ asset('images/valoracion/faces/faceVeryGood.png') }}" width="60">
+                <input type="radio" name="caraSeleccionada" value="muy_bueno">
+            </div>
         </div><br>
 
         <label>Puntuación</label><br>
