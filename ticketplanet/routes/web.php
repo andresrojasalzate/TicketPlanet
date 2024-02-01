@@ -67,3 +67,9 @@ Route::post('/guardar-valoracion', [ValoracionController::class, 'guardarValorac
 
 
 Route::post('/enviar-correo-valoracion', [ValoracionController::class, 'enviarCorreoValoracion'])->name('enviar.correo.valoracion');
+
+Route::get('/links/sessionEvents', [LinksController::class, 'sessionEvents'])->name('links.sessionEvents');
+
+Route::get('/links/multiplesSesiones/{id}', [LinksController::class, 'multiplesSesiones'])->name('links.multiplesSesiones');
+
+Route::post('/links/crearMultiplesSesiones/{id}', [LinksController::class, 'crearMultiplesSesiones'])->name('links.crearMultiplesSesiones');
