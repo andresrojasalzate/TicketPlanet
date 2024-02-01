@@ -16,7 +16,7 @@
     <p>Nos interesa tu punto de vista.<br>Trabajamos arduamente para asegurar una experiencia sin problemas. 
         Desde la compra de tus entradas hasta tu llegada al evento. Por eso, nos gustaría conocer tu experiencia.</p>
     
-    <a href="{{ route('valoracion.form') }}"><button>Valora a {{ $evento->name }}</button></a>
+    <a href="{{ route('valoracion.form', ['eventoId' => $evento->id]) }}"><button>Valora a {{ $evento->name }}</button></a>
     
     <p>Saludos,<br>{{ config('app.name') }}</p>
 

@@ -61,7 +61,7 @@ Route::get('/links/administrarEvents', [LinksController::class, 'administrarEven
 
 
 /*VALORACIÓN*/
-Route::get('/valoracion/formValoracion', [ValoracionController::class, 'mostrarFormulario'])->name('valoracion.form');
+Route::get('/valoracion/formValoracion/{eventoId}', [ValoracionController::class, 'mostrarFormulario'])->name('valoracion.form');
 
 Route::post('/guardar-valoracion', [ValoracionController::class, 'guardarValoracion'])->name('guardarValoracion');
 

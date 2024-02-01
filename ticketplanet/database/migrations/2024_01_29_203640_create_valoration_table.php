@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('caraSeleccionada');
             $table->integer('puntuacionSeleccionada');
-            $table->string('titulo_comentario')->nullable();
+            $table->string('tituloComentario')->nullable();
             $table->text('comentario')->nullable();
+            $table->foreignId('event_id')->references('id')->on('events')->onDelete('cascade');
             $table->timestamps();
         });
     }
