@@ -37,7 +37,7 @@ class ValoracionController extends Controller
             }
         } else {
             Log::warning('Se intentó enviar el correo de valoración pero no hay usuario autenticado.');
-            return back()->withErrors(['error' => 'No hay usuario autenticado.']);
+            return redirect()->route('auth.login')->withErrors(['error' => 'Debes iniciar sesión para enviar un correo de valoración.']);
         }
 
     }
