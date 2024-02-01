@@ -15,7 +15,8 @@ class Valoracion extends Model
         'nombre',
         'caraSeleccionada',
         'puntuacionSeleccionada',
-        'titulo_comentario',
+        'tituloComentario',
         'comentario',
+        'event_id',
     ];
 }
