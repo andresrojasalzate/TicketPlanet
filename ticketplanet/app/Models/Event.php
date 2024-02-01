@@ -33,6 +33,11 @@ class Event extends Model
         return $this->hasManyThrough(Ticket::class, Session::class);
     }
 
+    public function valoraciones(): HasMany
+    {
+        return $this->hasMany(Valoracion::class);
+    }
+
     protected $fillable = [
       'name',
       'address',
