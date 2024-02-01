@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use Illuminate\Support\Facades\Session as ReinicarMaxCapacity;
 use App\Models\Event;
 use App\Models\Category;
 use App\Models\Ticket;
@@ -51,6 +53,7 @@ class LinksController extends Controller
 
   public function comprarEntradas(Request $request)
   {
+    
     $sesion = Session::find($request->session()->get('sesionId'));
 
     
@@ -106,7 +109,12 @@ class LinksController extends Controller
 
     if (session('capacidadMaxima') == 0) {
       Log::info("Redirecciona al home cuando la capacidad maxima es 0");
+
+      
+
       return redirect()->route('home');
+      
+
     }
   
     Ticket::create([
@@ -126,6 +134,7 @@ class LinksController extends Controller
   {
 
     if (Auth::check()) {
+      ReinicarMaxCapacity::forget('capacidadMaxima');
       Log::info("Store");
       $idEvento = $this->guardarEvento($request);
       $this->crearSesion($request, $idEvento);
@@ -173,7 +182,6 @@ class LinksController extends Controller
       'category_id' => $request->categoria,
       'user_id' => $user->id,
     ]);
-
     return $eventoCrear->id;
   }
 
@@ -236,17 +244,18 @@ class LinksController extends Controller
 
     public function sessionEvents()
     {
+      
       if (Auth()->user()) {
-        // Obtener los eventos del promotor
+        
         $events = Event::where('user_id', Auth()->user()->id)->with('sessions')->paginate(env('PAGINATION_LIMIT'));
   
-        // Pasar los eventos a la vista
+        
         return view('links.sessionEvents', ['events' => $events]);
       }
   
       return redirect()->route('auth.login');
     }
-    public function crearMultiplesSesiones($Id)
+    public function multiplesSesiones($Id)
     {
       if (Auth::check()) {
 
@@ -255,16 +264,41 @@ class LinksController extends Controller
       } else {
         return redirect()->route('auth.login');
       }
+      ReinicarMaxCapacity::forget('capacidadMaxima');
       
       $event = Event::find($Id);
       $sessions = Session::find($Id);
 
+      
 
-return view('links.crearMultiplesSesiones',compact('event', 'sessions'))->with([
+return view('links.multiplesSesiones',compact('event', 'sessions'))->with([
     'event' => $event,
     'sessions' => $sessions
 ]);
+  
+    }
 
+    public function crearMultiplesSesiones(Request $request, $id)
+    {
+      $eventId = $id;
+      
+
+      $request->validate([
+        'date' => 'required',
+        'time' => 'required',
+        'maxCapacity' =>'required|lte:capacity'
+      ]);
+  
+      $crearSesion = Session::create([
+        'date' => $request->date,
+        'time' => $request->time,
+        'maxCapacity' => $request->maxCapacity,
+        'event_id' => $eventId,
+        'ticketsSold' => 0
+      ]);
+      $request->session()->put('sesionId', $crearSesion->id);
+
+      return redirect()->route('links.comprarEntradas');
     }
 
 }
