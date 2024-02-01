@@ -27,6 +27,7 @@ class ValidacionMail extends Mailable
     {
         $this->usuario = $usuario;
         $this->evento = $evento;
+        $this->eventoId = $evento->id;
     }
 
     public function build()

@@ -1066,6 +1066,7 @@ body.body-resetPwd .menuIMG {
 }
 
 
+
 /*------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------*/
@@ -1134,6 +1135,46 @@ textarea {
 .ratingSmileRadio input[type="radio"] {
     transform: scale(1.3);
     margin: 1vh auto 2vh auto;
+}
+
+
+/*------------------------------------------------------------------------------------*/
+
+.card-showComents{
+    width: 80vw;
+    font-family: 'Work Sans';
+}
+
+.card-showComents h3{
+    font-size: 1.5rem;
+    
+}
+
+.reseña {
+    display: grid;
+    grid-template-columns: 0.7fr 6fr;
+    padding: 1vh 0 2vh 0;
+}
+
+.reseñaCara{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reseñaNombre{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.reseñaTexto{
+    font-size: 1.1rem;
+}
+
+.reseñaEstrellas{
+    display: flex;
+    justify-content: center;
 }
 
 

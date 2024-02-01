@@ -11,9 +11,8 @@ use Illuminate\Support\Facades\Log;
 
 class ValoracionController extends Controller
 {
-    public function mostrarFormulario()
+    public function mostrarFormulario($eventoId)
     {
-        $eventoId = 1;
         return view('valoracion.formValoracion', ['eventoId' => $eventoId]);
     }
 
@@ -26,7 +25,7 @@ class ValoracionController extends Controller
             $correoDestino = $usuarioAutenticado->email;
 
             try {
-                $eventoId = $request->evento;
+                $eventoId = $request->input('evento');
                 $evento = Event::findOrFail($eventoId);
                 // Envía el correo al usuario autenticado
                 Mail::to($correoDestino)->send(new ValidacionMail($usuarioAutenticado, $evento));
@@ -51,8 +50,19 @@ class ValoracionController extends Controller
             'nombre' => 'required|string',
             'caraSeleccionada' => 'required|string',
             'puntuacionSeleccionada' => 'required|integer',
-            'titulo_comentario' => 'nullable|string',
-            'comentario' => 'nullable|string',
+            'tituloComentario' => 'required|string',
+            'comentario' => 'required|string',
+        ], [
+            'nombre.required' => 'El campo nombre es obligatorio.',
+            'nombre.string' => 'Por favor, introduce un nombre válido.',
+            'caraSeleccionada.required' => 'El campo cara seleccionada es obligatorio.',
+            'caraSeleccionada.string' => 'Por favor, selecciona una cara válida.',
+            'puntuacionSeleccionada.required' => 'El campo puntuación seleccionada es obligatorio.',
+            'puntuacionSeleccionada.integer' => 'La puntuación debe ser un número entero.',
+            'tituloComentario.required' => 'El campo título del comentario es obligatorio.',
+            'tituloComentario.string' => 'Por favor, introduce un título de comentario válido.',
+            'comentario.required' => 'El campo comentario es obligatorio.',
+            'comentario.string' => 'Por favor, introduce un comentario válido.',
         ]);
         
         try {
@@ -61,15 +71,16 @@ class ValoracionController extends Controller
             $valoracion->nombre = $request->nombre;
             $valoracion->caraSeleccionada = $request->caraSeleccionada;
             $valoracion->puntuacionSeleccionada = $request->puntuacionSeleccionada;
-            $valoracion->titulo_comentario = $request->input('titulo_comentario');
+            $valoracion->tituloComentario = $request->input('tituloComentario');
             $valoracion->comentario = $request->input('comentario');
+            $valoracion->event_id = $request->input('evento_id');
             $valoracion->save();
     
             // Registro de éxito en el log
             Log::info('Valoración guardada en la base de datos: ' . $valoracion);
     
             // Redirige de vuelta con un mensaje de éxito
-            return back()->with('status', '¡Valoración enviada con éxito!');
+            return back()->with('valoracionGuardada', true);
         } catch (\Exception $e) {
             // Registro de error en el log
             Log::error('Error al guardar la valoración: ' . $e->getMessage());
