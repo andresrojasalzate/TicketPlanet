@@ -1213,6 +1213,15 @@ flex-direction: column;
       height: 50px;
     }
   }
+  &2formularioSesion{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 1%;
+    margin-bottom: 5%;
+    & Input{
+      height: 50px;
+    }
+  }
   &3formulario{
     display: flex;
     flex-wrap: wrap;
@@ -1244,7 +1253,6 @@ flex-direction: column;
   &EntradasFormulario{
     width: 100%;
     margin-bottom: 10%;
-    margin-top: 10%;
   }
 }
 .readonly-field {
@@ -1327,7 +1335,6 @@ flex-direction: column;
   &Visibles{
     display: flex;
     justify-content: center;
-    margin-top: 5%;
     &Eleccion{
       margin-top: 5%;
       margin-bottom: 5%;
@@ -1377,6 +1384,13 @@ flex-direction: column;
     width: 35%;
     display: flex;
     flex-wrap: wrap;
+  }
+  &ImagenSesion{
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
     &Input{
       width: 70%;
     }
@@ -1980,6 +1994,14 @@ flex-direction: column;
     display: flex;
     flex-wrap: wrap;
   }
+  &ImagenSesion{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    & img{
+      width: 150px;
+    }
+  }
 }
 .entradasVisibles{
   display: flex;
@@ -2074,6 +2096,13 @@ flex-direction: column;
 .parte{
   &1formulario{
     width: 76%;
+  }
+  &2formularioSesion{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 1%;
+    margin-bottom: 5%;
   }
   &3formulario{
     width: 100%;

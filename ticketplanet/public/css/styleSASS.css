@@ -989,6 +989,14 @@ ul {
   .parte2formulario Input {
     height: 50px; }
 
+.parte2formularioSesion {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 1%;
+  margin-bottom: 5%; }
+  .parte2formularioSesion Input {
+    height: 50px; }
+
 .parte3formulario {
   display: flex;
   flex-wrap: wrap;
@@ -1017,8 +1025,7 @@ ul {
 
 .parteEntradasFormulario {
   width: 100%;
-  margin-bottom: 10%;
-  margin-top: 10%; }
+  margin-bottom: 10%; }
 
 .readonly-field {
   background-color: #f2f2f2;
@@ -1050,8 +1057,7 @@ ul {
 
 .entradasVisibles {
   display: flex;
-  justify-content: center;
-  margin-top: 5%; }
+  justify-content: center; }
   .entradasVisiblesEleccion {
     margin-top: 5%;
     margin-bottom: 5%;
@@ -1093,7 +1099,14 @@ ul {
   width: 35%;
   display: flex;
   flex-wrap: wrap; }
-  .formularioImagenInput {
+
+.formularioImagenSesion {
+  width: 60%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center; }
+  .formularioImagenSesionInput {
     width: 70%; }
 
 .formularioAdreca {
@@ -1523,6 +1536,12 @@ ul {
     width: 50%;
     display: flex;
     flex-wrap: wrap; }
+  .formularioImagenSesion {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap; }
+    .formularioImagenSesion img {
+      width: 150px; }
   .entradasVisibles {
     display: flex;
     justify-content: center;
@@ -1598,6 +1617,12 @@ ul {
     float: right; }
   .parte1formulario {
     width: 76%; }
+  .parte2formularioSesion {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 1%;
+    margin-bottom: 5%; }
   .parte3formulario {
     width: 100%; }
   .contenedorNombreEntradas {
