@@ -1020,6 +1020,11 @@ ul {
   margin-bottom: 10%;
   margin-top: 10%; }
 
+.readonly-field {
+  background-color: #f2f2f2;
+  color: #666;
+  border: 1px solid #ccc; }
+
 .formularioNumeroDireccion, .formularioFechaFin, .formularioHoraFin {
   width: 33%; }
   .formularioNumeroDireccionInput, .formularioFechaFinInput, .formularioHoraFinInput {

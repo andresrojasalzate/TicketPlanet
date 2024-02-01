@@ -19,11 +19,12 @@ class SessionFactory extends Factory
     {
 
         $evento = Event::inRandomOrder()->first();
-
+        
+        $maxCapacity = mt_rand(0, $evento->capacity);
         return [
             'date' => fake()->date(),
             'time' => fake()->time(),
-            'maxCapacity' => mt_rand(0, 200),
+            'maxCapacity' => $maxCapacity,
             'ticketsSold' => mt_rand(0, 200),
             'event_id' => $evento->id
         ];

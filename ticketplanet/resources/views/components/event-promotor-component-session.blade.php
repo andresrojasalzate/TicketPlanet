@@ -1,6 +1,6 @@
 <div class="show-event-home">
   <div class="btneditEvent">
-    <a href="{{ route('links.crearMultiplesSesiones',['id' => $event->id]) }}">
+    <a href="{{ route('links.multiplesSesiones',['id' => $event->id]) }}">
 
       <img src="{{ asset('images/eventos/edit.png') }}" alt="Editar evento" height="30">
 
