@@ -1177,6 +1177,19 @@ textarea {
     justify-content: center;
 }
 
+.card-compra{
+    margin: 5vh;
+}
+
+
+#countdown-container{
+    padding: 2vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
 
 /*------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------*/
