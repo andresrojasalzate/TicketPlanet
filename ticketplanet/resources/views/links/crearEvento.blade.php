@@ -40,7 +40,7 @@
                   <div class="formularioDescripcion">
 
                         <label for="Descripcion Esdeveniment">Descripcion Esdeveniment</label>
-                        <input class="formularioDescripcionInput" type="text" name="description"
+                        <input  type="text" name="description"
                             id="descripcioEsdeveniment" value="{{ old('description') }}">
                         <br>
                         @error('description')

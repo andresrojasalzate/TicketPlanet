@@ -63,44 +63,6 @@ class ResetPwdController extends Controller
             'password.regex' => 'La contraseña debe contener al menos una minúscula, una mayúscula, un dígito y un carácter especial entre @$!%*?&.',
         ]);
 
-        // $status = User::reset(
-        //     $request->only('email', 'password', 'password_confirmation', 'token'),
-        //     function ($user, $password) {
-        //         $user->forceFill([
-        //             'password' => bcrypt($password),
-        //             'remember_token' => $user->reset_token,
-        //             'reset_token' => null,
-        //         ])->save();
-        //         Log::info('Contraseña: ' . ($password));
-
-        //         Auth::guard()->login($user);
-        //     }
-        // );
-
-        // return $status == Password::PASSWORD_RESET
-        //     ? redirect()->route('home')->with('status', __($status))
-        //     : back()->withErrors(['email' => [__($status)]]);
-
-
-        // $contra = $request->input('password');
-
-        // $usuario = $request->input('email');
-
-        // $token = $request->input('token');
-
-        // $a = User::UserEmail($usuario);
-        // $a->setAttribute('password', bcrypt($contra));
-
-        // // Añadir la gestión del token
-        // $a->forceFill([
-        //     'remember_token' => $a->reset_token,
-        //     'reset_token' => null,
-        //     'reset_token_created_at' => now(),
-        // ])->save();
-
-        // return redirect()->route('auth.login')->with('status', ['message' => 'Contraseña restablecida exitosamente. Inicia sesión con tu nueva contraseña.', 'class' => 'success']);
-
-
 
         $contra = $request->input('password');
         $usuario = $request->input('email');
