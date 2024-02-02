@@ -75,7 +75,7 @@ class LoginTest extends TestCase
 
         $response->assertRedirect(route('auth.login'))
             ->assertSessionHas('status', [
-                'message' => 'Las credenciales no son correctas!.',
+                'message' => '¡Las credenciales no son correctas!',
                 'class' => 'mensaje-error',
             ]);
     }
