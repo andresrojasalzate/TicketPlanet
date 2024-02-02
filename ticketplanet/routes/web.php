@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\CompraController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
@@ -78,4 +77,7 @@ Route::get('/links/multiplesSesiones/{id}', [LinksController::class, 'multiplesS
 
 Route::post('/links/crearMultiplesSesiones/{id}', [LinksController::class, 'crearMultiplesSesiones'])->name('links.crearMultiplesSesiones');
 
+/*Compra */
+
+Route::get('/mostrar-compra', [CompraController::class, 'mostrarCompra'])->name('mostrar.compra');
 Route::get('/entradas/pdf', [CompraController::class, 'generarPdfEntradas'])->name('entradas.pdf');
