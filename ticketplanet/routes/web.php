@@ -10,6 +10,7 @@ use App\Http\Controllers\ForgotPwdController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\ResetPwdController;
 use App\Http\Controllers\ShowEventController;
+use App\Http\Controllers\CompraController;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/events', [EventController::class, 'searchGet'])->name('events.index');
@@ -57,3 +58,5 @@ Route::get('/events/{id}', [ShowEventController::class, 'mostrarEvento'])->name(
 
 
 Route::get('/links/administrarEvents', [LinksController::class, 'administrarEvento'])->name('links.administrarEvents');
+
+Route::get('/entradas/pdf', [CompraController::class, 'generarPdfEntradas'])->name('entradas.pdf');
