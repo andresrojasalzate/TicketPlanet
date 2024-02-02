@@ -1032,6 +1032,11 @@ ul {
   color: #666;
   border: 1px solid #ccc; }
 
+.readonly-field {
+  background-color: #f2f2f2;
+  color: #666;
+  border: 1px solid #ccc; }
+
 .formularioNumeroDireccion, .formularioFechaFin, .formularioHoraFin {
   width: 33%; }
   .formularioNumeroDireccionInput, .formularioFechaFinInput, .formularioHoraFinInput {
