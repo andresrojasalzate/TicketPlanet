@@ -12,6 +12,7 @@ use App\Http\Controllers\SessionController;
 use App\Http\Controllers\ResetPwdController;
 use App\Http\Controllers\ShowEventController;
 use App\Http\Controllers\ValoracionController;
+use App\Http\Controllers\CompraController;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/events', [EventController::class, 'searchGet'])->name('events.index');
@@ -77,5 +78,4 @@ Route::get('/links/multiplesSesiones/{id}', [LinksController::class, 'multiplesS
 
 Route::post('/links/crearMultiplesSesiones/{id}', [LinksController::class, 'crearMultiplesSesiones'])->name('links.crearMultiplesSesiones');
 
-/*COMPRA */
-Route::get('/mostrar-compra', [CompraController::class, 'mostrarCompra'])->name('mostrar.compra');
+Route::get('/entradas/pdf', [CompraController::class, 'generarPdfEntradas'])->name('entradas.pdf');

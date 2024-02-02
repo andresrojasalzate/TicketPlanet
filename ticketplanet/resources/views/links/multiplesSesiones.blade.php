@@ -33,7 +33,7 @@
                 </div>
 
 
-                <div class="parte2formulario">
+                <div class="parte2formularioSesion">
                   <div class="formularioDescripcion">
 
                         <label for="Descripcion Esdeveniment">Descripcion Esdeveniment</label>
@@ -45,9 +45,9 @@
                         @enderror
                     </div>
 
-                    <div class="formularioImagen">
+                    <div class="formularioImagenSesion">
                       <label for="Imagen Principal de l'esdeveniment">Imagen principal</label>
-                      <img src="{{ asset('../../public/images/fotos/subidas' . $event->image) }}" alt="Imagen principal" width="200">
+                      <img src="{{ asset('images/fotos-subidas/' . $event->image) }}" alt="Imagen principal" width="200">
 
                         @error('image')
                             <small style="color: red">{{ $message }}</small>

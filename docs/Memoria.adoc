@@ -106,6 +106,18 @@ image::Images/Logo.png[Logo principal, width=10%]
 - Creación de Test, LoginTest
 
 
+=== Semana 5
+
+==== Salma
+- Creación de Test, ValoracionTest
+- Diseño Mockups pantalla 'ShowEvent', mostrar valoraciones, versión Web
+- Diseño Mockups pantalla 'ShowEvent', mostrar valoraciones, versión movil
+- Diseño Mockups pantalla 'Compra', versión Web
+- Implementación creación de correo electrónico para valorar evento
+- Implementación creación del formulario para valorar evento
+- Implementación mostrar las valoraciones en la pantalla de 'ShowEvents'
+- Implementación pantalla 'Compra', mostrar contador 10 minutos.
+
 == DISEÑO
 
 === Base de datos
