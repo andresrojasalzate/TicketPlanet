@@ -66,11 +66,15 @@
                 </div>
             @endforeach
 
-            <div id="total-price-container">
-                <img src="{{ asset('images/eventos/shop.png') }}" alt="">
-                <p>Total: <span id="total-price">0€</span></p>
-                <button id="buy-button">Comprar</button>
-            </div>
+            <form method="GET" action="{{ route('mostrar.compra') }}">
+                @csrf
+                <div id="total-price-container">
+                    <img src="{{ asset('images/eventos/shop.png') }}" alt="">
+                    <p>Total: <span id="total-price">0€</span></p>
+                    <input type="hidden" name="evento" value="{{ $eventoId }}">
+                    <button id="buy-button">Comprar</button>
+                </div>
+            </form>
 
         </div>
         <hr>
@@ -108,8 +112,6 @@
                                         alt="Estrella">
                                 @endfor
                             </div>
-
-                            <!-- Aquí puedes agregar la lógica para mostrar las estrellas -->
                         </div>
                     @endforeach
                 @else

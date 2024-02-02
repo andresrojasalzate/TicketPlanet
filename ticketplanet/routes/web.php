@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CompraController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
@@ -69,6 +70,8 @@ Route::post('/guardar-valoracion', [ValoracionController::class, 'guardarValorac
 
 Route::post('/enviar-correo-valoracion', [ValoracionController::class, 'enviarCorreoValoracion'])->name('enviar.correo.valoracion');
 
+
+/*SESIONES*/
 Route::get('/links/sessionEvents', [LinksController::class, 'sessionEvents'])->name('links.sessionEvents');
 
 Route::get('/links/multiplesSesiones/{id}', [LinksController::class, 'multiplesSesiones'])->name('links.multiplesSesiones');
