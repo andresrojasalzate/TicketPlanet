@@ -32,9 +32,7 @@ class LoginController extends Controller
             return redirect()->intended(route('links.homePromotors')); 
         }
 
-        // session()->flash('status','Las credenciales no son correctas!');
-
-        return redirect(route('auth.login'))->with('status', ['message' => 'Las credenciales no son correctas!.','class' => 'mensaje-error']);
+        return redirect(route('auth.login'))->with('status', ['message' => '¡Las credenciales no son correctas!','class' => 'mensaje-error']);
     }
 
     public function logout()
