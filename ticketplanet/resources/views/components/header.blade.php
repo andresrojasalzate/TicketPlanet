@@ -39,14 +39,16 @@
                     <a href="{{ route('links.legalnotice') }}">Avisos legales</a>
                 </div>
 
-                <img class="imagenUsuarioDespegable" src="{{ asset('images/logo.jpg') }}" alt="" width="80">
+                <img class="imagenUsuarioDespegable" src="{{ asset('images/logo.jpg') }}" alt=""
+                    width="80">
             </div>
         </div>
 
         <!--Contenido header-->
         <!--Logo-->
-        <img src="{{ asset('images/logo.jpg') }}" alt="Logo" class="logoNav">
-
+        <a href="{{ route('home') }}">
+            <img src="{{ asset('images/logo.jpg') }}" alt="Logo" class="logoNav">
+        </a>
         <div>
             <!--Contenido vacio para la parte central del header-->
         </div>

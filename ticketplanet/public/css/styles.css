@@ -367,11 +367,14 @@ body.body-resetPwd .menuIMG {
     grid-template-columns: repeat(3, 1fr);
     justify-content: center;
     margin: 26vh 2vh;
+    gap: 3vw;
 }
 
 .btnCrearEvent,
 .btnAdministrarEvent,
 .btnListarSesionEvent {
+    display: flex;
+    align-items: center;
     padding: 2vh;
     border-radius: 7px;
     background-color: #F9BD06;
@@ -1177,6 +1180,19 @@ textarea {
     justify-content: center;
 }
 
+.card-compra{
+    margin: 5vh;
+}
+
+
+#countdown-container{
+    padding: 2vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
 
 /*------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------*/
@@ -1593,7 +1609,7 @@ textarea {
     .btnAdministrarEvent,
     .btnListarSesionEvent {
         margin-top: 3vh;
-        /* Agrega margen superior a cada botón */
+        width: 15vh;
     }
 
     .mostar-sesiones-promotor {

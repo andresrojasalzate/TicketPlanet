@@ -69,10 +69,15 @@ Route::post('/guardar-valoracion', [ValoracionController::class, 'guardarValorac
 
 Route::post('/enviar-correo-valoracion', [ValoracionController::class, 'enviarCorreoValoracion'])->name('enviar.correo.valoracion');
 
+
+/*SESIONES*/
 Route::get('/links/sessionEvents', [LinksController::class, 'sessionEvents'])->name('links.sessionEvents');
 
 Route::get('/links/multiplesSesiones/{id}', [LinksController::class, 'multiplesSesiones'])->name('links.multiplesSesiones');
 
 Route::post('/links/crearMultiplesSesiones/{id}', [LinksController::class, 'crearMultiplesSesiones'])->name('links.crearMultiplesSesiones');
 
+/*Compra */
+
+Route::get('/mostrar-compra', [CompraController::class, 'mostrarCompra'])->name('mostrar.compra');
 Route::get('/entradas/pdf', [CompraController::class, 'generarPdfEntradas'])->name('entradas.pdf');
