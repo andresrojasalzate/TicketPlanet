@@ -9,10 +9,8 @@
     @if($events != null && !$events->isEmpty())
         <div class="event-counter">
             
-            @foreach ($events as $event)
-                <div>             
-                    <x-event-component :event="$event" />        
-                </div>
+            @foreach ($events as $event)             
+                <x-event-component :event="$event" />        
             @endforeach
         </div>
 

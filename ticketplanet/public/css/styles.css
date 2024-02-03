@@ -1341,10 +1341,24 @@ textarea {
         height: calc(85vh - 110px - 110px);
         overflow-y: auto;
     }
+    .event-counter > div{
+        margin: auto;
+    }
 
     .show-event-home-img {
         width: 100%;
         height: 27%;
+    }
+
+    .info-pagination {
+        align-self: center;
+        justify-self: center;
+        margin-left: 5%;
+    }
+
+    .pagination-menu {
+        margin-right: 5%;
+        margin-left: 5%;
     }
 
     /*Login*/
