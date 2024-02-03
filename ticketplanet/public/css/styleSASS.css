@@ -989,14 +989,6 @@ ul {
   .parte2formulario Input {
     height: 50px; }
 
-.parte2formularioSesion {
-  display: flex;
-  justify-content: space-between;
-  margin-left: 1%;
-  margin-bottom: 5%; }
-  .parte2formularioSesion Input {
-    height: 50px; }
-
 .parte3formulario {
   display: flex;
   flex-wrap: wrap;
@@ -1026,11 +1018,6 @@ ul {
 .parteEntradasFormulario {
   width: 100%;
   margin-bottom: 10%; }
-
-.readonly-field {
-  background-color: #f2f2f2;
-  color: #666;
-  border: 1px solid #ccc; }
 
 .readonly-field {
   background-color: #f2f2f2;
@@ -1101,18 +1088,9 @@ ul {
     width: 70%; }
 
 .formularioImagen {
-  width: 35%;
+  width: 50%;
   display: flex;
   flex-wrap: wrap; }
-
-.formularioImagenSesion {
-  width: 60%;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  align-items: center; }
-  .formularioImagenSesionInput {
-    width: 70%; }
 
 .formularioAdreca {
   width: 100%;
@@ -1121,6 +1099,10 @@ ul {
 
 .div1, .div2 {
   font-size: 15px; }
+
+@media screen and (max-width: 380px) {
+  .div1, .div2 {
+    font-size: 13px; } }
 
 @media screen and (max-width: 425px) {
   .nav {
@@ -1536,17 +1518,12 @@ ul {
   .formularioDescripcion {
     width: 40%; }
     .formularioDescripcion input {
-      height: 50px; }
+      height: 50px;
+      width: 120px; }
   .formularioImagen {
     width: 50%;
     display: flex;
     flex-wrap: wrap; }
-  .formularioImagenSesion {
-    width: 50%;
-    display: flex;
-    flex-wrap: wrap; }
-    .formularioImagenSesion img {
-      width: 150px; }
   .entradasVisibles {
     display: flex;
     justify-content: center;
@@ -1622,12 +1599,6 @@ ul {
     float: right; }
   .parte1formulario {
     width: 76%; }
-  .parte2formularioSesion {
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-    margin-left: 1%;
-    margin-bottom: 5%; }
   .parte3formulario {
     width: 100%; }
   .contenedorNombreEntradas {

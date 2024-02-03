@@ -40,6 +40,7 @@ class LinksController extends Controller
     } else {
       return redirect()->route('auth.login');
     }
+    
 
     return view('links.crearEvento')->with([
       'categorias' => Category::all(),
@@ -149,6 +150,7 @@ class LinksController extends Controller
     $user = Auth::user();
     Log::info("Guardar evento");
 
+
     $request->validate([
       'name' => 'required',
       'address' => 'required',
@@ -159,7 +161,10 @@ class LinksController extends Controller
       'finishDate' => 'required',
       'finishTime' => 'required',
       'visible' => 'required',
-      'capacity' => 'required|min:1'
+      'capacity' => 'required',
+      'date' => 'required',
+      'time' => 'required',
+      'maxCapacity' => 'required|lte:capacity'
     ]);
 
     $foto = $request->file('image');
@@ -268,37 +273,110 @@ class LinksController extends Controller
       
       $event = Event::find($Id);
       $sessions = Session::find($Id);
-
       
 
-return view('links.multiplesSesiones',compact('event', 'sessions'))->with([
-    'event' => $event,
-    'sessions' => $sessions
-]);
+return view('links.multiplesSesiones', compact('event'));
   
     }
 
-    public function crearMultiplesSesiones(Request $request, $id)
-    {
-      $eventId = $id;
-      
+    public function crearMultiplesSesiones(Request $request, $eventId)
+{
+    $evento = Event::findOrFail($eventId);
+    $capacity = $evento->capacity;
 
-      $request->validate([
-        'date' => 'required',
-        'time' => 'required',
-        'maxCapacity' =>'required|lte:capacity'
-      ]);
-  
-      $crearSesion = Session::create([
+    $request->validate([
+      'date' => 'required',
+      'time' => 'required',
+      'maxCapacity' => 'required|lte:'.$capacity,
+    ]);
+
+    $crearSesion = Session::create([
         'date' => $request->date,
         'time' => $request->time,
         'maxCapacity' => $request->maxCapacity,
         'event_id' => $eventId,
         'ticketsSold' => 0
-      ]);
-      $request->session()->put('sesionId', $crearSesion->id);
+    ]);
 
-      return redirect()->route('links.comprarEntradas');
-    }
+    
+    $request->session()->put('sesionId', $crearSesion->id);
+    $request->session()->put('datosPrimerFormulario', $request->all());
+
+    return redirect()->route('links.comprarEntradasSesion');
+}
+public function comprarEntradasSesion(Request $request)
+{
+  
+  $sesion = Session::find($request->session()->get('sesionId'));
+
+  
+  if ($request->session()->has('capacidadMaxima')) {
+    $capacidadMaxima = $request->session()->get('capacidadMaxima');
+  }else{
+    session(['capacidadMaxima' => $sesion->maxCapacity]);
+    $capacidadMaxima = $sesion->maxCapacity;
+    
+  }
+  
+  return view('links.comprarEntradasSesion')->with('entradasRestantes', $capacidadMaxima);
+}
+public function storeComprarEntradasSesion(Request $request)
+  {
+
+    if (empty($request->quantity)) {
+      
+      $request->validate([
+          'name' => 'required',
+          'price' => 'required',
+          'nominal' => 'required',
+      ]);
+
+      $capacidadMaxima = session('capacidadMaxima');
+      $quantity = $capacidadMaxima;
+  } else {
+      $quantity = $request->quantity;
+  }
+
+  $cantidadEntradas = $request->quantity;
+  $capacidadMaxima = session('capacidadMaxima');
+
+
+  $request->validate([
+      'name' => 'required',
+      'price' => 'required',
+      'nominal' => 'required',
+  ]);
+
+
+  if ($cantidadEntradas > $capacidadMaxima) {
+      $request->validate([
+          'name' => 'required',
+          'quantity' => 'lte:capacidadMaxima',
+          'price' => 'required',
+          'nominal' => 'required',
+      ]);
+  }
+
+
+  if (session('capacidadMaxima') == 0) {
+      return redirect()->route('links.sessionEvents');
+  }
+
+
+  Ticket::create([
+      'name' => $request->name,
+      'quantity' => $quantity,
+      'price' => $request->price,
+      'nominal' => $request->nominal,
+      'session_id' => $request->session()->get('sesionId')
+  ]);
+
+
+  $entradasRestantes = session('capacidadMaxima') - $cantidadEntradas;
+  session(['capacidadMaxima' => $entradasRestantes]);
+
+
+  return redirect()->route('links.comprarEntradasSesion');
+}
 
 }
