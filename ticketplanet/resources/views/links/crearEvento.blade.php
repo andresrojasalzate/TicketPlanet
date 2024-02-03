@@ -105,7 +105,7 @@
                         </div>
                     </div>
                     @error('visible')
-                        <small style="color: red">{{ $message }}</small>
+                        <small style="color: red; display:flex;justify-content:center">{{ $message }}</small>
                     @enderror
                 </div>
             </div>
@@ -132,10 +132,10 @@
 
                         <label for="Capacidad del local">Capacidad del local</label>
                         <input class="formularioCapacidadLocalInput" type="number" list="capacitys" name="capacity"
-                            id="capacidadLocal" value="{{ old('capacity') }}">
+                            id="capacidadLocal" min="1" value="{{ old('capacity') }}">
                         <datalist id="capacitys">
                             @foreach ($capacitys as $capacity)
-                                <option>{{ $capacity->capacity }}</option>
+                                <option >{{ $capacity->capacity }}</option>
                             @endforeach
                         </datalist>
                         <br>
@@ -193,7 +193,7 @@
                         <label for="Fecha celebracion">Fecha celebracion</label>
                         <input class="formularioFechaCelebracionInput" type="date" name="date"
                             id="fechaCelebracion" value="{{ old('date') }}">
-
+                      <br>
                         @error('date')
                             <small style="color: red">{{ $message }}</small>
                         @enderror
@@ -204,7 +204,7 @@
                         <label for="Hora celebracion">Hora celebracion</label>
                         <input class="formularioHoraCelebracionInput" type="time" name="time"
                             id="horaCelebracion" value="{{ old('time') }}">
-
+                      <br>
                         @error('time')
                             <small style="color: red">{{ $message }}</small>
                         @enderror
@@ -213,9 +213,9 @@
                     <div class="formularioAforoMaximo">
 
                         <label for="Aforo Maximo">Aforo Maximo</label>
-                        <input class="formularioAforoMaximoInput" type="number" name="maxCapacity" id="aforoMaximo"
+                        <input class="formularioAforoMaximoInput" type="number" name="maxCapacity" id="aforoMaximo" min="1"
                             value="{{ old('maxCapacity') }}">
-
+                      <br>
                         @error('maxCapacity')
                             <small style="color: red">{{ $message }}</small>
                         @enderror

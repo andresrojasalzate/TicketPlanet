@@ -2,7 +2,6 @@
 
 return[
   'required' => 'El campo :attribute es obligatorio',
-  'lte' => 'La :attribute tiene que ser menor que el aforo maximo',
   'attributes' => [
     'title' => 'titulo',
     'description' => 'descripcion',
