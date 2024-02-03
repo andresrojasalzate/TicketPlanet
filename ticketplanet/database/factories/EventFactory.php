@@ -22,6 +22,11 @@ class EventFactory extends Factory
         $user = User::inRandomOrder()->first();
         $categoria = Category::inRandomOrder()->first();
 
+        $capacity = mt_rand(0, 200);
+
+        // Asegurarse de que maxCapacity no sea negativo
+        $capacity = $capacity < 0 ? 0 : $capacity;
+
         return [
             'name' =>  fake()->name(),
             'address' => fake()->address(),
@@ -32,7 +37,7 @@ class EventFactory extends Factory
             'finishDate' => fake()->date(),
             'finishTime' => fake()->time(),
             'visible' => fake()->randomElement([true, false]),
-            'capacity' => mt_rand(0, 200),
+            'capacity' => $capacity,
             'user_id' => $user->id,
             'category_id' => $categoria->id,
         ];

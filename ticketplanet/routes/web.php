@@ -77,6 +77,10 @@ Route::get('/links/multiplesSesiones/{id}', [LinksController::class, 'multiplesS
 
 Route::post('/links/crearMultiplesSesiones/{id}', [LinksController::class, 'crearMultiplesSesiones'])->name('links.crearMultiplesSesiones');
 
+Route::get('/links/comprarEntradasSesion', [LinksController::class, 'comprarEntradasSesion'])->name('links.comprarEntradasSesion');
+
+Route::post('/links/comprarEntradasSesion/save', [LinksController::class, 'storeComprarEntradasSesion'])->name('links.storeComprarEntradasSesion');
+
 /*Compra */
 
 Route::get('/mostrar-compra', [CompraController::class, 'mostrarCompra'])->name('mostrar.compra');

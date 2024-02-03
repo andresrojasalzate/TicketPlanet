@@ -21,6 +21,7 @@ class SessionFactory extends Factory
         $evento = Event::inRandomOrder()->first();
         
         $maxCapacity = mt_rand(0, $evento->capacity);
+        $maxCapacity = $maxCapacity < 0 ? 0 : $maxCapacity;
         return [
             'date' => fake()->date(),
             'time' => fake()->time(),
