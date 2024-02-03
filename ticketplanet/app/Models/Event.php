@@ -62,7 +62,7 @@ class Event extends Model
     * @return Event[] Colección de eventos que coinciden con los criterios de búsqueda.
     */
     public static function eventosBuscados(string $inputText = null, string $category = null){
-        if(isset($inputText)){
+        if(isset($inputText) || isset($category)){
 
             Log::info("Recuperamos los eventos filtrando por el texto recibido en los campos 'name, 'city' y 'name_site'");
 

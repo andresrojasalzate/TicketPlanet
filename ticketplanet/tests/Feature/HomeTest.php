@@ -56,4 +56,28 @@ class HomeTest extends TestCase
           $events = $response->original->getData()['events'];
           $this->assertNotEmpty($events);
     }
+
+    public function test_it_returns_events_filtered_by_category(): void
+    {
+        $category = Category::factory()->create(['name' => 'Categoria']);
+
+        $user = User::factory()->create();
+
+        $event = Event::factory()->create(['name' => 'Evento 1', 'category_id' => $category->id, 'user_id' => $user->id]);
+       
+        $sesion = Session::factory()->create(['event_id' => $event->id]);
+        
+        Ticket::factory()->create(['session_id' => $sesion->id]);
+
+        $this->withSession(['categoria' => $category->id]);
+
+        $response = $this->get('/events/category');
+
+        $response->assertOk();
+        $response->assertViewHas('events');
+  
+       $events = $response->original->getData()['events'];
+       $this->assertNotEmpty($events);
+
+    }
 }

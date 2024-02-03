@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\CompraController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
@@ -17,8 +16,8 @@ use App\Http\Controllers\CompraController;
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/events', [EventController::class, 'searchGet'])->name('events.index');
 Route::post('/events', [EventController::class, 'search'])->name('events.search');
-Route::post('/events/category', [EventController::class, 'category'])->name('events.category');
-Route::get('/events/category', [EventController::class, 'categoryGet'])->name('events.category');
+Route::post('/events/category', [HomeController::class, 'category'])->name('events.category');
+Route::get('/events/category', [HomeController::class, 'categoryGet'])->name('events.category');
 /*HEADER LINKS*/
 Route::get('/links/aboutus', [LinksController::class, 'aboutUs'])->name('links.aboutus');
 Route::get('/links/legalnotice', [LinksController::class, 'legalNotice'])->name('links.legalnotice');
@@ -78,4 +77,7 @@ Route::get('/links/multiplesSesiones/{id}', [LinksController::class, 'multiplesS
 
 Route::post('/links/crearMultiplesSesiones/{id}', [LinksController::class, 'crearMultiplesSesiones'])->name('links.crearMultiplesSesiones');
 
+/*Compra */
+
+Route::get('/mostrar-compra', [CompraController::class, 'mostrarCompra'])->name('mostrar.compra');
 Route::get('/entradas/pdf', [CompraController::class, 'generarPdfEntradas'])->name('entradas.pdf');
