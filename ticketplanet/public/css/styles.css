@@ -319,8 +319,20 @@ body.body-resetPwd .menuIMG {
 .show-event-home-title {
     font-size: 1.4rem;
     margin: 5%;
+    max-height: 70px;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.show-event-contenedor-direccion{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.show-event-contenedor-direccion > img{
+    margin-left: 5%;
 }
 
 .show-event-home a {
@@ -339,6 +351,13 @@ body.body-resetPwd .menuIMG {
     justify-content: left;
     font-size: 1rem;
     margin: 5%;
+}
+
+.show-event-contenedor-direccion > p{
+    display: block;
+    max-height: 56px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .elementsEvents img {
@@ -1508,6 +1527,21 @@ textarea {
         overflow-x: auto;
         align-items: center;
         width: auto;
+    }
+
+    .show-event-home-title {
+        font-size: 1.4rem;
+        margin: 5%;
+        max-height: 25px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .show-event-contenedor-direccion > p{
+        display: block;
+        max-height: 40px;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .events-category-home>div {
