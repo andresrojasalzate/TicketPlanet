@@ -13,6 +13,11 @@
     <header>
         <x-header />
     </header>
+    {{-- @extends('layouts.app')
+
+@section('title', 'Eventos del Promotor')
+
+@section('content') --}}
     <div class="contenedorLayout">
         <form action="{{ route('links.crearMultiplesSesiones', ['id' => $event->id])}}" method="post" enctype="multipart/form-data">
             @csrf
@@ -53,12 +58,7 @@
                         @enderror
                     </div>
 
-
-
-                </div>
-                <div class="botones">
-
-                    <button class="btnGuardarEntradas" type="submit" >Crear Sesion</button>
+                    <button class="btnCrearSesion" type="submit" >Crear Sesion</button>
 
                 </div>
 
@@ -75,3 +75,5 @@
 </body>
 
 </html>
+
+{{-- @endsection --}}
