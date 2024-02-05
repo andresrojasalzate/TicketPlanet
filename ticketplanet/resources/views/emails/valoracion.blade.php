@@ -13,8 +13,8 @@
 
     <p>Hola {{ $usuario->name }},</p>
     
-    <p>Nos interesa tu punto de vista.<br>Trabajamos arduamente para asegurar una experiencia sin problemas. 
-        Desde la compra de tus entradas hasta tu llegada al evento. Por eso, nos gustaría conocer tu experiencia.</p>
+    <p>Esperamos que hayas disfrutado del evento. Nos encantaría escuchar tu opinión sobre cómo fue tu experiencia. 
+        <br>¿Puedes dedicarnos unos minutos para compartir tus comentarios?</p>
     
     <a href="{{ route('valoracion.form', ['eventoId' => $evento->id]) }}"><button>Valora a {{ $evento->name }}</button></a>
     
