@@ -5,7 +5,10 @@
         </a>
     </div>
     <a href="{{ route('events.mostrar', ['id' => $event->id]) }}">
-        <img class="show-event-home-img" src="{{ asset('images/fotos-subidas/' . $event->image) }}" alt="">
+        <div class="show-event-home-img">
+            <img  src="{{ asset('images/fotos-subidas/' . $event->image) }}" alt="">
+        </div>
+        
         <p class="show-event-home-title">{{ $event->name }}</p>
 
         <div class="elementsEvents">

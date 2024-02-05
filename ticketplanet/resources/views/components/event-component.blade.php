@@ -1,6 +1,8 @@
 <div class="show-event-home">
     <a href="{{ route('events.mostrar', ['id' => $event->id]) }}">
-        <img class="show-event-home-img" src="{{ asset('images/fotos-subidas/' . $event->image) }}" alt="">
+        <div class="show-event-home-img">
+            <img  src="{{ asset('images/fotos-subidas/' . $event->image) }}" alt="">
+        </div>
         <p class="show-event-home-title">{{ $event->name }}</p>
         <div class="elementsEvents">
             <p><img src="{{ asset('images/eventos/location.png') }}" alt="" height="25">{{ $event->address }},
