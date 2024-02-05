@@ -285,6 +285,7 @@ body.body-resetPwd .menuIMG {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(30vh, 1fr));
     /* Usamos auto-fill para ajustar dinámicamente el número de columnas */
+    justify-items: center;
     gap: 20px;
     margin: 2%;
 }
@@ -304,6 +305,7 @@ body.body-resetPwd .menuIMG {
     text-overflow: ellipsis;
     text-decoration: none;
     position: relative;
+    padding: 0 0 2vh 0;
 }
 
 .show-event-home:hover {
@@ -313,7 +315,13 @@ body.body-resetPwd .menuIMG {
 
 .show-event-home-img {
     width: 100%;
-    height: 35%;
+    height: 100%;
+    margin-bottom: 1vh;
+}
+
+.show-event-home-img img{
+    width: 100%;
+    height: 19vh;
 }
 
 .show-event-home-title {
