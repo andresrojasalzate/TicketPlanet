@@ -17,10 +17,6 @@ use Illuminate\Support\Facades\Storage;
 
 class LinksController extends Controller
 {
-  public function home()
-  {
-    return view('links.home');
-  }
 
   public function aboutUs()
   {
@@ -65,6 +61,10 @@ class LinksController extends Controller
       $capacidadMaxima = $sesion->maxCapacity;
 
     }
+    if (session('capacidadMaxima') == 0) {
+      Log::info("Redireccionando al home porque la capacidad máxima es 0");
+      return redirect()->route('home');
+  }
 
     return view('links.comprarEntradas')->with('entradasRestantes', $capacidadMaxima);
   }
@@ -105,17 +105,6 @@ class LinksController extends Controller
         'price' => 'required',
         'nominal' => 'required',
       ]);
-    }
-
-
-    if (session('capacidadMaxima') == 0) {
-      Log::info("Redirecciona al home cuando la capacidad maxima es 0");
-
-
-
-      return redirect()->route('home');
-
-
     }
 
     Ticket::create([
@@ -194,13 +183,6 @@ class LinksController extends Controller
   {
 
     Log::info("Crear Sesion");
-
-    $request->validate([
-      'date' => 'required',
-      'time' => 'required',
-      'maxCapacity' => 'required|lte:capacity'
-    ]);
-
     $sesionCreada = Session::create([
       'date' => $request->date,
       'time' => $request->time,
@@ -211,18 +193,18 @@ class LinksController extends Controller
 
     $request->session()->put('sesionId', $sesionCreada->id);
   }
-  public function administrarEvents()
-  {
-    if (Auth()->user()) {
-      // Obtener los eventos del promotor
-      $events = Event::where('user_id', Auth()->user()->id)->with('sessions')->paginate(env('PAGINATION_LIMIT'));
+  // public function administrarEvents()
+  // {
+  //   if (Auth()->user()) {
+  //     // Obtener los eventos del promotor
+  //     $events = Event::where('user_id', Auth()->user()->id)->with('sessions')->paginate(env('PAGINATION_LIMIT'));
 
-      // Pasar los eventos a la vista
-      return view('links.administrarEvents', ['events' => $events]);
-    }
+  //     // Pasar los eventos a la vista
+  //     return view('links.administrarEvents', ['events' => $events]);
+  //   }
 
-    return redirect()->route('auth.login');
-  }
+  //   return redirect()->route('auth.login');
+  // }
 
   public function administrarEvento()
   {
@@ -315,8 +297,10 @@ class LinksController extends Controller
     } else {
       session(['capacidadMaxima' => $sesion->maxCapacity]);
       $capacidadMaxima = $sesion->maxCapacity;
-
     }
+    if (session('capacidadMaxima') == 0) {
+      return redirect()->route('links.sessionEvents');
+  }
 
     return view('links.comprarEntradasSesion')->with('entradasRestantes', $capacidadMaxima);
   }
@@ -356,12 +340,6 @@ class LinksController extends Controller
         'nominal' => 'required',
       ]);
     }
-
-
-    if (session('capacidadMaxima') == 0) {
-      return redirect()->route('links.sessionEvents');
-    }
-
 
     Ticket::create([
       'name' => $request->name,

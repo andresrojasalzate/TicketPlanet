@@ -12,6 +12,11 @@
   <header>
     <x-header/>
   </header>
+  {{-- @extends('layouts.app')
+
+@section('title', 'Eventos del Promotor')
+
+@section('content') --}}
 
   <form action="{{ route('links.storeComprarEntradas') }}" method="post">
     
@@ -91,3 +96,4 @@
   <script></script>
 </body>
 </html>
+{{-- @endsection --}}

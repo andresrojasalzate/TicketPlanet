@@ -882,6 +882,15 @@ ul {
     background-color: #e6ad05;
     border-color: #0642F9; }
 
+.btnCrearSesion {
+  height: 40px;
+  border-radius: 7px;
+  background-color: #F9BD06;
+  border-color: #0642F9;
+  font-size: 15px;
+  cursor: pointer;
+  margin-left: 5%; }
+
 .btnResetSesion {
   border-radius: 7px;
   background-color: #F9BD06;
@@ -1015,6 +1024,10 @@ ul {
   justify-content: space-between;
   margin: 1%; }
 
+.parte6formularioSesion {
+  display: flex;
+  justify-content: space-evenly; }
+
 .parteEntradasFormulario {
   width: 100%;
   margin-bottom: 10%; }
@@ -1046,6 +1059,17 @@ ul {
   width: 33%; }
   .formularioFechaCelebracionInput, .formularioHoraCelebracionInput, .formularioAforoMaximoInput {
     width: 70%; }
+  .formularioFechaCelebracionSesion {
+    display: flex;
+    flex-direction: column; }
+
+.formularioHoraCelebracionSesion {
+  display: flex;
+  flex-direction: column; }
+
+.formularioAforoMaximoSesion {
+  display: flex;
+  flex-direction: column; }
 
 .entradasVisibles {
   display: flex;
@@ -1466,18 +1490,28 @@ ul {
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 1%; }
+    .parte6formularioSesion {
+      flex-direction: column;
+      align-content: center;
+      flex-wrap: wrap; }
   .formularioAforoMaximo {
     width: 33%; }
     .formularioAforoMaximo input {
       width: 70%; }
-  .formularioHoraCelerbacion {
+    .formularioAforoMaximoSesion {
+      margin: 3%; }
+  .formularioHoraCelebracion {
     width: 33%; }
-    .formularioHoraCelerbacion input {
+    .formularioHoraCelebracion input {
       width: 70%; }
-  .formularioFechaCelerbacion {
+    .formularioHoraCelebracionSesion {
+      margin: 3%; }
+  .formularioFechaCelebracion, .formularioHoraCelebracion, .formularioAforoMaximo {
     width: 33%; }
-    .formularioFechaCelerbacion input {
+    .formularioFechaCelebracion input, .formularioHoraCelebracion input, .formularioAforoMaximo input {
       width: 70%; }
+    .formularioFechaCelebracionSesion {
+      margin: 3%; }
   .formularioCodigoPostal {
     width: 33%; }
     .formularioCodigoPostal input {
@@ -1538,6 +1572,8 @@ ul {
     justify-content: space-evenly; }
   .btnCrearEventPromotor {
     margin-top: 3vh; }
+  .btnCrearSesion {
+    margin: 3%; }
   .btnAdministrarEventPromotor {
     padding: 2vh;
     border-radius: 7px;
