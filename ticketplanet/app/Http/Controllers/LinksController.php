@@ -40,7 +40,7 @@ class LinksController extends Controller
     } else {
       return redirect()->route('auth.login');
     }
-    
+
 
     return view('links.crearEvento')->with([
       'categorias' => Category::all(),
@@ -54,18 +54,18 @@ class LinksController extends Controller
 
   public function comprarEntradas(Request $request)
   {
-    
+
     $sesion = Session::find($request->session()->get('sesionId'));
 
-    
+
     if ($request->session()->has('capacidadMaxima')) {
       $capacidadMaxima = $request->session()->get('capacidadMaxima');
-    }else{
+    } else {
       session(['capacidadMaxima' => $sesion->maxCapacity]);
       $capacidadMaxima = $sesion->maxCapacity;
-      
+
     }
-    
+
     return view('links.comprarEntradas')->with('entradasRestantes', $capacidadMaxima);
   }
   public function storeComprarEntradas(Request $request)
@@ -75,16 +75,16 @@ class LinksController extends Controller
       Log::info("Cantidad Entradas vacio");
       $request->validate([
         'name' => 'required',
-        'price' =>  'required',
+        'price' => 'required',
         'nominal' => 'required',
       ]);
       $capacidadMaxima = session('capacidadMaxima');
-  
-      $quantity = $capacidadMaxima; 
+
+      $quantity = $capacidadMaxima;
     } else {
       $quantity = $request->quantity;
     }
-    
+
     $cantidadEntradas = $request->quantity;
 
     $capacidadMaxima = session('capacidadMaxima');
@@ -92,32 +92,32 @@ class LinksController extends Controller
     Log::info("Validacion campos");
     $request->validate([
       'name' => 'required',
-      'price' =>  'required',
+      'price' => 'required',
       'nominal' => 'required',
     ]);
 
- 
-      if ($cantidadEntradas > $capacidadMaxima) {
-        Log::info("Cantidad entradas es mayor que la capacidad maxima");
-        $request->validate([
-          'name' => 'required',
-          'quantity' => 'lte:capacidadMaxima',
-          'price' =>  'required',
-          'nominal' => 'required',
-        ]); 
+
+    if ($cantidadEntradas > $capacidadMaxima) {
+      Log::info("Cantidad entradas es mayor que la capacidad maxima");
+      $request->validate([
+        'name' => 'required',
+        'quantity' => 'lte:capacidadMaxima',
+        'price' => 'required',
+        'nominal' => 'required',
+      ]);
     }
-    
+
 
     if (session('capacidadMaxima') == 0) {
       Log::info("Redirecciona al home cuando la capacidad maxima es 0");
 
-      
+
 
       return redirect()->route('home');
-      
+
 
     }
-  
+
     Ticket::create([
       'name' => $request->name,
       'quantity' => $quantity,
@@ -238,145 +238,170 @@ class LinksController extends Controller
   }
 
   public function homePromotors()
-    {
-      if(Auth()->user()){
-        return view('links.homePromotors');
-      }
-        return redirect()->route('auth.login');
-      
-           
+  {
+    if (Auth()->user()) {
+      return view('links.homePromotors');
+    }
+    return redirect()->route('auth.login');
+
+
+  }
+
+  public function sessionEvents()
+  {
+
+    if (Auth()->user()) {
+
+      $events = Event::where('user_id', Auth()->user()->id)->with('sessions')->paginate(env('PAGINATION_LIMIT'));
+
+
+      return view('links.sessionEvents', ['events' => $events]);
     }
 
-    public function sessionEvents()
-    {
-      
-      if (Auth()->user()) {
-        
-        $events = Event::where('user_id', Auth()->user()->id)->with('sessions')->paginate(env('PAGINATION_LIMIT'));
-  
-        
-        return view('links.sessionEvents', ['events' => $events]);
-      }
-  
+    return redirect()->route('auth.login');
+  }
+  public function multiplesSesiones($Id)
+  {
+    if (Auth::check()) {
+
+      $user = Auth::user();
+
+    } else {
       return redirect()->route('auth.login');
     }
-    public function multiplesSesiones($Id)
-    {
-      if (Auth::check()) {
+    ReinicarMaxCapacity::forget('capacidadMaxima');
 
-        $user = Auth::user();
-  
-      } else {
-        return redirect()->route('auth.login');
-      }
-      ReinicarMaxCapacity::forget('capacidadMaxima');
-      
-      $event = Event::find($Id);
-      $sessions = Session::find($Id);
-      
+    $event = Event::find($Id);
+    $sessions = Session::find($Id);
 
-return view('links.multiplesSesiones', compact('event'));
-  
-    }
 
-    public function crearMultiplesSesiones(Request $request, $eventId)
-{
+    return view('links.multiplesSesiones', compact('event'));
+
+  }
+
+  public function crearMultiplesSesiones(Request $request, $eventId)
+  {
     $evento = Event::findOrFail($eventId);
     $capacity = $evento->capacity;
 
     $request->validate([
       'date' => 'required',
       'time' => 'required',
-      'maxCapacity' => 'required|lte:'.$capacity,
+      'maxCapacity' => 'required|lte:' . $capacity,
     ]);
 
     $crearSesion = Session::create([
-        'date' => $request->date,
-        'time' => $request->time,
-        'maxCapacity' => $request->maxCapacity,
-        'event_id' => $eventId,
-        'ticketsSold' => 0
+      'date' => $request->date,
+      'time' => $request->time,
+      'maxCapacity' => $request->maxCapacity,
+      'event_id' => $eventId,
+      'ticketsSold' => 0
     ]);
 
-    
+
     $request->session()->put('sesionId', $crearSesion->id);
     $request->session()->put('datosPrimerFormulario', $request->all());
 
     return redirect()->route('links.comprarEntradasSesion');
-}
-public function comprarEntradasSesion(Request $request)
-{
-  
-  $sesion = Session::find($request->session()->get('sesionId'));
-
-  
-  if ($request->session()->has('capacidadMaxima')) {
-    $capacidadMaxima = $request->session()->get('capacidadMaxima');
-  }else{
-    session(['capacidadMaxima' => $sesion->maxCapacity]);
-    $capacidadMaxima = $sesion->maxCapacity;
-    
   }
-  
-  return view('links.comprarEntradasSesion')->with('entradasRestantes', $capacidadMaxima);
-}
-public function storeComprarEntradasSesion(Request $request)
+  public function comprarEntradasSesion(Request $request)
+  {
+
+    $sesion = Session::find($request->session()->get('sesionId'));
+
+
+    if ($request->session()->has('capacidadMaxima')) {
+      $capacidadMaxima = $request->session()->get('capacidadMaxima');
+    } else {
+      session(['capacidadMaxima' => $sesion->maxCapacity]);
+      $capacidadMaxima = $sesion->maxCapacity;
+
+    }
+
+    return view('links.comprarEntradasSesion')->with('entradasRestantes', $capacidadMaxima);
+  }
+  public function storeComprarEntradasSesion(Request $request)
   {
 
     if (empty($request->quantity)) {
-      
+
       $request->validate([
-          'name' => 'required',
-          'price' => 'required',
-          'nominal' => 'required',
+        'name' => 'required',
+        'price' => 'required',
+        'nominal' => 'required',
       ]);
 
       $capacidadMaxima = session('capacidadMaxima');
       $quantity = $capacidadMaxima;
-  } else {
+    } else {
       $quantity = $request->quantity;
-  }
+    }
 
-  $cantidadEntradas = $request->quantity;
-  $capacidadMaxima = session('capacidadMaxima');
+    $cantidadEntradas = $request->quantity;
+    $capacidadMaxima = session('capacidadMaxima');
 
 
-  $request->validate([
+    $request->validate([
       'name' => 'required',
       'price' => 'required',
       'nominal' => 'required',
-  ]);
+    ]);
 
 
-  if ($cantidadEntradas > $capacidadMaxima) {
+    if ($cantidadEntradas > $capacidadMaxima) {
       $request->validate([
-          'name' => 'required',
-          'quantity' => 'lte:capacidadMaxima',
-          'price' => 'required',
-          'nominal' => 'required',
+        'name' => 'required',
+        'quantity' => 'lte:capacidadMaxima',
+        'price' => 'required',
+        'nominal' => 'required',
       ]);
-  }
+    }
 
 
-  if (session('capacidadMaxima') == 0) {
+    if (session('capacidadMaxima') == 0) {
       return redirect()->route('links.sessionEvents');
-  }
+    }
 
 
-  Ticket::create([
+    Ticket::create([
       'name' => $request->name,
       'quantity' => $quantity,
       'price' => $request->price,
       'nominal' => $request->nominal,
       'session_id' => $request->session()->get('sesionId')
-  ]);
+    ]);
 
 
-  $entradasRestantes = session('capacidadMaxima') - $cantidadEntradas;
-  session(['capacidadMaxima' => $entradasRestantes]);
+    $entradasRestantes = session('capacidadMaxima') - $cantidadEntradas;
+    session(['capacidadMaxima' => $entradasRestantes]);
 
 
-  return redirect()->route('links.comprarEntradasSesion');
-}
+    return redirect()->route('links.comprarEntradasSesion');
+  }
+
+
+  public function editarEvento($id)
+  {
+    // Obtener el evento a editar
+    $evento = Event::findOrFail($id);
+
+    $sesion = $evento->sessions->first();
+
+    // Obtener todas las categorías
+    $categorias = Category::all();
+
+    $addresses = Event::select(['address'])->where('user_id', Auth::id())->get();
+
+    $nameSites = Event::select(['name_site'])->where('user_id', Auth::id())->get();
+
+    $capacitys = Event::select(['capacity'])->where('user_id', Auth::id())->get();
+
+    $citys = Event::select(['city'])->where('user_id', Auth::id())->get();
+
+
+    // Pasar el evento a la vista del formulario de creación/editar
+    return view('links.crearEvento', compact('evento', 'sesion', 'categorias', 'addresses', 'nameSites', 'capacitys', 'citys'));
+  }
+
 
 }
