@@ -319,8 +319,20 @@ body.body-resetPwd .menuIMG {
 .show-event-home-title {
     font-size: 1.4rem;
     margin: 5%;
+    max-height: 70px;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.show-event-contenedor-direccion{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.show-event-contenedor-direccion > img{
+    margin-left: 5%;
 }
 
 .show-event-home a {
@@ -339,6 +351,13 @@ body.body-resetPwd .menuIMG {
     justify-content: left;
     font-size: 1rem;
     margin: 5%;
+}
+
+.show-event-contenedor-direccion > p{
+    display: block;
+    max-height: 56px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .elementsEvents img {
@@ -373,14 +392,16 @@ body.body-resetPwd .menuIMG {
 .btnCrearEvent,
 .btnAdministrarEvent,
 .btnListarSesionEvent {
-    display: flex;
-    align-items: center;
+    /*display: flex;
+    align-items: center;*/
     padding: 2vh;
     border-radius: 7px;
     background-color: #F9BD06;
     border: 2px solid #0642F9;
-    margin-left: auto;
-    margin-right: auto;
+    /*margin-left: auto;
+    margin-right: auto;*/
+    margin-left: 20%;
+    margin-right: 20%;
     text-decoration: none;
     font-size: 1.2rem;
     cursor: pointer;
@@ -1341,10 +1362,24 @@ textarea {
         height: calc(85vh - 110px - 110px);
         overflow-y: auto;
     }
+    .event-counter > div{
+        margin: auto;
+    }
 
     .show-event-home-img {
         width: 100%;
         height: 27%;
+    }
+
+    .info-pagination {
+        align-self: center;
+        justify-self: center;
+        margin-left: 5%;
+    }
+
+    .pagination-menu {
+        margin-right: 5%;
+        margin-left: 5%;
     }
 
     /*Login*/
@@ -1494,6 +1529,21 @@ textarea {
         width: auto;
     }
 
+    .show-event-home-title {
+        font-size: 1.4rem;
+        margin: 5%;
+        max-height: 25px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .show-event-contenedor-direccion > p{
+        display: block;
+        max-height: 40px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
     .events-category-home>div {
         margin-left: 10%;
     }
@@ -1607,9 +1657,10 @@ textarea {
 
     .btnCrearEvent,
     .btnAdministrarEvent,
-    .btnListarSesionEvent {
+    .btnListarSesionEvent {   
+        /*width: 15vh;*/
+        margin: 0;
         margin-top: 3vh;
-        width: 15vh;
     }
 
     .mostar-sesiones-promotor {
@@ -1641,6 +1692,7 @@ textarea {
 
     .info-session-contenedor {
         margin-right: 10%;
+        margin-top: 5%;
         width: 100%;
     }
 
