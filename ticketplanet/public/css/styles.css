@@ -385,23 +385,17 @@ body.body-resetPwd .menuIMG {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-content: center;
-    margin: 26vh 2vh;
+    margin: 26vh 10vh;
     gap: 3vw;
 }
 
 .btnCrearEvent,
 .btnAdministrarEvent,
 .btnListarSesionEvent {
-    /*display: flex;
-    align-items: center;*/
     padding: 2vh;
     border-radius: 7px;
     background-color: #F9BD06;
-    border: 2px solid #0642F9;
-    /*margin-left: auto;
-    margin-right: auto;*/
-    margin-left: 20%;
-    margin-right: 20%;
+    border: 2px solid #0642F9;  
     text-decoration: none;
     font-size: 1.2rem;
     cursor: pointer;
