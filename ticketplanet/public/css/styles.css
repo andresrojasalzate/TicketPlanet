@@ -882,8 +882,8 @@ body.body-resetPwd .menuIMG {
 
 .ubicacion-title-showEvent img {
     padding-left: 10px;
-    width: 3%;
-    height: 3%;
+    width: 2vh;
+    height: 3vh;
 }
 
 .ubicacion-showEvent p {
@@ -897,7 +897,7 @@ body.body-resetPwd .menuIMG {
 
 .select-wrapper select {
     width: 80%;
-    height: 2vw;
+    height: 3vh;
     cursor: pointer;
 }
 
@@ -1578,9 +1578,7 @@ textarea {
         width: 100%;
     }
 
-    .ubicacion-title-showEvent img {
-        padding-left: 10px;
-    }
+   
 
     .ubicacion-showEvent p {
         margin: 0;
@@ -1638,6 +1636,7 @@ textarea {
         padding: 1vh;
         font-size: 1rem;
         margin-left: auto;
+        margin:1vh;
     }
 
     #total-price-container {
