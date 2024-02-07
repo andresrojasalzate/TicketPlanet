@@ -87,5 +87,5 @@ Route::post('/links/comprarEntradasSesion/save', [LinksController::class, 'store
 
 /*Compra */
 
-Route::get('/mostrar-compra', [CompraController::class, 'mostrarCompra'])->name('mostrar.compra');
+Route::post('/mostrar-compra/{evento_id}', [CompraController::class, 'mostrarCompra'])->name('mostrar.compra');
 Route::get('/entradas/pdf', [CompraController::class, 'generarPdfEntradas'])->name('entradas.pdf');
