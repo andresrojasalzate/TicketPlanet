@@ -17,7 +17,8 @@ class CompraController extends Controller
         $qr = QrCode::size(100)
             ->format('png')
             ->generate('https://laravel.com');
-
+        
+        //return view('pdfs.entrada', ['qr' => $qr]);
         $pdf = Pdf::loadView('pdfs.entrada', ['qr' => $qr]);
         return $pdf->stream();
     }

@@ -1,0 +1,38 @@
+body {
+  margin: 0%;
+  &.body-login{
+    .NavLogo{
+      display: none;
+    }
+    
+    .auth{
+      display: none;
+    }
+    .menuImg{
+      display: none;
+    }
+  }
+  &.body-ResetPwd{
+    .NavLogo{
+      display: none;
+    }
+    .auth{
+      display: none;
+    }
+    .menuImg{
+      display: none;
+    }
+  }
+
+}
+
+li{
+  margin-right: 1rem;
+}
+
+ul{
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  align-items: center;
+}

@@ -1,21 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="shortcut icon" href="favicon/logoFavicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="{{ asset('css/styleSASS.css') }}">
-  <title>Document</title>
-</head>
-<body>
-  <header>
-    <x-header/>
-  </header>
+@extends('layouts.app')
+
+@section('title', 'Comprar Entradas')
+
+@section('content')
 
   <form action="{{ route('links.storeComprarEntradasSesion') }}" method="post">
     
      @csrf
+     @if(Session::has('success'))
+     <div class="alert-success">
+   {{ Session::get('success') }}
+             <button type="button" class="cerrarFeedbackSuccess">
+     <span aria-hidden="true">&times;</span>
+     </button>
+ @endif
+
+</div>
       <div class="contenedorNombreEntradas">
 
         <div class="nombreEntradas">
@@ -36,7 +36,7 @@
         <div class="entradasPrecio">
 
           <label for="precio">Precio</label>
-          <input type="text" name="price" id="precio" value="{{old('price')}}" >
+          <input type="text" name="price" id="precio" pattern="[0-9]+" value="{{old('price')}}" >
           @error('price')
           <small style="color: red">{{ $message }}</small>
       @enderror
@@ -85,9 +85,7 @@
   </form>
 
 
-  <footer>
-    <x-footer/>
-  </footer>
-  <script></script>
-</body>
-</html>
+  <script src="{{ asset('js/evento.js') }}"></script>
+
+
+@endsection

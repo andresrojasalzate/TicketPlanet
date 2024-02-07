@@ -1,21 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="favicon/logoFavicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="{{ asset('css/styleSASS.css') }}">
-</head>
+@extends('layouts.app')
 
-<body>
-    <header>
-        <x-header />
-    </header>
+@section('title', 'Crear Sesiones')
+
+@section('content')
     <div class="contenedorLayout">
         <form action="{{ route('links.crearMultiplesSesiones', ['id' => $event->id])}}" method="post" enctype="multipart/form-data">
             @csrf
+@if (session('error'))
+    <div class="alert-danger">
+        {{ session('error') }}
+      <button type="button" class="cerrarFeedbackFallido">
+     <span aria-hidden="true">&times;</span>
+     </button>
+   </div> 
+@endif
 
             <div class="div1Sesion">
 
@@ -24,7 +23,7 @@
                     <div class="formularioFechaCelebracionSesion">
 
                         <label for="Fecha celebracion">Fecha celebracion</label>
-                        <input class="formularioFechaCelebracionSesionInput" type="date" name="date" value="{{ old('date') }}"
+                        <input class="formularioFechaCelebracionSesionInput" type="date" name="date" value="{{ $sessions->date }}"
                             id="fechaCelebracion">
 
                         @error('date')
@@ -35,7 +34,7 @@
                     <div class="formularioHoraCelebracionSesion">
 
                         <label for="Hora celebracion">Hora celebracion</label>
-                        <input class="formularioHoraCelebracionSesionInput" type="time" name="time" value="{{ old('time') }}"
+                        <input class="formularioHoraCelebracionSesionInput" type="time" name="time" value="{{ $sessions->time }}"
                             id="horaCelebracion">
 
                         @error('time')
@@ -46,19 +45,14 @@
                     <div class="formularioAforoMaximoSesion">
 
                         <label for="Aforo Maximo">Aforo Maximo</label>
-                        <input class="formularioAforoMaximoSesionInput" type="number" name="maxCapacity" id="aforoMaximo" min="1" value="{{ old('maxCapacity') }}">
+                        <input class="formularioAforoMaximoSesionInput" type="number" name="maxCapacity" id="aforoMaximo" min="1" value="{{ $sessions->maxCapacity }}">
 
                         @error('maxCapacity')
                             <small style="color: red">{{ $message }}</small>
                         @enderror
                     </div>
 
-
-
-                </div>
-                <div class="botones">
-
-                    <button class="btnGuardarEntradas" type="submit" >Crear Sesion</button>
+                    <button class="btnCrearSesion" type="submit" >Crear Sesion</button>
 
                 </div>
 
@@ -69,9 +63,6 @@
     </div>
 
     
-    <footer>
-        <x-footer />
-    </footer>
-</body>
 
-</html>
+    <script src="{{ asset('js/session.js') }}"></script>
+@endsection 

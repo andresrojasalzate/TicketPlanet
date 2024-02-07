@@ -14,21 +14,6 @@ body {
   body.body-ResetPwd .menuImg {
     display: none; }
 
-.nav {
-  display: grid;
-  grid-template-columns: 0.3fr 0.2fr 4fr 0.5fr;
-  align-items: center;
-  padding: 0.8vh;
-  background-color: #0642F9; }
-  .navLogo {
-    display: grid;
-    justify-content: center;
-    position: relative;
-    width: 100%;
-    justify-items: center; }
-    .navLogo img {
-      width: 50vh; }
-
 li {
   margin-right: 1rem; }
 
@@ -38,14 +23,6 @@ ul {
   list-style-type: none;
   align-items: center; }
 
-.menuImg {
-  cursor: pointer;
-  width: 8vh;
-  margin-left: 15%; }
-
-.logoNav {
-  width: 10vh; }
-
 .footer {
   display: flex;
   justify-content: flex-start;
@@ -53,6 +30,12 @@ ul {
   height: 15vh;
   background-color: #424242;
   bottom: 0%; }
+
+.logo {
+  margin-left: 1%;
+  width: 5vh; }
+  .logoNombre {
+    width: 20vh; }
 
 .linksFooter {
   display: grid;
@@ -68,15 +51,68 @@ ul {
     font-family: 'Work Sans';
     color: white; }
 
-.imagenLupa {
-  position: absolute;
-  left: 33%;
-  margin-top: 5px; }
+.item-1 {
+  grid-row: 1/2;
+  grid-column: 1/2;
+  /*Home Promotor*/ }
 
-.imagenFiltrar {
-  position: absolute;
-  right: 39%;
-  margin-top: 5px; }
+.item-2 {
+  grid-row: 1/2;
+  grid-column: 2/3;
+  /*Sobre nosaltres*/ }
+
+.item-3 {
+  grid-row: 1/2;
+  grid-column: 3/4;
+  /*Avisos legales*/ }
+
+.item-4 {
+  grid-row: 2/3;
+  grid-column: 1/2;
+  /*Mostrar Esdeveniments*/ }
+
+.item-5 {
+  grid-row: 2/3;
+  grid-column: 2/3;
+  /*Comprar entrades*/ }
+
+@media screen and (max-width: 425px) {
+  .footer {
+    width: 100%;
+    height: 120px; }
+  .logo {
+    margin-left: 3%;
+    width: 10%; }
+    .logoNombre {
+      width: 40%; }
+  .links {
+    display: none; }
+    .linksFooter {
+      width: 100vw;
+      display: none; } }
+
+.nav {
+  display: grid;
+  grid-template-columns: 0.3fr 0.2fr 4fr 0.5fr;
+  align-items: center;
+  padding: 0.8vh;
+  background-color: #0642F9; }
+  .navLogo {
+    display: grid;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    justify-items: center; }
+    .navLogo img {
+      width: 50vh; }
+
+.logoNav {
+  width: 10vh; }
+
+.menuIMG {
+  cursor: pointer;
+  width: 8vh;
+  margin-left: 15%; }
 
 .dropdown {
   display: flex;
@@ -108,38 +144,1008 @@ ul {
       font-size: 1.25rem;
       font-family: 'Work Sans'; }
 
+.logout,
+.homeMenu,
+.homePromotorMenu,
+.aboutusMenu,
+.legalnoticeMenu {
+  display: flex;
+  align-items: center;
+  padding: 7% 0% 5% 10%;
+  transition: box-shadow 0.3s ease; }
+
+.logout:hover,
+.homeMenu:hover,
+.homePromotorMenu:hover,
+.aboutusMenu:hover,
+.legalnoticeMenu:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
+
+.logout img,
+.homeMenu img,
+.homePromotorMenu img {
+  padding-right: 1vh; }
+
+.logout a {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-family: 'Work Sans';
+  padding-right: 3%; }
+
+.auth {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .authUser {
+    margin-top: 0.5rem;
+    color: white;
+    font-size: 1.25rem;
+    font-family: 'Work Sans';
+    text-decoration: none; }
+  .auth a, .auth span {
+    margin-top: 0.5rem;
+    color: white;
+    font-size: 1.25rem;
+    font-family: 'Work Sans';
+    text-decoration: none; }
+  .auth img {
+    width: 5vh; }
+
+.separator {
+  width: 100%;
+  height: 3px;
+  background-color: #0642F9;
+  position: absolute;
+  bottom: -10%; }
+
+@media screen and (max-width: 425px) {
+  .menuIMG {
+    width: 8vh; }
+  .dropdown-content {
+    width: 30vh; }
+  .logout {
+    display: flex;
+    align-items: center;
+    padding: 5% 0% 5% 10%; }
+    .logout a {
+      color: #FFFFFF;
+      text-decoration: none;
+      font-size: 1rem;
+      font-family: 'Work Sans'; }
+  .logout,
+  .homeMenu,
+  .homePromotorMenu,
+  .aboutusMenu,
+  .legalnoticeMenu {
+    display: flex;
+    align-items: center;
+    padding: 5% 0% 5% 10%; } }
+
+.btnCrearSesion {
+  height: 40px;
+  border-radius: 7px;
+  background-color: #F9BD06;
+  border-color: #0642F9;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  cursor: pointer;
+  font-size: 15px; }
+
+.btnAñadirSesion {
+  position: absolute;
+  top: 1vh;
+  right: 1vh;
+  bottom: 1vh;
+  padding: 0.5vh;
+  background-color: #ebebeb;
+  border: 1px solid #000000;
+  border-radius: 1vh;
+  z-index: 3;
+  cursor: pointer; }
+  .btnAñadirSesion:hover {
+    background-color: #D9D9D9; }
+
+.btnListarSesionEventPromotor, .btnAdministrarEventPromotor {
+  padding: 2vh;
+  border-radius: 7px;
+  background-color: #F9BD06;
+  border: 2px solid #0642F9;
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: none;
+  font-size: 1.2rem;
+  cursor: pointer; }
+  .btnListarSesionEventPromotor a, .btnAdministrarEventPromotor a {
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    font-family: 'Work Sans'; }
+  .btnListarSesionEventPromotor:hover, .btnAdministrarEventPromotor:hover {
+    background-color: #e6ad05;
+    border-color: #0642F9; }
+
+.btnAdministrarEventPromotor a {
+  text-decoration: none;
+  text-align: center;
+  color: black;
+  font-family: 'Work Sans'; }
+
+.btnAdministrarEventPromotor:hover {
+  background-color: #e6ad05;
+  border-color: #0642F9; }
+
+.btnCrearEventPromotor {
+  padding: 2vh;
+  border-radius: 7px;
+  background-color: #F9BD06;
+  border: 2px solid #0642F9;
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: none;
+  font-size: 1.2rem;
+  cursor: pointer; }
+  .btnCrearEventPromotor a {
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    font-family: 'Work Sans'; }
+  .btnCrearEventPromotor:hover {
+    background-color: #e6ad05;
+    border-color: #0642F9; }
+
+.btnHomePromotor {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  margin: 26vh 2vh; }
+
+.btneditEvent {
+  position: absolute;
+  top: 1vh;
+  right: 1vh;
+  padding: 0.5vh;
+  background-color: #ebebeb;
+  border: 1px solid #000000;
+  border-radius: 1vh;
+  z-index: 3;
+  cursor: pointer; }
+  .btneditEvent:hover {
+    background-color: #D9D9D9; }
+
+.btn-buy:hover {
+  background-color: #e6ad05;
+  border-color: #0642F9; }
+
+.btnSessions-Promotor {
+  display: flex;
+  flex-direction: column;
+  justify-self: end;
+  display: none; }
+
+.btnVerMas {
+  align-self: self-end;
+  margin-right: 4%; }
+
+.btnIniciaSesion {
+  padding: 2vh;
+  border-radius: 7px;
+  background-color: #F9BD06;
+  border-color: #0642F9;
+  margin-top: 1%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  font-size: 1.2rem;
+  cursor: pointer; }
+  .btnIniciaSesion:hover {
+    background-color: #e6ad05;
+    border-color: #0642F9; }
+
+.btnResetSesion {
+  border-radius: 7px;
+  background-color: #F9BD06;
+  border-color: #0642F9;
+  margin-top: 3%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  font-size: 1.2rem;
+  padding: 2vh;
+  cursor: pointer; }
+  .btnResetSesion:hover {
+    background-color: #e6ad05;
+    border-color: #0642F9; }
+
+.btnResetPwd {
+  padding: 2vh;
+  border-radius: 7px;
+  background-color: #F9BD06;
+  border-color: #0642F9;
+  margin-top: 2.5%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  font-size: 1.2rem;
+  cursor: pointer; }
+  .btnResetPwd:hover {
+    background-color: #e6ad05;
+    border-color: #0642F9; }
+
+.btnBuscador {
+  padding: 1vh;
+  border-radius: 7px;
+  background-color: #F9BD06;
+  border-color: #0642F9;
+  font-size: 1.25rem;
+  cursor: pointer; }
+  .btnBuscador:hover {
+    background-color: #e6ad05;
+    border-color: #0642F9; }
+
+.btnGuardarEntradas {
+  height: 40px;
+  border-radius: 7px;
+  background-color: #F9BD06;
+  border-color: #0642F9;
+  margin-top: 10%;
+  font-size: 15px;
+  cursor: pointer; }
+
+.btnCrearEvento {
+  height: 40px;
+  border-radius: 7px;
+  background-color: #F9BD06;
+  border-color: #0642F9;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  cursor: pointer;
+  font-size: 15px; }
+
+.btnVerEventos {
+  height: 40px;
+  border-radius: 7px;
+  background-color: #F9BD06;
+  border-color: #0642F9;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  cursor: pointer;
+  font-size: 15px; }
+
+@media screen and (min-width: 425px) {
+  .btnCrearSesion {
+    margin: 0%; } }
+
+@media screen and (max-width: 425px) {
+  .btnCrearEventPromotor {
+    margin-top: 3vh; }
+  .btnAdministrarEventPromotor {
+    padding: 2vh;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border: 2px solid #0642F9;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+    font-size: 1.2rem;
+    cursor: pointer; }
+  .btnListarSesionEventPromotor, .btnAdministrarEventPromotor {
+    padding: 2vh;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border: 2px solid #0642F9;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+    font-size: 1.2rem;
+    cursor: pointer; }
+  .btnHomePromotor {
+    display: grid;
+    grid-template-columns: repeat(1, 3fr);
+    margin: 12vh; }
+  .btnIniciaSesion {
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2vh;
+    display: block;
+    font-size: 1.2rem; }
+  .btnBuscador {
+    height: 40px;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    font-size: 1rem; }
+  .btnGuardarEntradas {
+    height: 40px;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    margin-top: 10%;
+    font-size: 1.2rem;
+    cursor: pointer; }
+  .btnCrearEventPromotor {
+    margin-top: 3vh; }
+  .btnAdministrarEventPromotor {
+    padding: 2vh;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border: 2px solid #0642F9;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+    font-size: 1.2rem;
+    cursor: pointer; }
+  .btnListarSesionEventPromotor, .btnAdministrarEventPromotor {
+    padding: 2vh;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border: 2px solid #0642F9;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+    font-size: 1.2rem;
+    cursor: pointer; }
+  .btnHomePromotor {
+    display: grid;
+    grid-template-columns: repeat(1, 3fr);
+    margin: 12vh; }
+  .btnIniciaSesion {
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2vh;
+    display: block;
+    font-size: 1.2rem; }
+  .btnBuscador {
+    height: 40px;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    font-size: 1rem; }
+  .btnGuardarEntradas {
+    height: 40px;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    margin-top: 10%;
+    font-size: 1.2rem;
+    cursor: pointer; } }
+
+@media screen and (min-width: 720px) {
+  .btnCrearEvento {
+    height: 40px;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-size: 1.2rem;
+    cursor: pointer; } }
+
+.buscador {
+  width: 30vw;
+  padding: 1vh;
+  border-radius: 10px;
+  margin-right: 0.5%;
+  font-size: 1.25rem;
+  padding-left: 5vh;
+  background-color: rgba(6, 66, 249, 0.133); }
+  .buscadorContenedor {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5%;
+    position: relative; }
+  .buscador-Form {
+    display: flex;
+    align-items: center;
+    text-align: center; }
+
+.imagenLupa {
+  position: absolute;
+  margin-left: 0.5vw; }
+
+.imagenFiltrar {
+  position: absolute;
+  right: 39vw; }
+
+.filtro {
+  background-color: #ebeaea;
+  border-radius: 0;
+  width: 100%; }
+  .filtro-div {
+    border: 1px solid #000000;
+    background-color: #B5B5B5;
+    margin: auto;
+    margin-top: 1%;
+    padding: 2.5vh;
+    width: 30vh;
+    display: none; }
+    .filtro-div p {
+      margin: 0px;
+      padding: 0px; }
+
+@media screen and (max-width: 425px) {
+  .buscador {
+    width: 50vw; }
+    .buscadorContenedor {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 100%;
+      margin-top: 3%; }
+  .div_filtro {
+    border: 1px solid #000000;
+    background-color: #B5B5B5;
+    margin: auto;
+    margin-top: 1%;
+    padding: 2vh;
+    width: 24vh;
+    display: none; }
+  .imagenLupa {
+    position: absolute;
+    margin-left: 1.5vw; } }
+
+.category-home {
+  display: flex;
+  flex-direction: column;
+  margin-left: 3%;
+  margin-top: 3%;
+  margin-right: 3%; }
+  .category-home-events {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    align-items: center; }
+    .category-home-events > div {
+      margin-right: 5%;
+      margin-bottom: 2%; }
+    .category-home-events > button {
+      margin-left: 3%;
+      font-size: medium; }
+  .category-home > p {
+    margin: 0;
+    padding: 0;
+    color: #0642F9;
+    font-family: 'Work Sans';
+    font-size: 4rem;
+    margin-bottom: 2%; }
+
+.ver-mas-button {
+  align-self: self-end;
+  margin-top: 2%;
+  margin-bottom: 1%; }
+
+@media screen and (max-width: 425px) {
+  .category-home-events > div {
+    margin-left: 10%; } }
+
+.show-event-home {
+  max-width: 30vh;
+  min-width: 30vh;
+  min-height: 50vh;
+  max-height: 50vh;
+  background-color: #ebebeb;
+  margin-bottom: 5%;
+  border: 5px solid;
+  border-color: #F9BD06;
+  cursor: pointer;
+  font-family: 'Work Sans';
+  position: relative; }
+  .show-event-home:hover {
+    background-color: #D9D9D9;
+    border-color: #e6ad05; }
+  .show-event-home-img {
+    width: 100%;
+    height: 35%; }
+  .show-event-home-title {
+    font-size: 1.4rem;
+    margin: 5%;
+    max-height: 70px;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  .show-event-home a {
+    color: #000000;
+    text-decoration: none; }
+
+.elementsEvents {
+  display: flex;
+  flex-direction: column; }
+  .elementsEvents-direccion {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; }
+    .elementsEvents-direccion img {
+      margin-left: 5%;
+      padding-right: 2%; }
+    .elementsEvents-direccion p {
+      display: block !important;
+      max-height: 56px;
+      overflow: hidden;
+      text-overflow: ellipsis; }
+  .elementsEvents p {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    font-size: 1rem;
+    margin: 5%; }
+
+@media screen and (max-width: 425px) {
+  .show-event-home-img {
+    width: 100%;
+    height: 27%; }
+  .show-event-home-title {
+    font-size: 1.4rem;
+    margin: 5%;
+    max-height: 25px;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  .show-event-home a {
+    color: #000000;
+    text-decoration: none; }
+  .elementsEvents-direccion img {
+    margin-left: 5%;
+    padding-right: 2%; }
+  .elementsEvents-direccion p {
+    max-height: 40px; } }
+
 .alert {
   display: none;
   padding: 10px;
   background-color: #f44336;
   color: white;
   margin-bottom: 15px; }
+  .alert-danger {
+    display: flex;
+    padding: 10px;
+    background-color: #ff0000cf;
+    color: white;
+    width: 50%;
+    justify-content: space-evenly;
+    margin: auto;
+    margin-bottom: 5%; }
+  .alert-success {
+    display: flex;
+    padding: 10px;
+    background-color: #01781cc7;
+    color: white;
+    margin-top: 2%;
+    width: 50%;
+    justify-content: space-evenly;
+    margin-left: 20%; }
 
-.item-1 {
-  grid-row: 1/2;
-  grid-column: 1/2;
-  /*Home Promotor*/ }
+.cerrarFeedbackSuccess {
+  background-color: #01781c00;
+  border: none;
+  color: white;
+  cursor: pointer; }
 
-.item-2 {
-  grid-row: 1/2;
-  grid-column: 2/3;
-  /*Sobre nosaltres*/ }
+.cerrarFeedbackFallido {
+  background-color: #01781c00;
+  border: none;
+  color: white;
+  cursor: pointer; }
 
-.item-3 {
-  grid-row: 1/2;
-  grid-column: 3/4;
-  /*Avisos legales*/ }
+.contenedor-ticket {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 2vh;
+  background-color: #D9D9D9;
+  margin: 5vh auto;
+  border: 3px solid;
+  border-color: #F9BD06;
+  box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5);
+  font-size: 1.1rem; }
+  .contenedor-ticket input {
+    padding: 2vh;
+    font-size: 1rem;
+    margin-left: auto; }
 
-.item-4 {
-  grid-row: 2/3;
-  grid-column: 1/2;
-  /*Mostrar Esdeveniments*/ }
+.contenedorMenu {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
 
-.item-5 {
-  grid-row: 2/3;
-  grid-column: 2/3;
-  /*Comprar entrades*/ }
+.contenedorNombreEntradas {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 9% 9% 13% 9%;
+  font-size: 15px; }
 
+.nombreEntradas {
+  display: flex;
+  flex-direction: column; }
+
+.entradasVisibles {
+  display: flex;
+  justify-content: center; }
+  .entradasVisiblesEleccion {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    display: flex;
+    justify-content: space-around; }
+
+.entradasPrecio {
+  width: 50%;
+  display: flex;
+  flex-direction: column; }
+  .entradasPrecioCantidad {
+    display: flex;
+    padding-left: 10%;
+    font-size: 15px; }
+    .entradasPrecioCantidad input {
+      width: 70%; }
+
+.entradasCantidad {
+  width: 50%;
+  display: flex;
+  flex-direction: column; }
+
+.entradasNominales {
+  margin: 9%;
+  display: flex;
+  justify-content: center;
+  font-size: 15px; }
+  .entradasNominalesEleccion {
+    display: flex;
+    justify-content: space-around;
+    font-size: 15px; }
+
+@media screen and (min-width: 720px) {
+  .contenedorNombreEntradas {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 9%; }
+  .nombreEntradas {
+    display: flex;
+    flex-direction: column; } }
+
+@media screen and (min-width: 860px) {
+  .contenedorNombreEntradas {
+    margin: 0%;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    padding-left: 10%;
+    align-items: center; }
+  .nombreEntradas {
+    width: 50%; }
+    .nombreEntradasInput {
+      width: 70%; } }
+
+.div1, .div2 {
+  font-size: 15px; }
+
+.contenedorLayout {
+  display: flex;
+  justify-content: center;
+  margin: 3%;
+  flex-direction: column; }
+
+.formularioDescripcion {
+  width: 40%; }
+  .formularioDescripcionInput {
+    width: 70%; }
+
+.formularioImagen {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap; }
+
+.formularioAdreca {
+  width: 100%;
+  display: flex;
+  flex-direction: column; }
+
+.formularioNumeroDireccion, .formularioFechaFin, .formularioHoraFin {
+  width: 33%; }
+  .formularioNumeroDireccionInput, .formularioFechaFinInput, .formularioHoraFinInput {
+    width: 70%; }
+
+.formularioNombreLocal {
+  width: 55%; }
+  .formularioNombreLocalInput, .formularioCapacidadLocalInput {
+    width: 70%; }
+
+.formularioCapacidadLocal {
+  width: 45%; }
+
+.formularioProvincia, .formularioCodigoPostal, .formularioCiudad {
+  width: 33%; }
+  .formularioProvinciaInput, .formularioCodigoPostalInput, .formularioCiudadInput {
+    width: 70%; }
+
+.formularioFechaCelebracion, .formularioHoraCelebracion, .formularioAforoMaximo {
+  width: 33%; }
+  .formularioFechaCelebracionInput, .formularioHoraCelebracionInput, .formularioAforoMaximoInput {
+    width: 70%; }
+  .formularioFechaCelebracionSesion {
+    display: flex;
+    flex-direction: column; }
+
+.formularioHoraCelebracionSesion {
+  display: flex;
+  flex-direction: column; }
+
+.formularioAforoMaximoSesion {
+  display: flex;
+  flex-direction: column; }
+
+.parte1formulario {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-left: 1%;
+  margin-bottom: 5%; }
+  .parte1formulario label, .parte1formulario input {
+    display: block; }
+
+.parte2formulario {
+  display: flex;
+  margin-left: 1%;
+  margin-bottom: 5%; }
+  .parte2formulario Input {
+    height: 50px; }
+
+.parte3formulario {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 1%;
+  margin-bottom: 5%; }
+
+.parte4formulario {
+  display: flex;
+  margin-left: 1%;
+  margin-bottom: 10%; }
+
+.parte5formulario {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-left: 1%;
+  margin-bottom: 10%; }
+  .parte5formulario label, .parte5formulario input {
+    display: block; }
+
+.parte6formulario {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 1%; }
+
+.parte6formularioSesion {
+  display: flex;
+  justify-content: space-evenly; }
+
+.parteEntradasFormulario {
+  width: 100%;
+  margin-bottom: 10%; }
+
+@media screen and (max-width: 380px) {
+  .div1, .div2 {
+    font-size: 13px; } }
+
+@media screen and (max-width: 425px) {
+  .entradasVisibles {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%; }
+    .entradasVisiblesEleccion {
+      margin-top: 5%;
+      margin-bottom: 5%;
+      display: flex;
+      justify-content: space-around; }
+  .contenedorLayout {
+    display: flex;
+    justify-content: center;
+    margin: 3%;
+    flex-direction: column; }
+  .parte1formulario {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-left: 1%;
+    margin-bottom: 10%; }
+    .parte1formulario label {
+      display: block; }
+    .parte1formulario input {
+      display: block; }
+  .parte2formulario {
+    display: flex;
+    margin-left: 1%;
+    margin-bottom: 10%;
+    justify-content: space-between; }
+  .parte3formulario {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1%; }
+  .parte4formulario {
+    display: flex;
+    margin-left: 1%;
+    margin-bottom: 10%; }
+  .parte5formulario {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 1%;
+    margin-bottom: 10%; }
+    .parte5formulario label {
+      display: block; }
+    .parte5formulario input {
+      display: block; }
+  .parte6formulario {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 1%; }
+    .parte6formularioSesion {
+      flex-direction: column;
+      align-content: center;
+      flex-wrap: wrap; }
+  .formularioAforoMaximo {
+    width: 33%; }
+    .formularioAforoMaximo input {
+      width: 70%; }
+    .formularioAforoMaximoSesion {
+      margin: 3%; }
+  .formularioHoraCelebracion {
+    width: 33%; }
+    .formularioHoraCelebracion input {
+      width: 70%; }
+    .formularioHoraCelebracionSesion {
+      margin: 3%; }
+  .formularioFechaCelebracion, .formularioHoraCelebracion, .formularioAforoMaximo {
+    width: 33%; }
+    .formularioFechaCelebracion input, .formularioHoraCelebracion input, .formularioAforoMaximo input {
+      width: 70%; }
+    .formularioFechaCelebracionSesion {
+      margin: 3%; }
+  .formularioCodigoPostal {
+    width: 33%; }
+    .formularioCodigoPostal input {
+      width: 70%; }
+  .formularioCiudad {
+    width: 33%; }
+    .formularioCiudad input {
+      width: 70%; }
+  .formularioProvincia, .formularioCodigoPostal, .formularioCiudad {
+    width: 33%; }
+    .formularioProvincia input, .formularioCodigoPostal input, .formularioCiudad input {
+      width: 70%; }
+  .formularioCapacidadLocal {
+    width: 50%; }
+    .formularioCapacidadLocal input {
+      width: 70%; }
+  .formularioNombreLocal {
+    width: 50%; }
+    .formularioNombreLocal input {
+      width: 70%; }
+  .formularioHoraFin {
+    width: 33%; }
+    .formularioHoraFin input {
+      width: 70%; }
+  .formularioFechaFin {
+    width: 33%; }
+    .formularioFechaFin input {
+      width: 70%; }
+  .formularioNumeroDireccion, .formularioFechaFin, .formularioHoraFin {
+    width: 33%; }
+    .formularioNumeroDireccion input, .formularioFechaFin input, .formularioHoraFin input {
+      width: 70%; }
+  .formularioParteEntradas {
+    width: 100%; }
+  .formularioAdreca {
+    display: flex;
+    flex-direction: column; }
+  .formularioDescripcion {
+    width: 40%; }
+    .formularioDescripcion input {
+      height: 50px;
+      width: 120px; }
+  .formularioImagen {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap; } }
+
+@media screen and (min-width: 720px) {
+  .div1 {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    float: left; }
+  .div2 {
+    height: 250px;
+    width: 50%;
+    float: right; }
+  .formularioAdreca {
+    width: 76%; }
+  .parte1formulario {
+    width: 76%; }
+  .parte3formulario {
+    width: 100%; }
+  .entradasNominales {
+    margin: 9%;
+    display: flex;
+    justify-content: center; }
+    .entradasNominalesEleccion {
+      display: flex;
+      justify-content: space-around; }
+  .entradasCantidad {
+    width: 50%;
+    display: flex;
+    flex-direction: column; }
+  .entradasPrecio {
+    width: 50%;
+    display: flex;
+    flex-direction: column; }
+    .entradasPrecioCantidad {
+      display: flex;
+      padding-left: 10%; }
+      .entradasPrecioCantidad input {
+        width: 70%; } }
+
+@media screen and (min-width: 860px) {
+  .entradasNominales {
+    margin: 2%; }
+    .entradasNominalesEleccion {
+      justify-content: space-evenly; }
+  .entradasCantidad {
+    margin-bottom: 2%; }
+  .entradasPrecioCantidad {
+    flex-direction: column-reverse;
+    align-items: center; } }
+
+/*body {
+  margin: 0%;
+  &.body-login{
+    .NavLogo{
+      display: none;
+    }
+    
+    .auth{
+      display: none;
+    }
+    .menuImg{
+      display: none;
+    }
+  }
+  &.body-ResetPwd{
+    .NavLogo{
+      display: none;
+    }
+    .auth{
+      display: none;
+    }
+    .menuImg{
+      display: none;
+    }
+  }
+
+}*/
 .show-session-promotor {
   display: flex;
   flex-direction: row;
@@ -197,22 +1203,6 @@ ul {
     justify-content: left;
     font-size: 1rem;
     margin: 5%; }
-
-.filtro {
-  background-color: #ebeaea;
-  border-radius: 0;
-  width: 100%; }
-  .filtro-div {
-    border: 1px solid #000000;
-    background-color: #B5B5B5;
-    margin: auto;
-    margin-top: 1%;
-    padding: 2.5vh;
-    width: 30vh;
-    display: none; }
-    .filtro-div p {
-      margin: 0px;
-      padding: 0px; }
 
 .pagination {
   display: flex;
@@ -277,62 +1267,6 @@ ul {
   font-size: 1.2rem;
   cursor: pointer; }
 
-.contenedor-ticket {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  padding: 2vh;
-  background-color: #D9D9D9;
-  margin: 5vh auto;
-  border: 3px solid;
-  border-color: #F9BD06;
-  box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5);
-  font-size: 1.1rem; }
-  .contenedor-ticket input {
-    padding: 2vh;
-    font-size: 1rem;
-    margin-left: auto; }
-
-.contenedorMenu {
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-
-.contenedorNombreEntradas {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  margin: 9% 9% 13% 9%;
-  font-size: 15px; }
-
-.nombreEntradas {
-  display: flex;
-  flex-direction: column; }
-
-.category-home {
-  display: flex;
-  flex-direction: column;
-  margin-left: 3%;
-  margin-top: 3%;
-  margin-right: 3%; }
-  .category-home-events {
-    display: flex;
-    flex-direction: row;
-    overflow-x: auto;
-    align-items: center; }
-    .category-home-events > div {
-      margin-right: 5%;
-      margin-bottom: 2%; }
-    .category-home-events > button {
-      margin-left: 3%;
-      font-size: medium; }
-  .category-home > p {
-    margin: 0;
-    padding: 0;
-    color: #0642F9;
-    font-family: 'Work Sans';
-    font-size: 4rem;
-    margin-bottom: 2%; }
-
 .font-medium {
   color: #000000; }
 
@@ -380,36 +1314,6 @@ ul {
     font-size: 2.25rem;
     font-weight: bold;
     margin: 0; }
-
-.logout,
-.homeMenu,
-.homePromotorMenu,
-.aboutusMenu,
-.legalnoticeMenu {
-  display: flex;
-  align-items: center;
-  padding: 7% 0% 5% 10%;
-  transition: box-shadow 0.3s ease; }
-
-.logout:hover,
-.homeMenu:hover,
-.homePromotorMenu:hover,
-.aboutusMenu:hover,
-.legalnoticeMenu:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  /* Añadimos la sombra al pasar el cursor */ }
-
-.logout img,
-.homeMenu img,
-.homePromotorMenu img {
-  padding-right: 1vh; }
-
-.logout a {
-  color: #FFFFFF;
-  text-decoration: none;
-  font-size: 1.25rem;
-  font-family: 'Work Sans';
-  padding-right: 3%; }
 
 .CorreoReset label {
   display: block;
@@ -714,57 +1618,12 @@ ul {
   margin-top: 1vh;
   padding-left: 40px; }
 
-.buscador {
-  width: 30vw;
-  padding: 1vh;
-  border-radius: 10px;
-  margin-right: 0.5%;
-  font-size: 1.25rem;
-  padding-left: 5vh;
-  background-color: rgba(6, 66, 249, 0.133); }
-  .buscadorContenedor {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1.5%;
-    position: relative; }
-  .buscador-Form {
-    display: flex;
-    align-items: center;
-    text-align: center; }
-
-.logo {
-  margin-left: 1%;
-  width: 5vh; }
-  .logoNombre {
-    width: 20vh; }
-
 .links a {
   font-weight: bold;
   color: #F9BD06;
   text-decoration: none;
   font-size: 1.75rem;
   font-family: 'Work Sans'; }
-
-.auth {
-  display: flex;
-  flex-direction: column;
-  align-items: center; }
-  .authUser {
-    margin-top: 0.5rem;
-    color: white;
-    font-size: 1.25rem;
-    font-family: 'Work Sans';
-    text-decoration: none; }
-  .auth a, .auth span {
-    margin-top: 0.5rem;
-    color: white;
-    font-size: 1.25rem;
-    font-family: 'Work Sans';
-    text-decoration: none; }
-  .auth img {
-    width: 5vh; }
 
 .titulo-sessions-promotor {
   text-align: center;
@@ -775,379 +1634,20 @@ ul {
   max-width: 15vh;
   margin-right: 10%; }
 
-.separator {
-  width: 100%;
-  height: 3px;
-  background-color: #0642F9;
-  position: absolute;
-  bottom: -10%; }
-
 .botones {
   display: flex;
   justify-content: space-evenly; }
 
-.btnListarSesionEventPromotor, .btnAdministrarEventPromotor {
-  padding: 2vh;
-  border-radius: 7px;
-  background-color: #F9BD06;
-  border: 2px solid #0642F9;
-  margin-left: auto;
-  margin-right: auto;
-  text-decoration: none;
-  font-size: 1.2rem;
-  cursor: pointer; }
-  .btnListarSesionEventPromotor a, .btnAdministrarEventPromotor a {
-    text-decoration: none;
-    text-align: center;
-    color: black;
-    font-family: 'Work Sans'; }
-  .btnListarSesionEventPromotor:hover, .btnAdministrarEventPromotor:hover {
-    background-color: #e6ad05;
-    border-color: #0642F9; }
-
-.btnAdministrarEventPromotor a {
-  text-decoration: none;
-  text-align: center;
-  color: black;
-  font-family: 'Work Sans'; }
-
-.btnAdministrarEventPromotor:hover {
-  background-color: #e6ad05;
-  border-color: #0642F9; }
-
-.btnCrearEventPromotor {
-  padding: 2vh;
-  border-radius: 7px;
-  background-color: #F9BD06;
-  border: 2px solid #0642F9;
-  margin-left: auto;
-  margin-right: auto;
-  text-decoration: none;
-  font-size: 1.2rem;
-  cursor: pointer; }
-  .btnCrearEventPromotor a {
-    text-decoration: none;
-    text-align: center;
-    color: black;
-    font-family: 'Work Sans'; }
-  .btnCrearEventPromotor:hover {
-    background-color: #e6ad05;
-    border-color: #0642F9; }
-
-.btnHomePromotor {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  justify-content: center;
-  margin: 26vh 2vh; }
-
-.btneditEvent {
-  position: absolute;
-  top: 1vh;
-  right: 1vh;
-  padding: 0.5vh;
-  background-color: #ebebeb;
-  border: 1px solid #000000;
-  border-radius: 1vh;
-  z-index: 3;
-  cursor: pointer; }
-  .btneditEvent:hover {
-    background-color: #D9D9D9; }
-
-.btn-buy:hover {
-  background-color: #e6ad05;
-  border-color: #0642F9; }
-
-.btnSessions-Promotor {
-  display: flex;
-  flex-direction: column;
-  justify-self: end;
-  display: none; }
-
-.btnVerMas {
-  align-self: self-end;
-  margin-right: 4%; }
-
-.btnIniciaSesion {
-  padding: 2vh;
-  border-radius: 7px;
-  background-color: #F9BD06;
-  border-color: #0642F9;
-  margin-top: 1%;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  font-size: 1.2rem;
-  cursor: pointer; }
-  .btnIniciaSesion:hover {
-    background-color: #e6ad05;
-    border-color: #0642F9; }
-
-.btnResetSesion {
-  border-radius: 7px;
-  background-color: #F9BD06;
-  border-color: #0642F9;
-  margin-top: 3%;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  font-size: 1.2rem;
-  padding: 2vh;
-  cursor: pointer; }
-  .btnResetSesion:hover {
-    background-color: #e6ad05;
-    border-color: #0642F9; }
-
-.btnResetPwd {
-  padding: 2vh;
-  border-radius: 7px;
-  background-color: #F9BD06;
-  border-color: #0642F9;
-  margin-top: 2.5%;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  font-size: 1.2rem;
-  cursor: pointer; }
-  .btnResetPwd:hover {
-    background-color: #e6ad05;
-    border-color: #0642F9; }
-
-.btnBuscador {
-  padding: 1vh;
-  border-radius: 7px;
-  background-color: #F9BD06;
-  border-color: #0642F9;
-  font-size: 1.25rem;
-  cursor: pointer; }
-  .btnBuscador:hover {
-    background-color: #e6ad05;
-    border-color: #0642F9; }
-
-.btnGuardarEntradas {
-  height: 40px;
-  border-radius: 7px;
-  background-color: #F9BD06;
-  border-color: #0642F9;
-  margin-top: 10%;
-  font-size: 15px;
-  cursor: pointer; }
-
-.btnCrearEvento {
-  height: 40px;
-  border-radius: 7px;
-  background-color: #F9BD06;
-  border-color: #0642F9;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  cursor: pointer;
-  font-size: 15px; }
-
-.btnVerEventos {
-  height: 40px;
-  border-radius: 7px;
-  background-color: #F9BD06;
-  border-color: #0642F9;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  cursor: pointer;
-  font-size: 15px; }
-
-.ver-mas-button {
-  align-self: self-end;
-  margin-top: 2%;
-  margin-bottom: 1%; }
-
-.contenedorLayout {
-  display: flex;
-  justify-content: center;
-  margin: 3%;
-  flex-direction: column; }
-
 .layoutHomePromotor {
   height: 200px;
   margin-top: 1%; }
-
-.parte1formulario {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  margin-left: 1%;
-  margin-bottom: 5%; }
-  .parte1formulario label, .parte1formulario input {
-    display: block; }
-
-.parte2formulario {
-  display: flex;
-  margin-left: 1%;
-  margin-bottom: 5%; }
-  .parte2formulario Input {
-    height: 50px; }
-
-.parte3formulario {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 1%;
-  margin-bottom: 5%; }
-
-.parte4formulario {
-  display: flex;
-  margin-left: 1%;
-  margin-bottom: 10%; }
-
-.parte5formulario {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-left: 1%;
-  margin-bottom: 10%; }
-  .parte5formulario label, .parte5formulario input {
-    display: block; }
-
-.parte6formulario {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 1%; }
-
-.parteEntradasFormulario {
-  width: 100%;
-  margin-bottom: 10%; }
 
 .readonly-field {
   background-color: #f2f2f2;
   color: #666;
   border: 1px solid #ccc; }
 
-.formularioNumeroDireccion, .formularioFechaFin, .formularioHoraFin {
-  width: 33%; }
-  .formularioNumeroDireccionInput, .formularioFechaFinInput, .formularioHoraFinInput {
-    width: 70%; }
-
-.formularioNombreLocal {
-  width: 55%; }
-  .formularioNombreLocalInput, .formularioCapacidadLocalInput {
-    width: 70%; }
-
-.formularioCapacidadLocal {
-  width: 45%; }
-
-.formularioProvincia, .formularioCodigoPostal, .formularioCiudad {
-  width: 33%; }
-  .formularioProvinciaInput, .formularioCodigoPostalInput, .formularioCiudadInput {
-    width: 70%; }
-
-.formularioFechaCelebracion, .formularioHoraCelebracion, .formularioAforoMaximo {
-  width: 33%; }
-  .formularioFechaCelebracionInput, .formularioHoraCelebracionInput, .formularioAforoMaximoInput {
-    width: 70%; }
-
-.entradasVisibles {
-  display: flex;
-  justify-content: center; }
-  .entradasVisiblesEleccion {
-    margin-top: 5%;
-    margin-bottom: 5%;
-    display: flex;
-    justify-content: space-around; }
-
-.entradasPrecio {
-  width: 50%;
-  display: flex;
-  flex-direction: column; }
-  .entradasPrecioCantidad {
-    display: flex;
-    padding-left: 10%;
-    font-size: 15px; }
-    .entradasPrecioCantidad input {
-      width: 70%; }
-
-.entradasCantidad {
-  width: 50%;
-  display: flex;
-  flex-direction: column; }
-
-.entradasNominales {
-  margin: 9%;
-  display: flex;
-  justify-content: center;
-  font-size: 15px; }
-  .entradasNominalesEleccion {
-    display: flex;
-    justify-content: space-around;
-    font-size: 15px; }
-
-.formularioDescripcion {
-  width: 40%; }
-  .formularioDescripcionInput {
-    width: 70%; }
-
-.formularioImagen {
-  width: 50%;
-  display: flex;
-  flex-wrap: wrap; }
-
-.formularioAdreca {
-  width: 100%;
-  display: flex;
-  flex-direction: column; }
-
-.div1, .div2 {
-  font-size: 15px; }
-
-@media screen and (max-width: 380px) {
-  .div1, .div2 {
-    font-size: 13px; } }
-
 @media screen and (max-width: 425px) {
-  .nav {
-    display: grid;
-    grid-template-rows: 1fr;
-    text-align: center;
-    justify-items: end;
-    align-items: stretch;
-    height: 110px; }
-    .navLogo img {
-      padding: 0.1vh; }
-  .contenedorLayout {
-    display: flex;
-    justify-content: center;
-    margin: 3%;
-    flex-direction: column; }
-  .footer {
-    width: 100%;
-    height: 120px; }
-  .logo {
-    margin-left: 3%;
-    width: 10%; }
-    .logoNombre {
-      width: 40%; }
-  .auth {
-    margin-top: 1rem; }
-    .auth img {
-      width: 50%; }
-  .links {
-    display: none; }
-    .linksFooter {
-      width: 100vw;
-      display: none; }
-  .menuImg {
-    width: 8vh; }
-  .logout,
-  .homeMenu,
-  .homePromotorMenu,
-  .aboutusMenu,
-  .legalnoticeMenu {
-    display: flex;
-    align-items: center;
-    padding: 5% 0% 5% 10%; }
-  .dropdown-content {
-    width: 30vh; }
   .event-counter {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(29vh, 1fr));
@@ -1173,34 +1673,9 @@ ul {
     padding: 2vh;
     width: 24vh;
     display: none; }
-  .logout {
-    display: flex;
-    align-items: center;
-    padding: 5% 0% 5% 10%; }
-    .logout a {
-      color: #FFFFFF;
-      text-decoration: none;
-      font-size: 1rem;
-      font-family: 'Work Sans'; }
   .imagenUsuarioDespegable {
     display: flex;
     padding-left: 5%; }
-  .imagenLupa {
-    position: absolute;
-    margin-left: 1.5vw; }
-  .imagenFiltrar {
-    position: absolute;
-    right: 39vw; }
-  .buscador {
-    width: 50vw; }
-    .buscadorContenedor {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      width: 100%;
-      margin-top: 3%; }
   .showEvent-img {
     flex: 1;
     font-family: 'Work Sans';
@@ -1363,14 +1838,6 @@ ul {
     width: 100%;
     height: 27%;
     font-size: 1rem; }
-  .category-home-events {
-    display: flex;
-    flex-direction: row;
-    overflow-x: auto;
-    align-items: center;
-    width: auto; }
-    .category-home-events > div {
-      margin-left: 10%; }
   .select-wrapper {
     position: relative;
     width: 80%;
@@ -1428,240 +1895,6 @@ ul {
   .sesiones-promotor-mostrar {
     margin-left: auto;
     margin-right: auto; }
-  .parte1formulario {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    margin-left: 1%;
-    margin-bottom: 10%; }
-    .parte1formulario label {
-      display: block; }
-    .parte1formulario input {
-      display: block; }
-  .parte2formulario {
-    display: flex;
-    margin-left: 1%;
-    margin-bottom: 10%;
-    justify-content: space-between; }
-  .parte3formulario {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 1%; }
-  .parte4formulario {
-    display: flex;
-    margin-left: 1%;
-    margin-bottom: 10%; }
-  .parte5formulario {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-left: 1%;
-    margin-bottom: 10%; }
-    .parte5formulario label {
-      display: block; }
-    .parte5formulario input {
-      display: block; }
-  .parte6formulario {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 1%; }
-  .formularioAforoMaximo {
-    width: 33%; }
-    .formularioAforoMaximo input {
-      width: 70%; }
-  .formularioHoraCelerbacion {
-    width: 33%; }
-    .formularioHoraCelerbacion input {
-      width: 70%; }
-  .formularioFechaCelerbacion {
-    width: 33%; }
-    .formularioFechaCelerbacion input {
-      width: 70%; }
-  .formularioCodigoPostal {
-    width: 33%; }
-    .formularioCodigoPostal input {
-      width: 70%; }
-  .formularioCiudad {
-    width: 33%; }
-    .formularioCiudad input {
-      width: 70%; }
-  .formularioProvincia, .formularioCodigoPostal, .formularioCiudad {
-    width: 33%; }
-    .formularioProvincia input, .formularioCodigoPostal input, .formularioCiudad input {
-      width: 70%; }
-  .formularioCapacidadLocal {
-    width: 50%; }
-    .formularioCapacidadLocal input {
-      width: 70%; }
-  .formularioNombreLocal {
-    width: 50%; }
-    .formularioNombreLocal input {
-      width: 70%; }
-  .formularioHoraFin {
-    width: 33%; }
-    .formularioHoraFin input {
-      width: 70%; }
-  .formularioFechaFin {
-    width: 33%; }
-    .formularioFechaFin input {
-      width: 70%; }
-  .formularioNumeroDireccion, .formularioFechaFin, .formularioHoraFin {
-    width: 33%; }
-    .formularioNumeroDireccion input, .formularioFechaFin input, .formularioHoraFin input {
-      width: 70%; }
-  .formularioParteEntradas {
-    width: 100%; }
-  .formularioAdreca {
-    display: flex;
-    flex-direction: column; }
-  .formularioDescripcion {
-    width: 40%; }
-    .formularioDescripcion input {
-      height: 50px;
-      width: 120px; }
-  .formularioImagen {
-    width: 50%;
-    display: flex;
-    flex-wrap: wrap; }
-  .entradasVisibles {
-    display: flex;
-    justify-content: center;
-    margin-top: 5%; }
-    .entradasVisiblesEleccion {
-      margin-top: 5%;
-      margin-bottom: 5%;
-      display: flex;
-      justify-content: space-around; }
   .botones {
     display: flex;
-    justify-content: space-evenly; }
-  .btnCrearEventPromotor {
-    margin-top: 3vh; }
-  .btnAdministrarEventPromotor {
-    padding: 2vh;
-    border-radius: 7px;
-    background-color: #F9BD06;
-    border: 2px solid #0642F9;
-    margin-left: auto;
-    margin-right: auto;
-    text-decoration: none;
-    font-size: 1.2rem;
-    cursor: pointer; }
-  .btnListarSesionEventPromotor, .btnAdministrarEventPromotor {
-    padding: 2vh;
-    border-radius: 7px;
-    background-color: #F9BD06;
-    border: 2px solid #0642F9;
-    margin-left: auto;
-    margin-right: auto;
-    text-decoration: none;
-    font-size: 1.2rem;
-    cursor: pointer; }
-  .btnHomePromotor {
-    display: grid;
-    grid-template-columns: repeat(1, 3fr);
-    margin: 12vh; }
-  .btnIniciaSesion {
-    border-radius: 7px;
-    background-color: #F9BD06;
-    border-color: #0642F9;
-    margin-top: 10%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 2vh;
-    display: block;
-    font-size: 1.2rem; }
-  .btnBuscador {
-    height: 40px;
-    border-radius: 7px;
-    background-color: #F9BD06;
-    border-color: #0642F9;
-    font-size: 1rem; }
-  .btnGuardarEntradas {
-    height: 40px;
-    border-radius: 7px;
-    background-color: #F9BD06;
-    border-color: #0642F9;
-    margin-top: 10%;
-    font-size: 1.2rem;
-    cursor: pointer; } }
-
-@media screen and (min-width: 720px) {
-  .div1 {
-    display: flex;
-    flex-wrap: wrap;
-    width: 50%;
-    float: left; }
-  .div2 {
-    height: 250px;
-    width: 50%;
-    float: right; }
-  .parte1formulario {
-    width: 76%; }
-  .parte3formulario {
-    width: 100%; }
-  .contenedorNombreEntradas {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    margin: 9%; }
-  .nombreEntradas {
-    display: flex;
-    flex-direction: column; }
-  .entradasNominales {
-    margin: 9%;
-    display: flex;
-    justify-content: center; }
-    .entradasNominalesEleccion {
-      display: flex;
-      justify-content: space-around; }
-  .entradasCantidad {
-    width: 50%;
-    display: flex;
-    flex-direction: column; }
-  .entradasPrecio {
-    width: 50%;
-    display: flex;
-    flex-direction: column; }
-    .entradasPrecioCantidad {
-      display: flex;
-      padding-left: 10%; }
-      .entradasPrecioCantidad input {
-        width: 70%; }
-  .formularioAdreca {
-    width: 76%; } }
-
-.btnCrearEvento {
-  height: 40px;
-  border-radius: 7px;
-  background-color: #F9BD06;
-  border-color: #0642F9;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  font-size: 1.2rem;
-  cursor: pointer; }
-
-@media screen and (min-width: 860px) {
-  .contenedorNombreEntradas {
-    margin: 0%;
-    margin-top: 5%;
-    margin-bottom: 2%;
-    padding-left: 10%;
-    align-items: center; }
-  .nombreEntradas {
-    width: 50%; }
-    .nombreEntradasInput {
-      width: 70%; }
-  .entradasNominales {
-    margin: 2%; }
-    .entradasNominalesEleccion {
-      justify-content: space-evenly; }
-  .entradasCantidad {
-    margin-bottom: 2%; }
-  .entradasPrecioCantidad {
-    flex-direction: column-reverse;
-    align-items: center; } }
+    justify-content: space-evenly; } }

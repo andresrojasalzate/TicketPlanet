@@ -2,10 +2,19 @@
     <div class="btneditEvent">
         <a href="{{ route('links.multiplesSesiones', ['id' => $event->id]) }}">
 
-            <img src="{{ asset('images/eventos/add.png') }}" alt="Editar evento" height="30">
+            <img src="{{ asset('images/eventos/añadir.png') }}" alt="Editar evento" height="30">
 
         </a>
     </div>
+
+    {{-- <div class="btnAñadirEvent">
+      <a href="{{ route('links.editarMultiplesSesiones', ['id' => $event->id]) }}">
+
+          <img src="{{ asset('images/eventos/edit.png') }}" alt="Editar evento" height="30">
+
+      </a>
+  </div> --}}
+
     <a href="{{ route('events.mostrar', ['id' => $event->id]) }}">
         <div class="show-event-home-img">
             <img  src="{{ asset('images/fotos-subidas/' . $event->image) }}" alt="">

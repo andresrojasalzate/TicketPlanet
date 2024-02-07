@@ -8,6 +8,7 @@ use App\Models\Event;
 use App\Models\Category;
 use App\Models\Ticket;
 use App\Models\Session;
+use Illuminate\Support\Facades\Session as Feedback;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
@@ -17,10 +18,6 @@ use Illuminate\Support\Facades\Storage;
 
 class LinksController extends Controller
 {
-  public function home()
-  {
-    return view('links.home');
-  }
 
   public function aboutUs()
   {
@@ -65,6 +62,11 @@ class LinksController extends Controller
       $capacidadMaxima = $sesion->maxCapacity;
 
     }
+    if (session('capacidadMaxima') == 0) {
+      Log::info("Redireccionando al home porque la capacidad máxima es 0");
+      Feedback::flash('success', '¡Se ha creado el evento y la entrada correctamente!');
+      return redirect()->route('home');
+  }
 
     return view('links.comprarEntradas')->with('entradasRestantes', $capacidadMaxima);
   }
@@ -107,17 +109,6 @@ class LinksController extends Controller
       ]);
     }
 
-
-    if (session('capacidadMaxima') == 0) {
-      Log::info("Redirecciona al home cuando la capacidad maxima es 0");
-
-
-
-      return redirect()->route('home');
-
-
-    }
-
     Ticket::create([
       'name' => $request->name,
       'quantity' => $quantity,
@@ -127,6 +118,8 @@ class LinksController extends Controller
     ]);
     $entradasRestantes = session('capacidadMaxima') - $cantidadEntradas;
     session(['capacidadMaxima' => $entradasRestantes]);
+
+    Feedback::flash('success', '¡La entrada se ha creado correctamente!');
 
     return redirect()->route('links.comprarEntradas');
   }
@@ -194,13 +187,6 @@ class LinksController extends Controller
   {
 
     Log::info("Crear Sesion");
-
-    $request->validate([
-      'date' => 'required',
-      'time' => 'required',
-      'maxCapacity' => 'required|lte:capacity'
-    ]);
-
     $sesionCreada = Session::create([
       'date' => $request->date,
       'time' => $request->time,
@@ -211,18 +197,18 @@ class LinksController extends Controller
 
     $request->session()->put('sesionId', $sesionCreada->id);
   }
-  public function administrarEvents()
-  {
-    if (Auth()->user()) {
-      // Obtener los eventos del promotor
-      $events = Event::where('user_id', Auth()->user()->id)->with('sessions')->paginate(env('PAGINATION_LIMIT'));
+  // public function administrarEvents()
+  // {
+  //   if (Auth()->user()) {
+  //     // Obtener los eventos del promotor
+  //     $events = Event::where('user_id', Auth()->user()->id)->with('sessions')->paginate(env('PAGINATION_LIMIT'));
 
-      // Pasar los eventos a la vista
-      return view('links.administrarEvents', ['events' => $events]);
-    }
+  //     // Pasar los eventos a la vista
+  //     return view('links.administrarEvents', ['events' => $events]);
+  //   }
 
-    return redirect()->route('auth.login');
-  }
+  //   return redirect()->route('auth.login');
+  // }
 
   public function administrarEvento()
   {
@@ -272,10 +258,12 @@ class LinksController extends Controller
     ReinicarMaxCapacity::forget('capacidadMaxima');
 
     $event = Event::find($Id);
-    $sessions = Session::find($Id);
+    $sessions = Session::where('event_id', $Id)->first();
+
+    // dd($sessions);
 
 
-    return view('links.multiplesSesiones', compact('event'));
+    return view('links.multiplesSesiones', compact('event','sessions'));
 
   }
 
@@ -290,6 +278,16 @@ class LinksController extends Controller
       'maxCapacity' => 'required|lte:' . $capacity,
     ]);
 
+    $existingSessions = Session::where('event_id', $eventId)
+    ->where('date', $request->date)
+    ->where('time', $request->time)
+    ->get();
+
+if ($existingSessions->isNotEmpty()) {
+  // Feedback::flash('success', '¡La entrada se ha creado correctamente!');
+    return redirect()->back()->with('error', 'No puede haber dos sesiones con las mismas fechas.');
+}
+    
     $crearSesion = Session::create([
       'date' => $request->date,
       'time' => $request->time,
@@ -315,8 +313,11 @@ class LinksController extends Controller
     } else {
       session(['capacidadMaxima' => $sesion->maxCapacity]);
       $capacidadMaxima = $sesion->maxCapacity;
-
     }
+    if (session('capacidadMaxima') == 0) {
+      Feedback::flash('success', '¡Se ha creado la session con la entrada correctamente!');
+      return redirect()->route('links.sessionEvents');
+  }
 
     return view('links.comprarEntradasSesion')->with('entradasRestantes', $capacidadMaxima);
   }
@@ -357,12 +358,6 @@ class LinksController extends Controller
       ]);
     }
 
-
-    if (session('capacidadMaxima') == 0) {
-      return redirect()->route('links.sessionEvents');
-    }
-
-
     Ticket::create([
       'name' => $request->name,
       'quantity' => $quantity,
@@ -375,6 +370,7 @@ class LinksController extends Controller
     $entradasRestantes = session('capacidadMaxima') - $cantidadEntradas;
     session(['capacidadMaxima' => $entradasRestantes]);
 
+    Feedback::flash('success', '¡La entrada se ha creado correctamente!');
 
     return redirect()->route('links.comprarEntradasSesion');
   }

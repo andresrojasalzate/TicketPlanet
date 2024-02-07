@@ -13,6 +13,7 @@ use App\Models\Ticket;
 
 class ShowEventsTest extends TestCase
 {
+  use RefreshDatabase;
     /**
      * A basic feature test example.
      */

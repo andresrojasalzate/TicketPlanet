@@ -5,9 +5,12 @@
         </div>
         <p class="show-event-home-title">{{ $event->name }}</p>
         <div class="elementsEvents">
-            <p><img src="{{ asset('images/eventos/location.png') }}" alt="" height="25">{{ $event->address }},
+            <div class="elementsEvents-direccion">
+                <img src="{{ asset('images/eventos/location.png') }}" alt="" height="25">
+                <p>{{ $event->address }},
                 {{ $event->city }}, {{ $event->name_site }}</p>
-            @if (count($event->sessions) > 0)
+            </div>
+                @if (count($event->sessions) > 0)
                 <p><img src="{{ asset('images/eventos/calendar.png') }}" alt=""
                         height="25">{{ $event->sessions[0]->date }}</p>
             @endif
