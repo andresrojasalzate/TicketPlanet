@@ -1257,6 +1257,10 @@ flex-direction: column;
     justify-content: space-between;
     margin: 1%;
   }
+  &6formularioSesion{
+    display: flex;
+    justify-content: space-evenly;
+  }
   &EntradasFormulario{
     width: 100%;
     margin-bottom: 10%;
@@ -1324,17 +1328,29 @@ flex-direction: column;
     &Input{
       width: 70%;
     }
+    &Sesion{
+      display: flex;
+      flex-direction: column;
+    }
   }
   &HoraCelebracion{
     @extend .formularioFechaCelebracion;
     &Input{
       @extend .formularioFechaCelebracionInput;
     }
+    &Sesion{
+      display: flex;
+      flex-direction: column;
+    }
   }
   &AforoMaximo{
     @extend .formularioFechaCelebracion;
     &Input{
       @extend .formularioFechaCelebracionInput;
+    }
+    &Sesion{
+      display: flex;
+      flex-direction: column;
     }
   }
 }
@@ -1916,6 +1932,11 @@ flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 1%;
+    &Sesion{
+      flex-direction: column;
+      align-content: center;
+      flex-wrap: wrap;
+    }
   }
 }
 .formulario{
@@ -1924,17 +1945,26 @@ flex-direction: column;
     & input{
       width: 70%;
     }
+    &Sesion{
+      margin: 3%;
+    }
   }
-  &HoraCelerbacion{
+  &HoraCelebracion{
     width: 33%;
     & input{
       width: 70%;
     }
+  &Sesion{
+    margin: 3%;
   }
-  &FechaCelerbacion{
+  }
+  &FechaCelebracion{
     width: 33%;
     & input{
       width: 70%;
+    }
+    &Sesion{
+      margin: 3%;
     }
   }
   &CodigoPostal{
@@ -2024,6 +2054,9 @@ flex-direction: column;
 .btn{
   &CrearEventPromotor{
     margin-top: 3vh;
+  }
+  &CrearSesion{
+    margin: 3%;
   }
   &AdministrarEventPromotor{
     padding: 2vh;

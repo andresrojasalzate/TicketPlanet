@@ -24,8 +24,7 @@
                         <h3>Ubicación</h3>
                         <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($evento->address) }}"
                             target="_blank">
-                            <img src="{{ asset('images/eventos/iconGoogleMaps.png') }}" alt="Icono de Ubicación"
-                                width="15" height="20">
+                            <img src="{{ asset('images/eventos/iconGoogleMaps.png') }}" alt="Icono de Ubicación">
                         </a>
                     </div>
                     <p>{{ $evento->address }}</p>

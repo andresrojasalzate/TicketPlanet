@@ -54,6 +54,10 @@ Route::post('/links/crearEvento/save', [LinksController::class, 'store'])->name(
 
 Route::post('/links/comprarEntradas/save', [LinksController::class, 'storeComprarEntradas'])->name('links.storeComprarEntradas');
 
+
+Route::get('/links/editarEvento/{id}', [LinksController::class, 'editarEvento'])->name('links.editarEvento');
+
+
 /*MOSTRAR EVENTOS*/
 Route::get('/events/{id}', [ShowEventController::class, 'mostrarEvento'])->name('events.mostrar');
 
