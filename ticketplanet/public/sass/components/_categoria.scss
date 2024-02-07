@@ -1,0 +1,58 @@
+.category{
+    &-home{
+      display: flex;
+      flex-direction: column;
+      margin-left: 3%;
+      margin-top: 3%;
+      margin-right: 3%;
+  
+      &-events{
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        align-items: center;
+  
+        &>div{
+          margin-right: 5%;
+          margin-bottom: 2%;
+        }
+        &>button{
+          margin-left: 3%;
+          font-size: medium;
+        }
+      }
+  
+      &>p{
+        margin: 0;
+        padding: 0;
+        color: #0642F9;
+        font-family: 'Work Sans';
+        font-size: 4rem;
+        margin-bottom: 2%;
+      }
+    }
+  }
+  
+.ver-mas-button {
+    align-self: self-end;
+    margin-top: 2%;
+    margin-bottom: 1%;
+}
+
+@media screen and (max-width:425px) {
+
+  .category{
+    &-home{
+      
+      &-events{
+
+        &>div{
+
+          margin-left: 10%;
+
+        }
+      }
+    }
+  }
+
+}

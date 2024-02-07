@@ -1,5 +1,5 @@
 const botonFiltro = document.getElementById("filtro");
-const selector = document.getElementsByClassName("div_filtro");
+const selector = document.getElementsByClassName("filtro-div");
 
 botonFiltro.addEventListener('click', function(){
    
