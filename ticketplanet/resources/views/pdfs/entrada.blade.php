@@ -7,7 +7,9 @@
     <title>Document</title>
 </head>
 <body>
+    @for($i = 0; $i < 3; $i++)
     <div class="entrada">
+            
         <div class="cabezera-entrada">
             <img src="{{ public_path('images/LogoNombre.png') }}" alt="">
         </div>
@@ -63,6 +65,8 @@
                 </tr>
             </table>
         </div>
+   
     </div>
+    @endfor
 </body>
 </html>
