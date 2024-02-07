@@ -1,23 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="favicon/logoFavicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="{{ asset('css/styleSASS.css') }}">
-</head>
+@extends('layouts.app')
 
-<body>
-    <header>
-        <x-header />
-    </header>
-    {{-- @extends('layouts.app')
+@section('title', 'Crear Sesiones')
 
-@section('title', 'Eventos del Promotor')
-
-@section('content') --}}
+@section('content')
     <div class="contenedorLayout">
         <form action="{{ route('links.crearMultiplesSesiones', ['id' => $event->id])}}" method="post" enctype="multipart/form-data">
             @csrf
@@ -77,12 +63,6 @@
     </div>
 
     
-    <footer>
-        <x-footer />
-    </footer>
+
     <script src="{{ asset('js/session.js') }}"></script>
-</body>
-
-</html>
-
-{{-- @endsection --}}
+@endsection 
