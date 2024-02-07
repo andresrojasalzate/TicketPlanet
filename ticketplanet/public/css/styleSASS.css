@@ -222,6 +222,33 @@ ul {
     align-items: center;
     padding: 5% 0% 5% 10%; } }
 
+.btnCrearSesion {
+  height: 40px;
+  border-radius: 7px;
+  background-color: #F9BD06;
+  border-color: #0642F9;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  cursor: pointer;
+  font-size: 15px; }
+
+.btnAñadirSesion {
+  position: absolute;
+  top: 1vh;
+  right: 1vh;
+  bottom: 1vh;
+  padding: 0.5vh;
+  background-color: #ebebeb;
+  border: 1px solid #000000;
+  border-radius: 1vh;
+  z-index: 3;
+  cursor: pointer; }
+  .btnAñadirSesion:hover {
+    background-color: #D9D9D9; }
+
 .btnListarSesionEventPromotor, .btnAdministrarEventPromotor {
   padding: 2vh;
   border-radius: 7px;
@@ -394,6 +421,10 @@ ul {
   cursor: pointer;
   font-size: 15px; }
 
+@media screen and (min-width: 425px) {
+  .btnCrearSesion {
+    margin: 0%; } }
+
 @media screen and (max-width: 425px) {
   .btnCrearEventPromotor {
     margin-top: 3vh; }
@@ -443,6 +474,70 @@ ul {
     background-color: #F9BD06;
     border-color: #0642F9;
     margin-top: 10%;
+    font-size: 1.2rem;
+    cursor: pointer; }
+  .btnCrearEventPromotor {
+    margin-top: 3vh; }
+  .btnAdministrarEventPromotor {
+    padding: 2vh;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border: 2px solid #0642F9;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+    font-size: 1.2rem;
+    cursor: pointer; }
+  .btnListarSesionEventPromotor, .btnAdministrarEventPromotor {
+    padding: 2vh;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border: 2px solid #0642F9;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+    font-size: 1.2rem;
+    cursor: pointer; }
+  .btnHomePromotor {
+    display: grid;
+    grid-template-columns: repeat(1, 3fr);
+    margin: 12vh; }
+  .btnIniciaSesion {
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2vh;
+    display: block;
+    font-size: 1.2rem; }
+  .btnBuscador {
+    height: 40px;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    font-size: 1rem; }
+  .btnGuardarEntradas {
+    height: 40px;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    margin-top: 10%;
+    font-size: 1.2rem;
+    cursor: pointer; } }
+
+@media screen and (min-width: 720px) {
+  .btnCrearEvento {
+    height: 40px;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
     font-size: 1.2rem;
     cursor: pointer; } }
 
@@ -617,6 +712,413 @@ ul {
   .elementsEvents-direccion p {
     max-height: 40px; } }
 
+.alert {
+  display: none;
+  padding: 10px;
+  background-color: #f44336;
+  color: white;
+  margin-bottom: 15px; }
+  .alert-danger {
+    display: flex;
+    padding: 10px;
+    background-color: #ff0000cf;
+    color: white;
+    width: 50%;
+    justify-content: space-evenly;
+    margin: auto;
+    margin-bottom: 5%; }
+  .alert-success {
+    display: flex;
+    padding: 10px;
+    background-color: #01781cc7;
+    color: white;
+    margin-top: 2%;
+    width: 50%;
+    justify-content: space-evenly;
+    margin-left: 20%; }
+
+.cerrarFeedbackSuccess {
+  background-color: #01781c00;
+  border: none;
+  color: white;
+  cursor: pointer; }
+
+.cerrarFeedbackFallido {
+  background-color: #01781c00;
+  border: none;
+  color: white;
+  cursor: pointer; }
+
+.contenedor-ticket {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 2vh;
+  background-color: #D9D9D9;
+  margin: 5vh auto;
+  border: 3px solid;
+  border-color: #F9BD06;
+  box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5);
+  font-size: 1.1rem; }
+  .contenedor-ticket input {
+    padding: 2vh;
+    font-size: 1rem;
+    margin-left: auto; }
+
+.contenedorMenu {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.contenedorNombreEntradas {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 9% 9% 13% 9%;
+  font-size: 15px; }
+
+.nombreEntradas {
+  display: flex;
+  flex-direction: column; }
+
+.entradasVisibles {
+  display: flex;
+  justify-content: center; }
+  .entradasVisiblesEleccion {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    display: flex;
+    justify-content: space-around; }
+
+.entradasPrecio {
+  width: 50%;
+  display: flex;
+  flex-direction: column; }
+  .entradasPrecioCantidad {
+    display: flex;
+    padding-left: 10%;
+    font-size: 15px; }
+    .entradasPrecioCantidad input {
+      width: 70%; }
+
+.entradasCantidad {
+  width: 50%;
+  display: flex;
+  flex-direction: column; }
+
+.entradasNominales {
+  margin: 9%;
+  display: flex;
+  justify-content: center;
+  font-size: 15px; }
+  .entradasNominalesEleccion {
+    display: flex;
+    justify-content: space-around;
+    font-size: 15px; }
+
+@media screen and (min-width: 720px) {
+  .contenedorNombreEntradas {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 9%; }
+  .nombreEntradas {
+    display: flex;
+    flex-direction: column; } }
+
+@media screen and (min-width: 860px) {
+  .contenedorNombreEntradas {
+    margin: 0%;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    padding-left: 10%;
+    align-items: center; }
+  .nombreEntradas {
+    width: 50%; }
+    .nombreEntradasInput {
+      width: 70%; } }
+
+.div1, .div2 {
+  font-size: 15px; }
+
+.contenedorLayout {
+  display: flex;
+  justify-content: center;
+  margin: 3%;
+  flex-direction: column; }
+
+.formularioDescripcion {
+  width: 40%; }
+  .formularioDescripcionInput {
+    width: 70%; }
+
+.formularioImagen {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap; }
+
+.formularioAdreca {
+  width: 100%;
+  display: flex;
+  flex-direction: column; }
+
+.formularioNumeroDireccion, .formularioFechaFin, .formularioHoraFin {
+  width: 33%; }
+  .formularioNumeroDireccionInput, .formularioFechaFinInput, .formularioHoraFinInput {
+    width: 70%; }
+
+.formularioNombreLocal {
+  width: 55%; }
+  .formularioNombreLocalInput, .formularioCapacidadLocalInput {
+    width: 70%; }
+
+.formularioCapacidadLocal {
+  width: 45%; }
+
+.formularioProvincia, .formularioCodigoPostal, .formularioCiudad {
+  width: 33%; }
+  .formularioProvinciaInput, .formularioCodigoPostalInput, .formularioCiudadInput {
+    width: 70%; }
+
+.formularioFechaCelebracion, .formularioHoraCelebracion, .formularioAforoMaximo {
+  width: 33%; }
+  .formularioFechaCelebracionInput, .formularioHoraCelebracionInput, .formularioAforoMaximoInput {
+    width: 70%; }
+  .formularioFechaCelebracionSesion {
+    display: flex;
+    flex-direction: column; }
+
+.formularioHoraCelebracionSesion {
+  display: flex;
+  flex-direction: column; }
+
+.formularioAforoMaximoSesion {
+  display: flex;
+  flex-direction: column; }
+
+.parte1formulario {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-left: 1%;
+  margin-bottom: 5%; }
+  .parte1formulario label, .parte1formulario input {
+    display: block; }
+
+.parte2formulario {
+  display: flex;
+  margin-left: 1%;
+  margin-bottom: 5%; }
+  .parte2formulario Input {
+    height: 50px; }
+
+.parte3formulario {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 1%;
+  margin-bottom: 5%; }
+
+.parte4formulario {
+  display: flex;
+  margin-left: 1%;
+  margin-bottom: 10%; }
+
+.parte5formulario {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-left: 1%;
+  margin-bottom: 10%; }
+  .parte5formulario label, .parte5formulario input {
+    display: block; }
+
+.parte6formulario {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 1%; }
+
+.parte6formularioSesion {
+  display: flex;
+  justify-content: space-evenly; }
+
+.parteEntradasFormulario {
+  width: 100%;
+  margin-bottom: 10%; }
+
+@media screen and (max-width: 380px) {
+  .div1, .div2 {
+    font-size: 13px; } }
+
+@media screen and (max-width: 425px) {
+  .entradasVisibles {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%; }
+    .entradasVisiblesEleccion {
+      margin-top: 5%;
+      margin-bottom: 5%;
+      display: flex;
+      justify-content: space-around; }
+  .contenedorLayout {
+    display: flex;
+    justify-content: center;
+    margin: 3%;
+    flex-direction: column; }
+  .parte1formulario {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-left: 1%;
+    margin-bottom: 10%; }
+    .parte1formulario label {
+      display: block; }
+    .parte1formulario input {
+      display: block; }
+  .parte2formulario {
+    display: flex;
+    margin-left: 1%;
+    margin-bottom: 10%;
+    justify-content: space-between; }
+  .parte3formulario {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1%; }
+  .parte4formulario {
+    display: flex;
+    margin-left: 1%;
+    margin-bottom: 10%; }
+  .parte5formulario {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 1%;
+    margin-bottom: 10%; }
+    .parte5formulario label {
+      display: block; }
+    .parte5formulario input {
+      display: block; }
+  .parte6formulario {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 1%; }
+    .parte6formularioSesion {
+      flex-direction: column;
+      align-content: center;
+      flex-wrap: wrap; }
+  .formularioAforoMaximo {
+    width: 33%; }
+    .formularioAforoMaximo input {
+      width: 70%; }
+    .formularioAforoMaximoSesion {
+      margin: 3%; }
+  .formularioHoraCelebracion {
+    width: 33%; }
+    .formularioHoraCelebracion input {
+      width: 70%; }
+    .formularioHoraCelebracionSesion {
+      margin: 3%; }
+  .formularioFechaCelebracion, .formularioHoraCelebracion, .formularioAforoMaximo {
+    width: 33%; }
+    .formularioFechaCelebracion input, .formularioHoraCelebracion input, .formularioAforoMaximo input {
+      width: 70%; }
+    .formularioFechaCelebracionSesion {
+      margin: 3%; }
+  .formularioCodigoPostal {
+    width: 33%; }
+    .formularioCodigoPostal input {
+      width: 70%; }
+  .formularioCiudad {
+    width: 33%; }
+    .formularioCiudad input {
+      width: 70%; }
+  .formularioProvincia, .formularioCodigoPostal, .formularioCiudad {
+    width: 33%; }
+    .formularioProvincia input, .formularioCodigoPostal input, .formularioCiudad input {
+      width: 70%; }
+  .formularioCapacidadLocal {
+    width: 50%; }
+    .formularioCapacidadLocal input {
+      width: 70%; }
+  .formularioNombreLocal {
+    width: 50%; }
+    .formularioNombreLocal input {
+      width: 70%; }
+  .formularioHoraFin {
+    width: 33%; }
+    .formularioHoraFin input {
+      width: 70%; }
+  .formularioFechaFin {
+    width: 33%; }
+    .formularioFechaFin input {
+      width: 70%; }
+  .formularioNumeroDireccion, .formularioFechaFin, .formularioHoraFin {
+    width: 33%; }
+    .formularioNumeroDireccion input, .formularioFechaFin input, .formularioHoraFin input {
+      width: 70%; }
+  .formularioParteEntradas {
+    width: 100%; }
+  .formularioAdreca {
+    display: flex;
+    flex-direction: column; }
+  .formularioDescripcion {
+    width: 40%; }
+    .formularioDescripcion input {
+      height: 50px;
+      width: 120px; }
+  .formularioImagen {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap; } }
+
+@media screen and (min-width: 720px) {
+  .div1 {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    float: left; }
+  .div2 {
+    height: 250px;
+    width: 50%;
+    float: right; }
+  .formularioAdreca {
+    width: 76%; }
+  .parte1formulario {
+    width: 76%; }
+  .parte3formulario {
+    width: 100%; }
+  .entradasNominales {
+    margin: 9%;
+    display: flex;
+    justify-content: center; }
+    .entradasNominalesEleccion {
+      display: flex;
+      justify-content: space-around; }
+  .entradasCantidad {
+    width: 50%;
+    display: flex;
+    flex-direction: column; }
+  .entradasPrecio {
+    width: 50%;
+    display: flex;
+    flex-direction: column; }
+    .entradasPrecioCantidad {
+      display: flex;
+      padding-left: 10%; }
+      .entradasPrecioCantidad input {
+        width: 70%; } }
+
+@media screen and (min-width: 860px) {
+  .entradasNominales {
+    margin: 2%; }
+    .entradasNominalesEleccion {
+      justify-content: space-evenly; }
+  .entradasCantidad {
+    margin-bottom: 2%; }
+  .entradasPrecioCantidad {
+    flex-direction: column-reverse;
+    align-items: center; } }
+
 /*body {
   margin: 0%;
   &.body-login{
@@ -644,13 +1146,6 @@ ul {
   }
 
 }*/
-.alert {
-  display: none;
-  padding: 10px;
-  background-color: #f44336;
-  color: white;
-  margin-bottom: 15px; }
-
 .show-session-promotor {
   display: flex;
   flex-direction: row;
@@ -771,37 +1266,6 @@ ul {
   display: block;
   font-size: 1.2rem;
   cursor: pointer; }
-
-.contenedor-ticket {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  padding: 2vh;
-  background-color: #D9D9D9;
-  margin: 5vh auto;
-  border: 3px solid;
-  border-color: #F9BD06;
-  box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5);
-  font-size: 1.1rem; }
-  .contenedor-ticket input {
-    padding: 2vh;
-    font-size: 1rem;
-    margin-left: auto; }
-
-.contenedorMenu {
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-
-.contenedorNombreEntradas {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  margin: 9% 9% 13% 9%;
-  font-size: 15px; }
-
-.nombreEntradas {
-  display: flex;
-  flex-direction: column; }
 
 .font-medium {
   color: #000000; }
@@ -1174,168 +1638,16 @@ ul {
   display: flex;
   justify-content: space-evenly; }
 
-.contenedorLayout {
-  display: flex;
-  justify-content: center;
-  margin: 3%;
-  flex-direction: column; }
-
 .layoutHomePromotor {
   height: 200px;
   margin-top: 1%; }
-
-.parte1formulario {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  margin-left: 1%;
-  margin-bottom: 5%; }
-  .parte1formulario label, .parte1formulario input {
-    display: block; }
-
-.parte2formulario {
-  display: flex;
-  margin-left: 1%;
-  margin-bottom: 5%; }
-  .parte2formulario Input {
-    height: 50px; }
-
-.parte3formulario {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 1%;
-  margin-bottom: 5%; }
-
-.parte4formulario {
-  display: flex;
-  margin-left: 1%;
-  margin-bottom: 10%; }
-
-.parte5formulario {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-left: 1%;
-  margin-bottom: 10%; }
-  .parte5formulario label, .parte5formulario input {
-    display: block; }
-
-.parte6formulario {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 1%; }
-
-.parte6formularioSesion {
-  display: flex;
-  justify-content: space-evenly; }
-
-.parteEntradasFormulario {
-  width: 100%;
-  margin-bottom: 10%; }
 
 .readonly-field {
   background-color: #f2f2f2;
   color: #666;
   border: 1px solid #ccc; }
 
-.formularioNumeroDireccion, .formularioFechaFin, .formularioHoraFin {
-  width: 33%; }
-  .formularioNumeroDireccionInput, .formularioFechaFinInput, .formularioHoraFinInput {
-    width: 70%; }
-
-.formularioNombreLocal {
-  width: 55%; }
-  .formularioNombreLocalInput, .formularioCapacidadLocalInput {
-    width: 70%; }
-
-.formularioCapacidadLocal {
-  width: 45%; }
-
-.formularioProvincia, .formularioCodigoPostal, .formularioCiudad {
-  width: 33%; }
-  .formularioProvinciaInput, .formularioCodigoPostalInput, .formularioCiudadInput {
-    width: 70%; }
-
-.formularioFechaCelebracion, .formularioHoraCelebracion, .formularioAforoMaximo {
-  width: 33%; }
-  .formularioFechaCelebracionInput, .formularioHoraCelebracionInput, .formularioAforoMaximoInput {
-    width: 70%; }
-  .formularioFechaCelebracionSesion {
-    display: flex;
-    flex-direction: column; }
-
-.formularioHoraCelebracionSesion {
-  display: flex;
-  flex-direction: column; }
-
-.formularioAforoMaximoSesion {
-  display: flex;
-  flex-direction: column; }
-
-.entradasVisibles {
-  display: flex;
-  justify-content: center; }
-  .entradasVisiblesEleccion {
-    margin-top: 5%;
-    margin-bottom: 5%;
-    display: flex;
-    justify-content: space-around; }
-
-.entradasPrecio {
-  width: 50%;
-  display: flex;
-  flex-direction: column; }
-  .entradasPrecioCantidad {
-    display: flex;
-    padding-left: 10%;
-    font-size: 15px; }
-    .entradasPrecioCantidad input {
-      width: 70%; }
-
-.entradasCantidad {
-  width: 50%;
-  display: flex;
-  flex-direction: column; }
-
-.entradasNominales {
-  margin: 9%;
-  display: flex;
-  justify-content: center;
-  font-size: 15px; }
-  .entradasNominalesEleccion {
-    display: flex;
-    justify-content: space-around;
-    font-size: 15px; }
-
-.formularioDescripcion {
-  width: 40%; }
-  .formularioDescripcionInput {
-    width: 70%; }
-
-.formularioImagen {
-  width: 50%;
-  display: flex;
-  flex-wrap: wrap; }
-
-.formularioAdreca {
-  width: 100%;
-  display: flex;
-  flex-direction: column; }
-
-.div1, .div2 {
-  font-size: 15px; }
-
-@media screen and (max-width: 380px) {
-  .div1, .div2 {
-    font-size: 13px; } }
-
 @media screen and (max-width: 425px) {
-  .contenedorLayout {
-    display: flex;
-    justify-content: center;
-    margin: 3%;
-    flex-direction: column; }
   .event-counter {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(29vh, 1fr));
@@ -1583,252 +1895,6 @@ ul {
   .sesiones-promotor-mostrar {
     margin-left: auto;
     margin-right: auto; }
-  .parte1formulario {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    margin-left: 1%;
-    margin-bottom: 10%; }
-    .parte1formulario label {
-      display: block; }
-    .parte1formulario input {
-      display: block; }
-  .parte2formulario {
-    display: flex;
-    margin-left: 1%;
-    margin-bottom: 10%;
-    justify-content: space-between; }
-  .parte3formulario {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 1%; }
-  .parte4formulario {
-    display: flex;
-    margin-left: 1%;
-    margin-bottom: 10%; }
-  .parte5formulario {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-left: 1%;
-    margin-bottom: 10%; }
-    .parte5formulario label {
-      display: block; }
-    .parte5formulario input {
-      display: block; }
-  .parte6formulario {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 1%; }
-    .parte6formularioSesion {
-      flex-direction: column;
-      align-content: center;
-      flex-wrap: wrap; }
-  .formularioAforoMaximo {
-    width: 33%; }
-    .formularioAforoMaximo input {
-      width: 70%; }
-    .formularioAforoMaximoSesion {
-      margin: 3%; }
-  .formularioHoraCelebracion {
-    width: 33%; }
-    .formularioHoraCelebracion input {
-      width: 70%; }
-    .formularioHoraCelebracionSesion {
-      margin: 3%; }
-  .formularioFechaCelebracion, .formularioHoraCelebracion, .formularioAforoMaximo {
-    width: 33%; }
-    .formularioFechaCelebracion input, .formularioHoraCelebracion input, .formularioAforoMaximo input {
-      width: 70%; }
-    .formularioFechaCelebracionSesion {
-      margin: 3%; }
-  .formularioCodigoPostal {
-    width: 33%; }
-    .formularioCodigoPostal input {
-      width: 70%; }
-  .formularioCiudad {
-    width: 33%; }
-    .formularioCiudad input {
-      width: 70%; }
-  .formularioProvincia, .formularioCodigoPostal, .formularioCiudad {
-    width: 33%; }
-    .formularioProvincia input, .formularioCodigoPostal input, .formularioCiudad input {
-      width: 70%; }
-  .formularioCapacidadLocal {
-    width: 50%; }
-    .formularioCapacidadLocal input {
-      width: 70%; }
-  .formularioNombreLocal {
-    width: 50%; }
-    .formularioNombreLocal input {
-      width: 70%; }
-  .formularioHoraFin {
-    width: 33%; }
-    .formularioHoraFin input {
-      width: 70%; }
-  .formularioFechaFin {
-    width: 33%; }
-    .formularioFechaFin input {
-      width: 70%; }
-  .formularioNumeroDireccion, .formularioFechaFin, .formularioHoraFin {
-    width: 33%; }
-    .formularioNumeroDireccion input, .formularioFechaFin input, .formularioHoraFin input {
-      width: 70%; }
-  .formularioParteEntradas {
-    width: 100%; }
-  .formularioAdreca {
-    display: flex;
-    flex-direction: column; }
-  .formularioDescripcion {
-    width: 40%; }
-    .formularioDescripcion input {
-      height: 50px;
-      width: 120px; }
-  .formularioImagen {
-    width: 50%;
-    display: flex;
-    flex-wrap: wrap; }
-  .entradasVisibles {
-    display: flex;
-    justify-content: center;
-    margin-top: 5%; }
-    .entradasVisiblesEleccion {
-      margin-top: 5%;
-      margin-bottom: 5%;
-      display: flex;
-      justify-content: space-around; }
   .botones {
     display: flex;
-    justify-content: space-evenly; }
-  .btnCrearEventPromotor {
-    margin-top: 3vh; }
-  .btnCrearSesion {
-    margin: 3%; }
-  .btnAdministrarEventPromotor {
-    padding: 2vh;
-    border-radius: 7px;
-    background-color: #F9BD06;
-    border: 2px solid #0642F9;
-    margin-left: auto;
-    margin-right: auto;
-    text-decoration: none;
-    font-size: 1.2rem;
-    cursor: pointer; }
-  .btnListarSesionEventPromotor, .btnAdministrarEventPromotor {
-    padding: 2vh;
-    border-radius: 7px;
-    background-color: #F9BD06;
-    border: 2px solid #0642F9;
-    margin-left: auto;
-    margin-right: auto;
-    text-decoration: none;
-    font-size: 1.2rem;
-    cursor: pointer; }
-  .btnHomePromotor {
-    display: grid;
-    grid-template-columns: repeat(1, 3fr);
-    margin: 12vh; }
-  .btnIniciaSesion {
-    border-radius: 7px;
-    background-color: #F9BD06;
-    border-color: #0642F9;
-    margin-top: 10%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 2vh;
-    display: block;
-    font-size: 1.2rem; }
-  .btnBuscador {
-    height: 40px;
-    border-radius: 7px;
-    background-color: #F9BD06;
-    border-color: #0642F9;
-    font-size: 1rem; }
-  .btnGuardarEntradas {
-    height: 40px;
-    border-radius: 7px;
-    background-color: #F9BD06;
-    border-color: #0642F9;
-    margin-top: 10%;
-    font-size: 1.2rem;
-    cursor: pointer; } }
-
-@media screen and (min-width: 720px) {
-  .div1 {
-    display: flex;
-    flex-wrap: wrap;
-    width: 50%;
-    float: left; }
-  .div2 {
-    height: 250px;
-    width: 50%;
-    float: right; }
-  .parte1formulario {
-    width: 76%; }
-  .parte3formulario {
-    width: 100%; }
-  .contenedorNombreEntradas {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    margin: 9%; }
-  .nombreEntradas {
-    display: flex;
-    flex-direction: column; }
-  .entradasNominales {
-    margin: 9%;
-    display: flex;
-    justify-content: center; }
-    .entradasNominalesEleccion {
-      display: flex;
-      justify-content: space-around; }
-  .entradasCantidad {
-    width: 50%;
-    display: flex;
-    flex-direction: column; }
-  .entradasPrecio {
-    width: 50%;
-    display: flex;
-    flex-direction: column; }
-    .entradasPrecioCantidad {
-      display: flex;
-      padding-left: 10%; }
-      .entradasPrecioCantidad input {
-        width: 70%; }
-  .formularioAdreca {
-    width: 76%; } }
-
-.btnCrearEvento {
-  height: 40px;
-  border-radius: 7px;
-  background-color: #F9BD06;
-  border-color: #0642F9;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  font-size: 1.2rem;
-  cursor: pointer; }
-
-@media screen and (min-width: 860px) {
-  .contenedorNombreEntradas {
-    margin: 0%;
-    margin-top: 5%;
-    margin-bottom: 2%;
-    padding-left: 10%;
-    align-items: center; }
-  .nombreEntradas {
-    width: 50%; }
-    .nombreEntradasInput {
-      width: 70%; }
-  .entradasNominales {
-    margin: 2%; }
-    .entradasNominalesEleccion {
-      justify-content: space-evenly; }
-  .entradasCantidad {
-    margin-bottom: 2%; }
-  .entradasPrecioCantidad {
-    flex-direction: column-reverse;
-    align-items: center; } }
+    justify-content: space-evenly; } }
