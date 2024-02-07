@@ -115,6 +115,38 @@ ul {
   color: white;
   margin-bottom: 15px; }
 
+.alert-success {
+  display: flex;
+  padding: 10px;
+  background-color: #01781cc7;
+  color: white;
+  margin-top: 2%;
+  width: 50%;
+  justify-content: space-evenly;
+  margin-left: 20%; }
+
+.alert-danger {
+  display: flex;
+  padding: 10px;
+  background-color: #ff0000cf;
+  color: white;
+  width: 50%;
+  justify-content: space-evenly;
+  margin: auto;
+  margin-bottom: 5%; }
+
+.cerrarFeedbackSuccess {
+  background-color: #01781c00;
+  border: none;
+  color: white;
+  cursor: pointer; }
+
+.cerrarFeedbackFallido {
+  background-color: #01781c00;
+  border: none;
+  color: white;
+  cursor: pointer; }
+
 .item-1 {
   grid-row: 1/2;
   grid-column: 1/2;
@@ -851,6 +883,20 @@ ul {
   z-index: 3;
   cursor: pointer; }
   .btneditEvent:hover {
+    background-color: #D9D9D9; }
+
+.btnAñadirSesion {
+  position: absolute;
+  top: 1vh;
+  right: 1vh;
+  bottom: 1vh;
+  padding: 0.5vh;
+  background-color: #ebebeb;
+  border: 1px solid #000000;
+  border-radius: 1vh;
+  z-index: 3;
+  cursor: pointer; }
+  .btnAñadirSesion:hover {
     background-color: #D9D9D9; }
 
 .btn-buy:hover {
