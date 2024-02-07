@@ -14,6 +14,7 @@ dropdownSesiones.addEventListener('change', function () {
 /*Actualizar el total de precio de las entradas seleccionadas */
 const inputs = document.querySelectorAll('.ticket-container input');
 const totalPriceSpan = document.getElementById('total-price');
+const totalPriceInput = document.getElementById('total-price-input');
 const buyButton = document.getElementById('buy-button');
 
 inputs.forEach(function (input) {
@@ -25,12 +26,14 @@ inputs.forEach(function (input) {
 function calculateTotalPrice() {
     let totalPrice = 0;
     inputs.forEach(function (input) {
-        const quantity = parseFloat(input.value) || 0; //Valor por defecto 0
+        const quantity = parseFloat(input.value) || 0;
         const price = parseFloat(input.parentNode.querySelector('h3').innerText.split(', ')[1]);
         totalPrice += quantity * price;
     });
     totalPriceSpan.innerText = totalPrice.toFixed(2) + '€';
+    totalPriceInput.value = totalPrice.toFixed(2);
 }
+
 
 function limitarLongitud(input) {
     // Eliminar caracteres no permitidos

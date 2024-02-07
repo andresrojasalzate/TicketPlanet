@@ -16,6 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('name');
             $table->integer('quantity');
+            $table->integer('sold_tickets')->default(0);
             $table->double('price');
             $table->boolean('nominal');
             $table->foreignId('session_id')->references('id')->on('sessions')->onDelete('cascade')
