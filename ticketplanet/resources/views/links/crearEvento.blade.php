@@ -1,18 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="favicon/logoFavicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="{{ asset('css/styleSASS.css') }}">
-</head>
+@extends('layouts.app')
 
-<body>
-    <header>
-        <x-header />
-    </header>
+@section('title', 'Crear Evento')
+
+@section('content')
     <div class="contenedorLayout">
         <form action="{{ route('links.store') }}" method="post" enctype="multipart/form-data">
             @csrf
@@ -248,9 +241,4 @@
         </form>
 
     </div>
-    <footer>
-        <x-footer />
-    </footer>
-</body>
-
-</html>
+    @endsection 
