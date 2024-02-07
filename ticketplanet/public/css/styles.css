@@ -94,7 +94,7 @@ body.body-resetPwd .menuIMG {
 
 
 /*BUSCADOR*/
-.contenedorBuscador {
+.buscadorContenedor {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -125,7 +125,7 @@ body.body-resetPwd .menuIMG {
     right: 39vw;
 }
 
-.botonBuscador {
+.btnBuscador {
     padding: 1vh;
     border-radius: 7px;
     background-color: #F9BD06;
@@ -140,7 +140,7 @@ body.body-resetPwd .menuIMG {
     border-color: #0642F9;
 }
 
-.form-buscador {
+.buscador-Form {
     display: flex;
     align-items: center;
     text-align: center;
@@ -300,9 +300,6 @@ body.body-resetPwd .menuIMG {
     border-color: #F9BD06;
     cursor: pointer;
     font-family: 'Work Sans';
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-decoration: none;
     position: relative;
 }
 
@@ -324,14 +321,14 @@ body.body-resetPwd .menuIMG {
     text-overflow: ellipsis;
 }
 
-.show-event-contenedor-direccion{
+.elementsEvents-direccion{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
 
-.show-event-contenedor-direccion > img{
+.elementsEvents-direccion > img{
     margin-left: 5%;
 }
 
@@ -353,7 +350,7 @@ body.body-resetPwd .menuIMG {
     margin: 5%;
 }
 
-.show-event-contenedor-direccion > p{
+.elementsEvents-direccion > p{
     display: block;
     max-height: 56px;
     overflow: hidden;
@@ -428,7 +425,7 @@ body.body-resetPwd .menuIMG {
 
 
 /*Filtro*/
-.div_filtro {
+.filtro-div {
     border: 1px solid #000000;
     background-color: #B5B5B5;
     margin: auto;
@@ -438,7 +435,7 @@ body.body-resetPwd .menuIMG {
     display: none;
 }
 
-.div_filtro p {
+.filtro-div p {
     margin: 0px;
     padding: 0px;
 }
@@ -583,19 +580,19 @@ body.body-resetPwd .menuIMG {
     margin-bottom: 2%;
 }
 
-.events-category-home {
+.category-home-events {
     display: flex;
     flex-direction: row;
     overflow-x: auto;
     align-items: center;
 }
 
-.events-category-home>div {
+.category-home-events>div {
     margin-right: 5%;
     margin-bottom: 2%;
 }
 
-.events-category-home>button {
+.category-home-events>button {
     margin-left: 3%;
     font-size: medium;
 
@@ -1222,9 +1219,10 @@ textarea {
 /*------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------*/
 
-
+/** Entradas*/
 .entrada{
     border: 2px solid black;
+    page-break-before: always;
 }
 
 .cabezera-entrada{
@@ -1521,7 +1519,7 @@ textarea {
         font-size: 1.25rem;
     }
 
-    .events-category-home {
+    .category-home-events {
         display: flex;
         flex-direction: row;
         overflow-x: auto;
@@ -1537,14 +1535,14 @@ textarea {
         text-overflow: ellipsis;
     }
 
-    .show-event-contenedor-direccion > p{
+    .elementsEvents-direccion > p{
         display: block;
         max-height: 40px;
         overflow: hidden;
         text-overflow: ellipsis;
     }
 
-    .events-category-home>div {
+    .category-home-events>div {
         margin-left: 10%;
     }
 

@@ -3,9 +3,9 @@
         <img class="show-event-home-img" src="{{ asset('images/fotos-subidas/' . $event->image) }}" alt="">
         <p class="show-event-home-title">{{ $event->name }}</p>
         <div class="elementsEvents">
-            <div class="show-event-contenedor-direccion">
+            <div class="elementsEvents-direccion">
                 <img src="{{ asset('images/eventos/location.png') }}" alt="" height="25">
-                <p class="show-event-address">{{ $event->address }},
+                <p>{{ $event->address }},
                 {{ $event->city }}, {{ $event->name_site }}</p>
             </div>
            
