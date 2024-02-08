@@ -14,6 +14,7 @@ class Ticket extends Model
       'name',
       'quantity',
       'price',
+      'sold_tickets',
       'nominal',
       'session_id'
     ];
