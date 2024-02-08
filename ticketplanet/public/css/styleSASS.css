@@ -882,7 +882,9 @@ ul {
     width: 70%; }
 
 .formularioNombreLocal {
-  width: 55%; }
+  width: 55%;
+  display: flex;
+  flex-direction: column; }
   .formularioNombreLocalInput, .formularioCapacidadLocalInput {
     width: 70%; }
 
