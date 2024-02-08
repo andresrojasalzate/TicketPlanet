@@ -67,9 +67,9 @@ class Event extends Model
             Log::info("Recuperamos los eventos filtrando por el texto recibido en los campos 'name, 'city' y 'name_site'");
 
             $eventos = Event::where(function($query) use ($inputText) {
-                $query->whereRaw('lower(unaccent(name)) LIKE unaccent(?)', [trim(strtolower($inputText)).'%'])
-                    ->orWhereRaw('lower(unaccent(city)) LIKE unaccent(?)', [trim(strtolower($inputText)).'%'])
-                    ->orWhereRaw('lower(unaccent(name_site)) LIKE unaccent(?)', [trim(strtolower($inputText)).'%']);
+                $query->whereRaw('lower(unaccent(name)) LIKE unaccent(?)', ['%'. trim(strtolower($inputText)).'%'])
+                    ->orWhereRaw('lower(unaccent(city)) LIKE unaccent(?)', ['%'. trim(strtolower($inputText)).'%'])
+                    ->orWhereRaw('lower(unaccent(name_site)) LIKE unaccent(?)', ['%'. trim(strtolower($inputText)).'%']);
             });
             
             if(isset($category)){ 
