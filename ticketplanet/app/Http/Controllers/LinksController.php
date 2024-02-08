@@ -284,7 +284,6 @@ class LinksController extends Controller
     ->get();
 
 if ($existingSessions->isNotEmpty()) {
-  // Feedback::flash('success', '¡La entrada se ha creado correctamente!');
     return redirect()->back()->with('error', 'No puede haber dos sesiones con las mismas fechas.');
 }
     
@@ -321,6 +320,66 @@ if ($existingSessions->isNotEmpty()) {
 
     return view('links.comprarEntradasSesion')->with('entradasRestantes', $capacidadMaxima);
   }
+
+  public function sesionesEventoMostrar($Id)
+  {
+    if (Auth::check()) {
+
+      $user = Auth::user();
+
+    } else {
+      return redirect()->route('auth.login');
+    }
+
+    $events = Event::find($Id);
+    $sessions = Session::where('event_id', $Id)->get();
+
+  
+    return view('links.sesionesEventoMostrar', compact('events','sessions'));
+  }
+  // public function sesionesEventoEditar($Id)
+  // {
+  //   if (Auth::check()) {
+
+  //     $user = Auth::user();
+
+  //   } else {
+  //     return redirect()->route('auth.login');
+  //   }
+
+  //   $sessions = Session::find($Id);
+
+  
+  //   return view('links.sesionesEventoEditar', compact('sessions'));
+  // }
+//   public function storeEditarSesionesPromotor(Request $request, $sessionId)
+//   {
+//     $evento = Event::findOrFail($eventId);
+//     $capacity = $evento->capacity;
+
+//     $existingSessions = Session::where('event_id', $eventId)
+//     ->where('date', $request->date)
+//     ->where('time', $request->time)
+//     ->get();
+
+// if ($existingSessions->isNotEmpty()) {
+//     return redirect()->back()->with('error', 'No puede haber dos sesiones con las mismas fechas.');
+// }
+    
+//     $crearSesion = Session::create([
+//       'date' => $request->date,
+//       'time' => $request->time,
+//       'maxCapacity' => $request->maxCapacity,
+//       'event_id' => $eventId,
+//       'ticketsSold' => 0
+//     ]);
+
+
+//     $request->session()->put('sesionId', $crearSesion->id);
+//     $request->session()->put('datosPrimerFormulario', $request->all());
+
+//     return redirect()->route('links.sessionEvents');
+//   }
   public function storeComprarEntradasSesion(Request $request)
   {
 

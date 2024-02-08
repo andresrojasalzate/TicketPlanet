@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
 
 @extends('layouts.app')
 
@@ -171,7 +169,7 @@
                     <div class="formularioFechaFin">
 
                         <label for="fechaFin">Fecha Fin</label>
-                        <input class="formularioFechaFinInput" type="date" name="finishDate" id="fechaFin"
+                        <input class="formularioFechaFinInput" type="date" name="finishDate" id="fechaFin" min="<?php echo date('Y-m-d'); ?>"
                             value="{{ isset($evento) ? $evento->finishDate : old('finishDate') }}">
 
                         @error('finishDate')
@@ -197,7 +195,7 @@
                     <div class="formularioFechaCelebracion">
 
                         <label for="Fecha celebracion">Fecha celebracion</label>
-                        <input class="formularioFechaCelebracionInput" type="date" name="date"
+                        <input class="formularioFechaCelebracionInput" type="date" name="date" min="<?php echo date('Y-m-d'); ?>"
                             id="fechaCelebracion" value="{{ isset($sesion) ? $sesion->date : old('date') }}">
                         <br>
                         @error('date')

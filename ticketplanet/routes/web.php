@@ -85,6 +85,12 @@ Route::get('/links/comprarEntradasSesion', [LinksController::class, 'comprarEntr
 
 Route::post('/links/comprarEntradasSesion/save', [LinksController::class, 'storeComprarEntradasSesion'])->name('links.storeComprarEntradasSesion');
 
+Route::get('/links/sesionesEventoMostrar/{id}', [LinksController::class, 'sesionesEventoMostrar'])->name('links.sesionesEventoMostrar');
+
+Route::get('/links/sesionesEventoEditar/{id}', [LinksController::class, 'sesionesEventoEditar'])->name('links.sesionesEventoEditar');
+
+Route::post('/links/storeEditarSesionesPromotor/{id}', [LinksController::class, 'storeEditarSesionesPromotor'])->name('links.storeEditarSesionesPromotor');
+
 /*Compra */
 
 Route::post('/mostrar-compra/{evento_id}', [CompraController::class, 'mostrarCompra'])->name('mostrar.compra');
