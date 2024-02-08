@@ -35,14 +35,14 @@ class Category extends Model
 
         Log::info("Recuperamos las categorias con sus eventos y sesiones");
 
-        //  $categories = Category::with(['events' => function($query){
-        //      $query->with('sessions');
-        // }])->get();
+          $categories = Category::with(['events' => function($query){
+             $query->with('sessions');
+         }])->get();
 
-        //  return $categories;
+          return $categories;
 
-        $categorias = Category::query()->with('events')->withEvents()->get();
+    //     $categorias = Category::query()->with('events')->withEvents()->get();
 
-        dd($categorias);
-    }
+    //     dd($categorias);
+     }
 }
