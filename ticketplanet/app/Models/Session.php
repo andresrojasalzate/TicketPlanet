@@ -20,6 +20,11 @@ class Session extends Model
     {
         return $this->hasMany(Ticket::class);
     }
+
+    public function compras()
+    {
+        return $this->hasMany(Compra::class);
+    }
     protected $fillable = [
       'date',
       'time',

@@ -5,27 +5,30 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Ticket extends Model
+class Compra extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-      'name',
-      'quantity',
-      'price',
-      'sold_tickets',
-      'nominal',
-      'session_id'
+        'email',
+        'date',
+        'time',
+        'ticket_name',
+        'ticket_quantity',
+        'session_id',
+        'ticket_id',
     ];
+
+    // Relación con la sesión de compra
     public function session(): BelongsTo
     {
         return $this->belongsTo(Session::class);
     }
 
-    public function compras(): HasMany
+    // Relación con el ticket de compra
+    public function ticket(): BelongsTo
     {
-        return $this->hasMany(Compra::class);
+        return $this->belongsTo(Ticket::class);
     }
 }
