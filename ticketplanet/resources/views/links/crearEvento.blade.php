@@ -1,11 +1,20 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
-@extends('layouts.app')
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="favicon/logoFavicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="{{ asset('css/styleSASS.css') }}">
+    <title>@yield('title')</title>
+</head>
 
-@section('title', 'Crear Evento')
-
-@section('content')
+<body>
+    <header>
+        <x-header/>
+    </header>
     <div class="contenedorLayout">
         <form action="{{ route('links.store') }}" method="post" enctype="multipart/form-data">
             @csrf
@@ -171,7 +180,7 @@
                     <div class="formularioFechaFin">
 
                         <label for="fechaFin">Fecha Fin</label>
-                        <input class="formularioFechaFinInput" type="date" name="finishDate" id="fechaFin"
+                        <input class="formularioFechaFinInput" type="date" name="finishDate" id="fechaFin" min="<?php echo date('Y-m-d'); ?>"
                             value="{{ isset($evento) ? $evento->finishDate : old('finishDate') }}">
 
                         @error('finishDate')
@@ -197,7 +206,7 @@
                     <div class="formularioFechaCelebracion">
 
                         <label for="Fecha celebracion">Fecha celebracion</label>
-                        <input class="formularioFechaCelebracionInput" type="date" name="date"
+                        <input class="formularioFechaCelebracionInput" type="date" name="date" min="<?php echo date('Y-m-d'); ?>"
                             id="fechaCelebracion" value="{{ isset($sesion) ? $sesion->date : old('date') }}">
                         <br>
                         @error('date')
@@ -241,4 +250,9 @@
         </form>
 
     </div>
-    @endsection 
+    <footer>
+        <x-footer/>
+    </footer>
+</body>
+
+</html>

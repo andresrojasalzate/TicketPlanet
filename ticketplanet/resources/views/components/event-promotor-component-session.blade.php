@@ -1,5 +1,5 @@
 <div class="show-event-home">
-    <div class="btneditEvent">
+    <div class="btnAñadirMultiplesSesiones">
         <a href="{{ route('links.multiplesSesiones', ['id' => $event->id]) }}">
 
             <img src="{{ asset('images/eventos/Añadir.png') }}" alt="Editar evento" height="30">
@@ -7,8 +7,8 @@
         </a>
     </div>
 
-    {{-- <div class="btnAñadirEvent">
-      <a href="{{ route('links.editarMultiplesSesiones', ['id' => $event->id]) }}">
+    {{-- <div class="btnEditarMultiplesSesiones">
+      <a href="{{ route('links.sesionesEventoMostrar', ['id' => $event->id]) }}">
 
           <img src="{{ asset('images/eventos/edit.png') }}" alt="Editar evento" height="30">
 

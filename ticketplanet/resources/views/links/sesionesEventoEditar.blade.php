@@ -1,23 +1,11 @@
 
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="favicon/logoFavicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="{{ asset('css/styleSASS.css') }}">
-    <title>@yield('title')</title>
-</head>
+@section('title', 'Crear Sesiones')
 
-<body>
-    <header>
-        <x-header/>
-    </header>
-
+@section('content')
     <div class="contenedorLayout">
-        <form action="{{ route('links.crearMultiplesSesiones', ['id' => $event->id])}}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('links.storeEditarSesionesPromotor', ['id' => $sessions->id])}}" method="post" enctype="multipart/form-data">
             @csrf
 @if (session('error'))
     <div class="alert-danger">
@@ -77,9 +65,4 @@
     
 
     <script src="{{ asset('js/session.js') }}"></script>
- <footer>
-        <x-footer/>
-    </footer>
-</body>
-
-</html>
+@endsection 
