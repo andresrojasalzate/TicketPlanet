@@ -29,50 +29,53 @@
                     </div>
                     <p>{{ $evento->address }}</p>
                 </div>
+                <form method="POST" action="{{ route('mostrar.compra', ['evento_id' => $eventoId]) }}">
+                    @csrf
+                    <div class="sesions-showEvent">
+                        <h3>Sesiones:</h3>
 
-                <div class="sesions-showEvent">
-                    <h3>Sesiones:</h3>
+                        @if ($evento->sessions && count($evento->sessions) > 0)
+                            <div class="select-wrapper">
+                                <select id="dropdownSesiones" name="sesion">
+                                    <option value="" disabled selected>Selecciona un día...</option>
+                                    @foreach ($evento->sessions as $sesion)
+                                        <option name="date" value="{{ $sesion->id }}" data-date="{{ $sesion->date }}">
+                                            {{ $sesion->date }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
 
-                    @if ($evento->sessions && count($evento->sessions) > 0)
-                        <div class="select-wrapper">
-                            <select id="dropdownSesiones" name="sesion">
-                                <option value="" disabled selected>Selecciona un día...</option>
+                            <ul class="card-timeSesion">
                                 @foreach ($evento->sessions as $sesion)
-                                    <option value="{{ $sesion->id }}" data-date="{{ $sesion->date }}">{{ $sesion->date }}
-                                    </option>
+                                    <li class="session-time" name="time" data-date="{{ $sesion->date }}"
+                                        style="display: none;">
+                                        {{ $sesion->time }}</li>
                                 @endforeach
-                            </select>
-                        </div>
+                            </ul>
+                        @else
+                            <p>No hay sesiones disponibles.</p>
+                        @endif
 
-                        <ul class="card-timeSesion">
-                            @foreach ($evento->sessions as $sesion)
-                                <li class="session-time" data-date="{{ $sesion->date }}" style="display: none;">
-                                    {{ $sesion->time }}</li>
-                            @endforeach
-                        </ul>
-                    @else
-                        <p>No hay sesiones disponibles.</p>
-                    @endif
-                </div>
+                    </div>
             </div>
         </div>
         <div class="card-showTickets">
+
             @foreach ($tickets as $ticket)
                 <div class="ticket-container">
                     <h3>{{ $ticket->name }}, {{ $ticket->price }}€</h3>
-                    <input type="number" name="cantidad_entradas[{{ $ticket->id }}]" value="0" min="0"
+                    <input type="number" name="sold_tickets[{{ $ticket->id }}]" value="0" min="0"
                         max="9999" maxlength="4" oninput="limitarLongitud(this);">
                 </div>
             @endforeach
-
-            <form method="GET" action="{{ route('mostrar.compra') }}">
-                @csrf
-                <div id="total-price-container">
-                    <img src="{{ asset('images/eventos/shop.png') }}" alt="">
-                    <p>Total: <span id="total-price">0€</span></p>
-                    <input type="hidden" name="evento" value="{{ $eventoId }}">
-                    <button id="buy-button">Comprar</button>
-                </div>
+            <div id="total-price-container">
+                <img src="{{ asset('images/eventos/shop.png') }}" alt="">
+                <p>Total: <span id="total-price">0€</span></p>
+                <input type="hidden" name="evento" value="{{ $eventoId }}">
+                <input type="hidden" name="total_price" id="total-price-input" value="0">
+                <button id="buy-button">Comprar</button>
+            </div>
             </form>
 
         </div>
