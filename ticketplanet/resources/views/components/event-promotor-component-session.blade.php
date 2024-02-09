@@ -2,7 +2,7 @@
     <div class="btnAñadirMultiplesSesiones">
         <a href="{{ route('links.multiplesSesiones', ['id' => $event->id]) }}">
 
-            <img src="{{ asset('images/eventos/añadir.png') }}" alt="Editar evento" height="30">
+            <img src="{{ asset('images/eventos/Añadir.png') }}" alt="Editar evento" height="30">
 
         </a>
     </div>

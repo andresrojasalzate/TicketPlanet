@@ -47,6 +47,8 @@
   }
   &NombreLocal{
     width: 55%;
+    display: flex;
+    flex-direction: column;
     &Input{
       width: 70%;
     }

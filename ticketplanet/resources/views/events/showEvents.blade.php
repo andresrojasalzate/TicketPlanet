@@ -29,7 +29,7 @@
                     </div>
                     <p>{{ $evento->address }}</p>
                 </div>
-                <form method="POST" action="{{ route('mostrar.compra', ['evento_id' => $eventoId]) }}">
+                <form method="GET" action="{{ route('mostrar.compra', ['evento_id' => $eventoId]) }}">
                     @csrf
                     <div class="sesions-showEvent">
                         <h3>Sesiones:</h3>
