@@ -112,7 +112,7 @@ image::Images/Logo.png[Logo principal, width=10%]
 - Modificar Pantalla Home Promotor, añadidos botones
 - Creación de Test, LoginTest
 
-=== Andres 
+==== Andres 
 - Funcion para subir imagen al crear evento
 - Solucion de problema con la paginación en la pantalla de resultado de busqueda. 
 - Implementación de la pantalla ""Pàgina resum Llistat de sessions obertes"
