@@ -70,7 +70,7 @@ class CompraController extends Controller
         $request->validate([
             'email' => 'required|email',
             'user_name.*' => 'required|string',
-            'dni.*' => 'required|string',
+            'dni.*' => ['required', 'string', 'regex:/^[0-9]{8}[A-Za-z]$/'],
             'phone.*' => 'required|integer',
         ], [
             'email.required' => 'El campo correo electrónico es obligatorio.',
@@ -79,6 +79,7 @@ class CompraController extends Controller
             'user_name.*.string' => 'Por favor, introduce un nombre válido.',
             'dni.*.required' => 'El campo DNI es obligatorio.',
             'dni.*.string' => 'Por favor, introduce un DNI válido.',
+            'dni.*.regex' => 'El formato del DNI no es válido.',
             'phone.*.required' => 'El campo teléfono es obligatorio.',
             'phone.*.integer' => 'Por favor, introduce un teléfono válido.',
         ]);
