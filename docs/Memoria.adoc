@@ -131,7 +131,7 @@ image::Images/Logo.png[Logo principal, width=10%]
 - Implementación mostrar las valoraciones en la pantalla de 'ShowEvents'
 - Implementación pantalla 'Compra', mostrar contador 10 minutos.
 
-=== Andrés
+==== Andrés
 - Ajusts en tests
 - Diseño de mockup de entradas
 - Implementación de creación de entradas en pdf
