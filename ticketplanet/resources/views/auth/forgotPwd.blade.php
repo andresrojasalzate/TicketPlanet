@@ -6,7 +6,7 @@
         <div class="resetPwd">
             <div class="titleResetPwd">
                 <p>RESTABLECER LA CONTRASEÑA</p>
-                <img src="{{ asset('images/logo.jpg') }}" alt="" height="80">
+                <img src="{{ asset('images/logo.jpg') }}" alt="" height="80" loading="lazy">
             </div>
                         
             <div class="txtResetPwd">

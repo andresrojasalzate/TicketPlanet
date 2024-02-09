@@ -8,7 +8,7 @@
 <body>
 
     <div class="img-showEvent">
-        <img src="{{ asset('images/fotos-subidas/' . $evento->image) }}" alt="" width="300">
+        <img src="{{ asset('images/fotos-subidas/' . $evento->image) }}" alt="" width="300" loading="lazy">
     </div>
 
     <p>Hola {{ $usuario->name }},</p>
@@ -20,7 +20,7 @@
     
     <p>Saludos,<br>{{ config('app.name') }}</p>
 
-    <img src="{{ asset('images/logo.jpg') }}" alt="logo" width="55">
-    <img src="{{ asset('images/LogoNombre.png') }}" alt="logo con Nombre">
+    <img src="{{ asset('images/logo.jpg') }}" alt="logo" width="55" loading="lazy">
+    <img src="{{ asset('images/LogoNombre.png') }}" alt="logo con Nombre" loading="lazy">
 </body>
 </html>

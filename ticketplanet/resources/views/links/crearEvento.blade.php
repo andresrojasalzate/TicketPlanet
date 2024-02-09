@@ -64,7 +64,7 @@
                         <!-- Mostrar la imagen si ya está definida -->
                         @if (isset($evento) && $evento->image)
                             <img src="{{ asset('images/fotos-subidas/' . $evento->image) }}"
-                                alt="Imagen principal" width="150">
+                                alt="Imagen principal" width="150" loading="lazy">
                         @endif
 
                     </div>
