@@ -67,7 +67,7 @@
                                     @endfor
                                 @else
                                     <!-- Mostrar campos de nombre, DNI y teléfono una vez (no nominales) -->
-                                    <h3>Asistente para {{ $ticket->name }}</h3>
+                                    <h3>Comprador para {{ $ticket->name }}</h3>
                                     <div class="datosUser-nombre">
                                         <label for="user_name[]">Nombre:</label>
                                         <input type="text" name="user_name[]" value="{{ old('user_name.0') }}" required
