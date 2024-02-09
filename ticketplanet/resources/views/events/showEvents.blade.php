@@ -6,7 +6,7 @@
     <div class="card-margin">
         <div class="card-showEvent">
             <div class="img-showEvent">
-                <img src="{{ asset('images/fotos-subidas/' . $evento->image) }}" alt="">
+                <img src="{{ asset('images/fotos-subidas/' . $evento->image) }}" alt="" loading="lazy">
 
             </div>
             <div class="info-showEvent">
@@ -24,7 +24,7 @@
                         <h3>Ubicación</h3>
                         <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($evento->address) }}"
                             target="_blank">
-                            <img src="{{ asset('images/eventos/iconGoogleMaps.png') }}" alt="Icono de Ubicación">
+                            <img src="{{ asset('images/eventos/iconGoogleMaps.png') }}" alt="Icono de Ubicación" loading="lazy">
                         </a>
                     </div>
                     <p>{{ $evento->address }}</p>
@@ -70,7 +70,7 @@
                 </div>
             @endforeach
             <div id="total-price-container">
-                <img src="{{ asset('images/eventos/shop.png') }}" alt="">
+                <img src="{{ asset('images/eventos/shop.png') }}" alt="" loading="lazy">
                 <p>Total: <span id="total-price">0€</span></p>
                 <input type="hidden" name="evento" value="{{ $eventoId }}">
                 <input type="hidden" name="total_price" id="total-price-input" value="0">
@@ -88,7 +88,7 @@
                         <div class="reseña">
                             <div class="reseñaCara">
                                 <img src="{{ asset('images/valoracion/faces/' . $valoracion->caraSeleccionada . '.png') }}"
-                                    width="90">
+                                    width="90" loading="lazy">
                             </div>
                             <div class="reseñaTexto">
                                 <div class="reseñaComentario">
@@ -107,11 +107,11 @@
                                 @endphp
                                 @for ($i = 0; $i < $numEstrellas; $i++)
                                     <img src="{{ asset('images/valoracion/star/star1-4.png') }}" width="20"
-                                        alt="Estrella">
+                                        alt="Estrella" loading="lazy">
                                 @endfor
                                 @for ($i = 0; $i < $numEstrellasRestantes; $i++)
                                     <img src="{{ asset('images/valoracion/star/starNegra.png') }}" width="20"
-                                        alt="Estrella">
+                                        alt="Estrella" loading="lazy">
                                 @endfor
                             </div>
                         </div>
