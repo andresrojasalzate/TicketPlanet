@@ -85,6 +85,13 @@ image::Images/Logo.png[Logo principal, width=10%]
 - Implementación Mostrar Información del Evento en pantalla "ShowEvent". (Pendiente implementación entradas, etc.).
 - Modificadas migraciones de eventos y sesiones para funcionalidad Crear Eventos.
 
+==== Andrés
+- Diseño mockup para pantalla "Pàgina resum Llistat de sessions obertes"
+- En crear evento funciónde poder seleccionar direcciones de eventos pasados. 
+- Ajustes en el buscador
+- Ajustes en la migración de eventos y sesiones 
+- Ajustes en los factorys 
+
 ==== Adria
 - Diseño pagina crear Esdeveniments version movil, web
 - Funcionalidad pagina crear Esdeveniments
@@ -105,6 +112,12 @@ image::Images/Logo.png[Logo principal, width=10%]
 - Modificar Pantalla Home Promotor, añadidos botones
 - Creación de Test, LoginTest
 
+=== Andres 
+- Funcion para subir imagen al crear evento
+- Solucion de problema con la paginación en la pantalla de resultado de busqueda. 
+- Implementación de la pantalla ""Pàgina resum Llistat de sessions obertes"
+- Test de buscador y home. 
+
 
 === Semana 5
 
@@ -117,6 +130,21 @@ image::Images/Logo.png[Logo principal, width=10%]
 - Implementación creación del formulario para valorar evento
 - Implementación mostrar las valoraciones en la pantalla de 'ShowEvents'
 - Implementación pantalla 'Compra', mostrar contador 10 minutos.
+
+=== Andrés
+- Ajusts en tests
+- Diseño de mockup de entradas
+- Implementación de creación de entradas en pdf
+- Ajustes en el buscador
+- Ajuste en los factorys
+
+=== Semana 6
+
+=== Andrés
+- Implementación SASS 7-1 pattern
+- Implentación de crear entradas en pdf con información dinamica
+
+
 
 == DISEÑO
 
