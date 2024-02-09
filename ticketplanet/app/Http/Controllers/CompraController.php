@@ -39,6 +39,13 @@ class CompraController extends Controller
         // Obtener la cantidad de entradas seleccionadas del formulario
         $cantidadEntradas = $request->input('sold_tickets');
 
+
+        // Verificar si la suma de las entradas vendidas es cero
+        $totalEntradas = array_sum($cantidadEntradas);
+        if ($totalEntradas === 0) {
+            return redirect()->back()->with('error', 'Por favor, selecciona al menos una entrada antes de proceder con la compra.');
+        }
+
         // Crear un array para almacenar la cantidad de entradas por tipo de ticket
         $cantidadPorTicket = [];
 
@@ -75,22 +82,22 @@ class CompraController extends Controller
             'phone.*.required' => 'El campo teléfono es obligatorio.',
             'phone.*.integer' => 'Por favor, introduce un teléfono válido.',
         ]);
-    
+
         $selectedDate = $request->input('selected_date');
         $selectedTime = $request->input('selected_time');
         $sessionId = $request->input('session_id');
         $ticketId = $request->input('ticket_id');
-    
+
         foreach ($request->user_name as $key => $userName) {
             $email = $request->email;
             $date = $request->selected_date;
             $time = $request->selected_time;
-        
+
             $userName = isset($request->user_name[$key]) ? $request->user_name[$key] : null;
             $ticketName = isset($request->ticket_name[$key]) ? $request->ticket_name[$key] : null;
             $ticketQuantity = isset($request->ticket_quantity[$key]) ? $request->ticket_quantity[$key] : null;
             $ticketId = isset($request->ticket_id[$key]) ? $request->ticket_id[$key] : null;
-        
+
             if ($ticketName !== null) {
                 Compra::create([
                     'email' => $email,
@@ -103,7 +110,7 @@ class CompraController extends Controller
                 ]);
             }
         }
-    
+
         return redirect()->back()->with('success', 'Compra almacenada correctamente.');
     }
 }
