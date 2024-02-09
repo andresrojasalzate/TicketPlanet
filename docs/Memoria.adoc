@@ -140,7 +140,15 @@ image::Images/Logo.png[Logo principal, width=10%]
 
 === Semana 6
 
-=== Andrés
+==== Salma
+- Modificado css pantalla 'Home Promotor'
+- Implementar botón accesible para la edición de eventos
+- Diseño Mockups pantalla 'Compra', versión Web, Figma
+- Diseño Mockups pantalla 'Compra', versión movil, Figma
+- Creación de nueva tabla en la bbdd, 'Compra'
+- Implementación de la funcionalidad de Compra. (Contar con entradas nominales, mostrados datos y guardado en base de datos)
+
+==== Andrés
 - Implementación SASS 7-1 pattern
 - Implentación de crear entradas en pdf con información dinamica
 
