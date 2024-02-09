@@ -11,14 +11,14 @@
     <div class="entrada">
             
         <div class="cabezera-entrada">
-            <img src="{{ public_path('images/LogoNombre.png') }}" alt="">
+            <img src="{{ public_path('images/LogoNombre.png') }}" alt="" loading="lazy">
         </div>
         <div class="cuerpo-entrada">
             <table class="contenedor-entrada">
                 <tr>
                     <td>
                         <div class="img-evento-etrada">
-                            <img src="{{ public_path('images/fotos-subidas/event_default.jpeg') }}" alt="">
+                            <img src="{{ public_path('images/fotos-subidas/event_default.jpeg') }}" alt="" loading="lazy">
                         </div>
                      </td>
                     <td class="info-entrada">
@@ -26,19 +26,19 @@
                             <p class="titulo-entrada">Nombre Evento</p>
                             <table>
                                 <tr>
-                                    <td class="imagenes-info-entrada"><img src="{{ public_path('images/entradas/location.png') }}" alt=""></td>
+                                    <td class="imagenes-info-entrada"><img src="{{ public_path('images/entradas/location.png') }}" alt="" loading="lazy"></td>
                                     <td class="texto-entrada"><p>Direccion del evento</p> </td>
                                 </tr>
                                  <tr>
-                                    <td class="imagenes-info-entrada"><img src="{{ public_path('images/entradas/calendar.png') }}" alt=""></td>
+                                    <td class="imagenes-info-entrada"><img src="{{ public_path('images/entradas/calendar.png') }}" alt="" loading="lazy"></td>
                                     <td class="texto-entrada"><p>00/00/0000</p></td>
                                  </tr>
                                 <tr>
-                                    <td class="imagenes-info-entrada"><img src="{{ public_path('images/entradas/ticket.png') }}" alt=""></td>
+                                    <td class="imagenes-info-entrada"><img src="{{ public_path('images/entradas/ticket.png') }}" alt="" loading="lazy"></td>
                                     <td class="texto-entrada"><p>Entrada general</p></td>
                                 </tr>
                                  <tr>
-                                    <td class="imagenes-info-entrada"><img src="{{ public_path('images/entradas/dollar.png') }}" alt=""></td>
+                                    <td class="imagenes-info-entrada"><img src="{{ public_path('images/entradas/dollar.png') }}" alt="" loading="lazy"></td>
                                     <td class="texto-entrada"><p>00.00€</p></td>
                                  </tr>    
                                 <tr>

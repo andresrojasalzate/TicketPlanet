@@ -21,7 +21,7 @@
     
     <p>Saludos,<br>{{ config('app.name') }}</p>
 
-    <img src="{{ asset('images/logo.jpg') }}" alt="logo" width="55">
-    <img src="{{ asset('images/LogoNombre.png') }}" alt="logo con Nombre">
+    <img src="{{ asset('images/logo.jpg') }}" alt="logo" width="55" loading="lazy">
+    <img src="{{ asset('images/LogoNombre.png') }}" alt="logo con Nombre" loading="lazy">
 </body>
 </html>

@@ -6,7 +6,7 @@
         <div class="login">
             <div class="titleLogin">
                 <p>BIENVENIDO</p>
-                <img src="{{ asset('images/logo.jpg') }}" alt="" height="80">
+                <img src="{{ asset('images/logo.jpg') }}" alt="" height="80" loading="lazy">
             </div>
             <div class="accede">
                 <p>Accede</p>
@@ -41,7 +41,7 @@
                     <input type="password" name="password" id="passwordInput" value="" maxlength="20">
                     <div class="toggle-password" onclick="togglePasswordVisibility()">
                         <img src="{{ asset('images/login/ojono.png') }}" alt="Toggle Password Visibility" id="eyeIcon"
-                            width="60">
+                            width="60" loading="lazy">
                     </div>
                 </div>
                 <p class="olvidadoContra"><a href="{{ route('password.request') }}">¿Has olvidado tu contraseña?</a></p>
