@@ -56,6 +56,11 @@ return [
             'throw' => false,
         ],
 
+        'pdfs' => [
+            'driver' => 'local',
+            'root' => storage_path('app/pdfs'),
+        ],
+
     ],
 
     /*

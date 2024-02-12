@@ -24,8 +24,8 @@ class Ticket extends Model
         return $this->belongsTo(Session::class);
     }
 
-    public function compras(): HasMany
+    public function assistants(): HasMany
     {
-        return $this->hasMany(Compra::class);
+        return $this->hasMany(Assistant::class);
     }
 }
