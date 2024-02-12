@@ -21,23 +21,23 @@
         <label>Que te ha parecido?</label>
         <div class="ratingSmile">
             <div class="ratingSmileRadio">
-                <img src="{{ asset('images/valoracion/faces/faceBad.png') }}" width="60">
+                <img src="{{ asset('images/valoracion/faces/faceBad.png') }}" width="60" loading="lazy">
                 <input type="radio" name="caraSeleccionada" value="faceBad">
             </div>
             <div class="ratingSmileRadio">
-                <img src="{{ asset('images/valoracion/faces/faceBd.png') }}" width="60">
+                <img src="{{ asset('images/valoracion/faces/faceBd.png') }}" width="60" loading="lazy">
                 <input type="radio" name="caraSeleccionada" value="faceBd">
             </div>
             <div class="ratingSmileRadio">
-                <img src="{{ asset('images/valoracion/faces/faceRegular.png') }}" width="60">
+                <img src="{{ asset('images/valoracion/faces/faceRegular.png') }}" width="60" loading="lazy">
                 <input type="radio" name="caraSeleccionada" value="faceRegular">
             </div>
             <div class="ratingSmileRadio">
-                <img src="{{ asset('images/valoracion/faces/faceGood.png') }}" width="60">
+                <img src="{{ asset('images/valoracion/faces/faceGood.png') }}" width="60" loading="lazy">
                 <input type="radio" name="caraSeleccionada" value="faceGood">
             </div>
             <div class="ratingSmileRadio">
-                <img src="{{ asset('images/valoracion/faces/faceVeryGood.png') }}" width="60">
+                <img src="{{ asset('images/valoracion/faces/faceVeryGood.png') }}" width="60" loading="lazy">
                 <input type="radio" name="caraSeleccionada" value="faceVeryGood">
             </div>
         </div><br>
@@ -45,15 +45,15 @@
         <label>Puntuación</label><br>
         <div class="rating">
             <input type="hidden" name="puntuacionSeleccionada" id="puntuacionSeleccionada">
-            <img src="{{ asset('images/valoracion/star/starNegra.png') }}" width="60"
+            <img src="{{ asset('images/valoracion/star/starNegra.png') }}" width="60" loading="lazy" 
                 onclick="seleccionarPuntuacion(1)">
-            <img src="{{ asset('images/valoracion/star/starNegra.png') }}" width="60"
+            <img src="{{ asset('images/valoracion/star/starNegra.png') }}" width="60" loading="lazy" 
                 onclick="seleccionarPuntuacion(2)">
-            <img src="{{ asset('images/valoracion/star/starNegra.png') }}" width="60"
-                onclick="seleccionarPuntuacion(3)">
-            <img src="{{ asset('images/valoracion/star/starNegra.png') }}" width="60"
+            <img src="{{ asset('images/valoracion/star/starNegra.png') }}" width="60" loading="lazy" 
+                onclick="seleccionarPuntuacion(3)"> 
+            <img src="{{ asset('images/valoracion/star/starNegra.png') }}" width="60" loading="lazy" 
                 onclick="seleccionarPuntuacion(4)">
-            <img src="{{ asset('images/valoracion/star/starNegra.png') }}" width="60"
+            <img src="{{ asset('images/valoracion/star/starNegra.png') }}" width="60" loading="lazy" 
                 onclick="seleccionarPuntuacion(5)">
         </div><br>
 

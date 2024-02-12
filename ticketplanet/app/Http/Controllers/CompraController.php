@@ -51,6 +51,13 @@ class CompraController extends Controller
         // Obtener la cantidad de entradas seleccionadas del formulario
         $cantidadEntradas = $request->input('sold_tickets');
 
+
+        // Verificar si la suma de las entradas vendidas es cero
+        $totalEntradas = array_sum($cantidadEntradas);
+        if ($totalEntradas === 0) {
+            return redirect()->back()->with('error', 'Por favor, selecciona al menos una entrada antes de proceder con la compra.');
+        }
+
         // Crear un array para almacenar la cantidad de entradas por tipo de ticket
         $cantidadPorTicket = [];
 
@@ -80,7 +87,7 @@ class CompraController extends Controller
         $request->validate([
             'email' => 'required|email',
             'user_name.*' => 'required|string',
-            'dni.*' => 'required|string',
+            'dni.*' => ['required', 'string', 'regex:/^[0-9]{8}[A-Za-z]$/'],
             'phone.*' => 'required|integer',
         ], [
             'email.required' => 'El campo correo electrónico es obligatorio.',
@@ -89,6 +96,7 @@ class CompraController extends Controller
             'user_name.*.string' => 'Por favor, introduce un nombre válido.',
             'dni.*.required' => 'El campo DNI es obligatorio.',
             'dni.*.string' => 'Por favor, introduce un DNI válido.',
+            'dni.*.regex' => 'El formato del DNI no es válido.',
             'phone.*.required' => 'El campo teléfono es obligatorio.',
             'phone.*.integer' => 'Por favor, introduce un teléfono válido.',
         ]);

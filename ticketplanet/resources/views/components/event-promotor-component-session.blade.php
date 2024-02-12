@@ -2,7 +2,7 @@
     <div class="btnAñadirMultiplesSesiones">
         <a href="{{ route('links.multiplesSesiones', ['id' => $event->id]) }}">
 
-            <img src="{{ asset('images/eventos/Añadir.png') }}" alt="Editar evento" height="30">
+            <img src="{{ asset('images/eventos/Añadir.png') }}" alt="Editar evento" height="30" loading="lazy">
 
         </a>
     </div>
@@ -17,21 +17,21 @@
 
     <a href="{{ route('events.mostrar', ['id' => $event->id]) }}">
         <div class="show-event-home-img">
-            <img  src="{{ asset('images/fotos-subidas/' . $event->image) }}" alt="">
+            <img  src="{{ asset('images/fotos-subidas/' . $event->image) }}" alt="" loading="lazy">
         </div>
         <p class="show-event-home-title">{{ $event->name }}</p>
 
         <div class="elementsEvents">
             <p><img src="{{ asset('images/eventos/location.png') }}" alt=""
-                    height="25">{{ $event->address }},
+                    height="25" loading="lazy">{{ $event->address }},
                 {{ $event->city }}, {{ $event->name_site }}</p>
             @if (count($event->sessions) > 0)
                 <p><img src="{{ asset('images/eventos/calendar.png') }}" alt=""
-                        height="25">{{ $event->sessions[0]->date }}</p>
+                        height="25" loading="lazy"s>{{ $event->sessions[0]->date }}</p>
             @endif
             @if (count($event->tickets) > 0)
                 <p><img src="{{ asset('images/eventos/precio.png') }}" alt=""
-                        height="25">Desde&nbsp;<strong>{{ $event->tickets[0]->price }}€</strong>
+                        height="25" loading="lazy">Desde&nbsp;<strong>{{ $event->tickets[0]->price }}€</strong>
                 </p>
             @endif
         </div>

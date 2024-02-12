@@ -13,25 +13,22 @@
         <form method="POST" action="{{ route('compra.almacenar') }}">
             @csrf
             @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+                <div class="mensaje-error">
+                    @foreach ($errors->all() as $error)
+                        <p>{{ $error }}</p>
+                    @endforeach
                 </div>
             @endif
-
 
             <div class="contenedor-compra">
                 <div class="compra-datosUser">
                     <h2>Información del comprador:</h2>
                     <div class="datosUser-correo">
                         <label for="email">Correo electrónico:</label>
-                        <input type="email" name="email" value="{{ old('email') }}" maxlength="50">
+                        <input type="email" name="email" value="{{ old('email') }}" maxlength="60">
                         @error('email')
                             <span class="error">{{ $message }}</span>
-                        @enderror 
+                        @enderror
                     </div>
 
                     @if ($hayNoNominal)
@@ -68,27 +65,18 @@
                                     @for ($i = 0; $i < $cantidadEntradas[$ticket->id]; $i++)
                                         <div class="datosUser-nombre">
                                             <label for="user_name[]">Nombre:</label>
-                                            <input type="text" name="user_name[]" value="{{ old('user_name.' . $i) }}" required
-                                                maxlength="9">
-                                            @error('user_name.' . $i)
-                                                <span class="error">{{ $message }}</span>
-                                            @enderror
+                                            <input type="text" name="user_name[]" value="{{ old('user_name.' . $i) }}"
+                                                required maxlength="35">
                                         </div>
                                         <div class="datosUser-dni">
                                             <label for="dni[]">DNI:</label>
                                             <input type="text" name="dni[]" value="{{ old('dni.' . $i) }}" required
                                                 maxlength="9">
-                                            @error('dni.' . $i)
-                                                <span class="error">{{ $message }}</span>
-                                            @enderror
                                         </div>
                                         <div class="datosUser-telefono">
                                             <label for="phone[]">Teléfono:</label>
                                             <input type="tel" name="phone[]" value="{{ old('phone.' . $i) }}" required
                                                 maxlength="9">
-                                            @error('phone.' . $i)
-                                                <span class="error">{{ $message }}</span>
-                                            @enderror
                                         </div>
                                         <input type="hidden" name="ticket_id[]" value="{{ $ticket->id }}">
                                         <br>
