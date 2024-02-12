@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="{{ public_path('css/styles.css') }}" type="text/css">
     <title>Document</title>
 </head>
-<body>
-    @for($i = 0; $i < 3; $i++)
+<body class="pdfEntradas">
+    @foreach($compra->assistants as $assistant)
     <div class="entrada">
             
         <div class="cabezera-entrada">
@@ -18,41 +18,43 @@
                 <tr>
                     <td>
                         <div class="img-evento-etrada">
-                            <img src="{{ public_path('images/fotos-subidas/event_default.jpeg') }}" alt="">
+                            <img src="{{ public_path('images/fotos-subidas/' . $compra->session->event->image) }}" alt="">
                         </div>
                      </td>
                     <td class="info-entrada">
                         <div class="info-entrada">
-                            <p class="titulo-entrada">Nombre Evento</p>
+                            <p class="titulo-entrada">{{$compra->session->event->name}}</p>
                             <table>
                                 <tr>
                                     <td class="imagenes-info-entrada"><img src="{{ public_path('images/entradas/location.png') }}" alt=""></td>
-                                    <td class="texto-entrada"><p>Direccion del evento</p> </td>
+                                    <td class="texto-entrada"><p>{{$compra->session->event->address }} {{$compra->session->event->city }} {{$compra->session->event->name_site }}</p> </td>
                                 </tr>
                                  <tr>
                                     <td class="imagenes-info-entrada"><img src="{{ public_path('images/entradas/calendar.png') }}" alt=""></td>
-                                    <td class="texto-entrada"><p>00/00/0000</p></td>
+                                    <td class="texto-entrada"><p>{{$compra->session->date }}</p></td>
                                  </tr>
                                 <tr>
                                     <td class="imagenes-info-entrada"><img src="{{ public_path('images/entradas/ticket.png') }}" alt=""></td>
-                                    <td class="texto-entrada"><p>Entrada general</p></td>
+                                    <td class="texto-entrada"><p>{{$assistant->ticket->name }}</p></td>
                                 </tr>
                                  <tr>
                                     <td class="imagenes-info-entrada"><img src="{{ public_path('images/entradas/dollar.png') }}" alt=""></td>
-                                    <td class="texto-entrada"><p>00.00€</p></td>
-                                 </tr>    
-                                <tr>
-                                    <td></td>
-                                    <td class="texto-entrada"><p>Nombre Apellido</p></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td class="texto-entrada"><p>12345678D</p></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td class="texto-entrada"><p>12345678890</p></td>
-                                </tr> 
+                                    <td class="texto-entrada"><p>{{$assistant->ticket->price }}€</p></td>
+                                 </tr>
+                                 @isset($assistant->nameAssistant)    
+                                    <tr>
+                                        <td></td>
+                                        <td class="texto-entrada"><p>{{$assistant->nameAssistant}}</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="texto-entrada"><p>{{$assistant->dniAssistant}}</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="texto-entrada"><p>12345678890</p></td>
+                                    </tr> 
+                                @endisset
                             </table>
                         </div>
                     </td>
@@ -67,6 +69,6 @@
         </div>
    
     </div>
-    @endfor
+    @endforeach
 </body>
 </html>

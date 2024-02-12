@@ -25,18 +25,45 @@
 
             <div class="contenedor-compra">
                 <div class="compra-datosUser">
-                    <h2>Introduce tus datos:</h2>
+                    <h2>Información del comprador:</h2>
                     <div class="datosUser-correo">
                         <label for="email">Correo electrónico:</label>
                         <input type="email" name="email" value="{{ old('email') }}" maxlength="50">
                         @error('email')
                             <span class="error">{{ $message }}</span>
-                        @enderror
+                        @enderror 
                     </div>
+
+                    @if ($hayNoNominal)
+
+                        <div class="datosUser-nombre">
+                            <label for="comprador_name">Nombre:</label>                         
+                            <input type="text" name="comprador_name" value="{{ old('user_name.0') }}" requiredmaxlength="9">
+                            @error('user_name.0')
+                                <span class="error">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="datosUser-dni">
+                            <label for="comprador_dni">DNI:</label>
+                            <input type="text" name="comprador_dni" value="{{ old('dni.0') }}" required maxlength="9">
+                            @error('dni.0')
+                                <span class="error">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="datosUser-telefono">
+                            <label for="comprador_phone">Teléfono:</label>
+                            <input type="tel" name="comprador_phone" value="{{ old('phone.0') }}" required maxlength="9">
+                            @error('phone.0')
+                                <span class="error">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                    @endif
+
                     @foreach ($tickets as $ticket)
                         @if ($cantidadEntradas[$ticket->id] > 0)
                             <div>
-                                @if ($ticket->nominal)
+                                @if($ticket->nominal)
                                     <h3>Asistentes para {{ $ticket->name }}</h3>
                                     @for ($i = 0; $i < $cantidadEntradas[$ticket->id]; $i++)
                                         <div class="datosUser-nombre">
@@ -63,35 +90,13 @@
                                                 <span class="error">{{ $message }}</span>
                                             @enderror
                                         </div>
+                                        <input type="hidden" name="ticket_id[]" value="{{ $ticket->id }}">
                                         <br>
                                     @endfor
-                                @else
-                                    <!-- Mostrar campos de nombre, DNI y teléfono una vez (no nominales) -->
-                                    <h3>Asistente para {{ $ticket->name }}</h3>
-                                    <div class="datosUser-nombre">
-                                        <label for="user_name[]">Nombre:</label>
-                                        <input type="text" name="user_name[]" value="{{ old('user_name.0') }}" required
-                                            maxlength="9">
-                                        @error('user_name.0')
-                                            <span class="error">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                    <div class="datosUser-dni">
-                                        <label for="dni[]">DNI:</label>
-                                        <input type="text" name="dni[]" value="{{ old('dni.0') }}" required
-                                            maxlength="9">
-                                        @error('dni.0')
-                                            <span class="error">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                    <div class="datosUser-telefono">
-                                        <label for="phone[]">Teléfono:</label>
-                                        <input type="tel" name="phone[]" value="{{ old('phone.0') }}" required
-                                            maxlength="9">
-                                        @error('phone.0')
-                                            <span class="error">{{ $message }}</span>
-                                        @enderror
-                                    </div>
+                                @else 
+                                    <input type="hidden" name="tickets_noNomial[]" value="{{ $ticket->id }}"> 
+                                    <input type="hidden" name="ticketNoNomial_quantity[{{ $ticket->id }}]"
+                                    value="{{ $cantidadEntradas[$ticket->id] }}">                    
                                 @endif
                             </div>
                             <!--Campos ocultos que se pasan para almacenar en la base de datos-->
@@ -100,7 +105,7 @@
                             <input type="hidden" name="ticket_name[]" value="{{ $ticket->name }}">
                             <input type="hidden" name="ticket_quantity[]" value="{{ $cantidadEntradas[$ticket->id] }}">
                             <input type="hidden" name="session_id" value="{{ $sesionId }}">
-                            <input type="hidden" name="ticket_id[]" value="{{ $ticket->id }}">
+                            <!--<input type="hidden" name="ticket_id[]" value="{{ $ticket->id }}">-->
                         @endif
 
                     @endforeach
@@ -118,8 +123,8 @@
                                 <p>Cantidad seleccionada: {{ $cantidadEntradas[$ticket->id] }}</p>
                             </div>
                             <!-- Añadir un campo ticket_quantity específico para cada tipo de entrada -->
-                            <input type="hidden" name="ticket_quantity[{{ $ticket->id }}]"
-                                value="{{ $cantidadEntradas[$ticket->id] }}">
+                            <!--<input type="hidden" name="ticket_quantity[{{ $ticket->id }}]"
+                                value="{{ $cantidadEntradas[$ticket->id] }}">-->
                         @endif
                     @endforeach
 
