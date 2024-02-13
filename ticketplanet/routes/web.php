@@ -97,3 +97,7 @@ Route::get('/entradas/pdf', [CompraController::class, 'generarPdfEntradas'])->na
 Route::get('/mostrar-compra/{evento_id}', [CompraController::class, 'mostrarCompra'])->name('mostrar.compra');
 Route::post('/compra', [CompraController::class, 'almacenarCompra'])->name('compra.almacenar');
 
+Route::get('/compraExito',[CompraController::class, 'entradaComprada'])->name('entradaComprada');
+Route::get('/viewCompraExito',[CompraController::class, 'entradaCompradaView'])->name('compra.compraExito');
+Route::get('/viewCompraFallido',[CompraController::class, 'entradaCompradaViewFallido'])->name('entradaCompradaViewFallido');
+ 
