@@ -9,8 +9,7 @@
         </div>
         <hr>
 
-        <!-- Formulario para realizar la compra -->
-        <form method="POST" action="{{ route('compra.almacenar') }}">
+        <form name="from" action="https://sis-t.redsys.es:25443/sis/realizarPago" method="POST">
             @csrf
             @if ($errors->any())
                 <div class="mensaje-error">
@@ -83,6 +82,9 @@
                             <input type="hidden" name="ticket_quantity[]" value="{{ $cantidadEntradas[$ticket->id] }}">
                             <input type="hidden" name="session_id" value="{{ $sesionId }}">
                             <!--<input type="hidden" name="ticket_id[]" value="{{ $ticket->id }}">-->
+                            <input type="hidden" name="Ds_SignatureVersion" value="HMAC_SHA256_V1"/>
+                            <input type="hidden" name="Ds_MerchantParameters" value="{{$params}}"/>
+                            <input type="hidden" name="Ds_Signature" value="{{$signature}}"/>	
                         @endif
 
                     @endforeach

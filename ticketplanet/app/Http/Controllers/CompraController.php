@@ -1,6 +1,8 @@
 <?php
 
+
 namespace App\Http\Controllers;
+require_once base_path('app/redsysHMAC256_API_PHP_7.0.0/apiRedsys.php');
 
 use App\Models\Event;
 use App\Models\Compra;
@@ -77,9 +79,63 @@ class CompraController extends Controller
                 $cantidadPorTicket[$ticket->id] = 0;
             }
         }
+        $precioTotal = $request->input("totalPrice");
+    $amount = (int)$totalPrice * 100;
+    $id = time();
+    $fuc = '999008881';
+    $moneda = '978';
+    $trans = '0';
+    $terminal = '001';
+    $url = '';
+    $urlOK = route('entradaComprada');
+    $urlKO = route('entradaCompradaViewFallido');
+
+    $miObj = new \RedsysAPI;
+    $miObj->setParameter("DS_MERCHANT_AMOUNT", $amount);
+    $miObj->setParameter("DS_MERCHANT_ORDER", $id);
+    $miObj->setParameter("DS_MERCHANT_MERCHANTCODE", $fuc);
+    $miObj->setParameter("DS_MERCHANT_CURRENCY", $moneda);
+    $miObj->setParameter("DS_MERCHANT_TRANSACTIONTYPE", $trans);
+    $miObj->setParameter("DS_MERCHANT_TERMINAL", $terminal);
+    $miObj->setParameter("DS_MERCHANT_MERCHANTURL", $url);
+    $miObj->setParameter("DS_MERCHANT_DIRECTPAYMENT", "true");
+    $miObj->setParameter("DS_REDSYS_ENVIROMENT", "true");
+    $miObj->setParameter("DS_MERCHANT_URLOK", $urlOK);
+    $miObj->setParameter("DS_MERCHANT_URLKO", $urlKO);  
+
+    $params = $miObj->createMerchantParameters();
+    $signature = $miObj->createMerchantSignature('sq7HjrUOBfKmC576ILgskD5srU870gJ7');
 
 
-        return view('compra.compra', compact('evento', 'sesionId', 'selectedDate', 'selectedTime', 'tickets', 'cantidadEntradas', 'totalPrice', 'hayNoNominal'));
+
+        return view('compra.compra', compact('evento', 'sesionId', 'selectedDate', 'selectedTime', 'tickets', 'cantidadEntradas', 'totalPrice','params','signature', 'hayNoNominal'));
+    }
+    public function entradaComprada(Request $request)
+    {
+
+      $miObj = new \RedsysAPI;
+      $params = json_decode(base64_decode($request->input("Ds_MerchantParameters")));
+      $version = $request->input("Ds_SignatureVersion");
+      $signaturaRecibida = $request->input("Ds_Signature");
+      $datos = $request->input("Ds_MerchantParameters");
+      $decodec = $miObj->decodeMerchantParameters($datos);
+      $claveModuloAdmin = 'sq7HjrUOBfKmC576ILgskD5srU870gJ7'; 
+      $signaturaCalculada = $miObj->createMerchantSignatureNotif($claveModuloAdmin, $datos);
+  
+      if ($signaturaCalculada == $signaturaRecibida) {
+        return redirect()->route('compra.compraExito');
+      } else {
+        echo "FIRMA KO.Error, firma inválida";
+      }
+    }
+    public function entradaCompradaView()
+    {
+      return view('compra.compraExito');
+      
+    }
+    public function entradaCompradaViewFallido()
+    {
+      return view('compra.compraFallido');
     }
 
     public function almacenarCompra(Request $request)
