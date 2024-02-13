@@ -14,16 +14,13 @@ return new class extends Migration
         Schema::create('compras', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('email');
-            $table->date('date');
-            $table->time('time');
-            $table->string('ticket_name');
-            $table->integer('ticket_quantity');
+            $table->string('emailPurchaser')->nullable();
+            $table->string('namePurchaser')->nullable();
+            $table->string('dniPurchaser')->nullable();
+            $table->string('phonePurchaser')->nullable();
+            $table->string('pdfTickets')->nullable();
             $table->foreignId('session_id')->references('id')->on('sessions')->onDelete('cascade')
-            ->onUpdate('cascade');
-            $table->foreignId('ticket_id')->references('id')->on('tickets')->onDelete('cascade')
-            ->onUpdate('cascade');
-            
+            ->onUpdate('cascade');            
         });
     }
 

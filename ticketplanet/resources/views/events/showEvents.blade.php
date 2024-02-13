@@ -4,6 +4,7 @@
 
 @section('content')
     <div class="card-margin">
+        
         <div class="card-showEvent">
             <div class="img-showEvent">
                 <img src="{{ asset('images/fotos-subidas/' . $evento->image) }}" alt="" loading="lazy">
@@ -24,7 +25,8 @@
                         <h3>Ubicación</h3>
                         <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($evento->address) }}"
                             target="_blank">
-                            <img src="{{ asset('images/eventos/iconGoogleMaps.png') }}" alt="Icono de Ubicación" loading="lazy">
+                            <img src="{{ asset('images/eventos/iconGoogleMaps.png') }}" alt="Icono de Ubicación"
+                                loading="lazy">
                         </a>
                     </div>
                     <p>{{ $evento->address }}</p>
@@ -56,10 +58,10 @@
                         @else
                             <p>No hay sesiones disponibles.</p>
                         @endif
-
                     </div>
             </div>
         </div>
+        
         <div class="card-showTickets">
 
             @foreach ($tickets as $ticket)
@@ -77,8 +79,13 @@
                 <button id="buy-button">Comprar</button>
             </div>
             </form>
-
         </div>
+        <!--Mensaje de error si no se selecciona ninguna entrada para proceder con la compra-->
+        @if (session('error'))
+            <div class="mensaje-error">
+                {{ session('error') }}
+            </div>
+        @endif
         <hr>
         <div class="card-showComents">
             <h3>RESEÑAS:</h3>
