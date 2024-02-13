@@ -88,7 +88,7 @@ class CompraController extends Controller
             'email' => 'required|email',
             'user_name.*' => 'required|string',
             'dni.*' => ['required', 'string', 'regex:/^[0-9]{8}[A-Za-z]$/'],
-            'phone.*' => 'required|integer',
+            'phone.*' => ['required', 'integer', 'regex:/^[0-9]{9}$/'],
         ], [
             'email.required' => 'El campo correo electrónico es obligatorio.',
             'email.email' => 'Por favor, introduce una dirección de correo electrónico válida.',
@@ -99,6 +99,7 @@ class CompraController extends Controller
             'dni.*.regex' => 'El formato del DNI no es válido.',
             'phone.*.required' => 'El campo teléfono es obligatorio.',
             'phone.*.integer' => 'Por favor, introduce un teléfono válido.',
+            'phone.*.regex' => 'El formato del teléfono no es válido.',
         ]);
 
         $compraId = $this->crearCompra($request);
@@ -138,7 +139,9 @@ class CompraController extends Controller
         //     }
         // }
 
-        return redirect()->back()->with('success', 'Compra almacenada correctamente.');
+        //return redirect()->route('events.mostrar', ['id' => $request->evento_id])->with('success', 'Compra almacenada correctamente.');
+        return redirect()->route('events.mostrar', $request->evento_id)->with('success', 'Compra almacenada correctamente.');
+
     }
 
     private function enviarMailCompra($compra)
