@@ -58,6 +58,7 @@ class LinksController extends Controller
     if ($request->session()->has('capacidadMaxima')) {
       $capacidadMaxima = $request->session()->get('capacidadMaxima');
     } else {
+      Log::info("La capacidad maxima sera la capacidad");
       session(['capacidadMaxima' => $sesion->maxCapacity]);
       $capacidadMaxima = $sesion->maxCapacity;
 
@@ -74,7 +75,7 @@ class LinksController extends Controller
   {
 
     if (empty($request->quantity)) {
-      Log::info("Cantidad Entradas vacio");
+      Log::info("Cantidad Entradas vacio y valida");
       $request->validate([
         'name' => 'required',
         'price' => 'required',
@@ -141,7 +142,7 @@ class LinksController extends Controller
   {
 
     $user = Auth::user();
-    Log::info("Guardar evento");
+    Log::info("Crea el evento a la base de datos");
 
 
     $request->validate([
