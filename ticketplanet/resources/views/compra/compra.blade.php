@@ -23,22 +23,22 @@
                 <div class="compra-datosUser">
                     <h2>Información del comprador:</h2>
                     <div class="datosUser-correo">
-                        <label for="email">Correo electrónico:</label>
+                        <p><label for="email">Correo electrónico:</label></p>
                         <input type="email" name="email" value="{{ old('email') }}" maxlength="60">
                     </div>
 
                     @if ($hayNoNominal)
                         <div class="datosUser-nombre">
-                            <label for="comprador_name">Nombre:</label>
+                            <p><label for="comprador_name">Nombre:</label></p>
                             <input type="text" name="comprador_name" value="{{ old('user_name.0') }}"
                                 requiredmaxlength="9">
                         </div>
                         <div class="datosUser-dni">
-                            <label for="comprador_dni">DNI:</label>
+                            <p><label for="comprador_dni">DNI:</label></p>
                             <input type="text" name="comprador_dni" value="{{ old('dni.0') }}" required maxlength="9">
                         </div>
                         <div class="datosUser-telefono">
-                            <label for="comprador_phone">Teléfono:</label>
+                            <p><label for="comprador_phone">Teléfono:</label></p>
                             <input type="tel" name="comprador_phone" value="{{ old('phone.0') }}" required
                                 maxlength="9">
                         </div>
@@ -52,17 +52,17 @@
                                     <h3>Asistentes para {{ $ticket->name }}</h3>
                                     @for ($i = 0; $i < $cantidadEntradas[$ticket->id]; $i++)
                                         <div class="datosUser-nombre">
-                                            <label for="user_name[]">Nombre:</label>
+                                            <p><label for="user_name[]">Nombre:</label></p>
                                             <input type="text" name="user_name[]" value="{{ old('user_name.' . $i) }}"
                                                 required maxlength="35">
                                         </div>
                                         <div class="datosUser-dni">
-                                            <label for="dni[]">DNI:</label>
+                                            <p><label for="dni[]">DNI:</label></p>
                                             <input type="text" name="dni[]" value="{{ old('dni.' . $i) }}" required
                                                 maxlength="9">
                                         </div>
                                         <div class="datosUser-telefono">
-                                            <label for="phone[]">Teléfono:</label>
+                                            <p><label for="phone[]">Teléfono:</label></p>
                                             <input type="tel" name="phone[]" value="{{ old('phone.' . $i) }}" required
                                                 maxlength="9">
                                         </div>
