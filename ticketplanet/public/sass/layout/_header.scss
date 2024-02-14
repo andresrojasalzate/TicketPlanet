@@ -134,12 +134,15 @@
   bottom: -10%;
 }
 
-@media screen and (max-width:425px) {
+@media screen and (max-width:450px) {
 
   .menuIMG{
     width: 8vh;
   }
   
+  .navLogo img {
+    width: 90vw;
+  }
 
   .dropdown{
     &-content{
