@@ -121,7 +121,7 @@ ul {
   background-color: #0642F9; }
   .dropdown-content {
     position: fixed;
-    top: 12.7vh;
+    top: 12.3vh;
     left: 0;
     width: 35vh;
     height: 100vh;
@@ -199,9 +199,11 @@ ul {
   position: absolute;
   bottom: -10%; }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 450px) {
   .menuIMG {
     width: 8vh; }
+  .navLogo img {
+    width: 90vw; }
   .dropdown-content {
     width: 30vh; }
   .logout {
@@ -1135,6 +1137,69 @@ ul {
   .entradasPrecioCantidad {
     flex-direction: column-reverse;
     align-items: center; } }
+
+.card-compra {
+  margin: 5vh;
+  font-family: 'Work Sans'; }
+  .card-compra #countdown-container {
+    display: grid;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 2rem; }
+  .card-compra .mensaje-error {
+    color: red;
+    font-size: 1.1rem;
+    font-family: 'Work Sans';
+    text-decoration: none; }
+  .card-compra .contenedor-compra {
+    display: grid;
+    grid-template-columns: 0.6fr;
+    justify-content: center;
+    align-items: center;
+    gap: 0 5vh; }
+    .card-compra .contenedor-compra .compra-datosUser .datosUser-correo p, .card-compra .contenedor-compra .compra-datosUser .datosUser-nombre p, .card-compra .contenedor-compra .compra-datosUser .datosUser-dni p, .card-compra .contenedor-compra .compra-datosUser .datosUser-telefono p {
+      padding: 1vh 0 0 0; }
+      .card-compra .contenedor-compra .compra-datosUser .datosUser-correo p label, .card-compra .contenedor-compra .compra-datosUser .datosUser-nombre p label, .card-compra .contenedor-compra .compra-datosUser .datosUser-dni p label, .card-compra .contenedor-compra .compra-datosUser .datosUser-telefono p label {
+        font-size: 1.1rem; }
+    .card-compra .contenedor-compra .compra-datosUser .datosUser-correo input, .card-compra .contenedor-compra .compra-datosUser .datosUser-nombre input, .card-compra .contenedor-compra .compra-datosUser .datosUser-dni input, .card-compra .contenedor-compra .compra-datosUser .datosUser-telefono input {
+      width: -webkit-fill-available;
+      padding: 2vh;
+      font-size: 1rem;
+      margin-top: 0.3vh; }
+    .card-compra .contenedor-compra .compra-infoEntradas {
+      display: grid;
+      justify-content: center; }
+      .card-compra .contenedor-compra .compra-infoEntradas .contenedor-info {
+        background-color: #D9D9D9;
+        border-radius: 7px;
+        padding: 2vh;
+        font-size: 1.1rem;
+        width: 30vw; }
+        .card-compra .contenedor-compra .compra-infoEntradas .contenedor-info .entry-title {
+          display: flex;
+          justify-content: space-between;
+          align-items: center; }
+          .card-compra .contenedor-compra .compra-infoEntradas .contenedor-info .entry-titlespan {
+            flex: 1;
+            text-align: left; }
+          .card-compra .contenedor-compra .compra-infoEntradas .contenedor-info .entry-titlespan:last-child {
+            text-align: right; }
+          .card-compra .contenedor-compra .compra-infoEntradas .contenedor-info .entry-title .ticket-name {
+            font-weight: 500; }
+      .card-compra .contenedor-compra .compra-infoEntradas .btn-comprar {
+        padding: 2vh;
+        border-radius: 7px;
+        background-color: #F9BD06;
+        border-color: #0642F9;
+        margin-top: 5vh;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        font-size: 1.2rem;
+        cursor: pointer; }
+  @media screen and (max-width: 450px) {
+    .card-compra .contenedor-info {
+      width: 70vw !important; } }
 
 /*body {
   margin: 0%;

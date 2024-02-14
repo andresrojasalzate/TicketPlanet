@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="card-margin">
-        
+
         <div class="card-showEvent">
             <div class="img-showEvent">
                 <img src="{{ asset('images/fotos-subidas/' . $evento->image) }}" alt="" loading="lazy">
@@ -61,7 +61,7 @@
                     </div>
             </div>
         </div>
-        
+
         <div class="card-showTickets">
 
             @foreach ($tickets as $ticket)
@@ -133,5 +133,7 @@
 
 
     </div>
+@endsection
+@section('scripts')
     <script src="{{ asset('js/showEvent.js') }}"></script>
 @endsection
