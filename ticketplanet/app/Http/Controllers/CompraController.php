@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\VentaMail;
+use App\Mail\DescargaEntradasMail;
+use Illuminate\Support\Facades\Response;
+use Carbon\Carbon;
 
 class CompraController extends Controller
 {
@@ -159,46 +162,21 @@ class CompraController extends Controller
             'phone.*.regex' => 'El formato del teléfono no es válido.',
         ]);
 
+
         $compraId = $this->crearCompra($request);
         $this->crearAsistentes($request, $compraId);
         $compra = $this->generarPdfEntradas($compraId);
-        $this->enviarMailCompra($compra);
-
-
-        // $selectedDate = $request->input('selected_date');
-        // $selectedTime = $request->input('selected_time');
-        // $sessionId = $request->input('session_id');
-        // //$ticketId = $request->input('ticket_id');
-
-
-
-
-        // foreach ($request->user_name as $key => $userName) {
-        //     $email = $request->email;
-        //     $date = $request->selected_date;
-        //     $time = $request->selected_time;
-
-        //     $userName = isset($request->user_name[$key]) ? $request->user_name[$key] : null;
-        //     $ticketName = isset($request->ticket_name[$key]) ? $request->ticket_name[$key] : null;
-        //     $ticketQuantity = isset($request->ticket_quantity[$key]) ? $request->ticket_quantity[$key] : null;
-        //     $ticketId = isset($request->ticket_id[$key]) ? $request->ticket_id[$key] : null;
-
-        //     if ($ticketName !== null) {
-        //         Compra::create([
-        //             'email' => $email,
-        //             'date' => $date,
-        //             'time' => $time,
-        //             'ticket_name' => $ticketName,
-        //             'ticket_quantity' => $ticketQuantity,
-        //             'session_id' => $sessionId,
-        //             'ticket_id' => $ticketId,
-        //         ]);
-        //     }
-        // }
-
-        //return redirect()->route('events.mostrar', ['id' => $request->evento_id])->with('success', 'Compra almacenada correctamente.');
+        //$this->enviarMailCompra($compra);
+        //$this->eviarMailDescargaEntradas($compra);
         return redirect()->route('events.mostrar', $request->evento_id)->with('success', 'Compra almacenada correctamente.');
+    }
 
+    public function descargarEntradas($pdf)
+    {
+        $pdf = storage_path('app/pdfs/') . $pdf;
+        $nombrePdf = 'tickets.pdf';
+
+        return Response::download($pdf, $nombrePdf);
     }
 
     private function enviarMailCompra($compra)
