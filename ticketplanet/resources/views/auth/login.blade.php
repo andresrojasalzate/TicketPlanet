@@ -8,7 +8,7 @@
     <div class="login">
         <div class="titleLogin">
             <p>BIENVENIDO</p>
-            <img src="{{ asset('images/logo.jpg') }}" alt="" height="80" loading="lazy">
+            <img src="{{ asset('images/logo.jpg') }}" alt="" loading="lazy">
         </div>
         <div class="accede">
             <p>Accede</p>
