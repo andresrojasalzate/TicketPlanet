@@ -1,3 +1,7 @@
+.botones {
+  display: flex;
+  justify-content: space-evenly;
+}
 .btn{
   &CrearSesion{
     height: 40px;
