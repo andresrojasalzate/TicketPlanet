@@ -1195,12 +1195,14 @@ ul {
     display: inline-block;
     padding: 8px 12px;
     text-decoration: none;
-    border: 1px solid #000000; }
+    border: 1px solid #000000;
+    color: #000000; }
   .pagination a {
     display: inline-block;
     padding: 8px 12px;
     text-decoration: none;
-    border: 1px solid #000000; }
+    border: 1px solid #000000;
+    color: #000000; }
 
 .disabled span {
   color: #999;
