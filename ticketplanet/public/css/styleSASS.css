@@ -1318,41 +1318,17 @@ ul {
 
 .card-margin {
   margin: 5vh; }
-.card-margin {
-  margin: 5vh; }
 
 .card-showEvent {
-.card-showEvent {
   display: flex;
-  flex-wrap: wrap;
   flex-wrap: wrap;
   flex-direction: row;
   background-color: #D9D9D9;
   margin: 5vh auto;
   border: 3px solid;
-  background-color: #D9D9D9;
-  margin: 5vh auto;
-  border: 3px solid;
   border-color: #F9BD06;
   box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5); }
-  box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5); }
 
-.img-showEvent {
-  flex: 1;
-  height: 20%; }
-  .img-showEvent img {
-    width: 100%; }
-
-.info-showEvent {
-  flex: 1;
-  font-family: "Work Sans";
-  font-size: 1.2rem;
-  margin: 20px; }
-
-.ubicacion-showEvent p {
-  margin: 0; }
-
-.ubicacion-showEvent .ubicacion-title-showEvent {
 .img-showEvent {
   flex: 1;
   height: 20%; }
@@ -1370,54 +1346,6 @@ ul {
 
 .ubicacion-showEvent .ubicacion-title-showEvent {
   display: flex;
-  align-items: center; }
-  .ubicacion-showEvent .ubicacion-title-showEvent img {
-    padding-left: 10px;
-    width: 2vh;
-    height: 3vh; }
-
-.select-wrapper {
-  position: relative;
-  margin-top: 5px; }
-  .select-wrapper select {
-    width: 80%;
-    height: 3vh;
-    cursor: pointer; }
-
-.card-timeSesion {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  justify-items: center;
-  grid-gap: 10px;
-  align-items: center; }
-  .card-timeSesion .session-time {
-    background-color: #F9BD06;
-    border-radius: 7px;
-    cursor: pointer;
-    margin-bottom: 5px;
-    padding: 1vh; }
-
-.card-showTickets {
-  display: none;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; }
-
-.ticket-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  padding: 2vh;
-  background-color: #D9D9D9;
-  margin: 5vh auto;
-  border: 3px solid;
-  border-color: #F9BD06;
-  box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5);
-  font-size: 1.1rem; }
-  .ticket-container input {
-    padding: 2vh;
-    font-size: 1rem;
-    margin-left: auto; }
   align-items: center; }
   .ubicacion-showEvent .ubicacion-title-showEvent img {
     padding-left: 10px;
@@ -1478,7 +1406,6 @@ ul {
   #total-price-container p {
     font-size: 1.2rem;
     font-family: "Work Sans";
-    font-family: "Work Sans";
     color: #000000; }
 
 #buy-button {
@@ -1503,16 +1430,6 @@ ul {
   width: 80vw;
   font-family: "Work Sans"; }
   .card-showComents h3 {
-.mensaje-error {
-  color: red;
-  font-size: 1.1rem;
-  font-family: "Work Sans";
-  text-decoration: none; }
-
-.card-showComents {
-  width: 80vw;
-  font-family: "Work Sans"; }
-  .card-showComents h3 {
     font-size: 1.5rem; }
 
 .reseña {
@@ -1520,12 +1437,6 @@ ul {
   grid-template-columns: 0.7fr 6fr;
   padding: 1vh 0 2vh 0; }
 
-.reseña {
-  display: grid;
-  grid-template-columns: 0.7fr 6fr;
-  padding: 1vh 0 2vh 0; }
-
-.reseñaCara {
 .reseñaCara {
   display: flex;
   align-items: center;
@@ -1538,37 +1449,18 @@ ul {
 
 .reseñaTexto {
   font-size: 1.1rem; }
-  justify-content: center; }
-
-.reseñaNombre {
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end; }
-
-.reseñaTexto {
-  font-size: 1.1rem; }
 
 .reseñaEstrellas {
   display: flex;
   justify-content: center; }
-.reseñaEstrellas {
-  display: flex;
-  justify-content: center; }
 
-.card-compra {
 .card-compra {
   margin: 5vh; }
 
 #countdown-container {
   padding: 2vh;
   display: grid;
-#countdown-container {
-  padding: 2vh;
-  display: grid;
   justify-content: center;
-  align-items: center;
-  font-size: 1.6rem;
-  font-weight: bold; }
   align-items: center;
   font-size: 1.6rem;
   font-weight: bold; }
@@ -1640,3 +1532,277 @@ ul {
     gap: 20px;
     height: calc(85vh - 110px - 110px);
     overflow-y: auto; } }
+
+.hide {
+  display: none !important; }
+
+.login {
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: #D9D9D9;
+  margin: 10vh auto;
+  padding: 5vh;
+  font-family: "Work Sans";
+  border: 0.188rem solid #0642F9;
+  border-radius: 0.313rem;
+  width: 65vw; }
+
+.titleLogin {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin: 0; }
+  .titleLogin img {
+    width: 9vh; }
+
+.accede p {
+  font-size: 1.625rem;
+  font-weight: bold;
+  margin: 0; }
+
+.registrate p {
+  font-size: 1.375rem;
+  margin-top: 1%;
+  margin-bottom: 2%; }
+
+.registrate a {
+  text-decoration: none;
+  color: #0642F9; }
+
+.contraLogin {
+  margin-top: 1rem;
+  font-size: 1.5rem; }
+  .contraLogin input {
+    position: relative;
+    width: 100%;
+    padding: 2vh;
+    font-size: 1rem;
+    margin-top: 0.3rem; }
+
+.correoLogin {
+  margin-top: 1rem;
+  font-size: 1.5rem; }
+  .correoLogin input {
+    position: relative;
+    width: 100%;
+    padding: 2vh;
+    font-size: 1rem;
+    margin-top: 0.3rem; }
+
+.emailerror {
+  color: red;
+  font-size: 1.1rem;
+  font-family: "Work Sans";
+  text-decoration: none; }
+
+.passworderror {
+  color: red;
+  font-size: 1.1rem;
+  font-family: "Work Sans";
+  text-decoration: none; }
+
+.olvidadoContra {
+  text-align: right;
+  margin: 0;
+  margin-top: 1%;
+  font-size: 1.25rem; }
+  .olvidadoContra a {
+    text-decoration: none;
+    color: #0642F9; }
+
+.toggle-password {
+  position: absolute;
+  transform: translateY(-120%);
+  cursor: pointer;
+  right: 19%; }
+
+@media screen and (max-width: 450px) {
+  .login {
+    width: 90vw;
+    background-color: transparent;
+    border: transparent;
+    font-family: "Work Sans";
+    margin: 0 auto;
+    padding: 2vh; }
+  .titleLogin {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0; }
+  .accede p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 5%; }
+  .registrate p {
+    font-size: 1.2rem;
+    margin-top: 1%;
+    margin-bottom: 2%; }
+  .correoLogin span {
+    color: #0642F9;
+    font-size: 1rem;
+    font-family: "Work Sans";
+    text-decoration: none; }
+  .correoLogin label {
+    display: block;
+    font-size: 1.3rem;
+    margin-top: 1.2rem; }
+  .correoLogin input {
+    position: relative;
+    width: 100%;
+    padding: 2vh;
+    font-size: 1rem; }
+  .contraLogin span {
+    color: #0642F9;
+    font-size: 1rem;
+    font-family: "Work Sans";
+    text-decoration: none; }
+  .contraLogin label {
+    display: block;
+    font-size: 1.3rem;
+    margin-top: 1.2rem; }
+  .contraLogin input {
+    position: relative;
+    width: 100%;
+    padding: 2vh;
+    font-size: 1rem; }
+  .credenciales {
+    display: flex;
+    justify-content: center;
+    color: #0642F9;
+    margin-top: 1.5%;
+    font-size: 1.1rem;
+    font-family: "Work Sans";
+    text-decoration: none; }
+  .correoReset label {
+    display: block;
+    font-size: 1.3rem;
+    margin-top: 1.2rem; }
+  .toggle-password {
+    position: absolute;
+    transform: translateY(-120%);
+    right: 9%; }
+  .olvidadoContra {
+    text-align: right;
+    margin: 0;
+    margin-top: 3%;
+    font-size: 1.1rem; }
+  .btnIniciaSesion {
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2vh;
+    display: block;
+    font-size: 1.2rem; } }
+
+.resetPwd {
+  width: 65vw;
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: #D9D9D9;
+  margin: 10vh auto;
+  padding: 5vh;
+  font-family: "Work Sans";
+  border: 0.188rem solid;
+  border-color: #0642F9;
+  border-radius: 0.313rem; }
+
+.titleResetPwd {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin: 0; }
+  .titleResetPwd img {
+    width: 9vh; }
+
+.txtResetPwd p {
+  font-size: 1.375rem;
+  margin-top: 1%;
+  margin-bottom: 2%; }
+
+.correoReset label {
+  display: block;
+  font-size: 1.5rem;
+  margin-top: 1rem; }
+
+.correoReset input {
+  width: -webkit-fill-available;
+  padding: 2vh;
+  font-size: 1rem;
+  margin-top: 0.313rem; }
+
+.volverInicioSesion {
+  text-align: left;
+  margin-top: 1rem;
+  font-size: 1.25rem; }
+  .volverInicioSesion a {
+    text-decoration: none;
+    color: #0642F9; }
+
+.btnResetPwd {
+  padding: 2vh;
+  border-radius: 7px;
+  background-color: #F9BD06;
+  border-color: #0642F9;
+  margin-top: 2.5%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  font-size: 1.2rem;
+  cursor: pointer; }
+  .btnResetPwd:hover {
+    background-color: #e6ad05;
+    border-color: #0642F9; }
+
+.resetPwdExito {
+  color: green;
+  font-size: 1.1rem;
+  font-family: 'Work Sans'; }
+
+.resetPwdError {
+  color: red;
+  font-size: 1.1rem;
+  font-family: 'Work Sans';
+  text-decoration: none; }
+
+@media screen and (max-width: 450px) {
+  .resetPwd {
+    width: 90vw;
+    padding: 2vh;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    border: transparent;
+    font-family: "Work Sans"; }
+  .titleResetPwd {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0; }
+    .titleResetPwd img {
+      width: 9vh; }
+  .txtResetPwd p {
+    font-size: 1.2em; }
+  .correoReset input {
+    width: -webkit-fill-available;
+    padding: 2vh;
+    font-size: 1rem; }
+  .volverInicioSesion {
+    text-align: center;
+    margin: 0;
+    margin-top: 10%;
+    font-size: 1.25rem; } }
