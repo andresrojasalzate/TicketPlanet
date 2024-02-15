@@ -20,7 +20,7 @@
         @if ($categories != null && !$categories->isEmpty())
 
             @foreach ($categories as $category)
-                <x-mostrar-categoria-component :nombreCategoria="$category->name" :events="$category->events" :categoryId="$category->id" />
+                <x-mostrar-categoria-component :nombreCategoria="$category->name" :events="$category->eventsLimited" :categoryId="$category->id" />
             @endforeach
         @else
             <div class="eventos-no-encontrados">
