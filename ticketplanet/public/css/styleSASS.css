@@ -224,6 +224,10 @@ ul {
     align-items: center;
     padding: 5% 0% 5% 10%; } }
 
+.botones {
+  display: flex;
+  justify-content: space-evenly; }
+
 .btnCrearSesion {
   height: 40px;
   border-radius: 7px;
@@ -1230,6 +1234,26 @@ ul {
         display: block;
         font-size: 1.2rem;
         cursor: pointer; }
+  .card-compra .compraExito {
+    width: 50%;
+    background-color: #01781cc7;
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 3%;
+    margin: 5% 0% 5% 20%;
+    justify-content: space-evenly;
+    font-size: 18px; }
+  .card-compra .compraFallido {
+    width: 50%;
+    background-color: #ff0000cf;
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 3%;
+    margin: 5% 0% 5% 20%;
+    justify-content: space-evenly;
+    font-size: 18px; }
   @media screen and (max-width: 450px) {
     .card-compra .contenedor-info {
       width: 70vw !important; } }
