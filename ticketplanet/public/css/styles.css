@@ -599,20 +599,6 @@ body.body-resetPwd .menuIMG {
 }
 
 
-/*LOGIN*/
-.login {
-    display: grid;
-    grid-template-columns: 1fr;
-    background-color: #D9D9D9;
-    margin: 4.5% auto;
-    padding: 2.5%;
-    font-family: 'Work Sans';
-    border: 0.188rem solid #0642F9;
-    border-radius: 0.313rem;
-    width: 65vw;
-}
-
-
 .card-form-reset {
     width: 40%;
     background-color: #D9D9D9;
@@ -634,6 +620,21 @@ body.body-resetPwd .menuIMG {
     border-color: #0642F9;
     border-radius: 0.313rem;
 }
+
+
+/*LOGIN*/
+.login {
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: #D9D9D9;
+    margin: 4.5% auto;
+    padding: 2.5%;
+    font-family: 'Work Sans';
+    border: 0.188rem solid #0642F9;
+    border-radius: 0.313rem;
+    width: 65vw;
+}
+
 
 .titleLogin {
     display: flex;
@@ -852,66 +853,6 @@ body.body-resetPwd .menuIMG {
     font-family: 'Work Sans';
 }
 
-.img-showEvent {
-    flex: 1;
-    height: 20%;
-}
-
-.img-showEvent img {
-    width: 100%;
-}
-
-.info-showEvent {
-    flex: 1;
-    font-family: 'Work Sans';
-    font-size: 1.2rem;
-    margin: 20px;
-}
-
-
-.ubicacion-title-showEvent {
-    display: flex;
-    align-items: center;
-
-}
-
-.ubicacion-title-showEvent img {
-    padding-left: 10px;
-    width: 2vh;
-    height: 3vh;
-}
-
-.ubicacion-showEvent p {
-    margin: 0;
-}
-
-.select-wrapper {
-    position: relative;
-    margin-top: 5px;
-}
-
-.select-wrapper select {
-    width: 80%;
-    height: 3vh;
-    cursor: pointer;
-}
-
-.card-timeSesion .session-time {
-    background-color: #F9BD06;
-    border-radius: 7px;
-    cursor: pointer;
-    margin-bottom: 5px;
-    padding: 1vh;
-}
-
-.card-timeSesion {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    justify-items: center;
-    grid-gap: 10px;
-    align-items: center;
-}
-
 .eventos-no-encontrados {
     color: #0642F9;
     font-size: 40px;
@@ -920,86 +861,6 @@ body.body-resetPwd .menuIMG {
     padding: 19vh;
 }
 
-/*MOSTRAR EVENTOS*/
-.card-showEvent {
-    display: flex;
-    flex-wrap: wrap;
-
-    flex-direction: row;
-    background-color: #D9D9D9;
-    margin: 5vh auto;
-    border: 3px solid;
-    border-color: #F9BD06;
-    box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5);
-}
-
-
-.card-showTickets {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.ticket-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    padding: 2vh;
-    background-color: #D9D9D9;
-    margin: 5vh auto;
-    border: 3px solid;
-    border-color: #F9BD06;
-    box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5);
-    font-size: 1.1rem;
-}
-
-
-.ticket-container input {
-    padding: 2vh;
-    font-size: 1rem;
-    margin-left: auto;
-}
-
-#total-price-container {
-    width: 35vh;
-    display: grid;
-    grid-template-columns: 0.3fr 1.3fr 1fr;
-    justify-items: center;
-    align-items: center;
-    margin: 2vh;
-    margin-left: auto;
-}
-
-#total-price-container p {
-    font-size: 1.2rem;
-    font-family: 'Work Sans';
-    color: #000000;
-
-}
-
-#buy-button {
-    padding: 2vh;
-    border-radius: 7px;
-    background-color: #F9BD06;
-    border-color: #0642F9;
-    margin: 1vh;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    font-size: 1.2rem;
-    cursor: pointer;
-}
-
-.card-margin {
-    margin: 5vh;
-}
-
-
-.card-showTickets {
-    display: none;
-}
 
 .mostar-sesiones-promotor {
     margin-left: 20%;
@@ -1087,7 +948,6 @@ body.body-resetPwd .menuIMG {
 }
 
 
-
 /*------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------*/
@@ -1095,6 +955,148 @@ body.body-resetPwd .menuIMG {
 /*------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------*/
 
+/*MOSTRAR EVENTOS*/
+.card-margin {
+    margin: 5vh;
+}
+
+.card-showEvent {
+    display: flex;
+    flex-wrap: wrap;
+
+    flex-direction: row;
+    background-color: #D9D9D9;
+    margin: 5vh auto;
+    border: 3px solid;
+    border-color: #F9BD06;
+    box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.img-showEvent {
+    flex: 1;
+    height: 20%;
+}
+
+.img-showEvent img {
+    width: 100%;
+}
+
+.info-showEvent {
+    flex: 1;
+    font-family: 'Work Sans';
+    font-size: 1.2rem;
+    margin: 20px;
+}
+
+.ubicacion-showEvent p {
+    margin: 0;
+}
+
+.ubicacion-title-showEvent {
+    display: flex;
+    align-items: center;
+
+}
+
+.ubicacion-title-showEvent img {
+    padding-left: 10px;
+    width: 2vh;
+    height: 3vh;
+}
+
+.select-wrapper {
+    position: relative;
+    margin-top: 5px;
+}
+
+.select-wrapper select {
+    width: 80%;
+    height: 3vh;
+    cursor: pointer;
+}
+
+.card-timeSesion .session-time {
+    background-color: #F9BD06;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    padding: 1vh;
+}
+
+.card-timeSesion {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    justify-items: center;
+    grid-gap: 10px;
+    align-items: center;
+}
+
+.card-showTickets {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.card-showTickets {
+    display: none;
+}
+
+.ticket-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2vh;
+    background-color: #D9D9D9;
+    margin: 5vh auto;
+    border: 3px solid;
+    border-color: #F9BD06;
+    box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5);
+    font-size: 1.1rem;
+}
+
+
+.ticket-container input {
+    padding: 2vh;
+    font-size: 1rem;
+    margin-left: auto;
+}
+
+#total-price-container {
+    width: 35vh;
+    display: grid;
+    grid-template-columns: 0.3fr 1.3fr 1fr;
+    justify-items: center;
+    align-items: center;
+    margin: 2vh;
+    margin-left: auto;
+}
+
+#total-price-container p {
+    font-size: 1.2rem;
+    font-family: 'Work Sans';
+    color: #000000;
+
+}
+
+
+#buy-button {
+    padding: 2vh;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    margin: 1vh;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/*------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------*/
 /*VALORACIÓN*/
 .card-form-valoracion {
     width: 53vh;

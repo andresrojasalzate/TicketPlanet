@@ -1201,128 +1201,84 @@ ul {
     .card-compra .contenedor-info {
       width: 70vw !important; } }
 
-/*body {
-  margin: 0%;
-  &.body-login{
-    .NavLogo{
-      display: none;
-    }
-    
-    .auth{
-      display: none;
-    }
-    .menuImg{
-      display: none;
-    }
-  }
-  &.body-ResetPwd{
-    .NavLogo{
-      display: none;
-    }
-    .auth{
-      display: none;
-    }
-    .menuImg{
-      display: none;
-    }
-  }
+.card-margin {
+  margin: 5vh; }
 
-}*/
-.show-session-promotor {
+.card-showEvent {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
-  background-color: #B5B5B5;
-  border: 5px solid;
+  background-color: #D9D9D9;
+  margin: 5vh auto;
+  border: 3px solid;
   border-color: #F9BD06;
-  margin-left: 5%;
-  margin-right: 5%; }
+  box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5); }
 
-.event-counter {
+.img-showEvent {
+  flex: 1;
+  height: 20%; }
+  .img-showEvent img {
+    width: 100%; }
+
+.info-showEvent {
+  flex: 1;
+  font-family: "Work Sans";
+  font-size: 1.2rem;
+  margin: 20px; }
+
+.ubicacion-showEvent p {
+  margin: 0; }
+
+.ubicacion-showEvent .ubicacion-title-showEvent {
+  display: flex;
+  align-items: center; }
+  .ubicacion-showEvent .ubicacion-title-showEvent img {
+    padding-left: 10px;
+    width: 2vh;
+    height: 3vh; }
+
+.select-wrapper {
+  position: relative;
+  margin-top: 5px; }
+  .select-wrapper select {
+    width: 80%;
+    height: 3vh;
+    cursor: pointer; }
+
+.card-timeSesion {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(30vh, 1fr));
-  /* Usamos auto-fill para ajustar dinámicamente el número de columnas */
-  gap: 20px;
-  margin: 2%; }
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  justify-items: center;
+  grid-gap: 10px;
+  align-items: center; }
+  .card-timeSesion .session-time {
+    background-color: #F9BD06;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    padding: 1vh; }
 
-.event-showHome {
-  max-width: 30vh;
-  min-width: 30vh;
-  min-height: 50vh;
-  max-height: 50vh;
-  background-color: #ebebeb;
-  margin-bottom: 5%;
-  border: 5px solid;
+.card-showTickets {
+  display: none;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.ticket-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 2vh;
+  background-color: #D9D9D9;
+  margin: 5vh auto;
+  border: 3px solid;
   border-color: #F9BD06;
-  cursor: pointer;
-  font-family: 'Work Sans';
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-decoration: none;
-  position: relative; }
-  .event-showHome a {
-    color: #000000;
-    text-decoration: none; }
-  .event-showHome-img {
-    width: 100%;
-    height: 35%; }
-  .event-showHome-title {
-    font-size: 1.4rem;
-    margin: 5%;
-    overflow: hidden;
-    text-overflow: ellipsis; }
-  .event-showHome:hover {
-    background-color: #D9D9D9;
-    border-color: #e6ad05; }
-
-.elementsEvents {
-  display: flex;
-  flex-direction: column; }
-  .elementsEvents img {
-    padding-right: 2%; }
-  .elementsEvents p {
-    display: flex;
-    align-items: center;
-    justify-content: left;
+  box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5);
+  font-size: 1.1rem; }
+  .ticket-container input {
+    padding: 2vh;
     font-size: 1rem;
-    margin: 5%; }
-
-.pagination {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 20px 0; }
-  .paginationContenedorMenu {
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-  .pagination-menu {
-    margin-right: 12vh; }
-  .pagination-info {
-    align-self: center;
-    justify-self: center;
-    margin-left: 9vh; }
-    .pagination-info > p, .pagination-info > span {
-      font-weight: bold;
-      font-size: 1.2em; }
-  .pagination .disabled a, .pagination .disabled span {
-    color: #999;
-    pointer-events: none;
-    cursor: not-allowed; }
-  .pagination .active span {
-    background-color: #0642F9;
-    color: #F9BD06;
-    cursor: default; }
-  .pagination a, .pagination span {
-    display: inline-block;
-    padding: 8px 12px;
-    text-decoration: none;
-    color: #333;
-    background-color: #fff;
-    border: 1px solid #000000; }
-    .pagination a:hover, .pagination span:hover {
-      background-color: #e2e2e2; }
-  .pagination li {
-    margin-right: 5px; }
+    margin-left: auto; }
 
 #total-price-container {
   width: 35vh;
@@ -1334,7 +1290,7 @@ ul {
   margin-left: auto; }
   #total-price-container p {
     font-size: 1.2rem;
-    font-family: 'Work Sans';
+    font-family: "Work Sans";
     color: #000000; }
 
 #buy-button {
@@ -1349,8 +1305,103 @@ ul {
   font-size: 1.2rem;
   cursor: pointer; }
 
-.font-medium {
-  color: #000000; }
+.mensaje-error {
+  color: red;
+  font-size: 1.1rem;
+  font-family: "Work Sans";
+  text-decoration: none; }
+
+.card-showComents {
+  width: 80vw;
+  font-family: "Work Sans"; }
+  .card-showComents h3 {
+    font-size: 1.5rem; }
+
+.reseña {
+  display: grid;
+  grid-template-columns: 0.7fr 6fr;
+  padding: 1vh 0 2vh 0; }
+
+.reseñaCara {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.reseñaNombre {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end; }
+
+.reseñaTexto {
+  font-size: 1.1rem; }
+
+.reseñaEstrellas {
+  display: flex;
+  justify-content: center; }
+
+.card-compra {
+  margin: 5vh; }
+
+#countdown-container {
+  padding: 2vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  font-weight: bold; }
+
+@media screen and (max-width: 450px) {
+  .card-showEvent {
+    display: flex;
+    flex-direction: column;
+    background-color: #D9D9D9;
+    margin: 10vw auto;
+    border: 3px solid;
+    border-color: #F9BD06;
+    box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5); }
+  .img-showEvent {
+    flex: 1; }
+  .info-showEvent {
+    flex: 1;
+    font-family: "Work Sans";
+    margin: 10px; }
+  .ubicacion-title-showEvent {
+    display: flex;
+    align-items: center;
+    width: 100%; }
+  .ubicacion-showEvent p {
+    margin: 0; }
+  .sesions-showEvent {
+    width: 100%; }
+  .select-wrapper {
+    position: relative;
+    width: 80%;
+    margin-top: 5px; }
+  .select-wrapper select {
+    width: 100%;
+    height: 7vw; }
+  .card-timeSesion .session-time {
+    background-color: #F9BD06;
+    border-radius: 7px;
+    margin-bottom: 5px; }
+  .card-timeSesion {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    justify-items: center;
+    grid-gap: 10px;
+    align-items: center; }
+  #total-price-container {
+    width: 30vh;
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    justify-items: center;
+    align-items: center;
+    margin: auto; }
+  .ticket-container input {
+    padding: 1vh;
+    font-size: 1rem;
+    margin-left: auto;
+    margin: 1vh; } }
 
 .login {
   display: grid;
@@ -1358,70 +1409,12 @@ ul {
   background-color: #D9D9D9;
   margin: 4.5% auto;
   padding: 2.5%;
-  font-family: 'Work Sans';
+  font-family: "Work Sans";
   border: 0.188rem solid #0642F9;
   border-radius: 0.313rem;
   width: 65vw; }
-  .loginCorreo span {
-    color: red;
-    font-size: 1.1rem;
-    font-family: 'Work Sans';
-    text-decoration: none; }
-  .loginCorreo label {
-    font-size: 1.5rem; }
-  .loginCorreo input {
-    position: relative;
-    width: 100%;
-    padding: 2vh;
-    font-size: 1rem;
-    margin-top: 0.3rem; }
-  .loginContra span {
-    color: red;
-    font-size: 1.1rem;
-    font-family: 'Work Sans';
-    text-decoration: none; }
-  .loginContra label {
-    font-size: 1.5rem; }
-  .loginContra input {
-    position: relative;
-    width: 100%;
-    padding: 2vh;
-    font-size: 1rem;
-    margin-top: 0.3rem; }
-  .loginTitle {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 2.25rem;
-    font-weight: bold;
-    margin: 0; }
 
-.CorreoReset label {
-  display: block;
-  font-size: 1.5rem;
-  margin-top: 1rem; }
-
-.CorreoReset input {
-  width: 100%;
-  padding: 2vh;
-  font-size: 1rem;
-  margin-top: 0.313rem; }
-
-.volverInicioSession {
-  text-align: left;
-  margin-top: 1rem;
-  font-size: 1.25rem; }
-  .volverInicioSession a {
-    text-decoration: none;
-    color: #0642F9; }
-
-.credenciales-success, .correcto {
-  color: green;
-  font-size: 1.1rem;
-  font-family: 'Work Sans'; }
-
-.titleResetPwd {
+.titleLogin {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -1429,35 +1422,52 @@ ul {
   font-size: 2.25rem;
   font-weight: bold;
   margin: 0; }
-  .titleResetPwd p {
-    font-size: 1.375rem;
-    margin-top: 1%;
-    margin-bottom: 2%; }
 
-.resetPwd {
-  width: 65vw;
-  display: grid;
-  grid-template-columns: 1fr;
-  background-color: #D9D9D9;
-  margin: 4.5% auto;
-  padding: 2.5%;
-  font-family: 'Work Sans';
-  border: 0.188rem solid;
-  border-color: #0642F9;
-  border-radius: 0.313rem; }
-  .resetPwdExito {
-    color: green; }
-  .resetPwdTitle {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    font-size: 2.25rem;
-    font-weight: bold;
-    margin: 0; }
-  .resetPwdText p {
-    font-size: 1.375rem;
-    margin-top: 1%;
-    margin-bottom: 2%; }
+.accede p {
+  font-size: 1.625rem;
+  font-weight: bold;
+  margin: 0; }
+
+.registrate p {
+  font-size: 1.375rem;
+  margin-top: 1%;
+  margin-bottom: 2%; }
+
+.registrate a {
+  text-decoration: none;
+  color: #0642F9; }
+
+.contraLogin {
+  margin-top: 1rem;
+  font-size: 1.5rem; }
+  .contraLogin input {
+    position: relative;
+    width: 100%;
+    padding: 2vh;
+    font-size: 1rem;
+    margin-top: 0.3rem; }
+
+.correoLogin {
+  margin-top: 1rem;
+  font-size: 1.5rem; }
+  .correoLogin input {
+    position: relative;
+    width: 100%;
+    padding: 2vh;
+    font-size: 1rem;
+    margin-top: 0.3rem; }
+
+.emailerror {
+  color: red;
+  font-size: 1.1rem;
+  font-family: "Work Sans";
+  text-decoration: none; }
+
+.passworderror {
+  color: red;
+  font-size: 1.1rem;
+  font-family: "Work Sans";
+  text-decoration: none; }
 
 .olvidadoContra {
   text-align: right;
@@ -1473,415 +1483,21 @@ ul {
   transform: translateY(-120%);
   cursor: pointer;
   right: 19%; }
-  .toggle-password img {
-    width: 20%;
-    height: 15%; }
 
-.accede p {
-  font-size: 1.625rem;
-  font-weight: bold;
-  margin: 0; }
-
-.registrate a {
-  text-decoration: none;
-  color: #0642F9; }
-
-.registrate p {
-  font-size: 1.375rem;
-  margin-top: 1%;
-  margin-bottom: 2%; }
-
-.eventos-no-encontrados {
-  color: #0642F9;
-  font-size: 40px;
-  text-align: center;
-  justify-content: center;
-  padding: 19vh; }
-
-.card-margin {
-  margin: 5vh; }
-
-.card-showTickets {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; }
-
-.card-showEvent {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  background-color: #D9D9D9;
-  margin: 5vh auto;
-  border: 3px solid;
-  border-color: #F9BD06;
-  box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5); }
-
-.card-timeSesion {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  justify-items: center;
-  grid-gap: 10px;
-  align-items: center; }
-  .card-timeSesion .session-time {
-    background-color: #F9BD06;
-    border-radius: 7px;
-    cursor: pointer;
-    margin-bottom: 5px; }
-
-.card-expired {
-  width: 32%;
-  background-color: #D9D9D9;
-  margin: 3% auto;
-  padding: 1% 2%;
-  font-family: 'Work Sans';
-  border: 0.188rem solid;
-  border-color: #0642F9;
-  border-radius: 0.313rem; }
-  .card-expired a {
-    color: #0642F9; }
-
-.card-reset {
-  width: 100%;
-  height: 100%; }
-  .card-reset-form {
-    width: 40%;
-    background-color: #D9D9D9;
-    margin: 2% auto;
-    padding: 1% 2%;
-    font-family: 'Work Sans';
-    border: 0.188rem solid;
-    border-color: #0642F9;
-    border-radius: 0.313rem; }
-
-.info-session {
-  display: flex;
-  flex-direction: row;
-  align-items: center; }
-  .info-session > img {
-    margin-right: 5%; }
-
-.sesion-parte-superior {
-  display: flex;
-  flex-direction: row; }
-
-.sessions-promotor-imagen {
-  max-height: 30vh;
-  max-width: 15vh;
-  margin-right: 10%; }
-
-.sessions-promotor-show {
-  display: flex;
-  flex-direction: row;
-  background-color: #B5B5B5;
-  border: 5px solid;
-  border-color: #F9BD06;
-  margin-bottom: 5%; }
-
-.sessions-promotor-buttons {
-  display: flex;
-  flex-direction: column;
-  margin-top: 5%; }
-  .sessions-promotor-buttons > button {
-    margin-bottom: 2%;
-    margin-left: 5%;
-    margin-right: 5%;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-radius: 7px;
-    background-color: #F9BD06;
-    border-color: #0642F9; }
-
-.sessions-promotor-mostrar {
-  margin-left: 20%;
-  margin-right: 20%; }
-
-.sessions-promotor-titulo {
-  text-align: center;
-  color: #0642F9; }
-
-.info-session-contenedor {
-  margin-right: 10%; }
-
-.mostrar-acciones {
-  display: none; }
-  .mostrar-acciones > img {
-    margin-top: auto;
-    margin-bottom: auto;
-    max-width: 40px; }
-
-.mensaje-error {
-  color: red;
-  font-size: 1.1rem;
-  font-family: 'Work Sans';
-  text-decoration: none; }
-
-.showEvent-info {
-  flex: 1;
-  font-family: 'Work Sans';
-  font-size: 1.2rem;
-  margin: 20px; }
-
-.showEvent-img {
-  flex: 1;
-  height: 20%; }
-  .showEvent-img img {
-    width: 100%; }
-
-.showEvent-ubicacion p {
-  margin: 0; }
-
-.showEvent-ubicacion-title {
-  display: flex;
-  align-items: center; }
-  .showEvent-ubicacion-title img {
-    padding-left: 10px;
-    width: 3%;
-    height: 3%; }
-
-.showEvent-info {
-  flex: 1;
-  font-family: 'Work Sans';
-  font-size: 1.2rem;
-  margin: 20px; }
-
-.showEvent-card {
-  display: flex;
-  flex-wrap: wrap;
-  width: 90%;
-  flex-direction: row;
-  background-color: #D9D9D9;
-  margin: 5% auto;
-  border: 3px solid;
-  border-color: #F9BD06;
-  box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5); }
-
-.showEvent-home-title {
-  font-size: 1.4rem;
-  margin: 5%;
-  overflow: hidden;
-  text-overflow: ellipsis; }
-
-.showEvent-home-img {
-  width: 100%;
-  height: 35%; }
-
-.showEvent-home a {
-  color: #000000;
-  text-decoration: none; }
-
-.showEvent-img {
-  flex: 1;
-  height: 20%; }
-  .showEvent-img img {
-    width: 100%; }
-
-.select-wrapper {
-  position: relative;
-  margin-top: 5px; }
-  .select-wrapper select {
-    width: 80%;
-    height: 2vw;
-    cursor: pointer; }
-
-.credenciales, .emailerror, .passworderror, .resetPwdError, .invalid-feedback {
-  color: red;
-  font-size: 1.1rem;
-  font-family: 'Work Sans';
-  text-decoration: none; }
-
-.resetPwdExito {
-  color: green;
-  font-size: 1.1rem;
-  font-family: 'Work Sans'; }
-
-.imagenUsuarioDespegable {
-  margin-top: 1vh;
-  padding-left: 40px; }
-
-.links a {
-  font-weight: bold;
-  color: #F9BD06;
-  text-decoration: none;
-  font-size: 1.75rem;
-  font-family: 'Work Sans'; }
-
-.titulo-sessions-promotor {
-  text-align: center;
-  color: #0642F9; }
-
-.imagen-sesion-promotor {
-  max-height: 30vh;
-  max-width: 15vh;
-  margin-right: 10%; }
-
-.botones {
-  display: flex;
-  justify-content: space-evenly; }
-
-.layoutHomePromotor {
-  height: 200px;
-  margin-top: 1%; }
-
-.readonly-field {
-  background-color: #f2f2f2;
-  color: #666;
-  border: 1px solid #ccc; }
-
-@media screen and (max-width: 425px) {
-  .event-counter {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(29vh, 1fr));
-    gap: 20px;
-    height: calc(85vh - 110px - 110px);
-    overflow-y: auto; }
-  .ticket-container input {
-    padding: 1vh;
-    font-size: 1rem;
-    margin-left: auto; }
-  #total-price-container {
-    width: 30vh;
-    display: grid;
-    grid-template-columns: 1fr 5fr 1fr;
-    justify-items: center;
-    align-items: center;
-    margin: auto; }
-  .div_filtro {
-    border: 1px solid #000000;
-    background-color: #B5B5B5;
-    margin: auto;
-    margin-top: 1%;
-    padding: 2vh;
-    width: 24vh;
-    display: none; }
-  .imagenUsuarioDespegable {
-    display: flex;
-    padding-left: 5%; }
-  .showEvent-img {
-    flex: 1;
-    font-family: 'Work Sans';
-    margin: 10px; }
-  .showEvent-card {
-    display: flex;
-    flex-direction: column;
-    background-color: #D9D9D9;
-    margin: 10vw auto;
-    border: 3px solid;
-    border-color: #F9BD06;
-    box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5); }
-  .showEvent-home-img {
-    width: 100%;
-    height: 27%; }
-  .showEvent-sessions {
-    width: 100%; }
-  .showEvent-ubicacion p {
-    margin: 0; }
-  .showEvent-ubicacion-title {
-    display: flex;
-    align-items: center;
-    width: 100%; }
-    .showEvent-ubicacion-title img {
-      padding-left: 10px; }
-  .showEvent-card {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    background-color: #D9D9D9;
-    margin: 10vw auto;
-    border: 3px solid;
-    border-color: #F9BD06;
-    box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5); }
-  .showEvent-info {
-    flex: 1;
-    font-family: 'Work Sans';
-    margin: 10px; }
-  .showEvent-img {
-    flex: 1; }
-  .showEvent-home-img {
-    width: 100%;
-    height: 27%; }
-  .olvidadoContra {
-    text-align: right;
-    margin: 0;
-    margin-top: 3%;
-    font-size: 1.1rem; }
-  .credenciales, .emailerror, .passworderror, .resetPwdError, .invalid-feedback {
-    display: flex;
-    justify-content: center;
-    color: red;
-    margin-top: 1.5%;
-    font-size: 1.1rem;
-    font-family: 'Work Sans';
-    text-decoration: none; }
-  .correoReset label {
-    display: block;
-    font-size: 1.3rem;
-    margin-top: 1.2rem; }
-  .correoReset input {
-    width: 100%;
-    padding: 2vh;
-    font-size: 1rem; }
-  .toggle-password {
-    position: absolute;
-    transform: translateY(-120%);
-    right: 9%; }
-    .toggle-password img {
-      width: 30%;
-      height: 20%;
-      margin-left: 210%; }
+@media screen and (max-width: 450px) {
   .login {
     width: 90vw;
     background-color: transparent;
     border: transparent;
-    font-family: 'Work Sans'; }
-    .loginCorreo {
-      margin-top: 1rem; }
-      .loginCorreoReset label {
-        display: block;
-        font-size: 1.3rem;
-        margin-top: 1.2rem; }
-      .loginCorreologin input {
-        position: relative;
-        width: 100%;
-        padding: 2vh;
-        font-size: 1rem; }
-      .loginCorreologin label {
-        display: block;
-        font-size: 1.3rem;
-        margin-top: 1.2rem; }
-      .loginCorreo span {
-        color: red;
-        font-size: 1rem;
-        font-family: 'Work Sans';
-        text-decoration: none; }
-    .loginContra {
-      margin-top: 1rem; }
-      .loginContralogin input {
-        position: relative;
-        width: 100%;
-        padding: 2vh;
-        font-size: 1rem; }
-      .loginContralogin label {
-        display: block;
-        font-size: 1.3rem;
-        margin-top: 1.2rem; }
-      .loginContra span {
-        color: red;
-        font-size: 1rem;
-        font-family: 'Work Sans';
-        text-decoration: none; }
-    .loginTitle {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 2rem;
-      font-weight: bold;
-      margin: 0; }
-      .loginTitle img {
-        width: 18%;
-        height: 70%; }
+    font-family: "Work Sans"; }
+  .titleLogin {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0; }
   .accede p {
     font-size: 1.5rem;
     font-weight: bold;
@@ -1890,93 +1506,62 @@ ul {
     font-size: 1.2rem;
     margin-top: 1%;
     margin-bottom: 2%; }
-  .resetPwd {
-    width: 95%;
-    height: 69%;
-    display: flex;
-    flex-direction: column;
-    background-color: transparent;
-    border: transparent;
-    font-family: 'Work Sans'; }
-    .resetPwdtitle {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 2rem;
-      font-weight: bold;
-      margin: 0; }
-      .resetPwdtitle p {
-        font-size: 1.2em; }
-      .resetPwdtitle img {
-        width: 19%;
-        height: 50%; }
-  .volverInicioSession {
-    text-align: center;
-    margin: 0;
-    margin-top: 10%;
-    font-size: 1.25rem; }
-  .correoReset input {
-    width: 100%;
-    height: 27%;
-    font-size: 1rem; }
-  .select-wrapper {
+  .correoLogin span {
+    color: #0642F9;
+    font-size: 1rem;
+    font-family: "Work Sans";
+    text-decoration: none; }
+  .correoLogin label {
+    display: block;
+    font-size: 1.3rem;
+    margin-top: 1.2rem; }
+  .correoLogin input {
     position: relative;
-    width: 80%;
-    margin-top: 5px; }
-    .select-wrapper select {
-      width: 100%;
-      height: 7vw; }
-  .card-expired {
-    width: 65vw;
-    margin: 3% auto;
-    padding: 1% 2%; }
-  .card-form-reset {
-    width: 80vw;
-    background-color: #D9D9D9;
-    margin: 2% auto;
-    padding: 1% 2%;
-    font-family: 'Work Sans';
-    border: 0.188rem solid;
+    width: 100%;
+    padding: 2vh;
+    font-size: 1rem; }
+  .contraLogin span {
+    color: #0642F9;
+    font-size: 1rem;
+    font-family: "Work Sans";
+    text-decoration: none; }
+  .contraLogin label {
+    display: block;
+    font-size: 1.3rem;
+    margin-top: 1.2rem; }
+  .contraLogin input {
+    position: relative;
+    width: 100%;
+    padding: 2vh;
+    font-size: 1rem; }
+  .credenciales {
+    display: flex;
+    justify-content: center;
+    color: #0642F9;
+    margin-top: 1.5%;
+    font-size: 1.1rem;
+    font-family: "Work Sans";
+    text-decoration: none; }
+  .correoReset label {
+    display: block;
+    font-size: 1.3rem;
+    margin-top: 1.2rem; }
+  .toggle-password {
+    position: absolute;
+    transform: translateY(-120%);
+    right: 9%; }
+  .olvidadoContra {
+    text-align: right;
+    margin: 0;
+    margin-top: 3%;
+    font-size: 1.1rem; }
+  .btnIniciaSesion {
+    border-radius: 7px;
+    background-color: #F9BD06;
     border-color: #0642F9;
-    border-radius: 0.313rem; }
-  .card-timeSession {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    justify-items: center;
-    grid-gap: 10px;
-    align-items: center; }
-    .card-timeSession .session-time {
-      background-color: #F9BD06;
-      border-radius: 7px;
-      margin-bottom: 5px; }
-  .mostrar-acciones {
-    display: flex; }
-  .sesiones-contenedor-info {
-    margin-right: 10%; }
-  .sesiones-parte-superior {
-    display: flex;
-    flex-direction: row; }
-  .sesiones-promotor-buttons {
-    display: none;
-    flex-direction: column;
-    margin-top: 5%; }
-  .sesiones-promotor-imagen {
-    max-height: 30vh;
-    max-width: 15vh;
-    margin-right: 10%; }
-  .sesiones-promotor-show {
-    display: flex;
-    flex-direction: column;
-    background-color: #B5B5B5;
-    border: 5px solid;
-    border-color: #F9BD06;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-bottom: 10%; }
-  .sesiones-promotor-mostrar {
+    margin-top: 10%;
     margin-left: auto;
-    margin-right: auto; }
-  .botones {
-    display: flex;
-    justify-content: space-evenly; } }
+    margin-right: auto;
+    padding: 2vh;
+    display: block;
+    font-size: 1.2rem; } }
