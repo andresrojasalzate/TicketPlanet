@@ -1,3 +1,5 @@
+@import 'abstracts/mixims';
+
 @import 'base/base'; 
 
 @import 'layout/footer';
@@ -18,8 +20,12 @@
 
 @import 'components/createEvent';
 
+@import 'components/menuNavegacion';
+
 @import 'pages/compra';
 
 @import 'pages/showEvent';
+
+@import 'pages/indexEvents';
 
 // @import 'main2'; 
