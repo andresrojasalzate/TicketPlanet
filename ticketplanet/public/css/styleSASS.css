@@ -467,6 +467,21 @@ ul {
     background-color: #e6ad05;
     border-color: #0642F9; }
 
+.btn-comprar {
+  padding: 2vh;
+  border-radius: 7px;
+  background-color: #F9BD06;
+  border-color: #0642F9;
+  margin-top: 5vh;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  font-size: 1.2rem;
+  cursor: pointer; }
+  .btn-comprar:hover {
+    background-color: #e6ad05;
+    border-color: #0642F9; }
+
 @media screen and (min-width: 425px) {
   .btnCrearSesion {
     margin: 0%; } }
@@ -1133,28 +1148,6 @@ ul {
     flex-direction: column-reverse;
     align-items: center; } }
 
-.compraExito {
-  width: 50%;
-  background-color: #01781cc7;
-  color: white;
-  display: flex;
-  justify-content: center;
-  padding: 3%;
-  margin: 5% 0% 5% 20%;
-  justify-content: space-evenly;
-  font-size: 18px; }
-
-.compraFallido {
-  width: 50%;
-  background-color: #ff0000cf;
-  color: white;
-  display: flex;
-  justify-content: center;
-  padding: 3%;
-  margin: 5% 0% 5% 20%;
-  justify-content: space-evenly;
-  font-size: 18px; }
-
 .card-compra {
   margin: 5vh;
   font-family: 'Work Sans'; }
@@ -1203,17 +1196,6 @@ ul {
             text-align: right; }
           .card-compra .contenedor-compra .compra-infoEntradas .contenedor-info .entry-title .ticket-name {
             font-weight: 500; }
-      .card-compra .contenedor-compra .compra-infoEntradas .btn-comprar {
-        padding: 2vh;
-        border-radius: 7px;
-        background-color: #F9BD06;
-        border-color: #0642F9;
-        margin-top: 5vh;
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-        font-size: 1.2rem;
-        cursor: pointer; }
   .card-compra .compraExito {
     width: 50%;
     background-color: #01781cc7;

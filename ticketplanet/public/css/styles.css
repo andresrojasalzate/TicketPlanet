@@ -22,18 +22,18 @@ body {
     justify-items: center;
 }
 
-body.body-login .navLogo,
-body.body-resetPwd .navLogo {
+.login .navLogo,
+.resetPwd .navLogo {
     display: none;
 }
 
-body.body-login .auth,
-body.body-resetPwd .auth {
+.login .auth,
+.resetPwd .auth {
     display: none;
 }
 
-body.body-login .menuIMG,
-body.body-resetPwd .menuIMG {
+.login .menuIMG,
+.resetPwd .menuIMG {
     display: none;
 }
 
@@ -799,7 +799,7 @@ body.body-resetPwd .menuIMG {
 }
 
 .correoReset input {
-    width: 100%;
+    width: 90%;
     padding: 2vh;
     font-size: 1rem;
     margin-top: 0.313rem;

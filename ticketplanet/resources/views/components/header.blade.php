@@ -16,12 +16,12 @@
                     <a href="{{ route('links.homePromotors') }}">Home Promotor</a>
 
                 </div>
-                <hr>
+                {{-- <hr>
                 <div class="categoriasMenu">
                     @foreach ($categories as $category)
                         <p>{{ $category->name }}</p>
                     @endforeach
-                </div>
+                </div> --}}
 
                 <hr>
 
@@ -71,5 +71,5 @@
         <hr class="separator">
     </div>
 
-    <script src="{{ asset('js/header.js') }}"></script>
 </nav>
+
