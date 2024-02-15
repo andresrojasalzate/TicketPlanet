@@ -743,7 +743,8 @@ ul {
     width: 50%;
     justify-content: space-evenly;
     margin: auto;
-    margin-bottom: 5%; }
+    margin-bottom: 5%;
+    font-size: 18px; }
   .alert-success {
     display: flex;
     padding: 10px;
@@ -752,19 +753,29 @@ ul {
     margin-top: 2%;
     width: 50%;
     justify-content: space-evenly;
-    margin-left: 20%; }
+    margin-left: 20%;
+    font-size: 18px; }
 
 .cerrarFeedbackSuccess {
   background-color: #01781c00;
   border: none;
   color: white;
-  cursor: pointer; }
+  cursor: pointer;
+  font-size: 18px; }
 
 .cerrarFeedbackFallido {
   background-color: #01781c00;
   border: none;
   color: white;
-  cursor: pointer; }
+  cursor: pointer;
+  font-size: 18px; }
+
+.cerrarFeedback {
+  background-color: #01781c00;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 18px; }
 
 .contenedor-ticket {
   display: grid;
@@ -1137,6 +1148,28 @@ ul {
   .entradasPrecioCantidad {
     flex-direction: column-reverse;
     align-items: center; } }
+
+.compraExito {
+  width: 50%;
+  background-color: #01781cc7;
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding: 3%;
+  margin: 5% 0% 5% 20%;
+  justify-content: space-evenly;
+  font-size: 18px; }
+
+.compraFallido {
+  width: 50%;
+  background-color: #ff0000cf;
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding: 3%;
+  margin: 5% 0% 5% 20%;
+  justify-content: space-evenly;
+  font-size: 18px; }
 
 .card-compra {
   margin: 5vh;
