@@ -1460,12 +1460,15 @@ ul {
     margin-left: auto;
     margin: 1vh; } }
 
+.hide {
+  display: none !important; }
+
 .login {
   display: grid;
   grid-template-columns: 1fr;
   background-color: #D9D9D9;
-  margin: 4.5% auto;
-  padding: 2.5%;
+  margin: 10vh auto;
+  padding: 5vh;
   font-family: "Work Sans";
   border: 0.188rem solid #0642F9;
   border-radius: 0.313rem;
@@ -1479,6 +1482,8 @@ ul {
   font-size: 2.25rem;
   font-weight: bold;
   margin: 0; }
+  .titleLogin img {
+    width: 9vh; }
 
 .accede p {
   font-size: 1.625rem;
@@ -1546,7 +1551,9 @@ ul {
     width: 90vw;
     background-color: transparent;
     border: transparent;
-    font-family: "Work Sans"; }
+    font-family: "Work Sans";
+    margin: 0 auto;
+    padding: 2vh; }
   .titleLogin {
     display: flex;
     flex-direction: row;
@@ -1622,3 +1629,107 @@ ul {
     padding: 2vh;
     display: block;
     font-size: 1.2rem; } }
+
+.resetPwd {
+  width: 65vw;
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: #D9D9D9;
+  margin: 10vh auto;
+  padding: 5vh;
+  font-family: "Work Sans";
+  border: 0.188rem solid;
+  border-color: #0642F9;
+  border-radius: 0.313rem; }
+
+.titleResetPwd {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin: 0; }
+  .titleResetPwd img {
+    width: 9vh; }
+
+.txtResetPwd p {
+  font-size: 1.375rem;
+  margin-top: 1%;
+  margin-bottom: 2%; }
+
+.correoReset label {
+  display: block;
+  font-size: 1.5rem;
+  margin-top: 1rem; }
+
+.correoReset input {
+  width: -webkit-fill-available;
+  padding: 2vh;
+  font-size: 1rem;
+  margin-top: 0.313rem; }
+
+.volverInicioSesion {
+  text-align: left;
+  margin-top: 1rem;
+  font-size: 1.25rem; }
+  .volverInicioSesion a {
+    text-decoration: none;
+    color: #0642F9; }
+
+.btnResetPwd {
+  padding: 2vh;
+  border-radius: 7px;
+  background-color: #F9BD06;
+  border-color: #0642F9;
+  margin-top: 2.5%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  font-size: 1.2rem;
+  cursor: pointer; }
+  .btnResetPwd:hover {
+    background-color: #e6ad05;
+    border-color: #0642F9; }
+
+.resetPwdExito {
+  color: green;
+  font-size: 1.1rem;
+  font-family: 'Work Sans'; }
+
+.resetPwdError {
+  color: red;
+  font-size: 1.1rem;
+  font-family: 'Work Sans';
+  text-decoration: none; }
+
+@media screen and (max-width: 450px) {
+  .resetPwd {
+    width: 90vw;
+    padding: 2vh;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    border: transparent;
+    font-family: "Work Sans"; }
+  .titleResetPwd {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0; }
+    .titleResetPwd img {
+      width: 9vh; }
+  .txtResetPwd p {
+    font-size: 1.2em; }
+  .correoReset input {
+    width: -webkit-fill-available;
+    padding: 2vh;
+    font-size: 1rem; }
+  .volverInicioSesion {
+    text-align: center;
+    margin: 0;
+    margin-top: 10%;
+    font-size: 1.25rem; } }
