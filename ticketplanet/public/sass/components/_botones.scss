@@ -2,12 +2,31 @@
   display: flex;
   justify-content: space-evenly;
 }
-.btn{
-  &CrearSesion{
+
+#buy-button {
+  padding: 2vh;
+  border-radius: 7px;
+  background-color: #F9BD06;
+  border-color: #0642F9;
+  margin: 1vh;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  font-size: 1.2rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #e6ad05;
+    border-color: #0642F9;
+  }
+}
+
+.btn {
+  &CrearSesion {
     height: 40px;
     border-radius: 7px;
-    background-color:#F9BD06;
-    border-color:#0642F9;
+    background-color: #F9BD06;
+    border-color: #0642F9;
     margin-top: 5%;
     margin-bottom: 5%;
     margin-left: auto;
@@ -16,374 +35,380 @@
     cursor: pointer;
     font-size: 15px;
   }
-  &AñadirSesion{
+
+  &AñadirSesion {
     position: absolute;
     top: 1vh;
     right: 1vh;
-    bottom: 1vh; 
+    bottom: 1vh;
     padding: 0.5vh;
     background-color: #ebebeb;
     border: 1px solid #000000;
     border-radius: 1vh;
-    z-index: 3; 
+    z-index: 3;
     cursor: pointer;
 
-    &:hover{
+    &:hover {
       background-color: #D9D9D9;
     }
   }
-    &ListarSesionEventPromotor{
-      padding: 2vh;
-      border-radius: 7px;
-      background-color: #F9BD06;
-      border: 2px solid #0642F9;
-      margin-left: auto;
-      margin-right: auto;
+
+  &ListarSesionEventPromotor {
+    padding: 2vh;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border: 2px solid #0642F9;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+
+    & a {
       text-decoration: none;
-      font-size: 1.2rem;
-      cursor: pointer;
-  
-      & a{
-        text-decoration: none;
-        text-align: center; 
-        color: black;
-        font-family: 'Work Sans';
-      }
-  
-      &:hover{
-        background-color: #e6ad05;
-        border-color: #0642F9;
-      }
+      text-align: center;
+      color: black;
+      font-family: 'Work Sans';
     }
-  
-    &AdministrarEventPromotor{
-      @extend .btnListarSesionEventPromotor;
-      & a{
-        text-decoration: none;
-        text-align: center; 
-        color: black;
-        font-family: 'Work Sans';
-      }
-      &:hover{
-        background-color: #e6ad05;
-        border-color: #0642F9;
-      }
-    }
-  
-    &CrearEventPromotor{
-      padding: 2vh;
-      border-radius: 7px;
-      background-color: #F9BD06;
-      border: 2px solid #0642F9;
-      margin-left: auto;
-      margin-right: auto;
-      text-decoration: none;
-      font-size: 1.2rem;
-      cursor: pointer;
-      & a{
-        text-decoration: none;
-        text-align: center; 
-        color: black;
-        font-family: 'Work Sans';
-      }
-      &:hover{
-        background-color: #e6ad05;
-        border-color: #0642F9;
-      }
-    }
-  
-    &HomePromotor{
-      display: grid;
-      grid-template-columns: repeat(3, 1fr); 
-      justify-content: center; 
-      margin: 26vh 2vh;
-    }
-  
-    &AñadirMultiplesSesiones{
-      position: absolute;
-      top: 1vh;
-      right: 1vh; 
-      padding: 0.5vh;
-      background-color: #ebebeb;
-      border: 1px solid #000000;
-      border-radius: 1vh;
-      z-index: 3; 
-      cursor: pointer;
-  
-      &:hover{
-        background-color: #D9D9D9;
-      }
-    }
-    &EditarMultiplesSesiones{
-      position: absolute;
-      top: 8vh;
-      right: 1vh; 
-      padding: 0.5vh;
-      background-color: #ebebeb;
-      border: 1px solid #000000;
-      border-radius: 1vh;
-      z-index: 3; 
-      cursor: pointer;
-  
-      &:hover{
-        background-color: #D9D9D9;
-      }
-    }
-  
-    &-buy:hover{
+
+    &:hover {
       background-color: #e6ad05;
       border-color: #0642F9;
     }
-    &Sessions-Promotor{
-      display: flex;
-      flex-direction: column;
-      justify-self: end;
-      display: none;
+  }
+
+  &AdministrarEventPromotor {
+    @extend .btnListarSesionEventPromotor;
+
+    & a {
+      text-decoration: none;
+      text-align: center;
+      color: black;
+      font-family: 'Work Sans';
     }
-    &VerMas{
-      align-self: self-end;
-      margin-right: 4%;
+
+    &:hover {
+      background-color: #e6ad05;
+      border-color: #0642F9;
     }
-    &IniciaSesion{
+  }
+
+  &CrearEventPromotor {
+    padding: 2vh;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border: 2px solid #0642F9;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+
+    & a {
+      text-decoration: none;
+      text-align: center;
+      color: black;
+      font-family: 'Work Sans';
+    }
+
+    &:hover {
+      background-color: #e6ad05;
+      border-color: #0642F9;
+    }
+  }
+
+  &HomePromotor {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    margin: 26vh 2vh;
+  }
+
+  &AñadirMultiplesSesiones {
+    position: absolute;
+    top: 1vh;
+    right: 1vh;
+    padding: 0.5vh;
+    background-color: #ebebeb;
+    border: 1px solid #000000;
+    border-radius: 1vh;
+    z-index: 3;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #D9D9D9;
+    }
+  }
+
+  &EditarMultiplesSesiones {
+    position: absolute;
+    top: 8vh;
+    right: 1vh;
+    padding: 0.5vh;
+    background-color: #ebebeb;
+    border: 1px solid #000000;
+    border-radius: 1vh;
+    z-index: 3;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #D9D9D9;
+    }
+  }
+
+  &-buy:hover {
+    background-color: #e6ad05;
+    border-color: #0642F9;
+  }
+
+  &Sessions-Promotor {
+    display: flex;
+    flex-direction: column;
+    justify-self: end;
+    display: none;
+  }
+
+  &VerMas {
+    align-self: self-end;
+    margin-right: 4%;
+  }
+
+  &IniciaSesion {
+    padding: 2vh;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    margin-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-size: 1.2rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #e6ad05;
+      border-color: #0642F9;
+    }
+  }
+
+  &ResetSesion {
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-size: 1.2rem;
+    padding: 2vh;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #e6ad05;
+      border-color: #0642F9;
+    }
+  }
+
+  &ResetPwd {
+    padding: 2vh;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    margin-top: 2.5%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-size: 1.2rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #e6ad05;
+      border-color: #0642F9;
+    }
+  }
+
+  &Buscador {
+    padding: 1vh;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    font-size: 1.25rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #e6ad05;
+      border-color: #0642F9;
+    }
+  }
+
+  &GuardarEntradas {
+    height: 40px;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    margin-top: 10%;
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  &CrearEvento {
+    height: 40px;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    cursor: pointer;
+    font-size: 15px;
+  }
+
+  &VerEventos {
+    height: 40px;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    cursor: pointer;
+    font-size: 15px;
+  }
+
+  &CrearEvent {
+    padding: 2vh;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border: 2px solid #0642F9;
+    text-decoration: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #e6ad05;
+      border-color: #0642F9;
+    }
+  }
+
+  &-comprar {
+    padding: 2vh;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    margin-top: 5vh;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-size: 1.2rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #e6ad05;
+      border-color: #0642F9;
+    }
+  }
+}
+
+@media screen and (min-width:425px) {
+  .btn {
+    &CrearSesion {
+      margin: 0%;
+    }
+  }
+}
+
+@media screen and (max-width:450px) {
+  .btn {
+    &CrearEventPromotor {
+      margin-top: 3vh;
+    }
+
+    &AdministrarEventPromotor {
       padding: 2vh;
       border-radius: 7px;
       background-color: #F9BD06;
-      border-color: #0642F9;
-      margin-top: 1%;
+      border: 2px solid #0642F9;
       margin-left: auto;
       margin-right: auto;
-      display: block;
+      text-decoration: none;
       font-size: 1.2rem;
       cursor: pointer;
-      
-      &:hover {
-        background-color: #e6ad05;
-        border-color: #0642F9;
-      }
     }
-    &ResetSesion{
-      border-radius: 7px;
-      background-color: #F9BD06;
-      border-color: #0642F9;
-      margin-top: 3%;
-      margin-left: auto;
-      margin-right: auto;
-      display: block;
-      font-size: 1.2rem;
-      padding: 2vh;
-      cursor: pointer;
-  
-      &:hover{
-        background-color: #e6ad05;
-        border-color: #0642F9;
-      }
-    }
-    &ResetPwd{
+
+    &ListarSesionEventPromotor {
       padding: 2vh;
       border-radius: 7px;
       background-color: #F9BD06;
-      border-color: #0642F9;
-      margin-top: 2.5%;
+      border: 2px solid #0642F9;
       margin-left: auto;
       margin-right: auto;
-      display: block;
+      text-decoration: none;
       font-size: 1.2rem;
       cursor: pointer;
-  
-      &:hover{
-        background-color: #e6ad05;
-        border-color: #0642F9;
-      }
     }
-    &Buscador{
-      padding: 1vh;
+
+    &HomePromotor {
+      display: grid;
+      grid-template-columns: repeat(1, 3fr);
+      margin: 12vh;
+    }
+
+    &IniciaSesion {
       border-radius: 7px;
       background-color: #F9BD06;
       border-color: #0642F9;
-      font-size: 1.25rem;
-      cursor: pointer;
-  
-      &:hover{
-        background-color: #e6ad05;
-        border-color: #0642F9;
-      }
+      margin-top: 10%;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 2vh;
+      display: block;
+      font-size: 1.2rem;
     }
-    &GuardarEntradas{
+
+    &Buscador {
+      height: 40px;
+      border-radius: 7px;
+      background-color: #F9BD06;
+      border-color: #0642F9;
+      font-size: 1rem;
+    }
+
+    &GuardarEntradas {
       height: 40px;
       border-radius: 7px;
       background-color: #F9BD06;
       border-color: #0642F9;
       margin-top: 10%;
-      font-size: 15px;
-      cursor: pointer;
-    }
-    &CrearEvento{
-      height: 40px;
-      border-radius: 7px;
-      background-color: #F9BD06;
-      border-color: #0642F9;
-      margin-top: 5%;
-      margin-bottom: 5%;
-      margin-left: auto;
-      margin-right: auto;
-      display: block;
-      cursor: pointer;
-      font-size: 15px;
-    }
-    &VerEventos{
-      height: 40px;
-      border-radius: 7px;
-      background-color: #F9BD06;
-      border-color: #0642F9;
-      margin-top: 5%;
-      margin-bottom: 5%;
-      margin-left: auto;
-      margin-right: auto;
-      display: block;
-      cursor: pointer;
-      font-size: 15px;
-    }
-  }
-  @media screen and (min-width:425px){
-    .btn{
-      &CrearSesion{
-        margin: 0%;
-      }
-    }
-  }
-  @media screen and (max-width:425px) {
-    .btn{
-      &CrearEventPromotor{
-        margin-top: 3vh;
-      }
-      &AdministrarEventPromotor{
-        padding: 2vh;
-        border-radius: 7px;
-        background-color: #F9BD06;
-        border: 2px solid #0642F9;
-        margin-left: auto;
-        margin-right: auto;
-        text-decoration: none;
-        font-size: 1.2rem;
-        cursor: pointer;
-      }
-      &ListarSesionEventPromotor{
-        padding: 2vh;
-        border-radius: 7px;
-        background-color: #F9BD06;
-        border: 2px solid #0642F9;
-        margin-left: auto;
-        margin-right: auto;
-        text-decoration: none;
-        font-size: 1.2rem;
-        cursor: pointer;
-      }
-      &HomePromotor{
-        display: grid;
-        grid-template-columns: repeat(1, 3fr); 
-        margin: 12vh ;
-      }
-      &IniciaSesion{
-        border-radius: 7px;
-        background-color: #F9BD06;
-        border-color: #0642F9;
-        margin-top: 10%;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 2vh;
-        display: block;
-        font-size: 1.2rem;
-      }
-      &Buscador{
-        height: 40px;
-        border-radius: 7px;
-        background-color: #F9BD06;
-        border-color: #0642F9;
-        font-size: 1rem;
-      }
-      &GuardarEntradas{
-        height: 40px;
-        border-radius: 7px;
-        background-color: #F9BD06;
-        border-color: #0642F9;
-        margin-top: 10%;
-        font-size: 1.2rem;
-        cursor: pointer;
-      }
-    }
-    .btn{
-        &CrearEventPromotor{
-          margin-top: 3vh;
-        }
-        &AdministrarEventPromotor{
-          padding: 2vh;
-          border-radius: 7px;
-          background-color: #F9BD06;
-          border: 2px solid #0642F9;
-          margin-left: auto;
-          margin-right: auto;
-          text-decoration: none;
-          font-size: 1.2rem;
-          cursor: pointer;
-        }
-        &ListarSesionEventPromotor{
-          padding: 2vh;
-          border-radius: 7px;
-          background-color: #F9BD06;
-          border: 2px solid #0642F9;
-          margin-left: auto;
-          margin-right: auto;
-          text-decoration: none;
-          font-size: 1.2rem;
-          cursor: pointer;
-        }
-        &HomePromotor{
-          display: grid;
-          grid-template-columns: repeat(1, 3fr); 
-          margin: 12vh ;
-        }
-        &IniciaSesion{
-          border-radius: 7px;
-          background-color: #F9BD06;
-          border-color: #0642F9;
-          margin-top: 10%;
-          margin-left: auto;
-          margin-right: auto;
-          padding: 2vh;
-          display: block;
-          font-size: 1.2rem;
-        }
-        &Buscador{
-          height: 40px;
-          border-radius: 7px;
-          background-color: #F9BD06;
-          border-color: #0642F9;
-          font-size: 1rem;
-        }
-        &GuardarEntradas{
-          height: 40px;
-          border-radius: 7px;
-          background-color: #F9BD06;
-          border-color: #0642F9;
-          margin-top: 10%;
-          font-size: 1.2rem;
-          cursor: pointer;
-        }
-      }
-
-  }
-  @media screen and (min-width:720px){
-    .btnCrearEvento{
-      height: 40px;
-      border-radius: 7px;
-      background-color: #F9BD06;
-      border-color: #0642F9;
-      margin-top: 5%;
-      margin-bottom: 5%;
-      margin-left: auto;
-      margin-right: auto;
-      display: block;
       font-size: 1.2rem;
       cursor: pointer;
     }
+
+    &CrearEvent {
+      margin: 0;
+      margin-top: 3vh;
+    }
   }
+
+
+
+}
+
+@media screen and (min-width:720px) {
+  .btnCrearEvento {
+    height: 40px;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+}

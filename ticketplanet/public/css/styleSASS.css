@@ -228,6 +228,21 @@ ul {
   display: flex;
   justify-content: space-evenly; }
 
+#buy-button {
+  padding: 2vh;
+  border-radius: 7px;
+  background-color: #F9BD06;
+  border-color: #0642F9;
+  margin: 1vh;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  font-size: 1.2rem;
+  cursor: pointer; }
+  #buy-button:hover {
+    background-color: #e6ad05;
+    border-color: #0642F9; }
+
 .btnCrearSesion {
   height: 40px;
   border-radius: 7px;
@@ -440,11 +455,23 @@ ul {
   cursor: pointer;
   font-size: 15px; }
 
+.btnCrearEvent {
+  padding: 2vh;
+  border-radius: 7px;
+  background-color: #F9BD06;
+  border: 2px solid #0642F9;
+  text-decoration: none;
+  font-size: 1.2rem;
+  cursor: pointer; }
+  .btnCrearEvent:hover {
+    background-color: #e6ad05;
+    border-color: #0642F9; }
+
 @media screen and (min-width: 425px) {
   .btnCrearSesion {
     margin: 0%; } }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 450px) {
   .btnCrearEventPromotor {
     margin-top: 3vh; }
   .btnAdministrarEventPromotor {
@@ -495,56 +522,9 @@ ul {
     margin-top: 10%;
     font-size: 1.2rem;
     cursor: pointer; }
-  .btnCrearEventPromotor {
-    margin-top: 3vh; }
-  .btnAdministrarEventPromotor {
-    padding: 2vh;
-    border-radius: 7px;
-    background-color: #F9BD06;
-    border: 2px solid #0642F9;
-    margin-left: auto;
-    margin-right: auto;
-    text-decoration: none;
-    font-size: 1.2rem;
-    cursor: pointer; }
-  .btnListarSesionEventPromotor, .btnAdministrarEventPromotor {
-    padding: 2vh;
-    border-radius: 7px;
-    background-color: #F9BD06;
-    border: 2px solid #0642F9;
-    margin-left: auto;
-    margin-right: auto;
-    text-decoration: none;
-    font-size: 1.2rem;
-    cursor: pointer; }
-  .btnHomePromotor {
-    display: grid;
-    grid-template-columns: repeat(1, 3fr);
-    margin: 12vh; }
-  .btnIniciaSesion {
-    border-radius: 7px;
-    background-color: #F9BD06;
-    border-color: #0642F9;
-    margin-top: 10%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 2vh;
-    display: block;
-    font-size: 1.2rem; }
-  .btnBuscador {
-    height: 40px;
-    border-radius: 7px;
-    background-color: #F9BD06;
-    border-color: #0642F9;
-    font-size: 1rem; }
-  .btnGuardarEntradas {
-    height: 40px;
-    border-radius: 7px;
-    background-color: #F9BD06;
-    border-color: #0642F9;
-    margin-top: 10%;
-    font-size: 1.2rem;
-    cursor: pointer; } }
+  .btnCrearEvent {
+    margin: 0;
+    margin-top: 3vh; } }
 
 @media screen and (min-width: 720px) {
   .btnCrearEvento {
@@ -1350,18 +1330,6 @@ ul {
     font-family: "Work Sans";
     color: #000000; }
 
-#buy-button {
-  padding: 2vh;
-  border-radius: 7px;
-  background-color: #F9BD06;
-  border-color: #0642F9;
-  margin: 1vh;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  font-size: 1.2rem;
-  cursor: pointer; }
-
 .mensaje-error {
   color: red;
   font-size: 1.1rem;
@@ -1618,17 +1586,7 @@ ul {
     text-align: right;
     margin: 0;
     margin-top: 3%;
-    font-size: 1.1rem; }
-  .btnIniciaSesion {
-    border-radius: 7px;
-    background-color: #F9BD06;
-    border-color: #0642F9;
-    margin-top: 10%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 2vh;
-    display: block;
-    font-size: 1.2rem; } }
+    font-size: 1.1rem; } }
 
 .resetPwd {
   width: 65vw;
@@ -1677,21 +1635,6 @@ ul {
     text-decoration: none;
     color: #0642F9; }
 
-.btnResetPwd {
-  padding: 2vh;
-  border-radius: 7px;
-  background-color: #F9BD06;
-  border-color: #0642F9;
-  margin-top: 2.5%;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  font-size: 1.2rem;
-  cursor: pointer; }
-  .btnResetPwd:hover {
-    background-color: #e6ad05;
-    border-color: #0642F9; }
-
 .resetPwdExito {
   color: green;
   font-size: 1.1rem;
@@ -1733,3 +1676,16 @@ ul {
     margin: 0;
     margin-top: 10%;
     font-size: 1.25rem; } }
+
+.btnHomePromotor {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  margin: 26vh 10vh;
+  gap: 3vw; }
+
+@media screen and (max-width: 450px) {
+  .btnHomePromotor {
+    display: grid;
+    grid-template-columns: repeat(1, 3fr);
+    margin: 12vh; } }
