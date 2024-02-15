@@ -104,9 +104,28 @@
             }
 
         }
-
-
-
+    }
+    .compraExito{
+      width: 50%;
+      background-color: #01781cc7;
+      color: white;
+      display: flex;
+      justify-content: center;
+      padding: 3%;
+      margin: 5% 0% 5% 20%;
+      justify-content: space-evenly;
+      font-size: 18px;
+    }
+    .compraFallido{
+      width: 50%;
+      background-color: #ff0000cf;
+      color: white;
+      display: flex;
+      justify-content: center;
+      padding: 3%;
+      margin: 5% 0% 5% 20%;
+      justify-content: space-evenly;
+      font-size: 18px;
     }
 
     @media screen and (max-width: 450px) {
