@@ -73,9 +73,10 @@
     }
 }
 
-@media screen and (max-width:425px) {
+@media screen and (max-width:425px), (max-height:720px) {
 
     .show-event-home {
+        overflow: auto;
 
         &-img{
             width: 100%;
