@@ -25,6 +25,7 @@ class Session extends Model
     {
         return $this->hasMany(Compra::class);
     }
+
     protected $fillable = [
       'date',
       'time',

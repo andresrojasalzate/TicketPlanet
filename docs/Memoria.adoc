@@ -341,7 +341,37 @@ Guarda y cierra el archivo. Luego, habilita el Virtual Host y reinicia Apache.
 sudo a2ensite laravel
 sudo systemctl restart apache2
 ```
+=== Paso 10: Activar Docker
+```bash
+cd /var/www/gr3-bernabeu-rojas-picazo/docker/server
+sudo docker compose up -d
+```
 
+=== Paso 11: Crear base de datos
+
+```bash
+cd /var/www/gr3-bernabeu-rojas-picazo/ticketplante
+```
+
+Ejecutamos el siguiente comando para crear base de datos.
+
+```bash
+sudo php artisan migrate
+```
+
+=== Paso 12: Instalar unaccent en Postgresql
+
+Ejecutamos el siguiente comando para entrar a la terminal de postgresql 
+
+```bash
+sudo docker exec -it pg_container psql -U usuario  ticketplanet
+```
+
+Una vez en la terminal de postgresql ejecutamos el siguiente comando
+
+```bash
+CREATE EXTENSION unaccent;
+```
 
 == CONCLUSIÓN   
 

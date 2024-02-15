@@ -13,7 +13,7 @@ class HomeController extends Controller
     public function home(){
         
         Log::info("Mensaje de prueba");
-        return view('events.home', ['categories'=> Category::recuperarCategoriasHome()]);
+        return view('events.home', ['categories'=> Category::all()]);
        
        
     }
