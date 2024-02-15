@@ -224,6 +224,10 @@ ul {
     align-items: center;
     padding: 5% 0% 5% 10%; } }
 
+.botones {
+  display: flex;
+  justify-content: space-evenly; }
+
 .btnCrearSesion {
   height: 40px;
   border-radius: 7px;
@@ -745,7 +749,8 @@ ul {
     width: 50%;
     justify-content: space-evenly;
     margin: auto;
-    margin-bottom: 5%; }
+    margin-bottom: 5%;
+    font-size: 18px; }
   .alert-success {
     display: flex;
     padding: 10px;
@@ -754,19 +759,29 @@ ul {
     margin-top: 2%;
     width: 50%;
     justify-content: space-evenly;
-    margin-left: 20%; }
+    margin-left: 20%;
+    font-size: 18px; }
 
 .cerrarFeedbackSuccess {
   background-color: #01781c00;
   border: none;
   color: white;
-  cursor: pointer; }
+  cursor: pointer;
+  font-size: 18px; }
 
 .cerrarFeedbackFallido {
   background-color: #01781c00;
   border: none;
   color: white;
-  cursor: pointer; }
+  cursor: pointer;
+  font-size: 18px; }
+
+.cerrarFeedback {
+  background-color: #01781c00;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 18px; }
 
 .contenedor-ticket {
   display: grid;
@@ -1196,6 +1211,28 @@ ul {
     margin-right: 5%;
     margin-left: 5%; } }
 
+.compraExito {
+  width: 50%;
+  background-color: #01781cc7;
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding: 3%;
+  margin: 5% 0% 5% 20%;
+  justify-content: space-evenly;
+  font-size: 18px; }
+
+.compraFallido {
+  width: 50%;
+  background-color: #ff0000cf;
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding: 3%;
+  margin: 5% 0% 5% 20%;
+  justify-content: space-evenly;
+  font-size: 18px; }
+
 .card-compra {
   margin: 5vh;
   font-family: 'Work Sans'; }
@@ -1255,23 +1292,67 @@ ul {
         display: block;
         font-size: 1.2rem;
         cursor: pointer; }
+  .card-compra .compraExito {
+    width: 50%;
+    background-color: #01781cc7;
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 3%;
+    margin: 5% 0% 5% 20%;
+    justify-content: space-evenly;
+    font-size: 18px; }
+  .card-compra .compraFallido {
+    width: 50%;
+    background-color: #ff0000cf;
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 3%;
+    margin: 5% 0% 5% 20%;
+    justify-content: space-evenly;
+    font-size: 18px; }
   @media screen and (max-width: 450px) {
     .card-compra .contenedor-info {
       width: 70vw !important; } }
 
 .card-margin {
   margin: 5vh; }
+.card-margin {
+  margin: 5vh; }
 
 .card-showEvent {
+.card-showEvent {
   display: flex;
+  flex-wrap: wrap;
   flex-wrap: wrap;
   flex-direction: row;
   background-color: #D9D9D9;
   margin: 5vh auto;
   border: 3px solid;
+  background-color: #D9D9D9;
+  margin: 5vh auto;
+  border: 3px solid;
   border-color: #F9BD06;
   box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5); }
+  box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5); }
 
+.img-showEvent {
+  flex: 1;
+  height: 20%; }
+  .img-showEvent img {
+    width: 100%; }
+
+.info-showEvent {
+  flex: 1;
+  font-family: "Work Sans";
+  font-size: 1.2rem;
+  margin: 20px; }
+
+.ubicacion-showEvent p {
+  margin: 0; }
+
+.ubicacion-showEvent .ubicacion-title-showEvent {
 .img-showEvent {
   flex: 1;
   height: 20%; }
@@ -1337,6 +1418,54 @@ ul {
     padding: 2vh;
     font-size: 1rem;
     margin-left: auto; }
+  align-items: center; }
+  .ubicacion-showEvent .ubicacion-title-showEvent img {
+    padding-left: 10px;
+    width: 2vh;
+    height: 3vh; }
+
+.select-wrapper {
+  position: relative;
+  margin-top: 5px; }
+  .select-wrapper select {
+    width: 80%;
+    height: 3vh;
+    cursor: pointer; }
+
+.card-timeSesion {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  justify-items: center;
+  grid-gap: 10px;
+  align-items: center; }
+  .card-timeSesion .session-time {
+    background-color: #F9BD06;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    padding: 1vh; }
+
+.card-showTickets {
+  display: none;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.ticket-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 2vh;
+  background-color: #D9D9D9;
+  margin: 5vh auto;
+  border: 3px solid;
+  border-color: #F9BD06;
+  box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5);
+  font-size: 1.1rem; }
+  .ticket-container input {
+    padding: 2vh;
+    font-size: 1rem;
+    margin-left: auto; }
 
 #total-price-container {
   width: 35vh;
@@ -1348,6 +1477,7 @@ ul {
   margin-left: auto; }
   #total-price-container p {
     font-size: 1.2rem;
+    font-family: "Work Sans";
     font-family: "Work Sans";
     color: #000000; }
 
@@ -1373,6 +1503,16 @@ ul {
   width: 80vw;
   font-family: "Work Sans"; }
   .card-showComents h3 {
+.mensaje-error {
+  color: red;
+  font-size: 1.1rem;
+  font-family: "Work Sans";
+  text-decoration: none; }
+
+.card-showComents {
+  width: 80vw;
+  font-family: "Work Sans"; }
+  .card-showComents h3 {
     font-size: 1.5rem; }
 
 .reseña {
@@ -1380,9 +1520,24 @@ ul {
   grid-template-columns: 0.7fr 6fr;
   padding: 1vh 0 2vh 0; }
 
+.reseña {
+  display: grid;
+  grid-template-columns: 0.7fr 6fr;
+  padding: 1vh 0 2vh 0; }
+
+.reseñaCara {
 .reseñaCara {
   display: flex;
   align-items: center;
+  justify-content: center; }
+
+.reseñaNombre {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end; }
+
+.reseñaTexto {
+  font-size: 1.1rem; }
   justify-content: center; }
 
 .reseñaNombre {
@@ -1396,14 +1551,24 @@ ul {
 .reseñaEstrellas {
   display: flex;
   justify-content: center; }
+.reseñaEstrellas {
+  display: flex;
+  justify-content: center; }
 
+.card-compra {
 .card-compra {
   margin: 5vh; }
 
 #countdown-container {
   padding: 2vh;
   display: grid;
+#countdown-container {
+  padding: 2vh;
+  display: grid;
   justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  font-weight: bold; }
   align-items: center;
   font-size: 1.6rem;
   font-weight: bold; }

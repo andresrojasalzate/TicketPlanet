@@ -13,6 +13,7 @@
     justify-content: space-evenly;
     margin: auto;
     margin-bottom: 5%;
+    font-size: 18px;
   }
   &-success{
     display: flex;
@@ -23,6 +24,7 @@
     width: 50%;
     justify-content: space-evenly;
     margin-left: 20%;
+    font-size: 18px;
   }
 }
 .cerrarFeedbackSuccess{
@@ -30,10 +32,19 @@
   border: none;
   color: white;
   cursor: pointer;
+  font-size: 18px;
 }
 .cerrarFeedbackFallido{
   background-color: #01781c00;
   border: none;
   color: white;
   cursor: pointer;
+  font-size: 18px;
+}
+.cerrarFeedback{
+  background-color: #01781c00;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
 }

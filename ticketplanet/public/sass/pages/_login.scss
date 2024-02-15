@@ -1,0 +1,250 @@
+$color_1: #0642F9;
+$color_2: red;
+$font-family_1: 'Work Sans';
+$background-color_1: #D9D9D9;
+$background-color_2: transparent;
+$background-color_3: #F9BD06;
+$border-color_1: #0642F9;
+
+
+.hide {
+    display: none !important;
+}
+
+.login {
+	display: grid;
+	grid-template-columns: 1fr;
+	background-color: $background-color_1;
+	margin: 10vh auto;
+	padding: 5vh;
+	font-family: $font-family_1;
+	border: 0.188rem solid #0642F9;
+	border-radius: 0.313rem;
+	width: 65vw;
+	
+	
+}
+
+.titleLogin {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 2.25rem;
+	font-weight: bold;
+	margin: 0;
+
+	img {
+        width: 9vh;
+    }
+}
+
+.accede {
+	p {
+		font-size: 1.625rem;
+		font-weight: bold;
+		margin: 0;
+	}
+}
+
+.registrate {
+	p {
+		font-size: 1.375rem;
+		margin-top: 1%;
+		margin-bottom: 2%;
+	}
+
+	a {
+		text-decoration: none;
+		color: $color_1;
+	}
+}
+
+.contraLogin {
+	margin-top: 1rem;
+	font-size: 1.5rem;
+
+	input {
+		position: relative;
+		width: 100%;
+		padding: 2vh;
+		font-size: 1rem;
+		margin-top: 0.3rem;
+	}
+}
+
+.correoLogin {
+	margin-top: 1rem;
+	font-size: 1.5rem;
+
+	input {
+		position: relative;
+		width: 100%;
+		padding: 2vh;
+		font-size: 1rem;
+		margin-top: 0.3rem;
+	}
+}
+
+.emailerror {
+	color: $color_2;
+	font-size: 1.1rem;
+	font-family: $font-family_1;
+	text-decoration: none;
+}
+
+.passworderror {
+	color: $color_2;
+	font-size: 1.1rem;
+	font-family: $font-family_1;
+	text-decoration: none;
+}
+
+.olvidadoContra {
+	text-align: right;
+	margin: 0;
+	margin-top: 1%;
+	font-size: 1.25rem;
+
+	a {
+		text-decoration: none;
+		color: $color_1;
+	}
+}
+
+
+
+.toggle-password {
+	position: absolute;
+	transform: translateY(-120%);
+	cursor: pointer;
+	right: 19%;
+}
+
+
+@media screen and (max-width: 450px) {
+
+	.login {
+		width: 90vw;
+		background-color: $background-color_2;
+		border: transparent;
+		font-family: $font-family_1;
+		margin: 0 auto;
+		padding: 2vh;
+	}
+
+	.titleLogin {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 2rem;
+		font-weight: bold;
+		margin: 0;
+	}
+
+	.accede {
+		p {
+			font-size: 1.5rem;
+			font-weight: bold;
+			margin-top: 5%;
+		}
+	}
+
+	.registrate {
+		p {
+			font-size: 1.2rem;
+			margin-top: 1%;
+			margin-bottom: 2%;
+		}
+	}
+
+	.correoLogin {
+		span {
+			color: $color_1;
+			font-size: 1rem;
+			font-family: $font-family_1;
+			text-decoration: none;
+		}
+
+		label {
+			display: block;
+			font-size: 1.3rem;
+			margin-top: 1.2rem;
+		}
+
+		input {
+			position: relative;
+			width: 100%;
+			padding: 2vh;
+			font-size: 1rem;
+		}
+	}
+
+	.contraLogin {
+		span {
+			color: $color_1;
+			font-size: 1rem;
+			font-family: $font-family_1;
+			text-decoration: none;
+		}
+
+		label {
+			display: block;
+			font-size: 1.3rem;
+			margin-top: 1.2rem;
+		}
+
+		input {
+			position: relative;
+			width: 100%;
+			padding: 2vh;
+			font-size: 1rem;
+		}
+	}
+
+	.credenciales {
+		display: flex;
+		justify-content: center;
+		color: $color_1;
+		margin-top: 1.5%;
+		font-size: 1.1rem;
+		font-family: $font-family_1;
+		text-decoration: none;
+	}
+
+	.correoReset {
+		label {
+			display: block;
+			font-size: 1.3rem;
+			margin-top: 1.2rem;
+		}
+	}
+
+	.toggle-password {
+		position: absolute;
+		transform: translateY(-120%);
+		right: 9%;
+	}
+
+	.olvidadoContra {
+		text-align: right;
+		margin: 0;
+		margin-top: 3%;
+		font-size: 1.1rem;
+	}
+
+	.btnIniciaSesion {
+		border-radius: 7px;
+		background-color: $background-color_3;
+		border-color: $border-color_1;
+		margin-top: 10%;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 2vh;
+		display: block;
+		font-size: 1.2rem;
+	}
+
+
+}
