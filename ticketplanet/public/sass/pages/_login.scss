@@ -6,6 +6,11 @@ $background-color_2: transparent;
 $background-color_3: #F9BD06;
 $border-color_1: #0642F9;
 
+
+.hide {
+    display: none !important;
+}
+
 .login {
 	display: grid;
 	grid-template-columns: 1fr;
@@ -16,6 +21,7 @@ $border-color_1: #0642F9;
 	border: 0.188rem solid #0642F9;
 	border-radius: 0.313rem;
 	width: 65vw;
+	
 }
 
 .titleLogin {
