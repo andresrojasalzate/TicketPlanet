@@ -66,7 +66,7 @@ class LinksController extends Controller
     if (session('capacidadMaxima') == 0) {
       Log::info("Redireccionando al home porque la capacidad máxima es 0");
       Feedback::flash('success', '¡Se ha creado el evento y la entrada correctamente!');
-      return redirect()->route('home');
+      return redirect()->route('links.homePromotors');
   }
 
     return view('links.comprarEntradas')->with('entradasRestantes', $capacidadMaxima);
