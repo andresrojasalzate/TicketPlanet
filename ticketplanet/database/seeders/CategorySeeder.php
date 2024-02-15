@@ -25,7 +25,27 @@ class CategorySeeder extends Seeder
             'name' => 'Musica',
         ]);
 
+        $category = Category::factory()->create([
+            'name' => 'Deporte',
+        ]);
 
-        $this->command->info("Se han creado 3 categorias");
+        $category = Category::factory()->create([
+            'name' => 'Danza',
+        ]);
+
+        $category = Category::factory()->create([
+            'name' => 'Benéficos',
+        ]);
+
+        $category = Category::factory()->create([
+            'name' => 'Viajes',
+        ]);
+
+        $category = Category::factory()->create([
+            'name' => 'Educativos',
+        ]);
+
+
+        $this->command->info("Se han creado 8 categorias");
     }
 }
