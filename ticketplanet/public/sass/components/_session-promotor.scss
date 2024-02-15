@@ -1,0 +1,95 @@
+.show-session-promotor {
+    display: flex;
+    flex-direction: row;
+    background-color: #B5B5B5;
+    border: 5px solid;
+    border-color: #F9BD06;
+    margin-bottom: 5%;
+}
+
+.sesion-parte-superior {
+    display: flex;
+    flex-direction: row;
+}
+
+.imagen-sesion-promotor {
+    max-width: 30%;
+    margin-right: 10%;
+}
+
+.info-session {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &-contenedor{
+        margin-right: 20%;
+    }
+
+    &-titulo{
+        font-size: 25px;
+        font-weight: bold;
+        margin: 0;
+        margin-top: 10%;
+        margin-bottom: 5%; 
+    }
+
+    & img{
+        margin-right: 5%;
+    }
+}
+
+.mostrar-acciones{
+    display: none;
+
+    & img{
+        margin-top: auto;
+        margin-bottom: auto;
+        max-width: 40px;
+    }
+}
+
+.buttons-sessions-promotor{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2%;
+    width: 100%;
+    margin-right: 10%;
+}
+
+@media screen and (max-width: 425px){
+    .show-session-promotor {
+        flex-direction: column;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-bottom: 10%;
+    } 
+
+    .imagen-sesion-promotor {
+        max-width: 15vh;
+        max-height: 30vh;
+    }
+
+    .info-session {
+       
+        &-contenedor{
+            margin-right: 10%;
+            width: 100%;
+        }
+
+        &-titulo{
+            font-size: 18px;
+        }
+    }
+
+    .mostrar-acciones{
+        display: flex;
+    }
+
+    .buttons-sessions-promotor{
+        display: none;
+        flex-direction: column;
+        margin-top: 5%;
+    }
+
+}
