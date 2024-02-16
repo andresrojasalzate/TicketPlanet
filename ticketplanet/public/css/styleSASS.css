@@ -912,9 +912,16 @@ ul {
   display: flex;
   flex-direction: column; }
 
-.formularioNumeroDireccion, .formularioFechaFin, .formularioHoraFin {
+.formularioNumeroDireccion {
   width: 33%; }
-  .formularioNumeroDireccionInput, .formularioFechaFinInput, .formularioHoraFinInput {
+  .formularioNumeroDireccionInput {
+    width: 70%; }
+
+.formularioFechaFin, .formularioHoraFin {
+  width: 33%;
+  display: flex;
+  flex-direction: column; }
+  .formularioFechaFinInput, .formularioHoraFinInput {
     width: 70%; }
 
 .formularioNombreLocal {
@@ -1098,16 +1105,20 @@ ul {
     .formularioNombreLocal input {
       width: 70%; }
   .formularioHoraFin {
-    width: 33%; }
+    width: 33%;
+    display: flex;
+    flex-direction: column; }
     .formularioHoraFin input {
       width: 70%; }
-  .formularioFechaFin {
-    width: 33%; }
-    .formularioFechaFin input {
+  .formularioFechaFin, .formularioHoraFin {
+    width: 33%;
+    display: flex;
+    flex-direction: column; }
+    .formularioFechaFin input, .formularioHoraFin input {
       width: 70%; }
-  .formularioNumeroDireccion, .formularioFechaFin, .formularioHoraFin {
+  .formularioNumeroDireccion {
     width: 33%; }
-    .formularioNumeroDireccion input, .formularioFechaFin input, .formularioHoraFin input {
+    .formularioNumeroDireccion input {
       width: 70%; }
   .formularioParteEntradas {
     width: 100%; }
@@ -1296,6 +1307,28 @@ ul {
     flex-direction: column;
     margin-top: 5%; } }
 
+.compraExito {
+  width: 50%;
+  background-color: #01781cc7;
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding: 3%;
+  margin: 5% 0% 5% 20%;
+  justify-content: space-evenly;
+  font-size: 18px; }
+
+.compraFallido {
+  width: 50%;
+  background-color: #ff0000cf;
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding: 3%;
+  margin: 5% 0% 5% 20%;
+  justify-content: space-evenly;
+  font-size: 18px; }
+
 .card-compra {
   margin: 5vh;
   font-family: 'Work Sans'; }
@@ -1344,26 +1377,6 @@ ul {
             text-align: right; }
           .card-compra .contenedor-compra .compra-infoEntradas .contenedor-info .entry-title .ticket-name {
             font-weight: 500; }
-  .card-compra .compraExito {
-    width: 50%;
-    background-color: #01781cc7;
-    color: white;
-    display: flex;
-    justify-content: center;
-    padding: 3%;
-    margin: 5% 0% 5% 20%;
-    justify-content: space-evenly;
-    font-size: 18px; }
-  .card-compra .compraFallido {
-    width: 50%;
-    background-color: #ff0000cf;
-    color: white;
-    display: flex;
-    justify-content: center;
-    padding: 3%;
-    margin: 5% 0% 5% 20%;
-    justify-content: space-evenly;
-    font-size: 18px; }
   @media screen and (max-width: 450px) {
     .card-compra .contenedor-info {
       width: 70vw !important; } }

@@ -1,21 +1,8 @@
+@extends('layouts.app')
 
-<!DOCTYPE html>
-<html lang="en">
+@section('title', 'Crear Sesiones')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="favicon/logoFavicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="{{ asset('css/styleSASS.css') }}">
-    <title>@yield('title')</title>
-</head>
-
-<body>
-    <header>
-        <x-header/>
-    </header>
-
+@section('content')
     <div class="contenedorLayout">
         <form action="{{ route('links.crearMultiplesSesiones', ['id' => $event->id])}}" method="post" enctype="multipart/form-data">
             @csrf
@@ -73,13 +60,5 @@
         </form>
         
     </div>
-
-    
-
     <script src="{{ asset('js/session.js') }}"></script>
- <footer>
-        <x-footer/>
-    </footer>
-</body>
-
-</html>
+@endsection
