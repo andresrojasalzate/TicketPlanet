@@ -121,7 +121,7 @@ ul {
   background-color: #0642F9; }
   .dropdown-content {
     position: fixed;
-    top: 12.3vh;
+    top: 12.7vh;
     left: 0;
     width: 35vh;
     height: 100vh;
@@ -143,6 +143,10 @@ ul {
       text-decoration: none;
       font-size: 1.25rem;
       font-family: 'Work Sans'; }
+
+.imagenUsuarioDespegable {
+  margin-top: 1vh;
+  padding-left: 40px; }
 
 .logout,
 .homeMenu,
