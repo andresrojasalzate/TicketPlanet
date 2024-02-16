@@ -486,6 +486,16 @@ ul {
     background-color: #e6ad05;
     border-color: #0642F9; }
 
+.btnSesionesPromotor {
+  margin-bottom: 3%;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 7px;
+  background-color: #F9BD06;
+  border-color: #0642F9; }
+
 @media screen and (min-width: 425px) {
   .btnCrearSesion {
     margin: 0%; } }
@@ -543,7 +553,16 @@ ul {
     cursor: pointer; }
   .btnCrearEvent {
     margin: 0;
-    margin-top: 3vh; } }
+    margin-top: 3vh; }
+  .btnSesionesPromotor {
+    margin-bottom: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 7px;
+    background-color: #F9BD06;
+    border-color: #0642F9; } }
 
 @media screen and (min-width: 720px) {
   .btnCrearEvento {
@@ -1180,12 +1199,14 @@ ul {
     display: inline-block;
     padding: 8px 12px;
     text-decoration: none;
-    border: 1px solid #000000; }
+    border: 1px solid #000000;
+    color: #000000; }
   .pagination a {
     display: inline-block;
     padding: 8px 12px;
     text-decoration: none;
-    border: 1px solid #000000; }
+    border: 1px solid #000000;
+    color: #000000; }
 
 .disabled span {
   color: #999;
@@ -1208,6 +1229,72 @@ ul {
   .pagination-menu {
     margin-right: 5%;
     margin-left: 5%; } }
+
+.show-session-promotor {
+  display: flex;
+  flex-direction: row;
+  background-color: #B5B5B5;
+  border: 5px solid;
+  border-color: #F9BD06;
+  margin-bottom: 5%; }
+
+.sesion-parte-superior {
+  display: flex;
+  flex-direction: row; }
+
+.imagen-sesion-promotor {
+  max-width: 30%;
+  margin-right: 10%; }
+
+.info-session {
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+  .info-session-contenedor {
+    margin-right: 20%; }
+  .info-session-titulo {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0;
+    margin-top: 10%;
+    margin-bottom: 5%; }
+  .info-session img {
+    margin-right: 5%; }
+
+.mostrar-acciones {
+  display: none; }
+  .mostrar-acciones img {
+    margin-top: auto;
+    margin-bottom: auto;
+    max-width: 40px; }
+
+.buttons-sessions-promotor {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2%;
+  width: 100%;
+  margin-right: 10%; }
+
+@media screen and (max-width: 425px) {
+  .show-session-promotor {
+    flex-direction: column;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 10%; }
+  .imagen-sesion-promotor {
+    max-width: 15vh;
+    max-height: 30vh; }
+  .info-session-contenedor {
+    margin-right: 10%;
+    width: 100%; }
+  .info-session-titulo {
+    font-size: 18px; }
+  .mostrar-acciones {
+    display: flex; }
+  .buttons-sessions-promotor {
+    display: none;
+    flex-direction: column;
+    margin-top: 5%; } }
 
 .card-compra {
   margin: 5vh;
@@ -1734,6 +1821,19 @@ ul {
     margin: 0;
     margin-top: 10%;
     font-size: 1.25rem; } }
+
+.titulo-sessions-promotor {
+  text-align: center;
+  color: #0642F9; }
+
+.mostar-sesiones-promotor {
+  margin-left: 20%;
+  margin-right: 20%; }
+
+@media screen and (max-width: 425px) {
+  .mostar-sesiones-promotor {
+    margin-left: auto;
+    margin-right: auto; } }
 
 .btnHomePromotor {
   display: grid;
