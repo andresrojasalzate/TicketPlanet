@@ -121,7 +121,7 @@ ul {
   background-color: #0642F9; }
   .dropdown-content {
     position: fixed;
-    top: 12.3vh;
+    top: 12.7vh;
     left: 0;
     width: 35vh;
     height: 100vh;
@@ -143,6 +143,10 @@ ul {
       text-decoration: none;
       font-size: 1.25rem;
       font-family: 'Work Sans'; }
+
+.imagenUsuarioDespegable {
+  margin-top: 1vh;
+  padding-left: 40px; }
 
 .logout,
 .homeMenu,
@@ -1204,28 +1208,6 @@ ul {
   .pagination-menu {
     margin-right: 5%;
     margin-left: 5%; } }
-
-.compraExito {
-  width: 50%;
-  background-color: #01781cc7;
-  color: white;
-  display: flex;
-  justify-content: center;
-  padding: 3%;
-  margin: 5% 0% 5% 20%;
-  justify-content: space-evenly;
-  font-size: 18px; }
-
-.compraFallido {
-  width: 50%;
-  background-color: #ff0000cf;
-  color: white;
-  display: flex;
-  justify-content: center;
-  padding: 3%;
-  margin: 5% 0% 5% 20%;
-  justify-content: space-evenly;
-  font-size: 18px; }
 
 .card-compra {
   margin: 5vh;
