@@ -118,6 +118,12 @@ image::Images/Logo.png[Logo principal, width=10%]
 - Implementación de la pantalla ""Pàgina resum Llistat de sessions obertes"
 - Test de buscador y home. 
 
+==== Adria
+- Test funcionales en link controllers
+- Modificar css pagina crear evento y entradas
+- Mejorar funcionalidad crear evento y entradas
+- Arreglar validaciones
+
 
 === Semana 5
 
@@ -138,6 +144,12 @@ image::Images/Logo.png[Logo principal, width=10%]
 - Ajustes en el buscador
 - Ajuste en los factorys
 
+==== Adria
+- Mockups mejorados de crear evento y entrada version mobil y desktop
+- Creacion pagina crear multiples sesiones
+- Diseño pagina multiples sesiones, funcionamiento y validaciones 
+- Creacion test funcionales en link controller
+
 === Semana 6
 
 ==== Salma
@@ -152,6 +164,11 @@ image::Images/Logo.png[Logo principal, width=10%]
 - Implementación SASS 7-1 pattern
 - Implentación de crear entradas en pdf con información dinamica
 
+==== Adria 
+- Implementacion primera version SASS 
+- Test funcionales de la parte de Tickets y controlador link
+- Diseño Mockups feedback cuando compras entrada
+- Implementacion feedback
 
 
 == DISEÑO

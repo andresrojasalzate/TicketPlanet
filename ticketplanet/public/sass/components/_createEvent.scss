@@ -33,16 +33,18 @@
     }
   }
   &FechaFin{
-    @extend .formularioNumeroDireccion;
+    width: 33%;
+    display: flex;
+    flex-direction: column;
     &Input{
-    @extend .formularioNumeroDireccionInput;
+      width: 70%
     }
 
   }
   &HoraFin{
-    @extend .formularioNumeroDireccion;
+    @extend .formularioFechaFin;
     &Input{
-    @extend .formularioNumeroDireccionInput;
+    @extend .formularioFechaFinInput;
     }
   }
   &NombreLocal{
@@ -305,12 +307,16 @@
     }
     &HoraFin{
       width: 33%;
+      display: flex;
+      flex-direction: column;
       & input{
         width: 70%;
       }
     }
     &FechaFin{
       width: 33%;
+      display: flex;
+      flex-direction: column;
       & input{
         width: 70%;
       }
