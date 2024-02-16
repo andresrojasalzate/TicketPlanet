@@ -63,6 +63,7 @@ class CompraController extends Controller
 
         // Crear un array para almacenar la cantidad de entradas por tipo de ticket
         $cantidadPorTicket = [];
+        
 
         $hayNoNominal = false;
 
@@ -82,7 +83,7 @@ class CompraController extends Controller
             }
         }
         $precioTotal = $request->input("totalPrice");
-        
+
     $amount = (int)$totalPrice * 100;
     $id = time();
     $fuc = '999008881';
