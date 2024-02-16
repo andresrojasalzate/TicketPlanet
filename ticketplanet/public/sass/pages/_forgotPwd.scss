@@ -68,23 +68,7 @@ $border-color_1: #0642F9;
     }
 }
 
-.btnResetPwd {
-    padding: 2vh;
-    border-radius: 7px;
-    background-color: $background-color_2;
-    border-color: $border-color_1;
-    margin-top: 2.5%;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    font-size: 1.2rem;
-    cursor: pointer;
 
-    &:hover {
-        background-color: $background-color_3;
-        border-color: $border-color_1;
-    }
-}
 
 .resetPwdExito {
     color: green;

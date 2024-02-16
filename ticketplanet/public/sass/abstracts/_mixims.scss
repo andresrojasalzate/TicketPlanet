@@ -1,0 +1,13 @@
+@mixin pagination-disable{
+    color: #999;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+@mixin pagination-option{
+    display: inline-block;
+    padding: 8px 12px;
+    text-decoration: none;
+    border: 1px solid #000000;
+    color: #000000;
+}
