@@ -18,7 +18,7 @@ class Category extends Model
 
     public function eventsLimited(): HasMany
     {
-        return $this->hasMany(Event::class)->take(env'(EVENT_LIMIT_HOME'));
+        return $this->hasMany(Event::class)->take(env('EVENT_LIMIT_HOME'));
     }
     
 }
