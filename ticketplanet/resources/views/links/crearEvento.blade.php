@@ -1,20 +1,8 @@
+@extends('layouts.app')
 
-<!DOCTYPE html>
-<html lang="en">
+@section('title', 'Crear Evento')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="favicon/logoFavicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="{{ asset('css/styleSASS.css') }}">
-    <title>@yield('title')</title>
-</head>
-
-<body>
-    <header>
-        <x-header/>
-    </header>
+@section('content')
     <div class="contenedorLayout">
         <form action="{{ route('links.store') }}" method="post" enctype="multipart/form-data">
             @csrf
@@ -33,37 +21,43 @@
 
                     <select name="categoria">
                         @foreach ($categorias as $categoria)
-                        <option value="{{ $categoria->id }}" {{ isset($evento) && $evento->category_id == $categoria->id ? 'selected' : '' }}>
-                            {{ $categoria->name }}
-                        </option>
+                            <option value="{{ $categoria->id }}"
+                                {{ isset($evento) && $evento->category_id == $categoria->id ? 'selected' : '' }}>
+                                {{ $categoria->name }}
+                            </option>
                         @endforeach
                     </select>
                 </div>
 
 
                 <div class="parte2formulario">
-                  <div class="formularioDescripcion">
-                    <label for="descripcionEsdeveniment">Descripción Esdeveniment</label>
-                    <textarea name="description" id="descripcionEsdeveniment" rows="5" style="resize: none;">{{ isset($evento) ? $evento->description : old('description') }}</textarea>
-                    <br>
-                    @error('description')
-                        <small style="color: red">{{ $message }}</small>
-                    @enderror
-                </div>
+                    <div class="formularioDescripcion">
+                        <label for="descripcionEsdeveniment">Descripción Esdeveniment</label>
+                        <textarea name="description" id="descripcionEsdeveniment" rows="5" style="resize: none;">{{ isset($evento) ? $evento->description : old('description') }}</textarea>
+                        <br>
+                        @error('description')
+                            <small style="color: red">{{ $message }}</small>
+                        @enderror
+                    </div>
 
                     <div class="formularioImagen">
                         <label for="Imagen Principal de l'esdeveniment">Imagen principal</label>
-                        <input type="file" name="image" id="imagenEsdeveniment" value="{{ isset($evento) ? $evento->image : old('image') }}">
+                        <input type="file" name="image[]" id="imagenEsdeveniment" multiple
+                            accept=".jpg,.jpeg,.png,.gif|image/*"
+                            value="{{ isset($evento) ? $evento->image : old('image') }}">
 
                         @error('image')
                             <small style="color: red">{{ $message }}</small>
                         @enderror
 
                         <!-- Mostrar la imagen si ya está definida -->
-                        @if (isset($evento) && $evento->image)
-                            <img src="{{ asset('images/fotos-subidas/' . $evento->image) }}"
-                                alt="Imagen principal" width="150" loading="lazy">
+                        @if (isset($evento) && $evento->images)
+                            @foreach (json_decode($evento->images) as $imagen)
+                                <img src="{{ asset('images/fotos-subidas/' . $imagen) }}" alt="Imagen principal"
+                                    width="150" loading="lazy">
+                            @endforeach
                         @endif
+
 
                     </div>
 
@@ -177,25 +171,26 @@
                     </div>
                     <div class="formularioFechaCelebracion">
 
-                      <label for="Fecha celebracion">Fecha celebracion</label>
-                      <input class="formularioFechaCelebracionInput" type="date" name="date" min="<?php echo date('Y-m-d'); ?>"
-                          id="fechaCelebracion" value="{{ isset($sesion) ? $sesion->date : old('date') }}">
-                      
-                      @error('date')
-                          <small style="color: red">{{ $message }}</small>
-                      @enderror
-                  </div>
+                        <label for="Fecha celebracion">Fecha celebracion</label>
+                        <input class="formularioFechaCelebracionInput" type="date" name="date"
+                            min="<?php echo date('Y-m-d'); ?>" id="fechaCelebracion"
+                            value="{{ isset($sesion) ? $sesion->date : old('date') }}">
 
-                  <div class="formularioHoraCelebracion">
+                        @error('date')
+                            <small style="color: red">{{ $message }}</small>
+                        @enderror
+                    </div>
 
-                      <label for="Hora celebracion">Hora celebracion</label>
-                      <input class="formularioHoraCelebracionInput" type="time" name="time"
-                          id="horaCelebracion" value="{{ isset($sesion) ? $sesion->time : old('time') }}">
-                      
-                      @error('time')
-                          <small style="color: red">{{ $message }}</small>
-                      @enderror
-                  </div>
+                    <div class="formularioHoraCelebracion">
+
+                        <label for="Hora celebracion">Hora celebracion</label>
+                        <input class="formularioHoraCelebracionInput" type="time" name="time" id="horaCelebracion"
+                            value="{{ isset($sesion) ? $sesion->time : old('time') }}">
+
+                        @error('time')
+                            <small style="color: red">{{ $message }}</small>
+                        @enderror
+                    </div>
 
 
                 </div>
@@ -205,25 +200,26 @@
 
                     <div class="formularioFechaFin">
 
-                      <label for="fechaFin">Fecha Fin</label>
-                      <input class="formularioFechaFinInput" type="date" name="finishDate" id="fechaFin" min="<?php echo date('Y-m-d'); ?>"
-                          value="{{ isset($evento) ? $evento->finishDate : old('finishDate') }}">
-                      <br>
-                      @error('finishDate')
-                          <small style="color: red">{{ $message }}</small>
-                      @enderror
-                  </div>
+                        <label for="fechaFin">Fecha Fin</label>
+                        <input class="formularioFechaFinInput" type="date" name="finishDate" id="fechaFin"
+                            min="<?php echo date('Y-m-d'); ?>"
+                            value="{{ isset($evento) ? $evento->finishDate : old('finishDate') }}">
+                        <br>
+                        @error('finishDate')
+                            <small style="color: red">{{ $message }}</small>
+                        @enderror
+                    </div>
 
-                  <div class="formularioHoraFin">
+                    <div class="formularioHoraFin">
 
-                      <label for="horaFin">Hora Fin</label>
-                      <input class="formularioHoraFinInput" type="time" name="finishTime" id="HoraFin"
-                          value="{{ isset($evento) ? $evento->finishTime : old('finishTime') }}">
-                    <br>
-                      @error('finishTime')
-                          <small style="color: red">{{ $message }}</small>
-                      @enderror
-                  </div>
+                        <label for="horaFin">Hora Fin</label>
+                        <input class="formularioHoraFinInput" type="time" name="finishTime" id="HoraFin"
+                            value="{{ isset($evento) ? $evento->finishTime : old('finishTime') }}">
+                        <br>
+                        @error('finishTime')
+                            <small style="color: red">{{ $message }}</small>
+                        @enderror
+                    </div>
 
                     <div class="formularioAforoMaximo">
 
@@ -250,9 +246,4 @@
         </form>
 
     </div>
-    <footer>
-        <x-footer/>
-    </footer>
-</body>
-
-</html>
+@endsection

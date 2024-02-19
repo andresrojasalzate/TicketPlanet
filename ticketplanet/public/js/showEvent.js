@@ -70,3 +70,41 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 });
+
+
+
+
+// Nueva funcionalidad para la galería de imágenes
+document.addEventListener('DOMContentLoaded', function () {
+    const images = document.querySelectorAll('.gallery-image');
+    let currentImageIndex = 0;
+
+    function showImage(index) {
+        images.forEach((image, i) => {
+            if (i === index) {
+                image.style.display = 'block';
+            } else {
+                image.style.display = 'none';
+            }
+        });
+    }
+
+    function prevImage() {
+        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+        showImage(currentImageIndex);
+    }
+
+    function nextImage() {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        showImage(currentImageIndex);
+    }
+
+    // Mostrar la primera imagen al cargar la página
+    showImage(currentImageIndex);
+
+    // Agregar eventos de clic para los botones de navegación
+    const prevButton = document.querySelector('.prev-image');
+    const nextButton = document.querySelector('.next-image');
+    prevButton.addEventListener('click', prevImage);
+    nextButton.addEventListener('click', nextImage);
+});

@@ -17,7 +17,14 @@
 
     <a href="{{ route('events.mostrar', ['id' => $event->id]) }}">
         <div class="show-event-home-img">
-            <img  src="{{ asset('images/fotos-subidas/' . $event->image) }}" alt="" loading="lazy">
+            @if ($event->image)
+                @php
+                    $images = json_decode($event->image);
+                @endphp
+                @if (!empty($images))
+                    <img src="{{ asset('images/fotos-subidas/' . json_decode($event->image)[0]) }}" alt="" loading="lazy">
+                @endif
+            @endif
         </div>
         <p class="show-event-home-title">{{ $event->name }}</p>
 

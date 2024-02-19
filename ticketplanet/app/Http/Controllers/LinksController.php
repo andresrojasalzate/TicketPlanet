@@ -161,18 +161,30 @@ class LinksController extends Controller
       'maxCapacity' => 'required|lte:capacity'
     ]);
 
-    $foto = $request->file('image');
-    $nombre_foto = $foto->getClientOriginalName();
-    $extension = $foto->getClientOriginalExtension();
-    $nombre_unico = $nombre_foto . '_' . time() . '.' . $extension;
-    $foto->move(public_path('images/fotos-subidas/'), $nombre_unico);
+    // Guardar imágenes
+    $imagenes = [];
+    if ($request->hasFile('image')) {
+        foreach ($request->file('image') as $imagen) {
+            $nombre_imagen = $imagen->getClientOriginalName();
+            $extension = $imagen->getClientOriginalExtension();
+            $nombre_unico = $nombre_imagen . '_' . time() . '.' . $extension;
+            $imagen->move(public_path('images/fotos-subidas/'), $nombre_unico);
+            $imagenes[] = $nombre_unico;
+        }
+    }
+
+    // $foto = $request->file('image');
+    // $nombre_foto = $foto->getClientOriginalName();
+    // $extension = $foto->getClientOriginalExtension();
+    // $nombre_unico = $nombre_foto . '_' . time() . '.' . $extension;
+    // $foto->move(public_path('images/fotos-subidas/'), $nombre_unico);
 
     $eventoCrear = Event::create([
       'name' => $request->name,
       'address' => $request->address,
       'city' => $request->city,
       'name_site' => $request->name_site,
-      'image' => $nombre_unico,
+      'image' => json_encode($imagenes),
       'description' => $request->description,
       'finishDate' => $request->finishDate,
       'finishTime' => $request->finishTime,
