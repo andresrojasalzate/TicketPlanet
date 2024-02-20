@@ -1,28 +1,79 @@
 $font-family_1: 'Work Sans';
 
-.card-margin {
-    margin: 5vh;
-}
+.card {
 
-.card-showEvent {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    background-color: #D9D9D9;
-    margin: 5vh auto;
-    border: 3px solid;
-    border-color: #F9BD06;
-    box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5);
+    &-margin {
+        margin: 5vh;
+    }
+
+    &-showEvent {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        background-color: #D9D9D9;
+        margin: 5vh auto;
+        border: 3px solid;
+        border-color: #F9BD06;
+        box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    &-showTickets {
+        display: none;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &-timeSesion {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        justify-items: center;
+        grid-gap: 10px;
+        align-items: center;
+
+        .session-time {
+            background-color: #F9BD06;
+            border-radius: 7px;
+            cursor: pointer;
+            margin-bottom: 5px;
+            padding: 1vh;
+        }
+    }
 }
 
 .img-showEvent {
     flex: 1;
     height: 20%;
+    display: grid;
+    grid-template-columns: 0.1fr 3fr 0.1fr;
+}
 
-    img {
+.gallery {
+    &-image {
         width: 100%;
+        height: 30vw;
+    }
+
+}
+
+.btnPrevImg {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+    button {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        font-size: 1.2rem;
+
+        &:hover {
+            background-color: white;
+        }
     }
 }
+
 
 .info-showEvent {
     flex: 1;
@@ -58,32 +109,6 @@ $font-family_1: 'Work Sans';
         cursor: pointer;
     }
 }
-
-.card-timeSesion {
-    .session-time {
-        background-color: #F9BD06;
-        border-radius: 7px;
-        cursor: pointer;
-        margin-bottom: 5px;
-        padding: 1vh;
-    }
-
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    justify-items: center;
-    grid-gap: 10px;
-    align-items: center;
-}
-
-.card-showTickets {
-    display: none;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-
 
 .ticket-container {
     display: grid;
@@ -121,7 +146,7 @@ $font-family_1: 'Work Sans';
 
 
 
-.mensaje-error{
+.mensaje-error {
     color: red;
     font-size: 1.1rem;
     font-family: $font-family_1;
@@ -133,44 +158,53 @@ $font-family_1: 'Work Sans';
 
 
 .card-showComents {
-	width: 80vw;
-	font-family: $font-family_1;
-	h3 {
-		font-size: 1.5rem;
-	}
+    width: 80vw;
+    font-family: $font-family_1;
+
+    h3 {
+        font-size: 1.5rem;
+    }
 }
+
 .reseña {
-	display: grid;
-	grid-template-columns: 0.7fr 6fr;
-	padding: 1vh 0 2vh 0;
+    display: grid;
+    grid-template-columns: 0.7fr 6fr;
+    padding: 1vh 0 2vh 0;
+
+    &Cara{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &Nombre{
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+    }
+
+    &Texto{
+        font-size: 1.1rem;
+    }
+
+    &Estrellas{
+        display: flex;
+        justify-content: center;
+    }
+
 }
-.reseñaCara {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-.reseñaNombre {
-	display: flex;
-	align-items: flex-end;
-	justify-content: flex-end;
-}
-.reseñaTexto {
-	font-size: 1.1rem;
-}
-.reseñaEstrellas {
-	display: flex;
-	justify-content: center;
-}
+
 .card-compra {
-	margin: 5vh;
+    margin: 5vh;
 }
+
 #countdown-container {
-	padding: 2vh;
-	display: grid;
-	justify-content: center;
-	align-items: center;
-	font-size: 1.6rem;
-	font-weight: bold;
+    padding: 2vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    font-weight: bold;
 }
 
 
@@ -180,7 +214,6 @@ $font-family_1: 'Work Sans';
     .card-showEvent {
         display: flex;
         flex-direction: column;
-
         background-color: #D9D9D9;
         margin: 10vw auto;
         border: 3px solid;
@@ -192,12 +225,16 @@ $font-family_1: 'Work Sans';
         flex: 1;
     }
 
+    .gallery-image {
+        width: 100%;
+        height: 55vw;
+    }
+
     .info-showEvent {
         flex: 1;
         font-family: $font-family_1;
         margin: 10px;
     }
-
 
     .ubicacion-title-showEvent {
         display: flex;
@@ -205,10 +242,10 @@ $font-family_1: 'Work Sans';
         width: 100%;
     }
 
-   
-
-    .ubicacion-showEvent p {
-        margin: 0;
+    .ubicacion-showEvent {
+        p {
+            margin: 0;
+        }
     }
 
     .sesions-showEvent {
@@ -219,20 +256,20 @@ $font-family_1: 'Work Sans';
         position: relative;
         width: 80%;
         margin-top: 5px;
-    }
 
-    .select-wrapper select {
-        width: 100%;
-        height: 7vw;
-    }
-
-    .card-timeSesion .session-time {
-        background-color: #F9BD06;
-        border-radius: 7px;
-        margin-bottom: 5px;
+        select {
+            width: 100%;
+            height: 7vw;
+        }
     }
 
     .card-timeSesion {
+        .session-time {
+            background-color: #F9BD06;
+            border-radius: 7px;
+            margin-bottom: 5px;
+        }
+
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
         justify-items: center;
@@ -250,11 +287,13 @@ $font-family_1: 'Work Sans';
 
     }
 
-    .ticket-container input {
-        padding: 1vh;
-        font-size: 1rem;
-        margin-left: auto;
-        margin:1vh;
+    .ticket-container {
+        input {
+            padding: 1vh;
+            font-size: 1rem;
+            margin-left: auto;
+            margin: 1vh;
+        }
     }
 
 }
