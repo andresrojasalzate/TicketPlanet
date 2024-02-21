@@ -5,7 +5,20 @@
 @section('content')
 
 <div class="layout">
+   
     <x-buscador :categories="$categories"/>
+    @if(($textoIntroducido !== null || $categoriFiltrada !== null) && ($events !== null && !$events->isEmpty()))
+        <div class="resultado-busqueda">
+            <p>Eventos encontrados para: 
+            {{$textoIntroducido}}
+                @if($textoIntroducido !== null && $categoriFiltrada !==  null)
+                <span>y</span>
+                @endif
+            {{$categoriFiltrada}}
+            </p>
+        </div>
+    @endif
+
     @if($events != null && !$events->isEmpty())
         <div class="event-counter">
             

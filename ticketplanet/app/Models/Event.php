@@ -62,8 +62,7 @@ class Event extends Model
     * @return Event[] Colección de eventos que coinciden con los criterios de búsqueda.
     */
     public static function eventosBuscados(string $inputText = null, string $category = null){
-        if(isset($inputText) || isset($category)){
-
+    
             Log::info("Recuperamos los eventos filtrando por el texto recibido en los campos 'name, 'city' y 'name_site'");
 
             $eventos = Event::where(function($query) use ($inputText) {
@@ -82,11 +81,6 @@ class Event extends Model
             Log::info("Devolvemos los eventos encontrados");   
 
             return $eventos->paginate(env('PAGINATION_LIMIT'));
-        }else{
-            
-            Log::info("Devolvemos null al inputText estar vacío");  
-            return null;
-        }
     }
 
 }
