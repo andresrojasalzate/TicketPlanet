@@ -11,7 +11,10 @@
                     $images = json_decode($event->image);
                 @endphp
                 @if (!empty($images))
-                    <img src="{{ asset('images/fotos-subidas/' . json_decode($event->image)[0]) }}" alt="" loading="lazy">
+                    <img src="{{ asset('images/fotos-subidas/' . json_decode($event->image)[0]) }}" alt=""
+                        loading="lazy">
+                @else
+                    <img src="{{ asset('images/fotos-subidas/' . $event->image) }}" alt="" loading="lazy">
                 @endif
             @endif
         </div>

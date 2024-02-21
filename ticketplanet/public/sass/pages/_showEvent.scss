@@ -38,6 +38,10 @@ $font-family_1: 'Work Sans';
             cursor: pointer;
             margin-bottom: 5px;
             padding: 1vh;
+
+            &:hover{
+                background-color: #e6ad05;
+            }
         }
     }
 }
@@ -46,7 +50,13 @@ $font-family_1: 'Work Sans';
     flex: 1;
     height: 20%;
     display: grid;
-    grid-template-columns: 0.1fr 3fr 0.1fr;
+    grid-template-columns: auto 1fr auto;
+    justify-items: center;
+
+    .image-container {
+        grid-column: 2;
+        justify-self: center; 
+    }
 }
 
 .gallery {
