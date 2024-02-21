@@ -1565,13 +1565,31 @@ ul {
   gap: 20px;
   margin: 2%; }
 
+.resultado-busqueda {
+  margin-left: 2%; }
+  .resultado-busqueda p {
+    color: #0642F9;
+    font-weight: bold;
+    font-size: 27px; }
+  .resultado-busqueda span {
+    color: #0642F9;
+    font-weight: bold;
+    font-size: 27px; }
+
 @media screen and (max-width: 425px) {
   .event-counter {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(29vh, 1fr));
     gap: 20px;
     height: calc(85vh - 110px - 110px);
-    overflow-y: auto; } }
+    overflow-y: auto; }
+  .resultado-busqueda {
+    display: flex;
+    justify-content: center; }
+    .resultado-busqueda p {
+      font-size: 20px; }
+    .resultado-busqueda span {
+      font-size: 20px; } }
 
 .hide {
   display: none !important; }
