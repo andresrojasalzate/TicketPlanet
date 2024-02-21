@@ -8,8 +8,12 @@
             <div id="countdown" data-event-route="{{ route('events.mostrar', ['id' => $evento->id]) }}"></div>
         </div>
         <hr>
-
-        <form name="from" action="https://sis-t.redsys.es:25443/sis/realizarPago" method="POST">
+       @if ($totalPrice != 0 && env('PASARELA_PAGAMENT') == true)
+       <form name="from" action="https://sis-t.redsys.es:25443/sis/realizarPago" method="POST">
+       @else 
+        
+          <form name="from" action="{{ route('paginaRedsys') }}" method="POST">
+      @endif
             @csrf
             @if ($errors->any())
                 <div class="mensaje-error">

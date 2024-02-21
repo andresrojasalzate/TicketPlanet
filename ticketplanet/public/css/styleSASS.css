@@ -912,9 +912,16 @@ ul {
   display: flex;
   flex-direction: column; }
 
-.formularioNumeroDireccion, .formularioFechaFin, .formularioHoraFin {
+.formularioNumeroDireccion {
   width: 33%; }
-  .formularioNumeroDireccionInput, .formularioFechaFinInput, .formularioHoraFinInput {
+  .formularioNumeroDireccionInput {
+    width: 70%; }
+
+.formularioFechaFin, .formularioHoraFin {
+  width: 33%;
+  display: flex;
+  flex-direction: column; }
+  .formularioFechaFinInput, .formularioHoraFinInput {
     width: 70%; }
 
 .formularioNombreLocal {
@@ -1098,16 +1105,20 @@ ul {
     .formularioNombreLocal input {
       width: 70%; }
   .formularioHoraFin {
-    width: 33%; }
+    width: 33%;
+    display: flex;
+    flex-direction: column; }
     .formularioHoraFin input {
       width: 70%; }
-  .formularioFechaFin {
-    width: 33%; }
-    .formularioFechaFin input {
+  .formularioFechaFin, .formularioHoraFin {
+    width: 33%;
+    display: flex;
+    flex-direction: column; }
+    .formularioFechaFin input, .formularioHoraFin input {
       width: 70%; }
-  .formularioNumeroDireccion, .formularioFechaFin, .formularioHoraFin {
+  .formularioNumeroDireccion {
     width: 33%; }
-    .formularioNumeroDireccion input, .formularioFechaFin input, .formularioHoraFin input {
+    .formularioNumeroDireccion input {
       width: 70%; }
   .formularioParteEntradas {
     width: 100%; }
@@ -1296,6 +1307,28 @@ ul {
     flex-direction: column;
     margin-top: 5%; } }
 
+.compraExito {
+  width: 50%;
+  background-color: #01781cc7;
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding: 3%;
+  margin: 5% 0% 5% 20%;
+  justify-content: space-evenly;
+  font-size: 18px; }
+
+.compraFallido {
+  width: 50%;
+  background-color: #ff0000cf;
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding: 3%;
+  margin: 5% 0% 5% 20%;
+  justify-content: space-evenly;
+  font-size: 18px; }
+
 .card-compra {
   margin: 5vh;
   font-family: 'Work Sans'; }
@@ -1344,26 +1377,6 @@ ul {
             text-align: right; }
           .card-compra .contenedor-compra .compra-infoEntradas .contenedor-info .entry-title .ticket-name {
             font-weight: 500; }
-  .card-compra .compraExito {
-    width: 50%;
-    background-color: #01781cc7;
-    color: white;
-    display: flex;
-    justify-content: center;
-    padding: 3%;
-    margin: 5% 0% 5% 20%;
-    justify-content: space-evenly;
-    font-size: 18px; }
-  .card-compra .compraFallido {
-    width: 50%;
-    background-color: #ff0000cf;
-    color: white;
-    display: flex;
-    justify-content: center;
-    padding: 3%;
-    margin: 5% 0% 5% 20%;
-    justify-content: space-evenly;
-    font-size: 18px; }
   @media screen and (max-width: 450px) {
     .card-compra .contenedor-info {
       width: 70vw !important; } }
@@ -1381,11 +1394,47 @@ ul {
   border-color: #F9BD06;
   box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5); }
 
+.card-showTickets {
+  display: none;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.card-timeSesion {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  justify-items: center;
+  grid-gap: 10px;
+  align-items: center; }
+  .card-timeSesion .session-time {
+    background-color: #F9BD06;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    padding: 1vh; }
+
 .img-showEvent {
   flex: 1;
-  height: 20%; }
-  .img-showEvent img {
-    width: 100%; }
+  height: 20%;
+  display: grid;
+  grid-template-columns: 0.1fr 3fr 0.1fr; }
+
+.gallery-image {
+  width: 100%;
+  height: 30vw; }
+
+.btnPrevImg {
+  display: grid;
+  justify-content: center;
+  align-items: center; }
+  .btnPrevImg button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 1.2rem; }
+    .btnPrevImg button:hover {
+      background-color: white; }
 
 .info-showEvent {
   flex: 1;
@@ -1411,26 +1460,6 @@ ul {
     width: 80%;
     height: 3vh;
     cursor: pointer; }
-
-.card-timeSesion {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  justify-items: center;
-  grid-gap: 10px;
-  align-items: center; }
-  .card-timeSesion .session-time {
-    background-color: #F9BD06;
-    border-radius: 7px;
-    cursor: pointer;
-    margin-bottom: 5px;
-    padding: 1vh; }
-
-.card-showTickets {
-  display: none;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; }
 
 .ticket-container {
   display: grid;
@@ -1476,23 +1505,19 @@ ul {
   display: grid;
   grid-template-columns: 0.7fr 6fr;
   padding: 1vh 0 2vh 0; }
-
-.reseñaCara {
-  display: flex;
-  align-items: center;
-  justify-content: center; }
-
-.reseñaNombre {
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end; }
-
-.reseñaTexto {
-  font-size: 1.1rem; }
-
-.reseñaEstrellas {
-  display: flex;
-  justify-content: center; }
+  .reseñaCara {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+  .reseñaNombre {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end; }
+  .reseñaTexto {
+    font-size: 1.1rem; }
+  .reseñaEstrellas {
+    display: flex;
+    justify-content: center; }
 
 .card-compra {
   margin: 5vh; }
@@ -1516,6 +1541,9 @@ ul {
     box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.5); }
   .img-showEvent {
     flex: 1; }
+  .gallery-image {
+    width: 100%;
+    height: 55vw; }
   .info-showEvent {
     flex: 1;
     font-family: "Work Sans";
@@ -1532,19 +1560,19 @@ ul {
     position: relative;
     width: 80%;
     margin-top: 5px; }
-  .select-wrapper select {
-    width: 100%;
-    height: 7vw; }
-  .card-timeSesion .session-time {
-    background-color: #F9BD06;
-    border-radius: 7px;
-    margin-bottom: 5px; }
+    .select-wrapper select {
+      width: 100%;
+      height: 7vw; }
   .card-timeSesion {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     justify-items: center;
     grid-gap: 10px;
     align-items: center; }
+    .card-timeSesion .session-time {
+      background-color: #F9BD06;
+      border-radius: 7px;
+      margin-bottom: 5px; }
   #total-price-container {
     width: 30vh;
     display: grid;

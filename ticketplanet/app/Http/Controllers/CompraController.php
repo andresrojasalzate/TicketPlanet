@@ -63,6 +63,7 @@ class CompraController extends Controller
 
         // Crear un array para almacenar la cantidad de entradas por tipo de ticket
         $cantidadPorTicket = [];
+        
 
         $hayNoNominal = false;
 
@@ -73,6 +74,8 @@ class CompraController extends Controller
                 // Almacenar la cantidad de entradas vendidas para este ticket
                 $cantidadPorTicket[$ticket->id] = $cantidadEntradas[$ticket->id];
                 arrayEntradaTicket::put('cantidadEntradasSesion', $cantidadPorTicket);
+                $cantidadTicket = session('cantidadEntradasSesion');
+                
                 if(!$ticket->nominal){
                     $hayNoNominal = true;
                 }
@@ -81,8 +84,9 @@ class CompraController extends Controller
                 $cantidadPorTicket[$ticket->id] = 0;
             }
         }
+
         $precioTotal = $request->input("totalPrice");
-        
+
     $amount = (int)$totalPrice * 100;
     $id = time();
     $fuc = '999008881';
@@ -110,8 +114,26 @@ class CompraController extends Controller
     $signature = $miObj->createMerchantSignature('sq7HjrUOBfKmC576ILgskD5srU870gJ7');
 
 
+  return view('compra.compra', compact('evento', 'sesionId', 'selectedDate', 'selectedTime', 'tickets', 'cantidadEntradas', 'totalPrice','params','signature', 'hayNoNominal'));
+        
+    }
 
-        return view('compra.compra', compact('evento', 'sesionId', 'selectedDate', 'selectedTime', 'tickets', 'cantidadEntradas', 'totalPrice','params','signature', 'hayNoNominal'));
+    public function paginaRedsys(Request $request){
+
+        $cantidadTicket = session('cantidadEntradasSesion');
+
+    foreach ($cantidadTicket as $id => $ticketsVendidos) {
+      // dd($id);
+      $ticket = Ticket::find($id);
+      if ($ticket->price == 0) {
+        $ticket->update([
+          'sold_tickets' => $ticket->sold_tickets + $ticketsVendidos,
+      ]);
+      }
+    }
+    return redirect()->route('compra.compraExito');
+
+      
     }
     public function entradaComprada(Request $request)
     {
