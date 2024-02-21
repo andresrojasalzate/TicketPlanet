@@ -101,4 +101,5 @@ Route::post('/compra', [CompraController::class, 'almacenarCompra'])->name('comp
 Route::get('/compraExito',[CompraController::class, 'entradaComprada'])->name('entradaComprada');
 Route::get('/viewCompraExito',[CompraController::class, 'entradaCompradaView'])->name('compra.compraExito');
 Route::get('/viewCompraFallido',[CompraController::class, 'entradaCompradaViewFallido'])->name('entradaCompradaViewFallido');
+Route::post('/paginaRedsys',[CompraController::class, 'paginaRedsys'])->name('paginaRedsys');
  
