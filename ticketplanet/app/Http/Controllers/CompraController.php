@@ -74,6 +74,7 @@ class CompraController extends Controller
                 // Almacenar la cantidad de entradas vendidas para este ticket
                 $cantidadPorTicket[$ticket->id] = $cantidadEntradas[$ticket->id];
                 arrayEntradaTicket::put('cantidadEntradasSesion', $cantidadPorTicket);
+                Log::info("Session para guardar la cantidad de entradas con su id");
                 $cantidadTicket = session('cantidadEntradasSesion');
                 
                 if(!$ticket->nominal){
@@ -112,10 +113,37 @@ class CompraController extends Controller
 
     $params = $miObj->createMerchantParameters();
     $signature = $miObj->createMerchantSignature('sq7HjrUOBfKmC576ILgskD5srU870gJ7');
+    
 
 
   return view('compra.compra', compact('evento', 'sesionId', 'selectedDate', 'selectedTime', 'tickets', 'cantidadEntradas', 'totalPrice','params','signature', 'hayNoNominal'));
         
+    }
+    public function datosRedsys(Request $request){
+      
+      $totalPrice = $request->totalPrice;
+     
+dd($request);
+      $precioTotal = $request->input("totalPrice");
+      $amount = (int)$totalPrice * 100;
+  
+      $miObj = new \RedsysAPI;
+      $miObj->setParameter("DS_MERCHANT_AMOUNT", $amount);
+ 
+      $params = $miObj->createMerchantParameters();
+      $signature = $miObj->createMerchantSignature('sq7HjrUOBfKmC576ILgskD5srU870gJ7');
+
+        $formulario = '<form id="form" action="https://sis-t.redsys.es:25443/sis/realizarPago" method="post">';
+        $formulario .= '<input type="hidden" name="Ds_SignatureVersion" value="HMAC_SHA256_V1">';
+        $formulario .= '<input type="hidden" name="Ds_MerchantParameters" value="' . htmlspecialchars($params) . '">';
+        $formulario .= '<input type="hidden" name="Ds_Signature" value="' . htmlspecialchars($signature) . '">';
+        $formulario .= '</form>';
+    
+        $formulario .= '<script type="text/javascript">';
+        $formulario .= 'document.getElementById("form").submit();';
+        $formulario .= '</script>';
+    
+        return $formulario;
     }
 
     public function paginaRedsys(Request $request){
@@ -126,11 +154,13 @@ class CompraController extends Controller
       // dd($id);
       $ticket = Ticket::find($id);
       if ($ticket->price == 0) {
+        Log::info("El precio de la entrada es 0 y la guarda");
         $ticket->update([
           'sold_tickets' => $ticket->sold_tickets + $ticketsVendidos,
       ]);
       }
     }
+
     return redirect()->route('compra.compraExito');
 
       
@@ -148,7 +178,7 @@ class CompraController extends Controller
       $signaturaCalculada = $miObj->createMerchantSignatureNotif($claveModuloAdmin, $datos);
   
       if ($signaturaCalculada == $signaturaRecibida) {
-
+        Log::info("Passa correctamente la pasarela de pago");
         $arrayFromSession = session('cantidadEntradasSesion');
         foreach($arrayFromSession as $id => $soldTicket){
           $ticket = Ticket::find($id);
@@ -158,18 +188,22 @@ class CompraController extends Controller
         }
 
        arrayEntradaTicket::forget('cantidadEntradasSesion');
+
         return redirect()->route('compra.compraExito');
       } else {
-        echo "FIRMA KO.Error, firma inválida";
+        return redirect()->route('compra.compraFallido');
       }
     }
     public function entradaCompradaView()
     {
+      Log::info("Vista pagina compra exito");
       return view('compra.compraExito');
       
     }
     public function entradaCompradaViewFallido()
     {
+      
+      Log::info("Vista pagina compra fallida");
       return view('compra.compraFallido');
     }
 
