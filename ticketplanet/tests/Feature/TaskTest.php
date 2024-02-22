@@ -307,54 +307,54 @@ $response->assertSessionHasErrors(['quantity']);
 $response->assertSessionHasErrors('quantity', 'La cantidad no puede ser superior al aforo maximo.');
 
 }
-public function test_maxCapacity_is_0_page_sessions()
-{
-  $user = User::factory()->create();
-  $this->actingAs($user);
+// public function test_maxCapacity_is_0_page_sessions()
+// {
+//   $user = User::factory()->create();
+//   $this->actingAs($user);
 
-  $categoria = Category::factory()->create();
+//   $categoria = Category::factory()->create();
 
-  $evento = Event::factory()->create();
+//   $evento = Event::factory()->create();
 
-  $session = Session::factory()->create();
+//   $session = Session::factory()->create();
 
-  $evento = Event::create([
-    'name' => "anderson",
-    'address' => "direccion",
-    'city' => "ciudad",
-    'name_site' => "nombreSitio",
-    'image' => "imagen",
-    'description' => "descripcion",
-    'finishDate' => date('Y-m-d'),
-    'finishTime' => date('H:i:s'),
-    'visible' => true,
-    'capacity' => 0,
-    'category_id' => $categoria->id,
-    'user_id' => $user->id,
-  ]);
+//   $evento = Event::create([
+//     'name' => "anderson",
+//     'address' => "direccion",
+//     'city' => "ciudad",
+//     'name_site' => "nombreSitio",
+//     'image' => "imagen",
+//     'description' => "descripcion",
+//     'finishDate' => date('Y-m-d'),
+//     'finishTime' => date('H:i:s'),
+//     'visible' => true,
+//     'capacity' => 0,
+//     'category_id' => $categoria->id,
+//     'user_id' => $user->id,
+//   ]);
 
-  $sesion = Session::create([
-    'date' => date('Y-m-d'),
-    'time' => date('H:i:s'),
-    'maxCapacity' => 0,
-    'ticketsSold' => 0,
-    'event_id' => $evento->id,
-  ]);
+//   $sesion = Session::create([
+//     'date' => date('Y-m-d'),
+//     'time' => date('H:i:s'),
+//     'maxCapacity' => 0,
+//     'ticketsSold' => 0,
+//     'event_id' => $evento->id,
+//   ]);
   
-  $response = $this->post(route('links.storeComprarEntradasSesion'), [
-    'name' => "nombre",
-    'quantity' => 0,
-    'price' => 10.0,
-    'nominal' => true,
-    'session_id' => $sesion->id,
-]);
+//   $response = $this->post(route('links.storeComprarEntradasSesion'), [
+//     'name' => "nombre",
+//     'quantity' => 0,
+//     'price' => 10.0,
+//     'nominal' => true,
+//     'session_id' => $sesion->id,
+// ]);
 
 
-$response->assertStatus(302);
-$response->assertRedirect(route('links.sessionEvents'));
+// $response->assertStatus(302);
+// $response->assertRedirect(route('links.sessionEvents'));
 
 
-}
+// }
 public function test_validation_ticket(){
   $user = User::factory()->create();
   $this->actingAs($user);

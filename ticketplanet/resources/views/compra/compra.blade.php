@@ -9,7 +9,7 @@
         </div>
         <hr>
        @if ($totalPrice != 0 && env('PASARELA_PAGAMENT') == true)
-       <form name="from" action="https://sis-t.redsys.es:25443/sis/realizarPago" method="POST">
+       <form name="from" action="{{route('datosRedsys')}}" method="POST">
        @else 
         
           <form name="from" action="{{ route('paginaRedsys') }}" method="POST">
@@ -89,6 +89,7 @@
                             <input type="hidden" name="Ds_SignatureVersion" value="HMAC_SHA256_V1"/>
                             <input type="hidden" name="Ds_MerchantParameters" value="{{$params}}"/>
                             <input type="hidden" name="Ds_Signature" value="{{$signature}}"/>	
+                            <input type="hidden" name="totalPrice" value="{{$totalPrice}}"/>	
                         @endif
 
                     @endforeach
