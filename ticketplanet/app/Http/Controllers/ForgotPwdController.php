@@ -18,10 +18,10 @@ class ForgotPwdController extends Controller
     }
 
     //no usada?
-    public function showLinkRequestForm()
-    {
-        return view('auth.forgotPwd');
-    }
+    // public function showLinkRequestForm()
+    // {
+    //     return view('auth.forgotPwd');
+    // }
 
     public function sendResetLinkEmail(Request $request)
     {
