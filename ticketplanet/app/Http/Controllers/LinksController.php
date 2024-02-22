@@ -92,7 +92,7 @@ class LinksController extends Controller
 
     $capacidadMaxima = session('capacidadMaxima');
 
-    Log::info("Validacion campos");
+    Log::info("Validacion campos entradas");
     $request->validate([
       'name' => 'required',
       'price' => 'required',
