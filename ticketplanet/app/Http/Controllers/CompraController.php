@@ -206,6 +206,7 @@ class CompraController extends Controller
         }
 
        arrayEntradaTicket::forget('cantidadEntradasSesion');
+
         return redirect()->route('compra.compraExito');
       } else {
         return redirect()->route('compra.compraFallido');
@@ -219,6 +220,7 @@ class CompraController extends Controller
     }
     public function entradaCompradaViewFallido()
     {
+      
       Log::info("Vista pagina compra fallida");
       return view('compra.compraFallido');
     }
