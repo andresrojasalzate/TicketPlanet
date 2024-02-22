@@ -123,13 +123,31 @@ class CompraController extends Controller
       
       $totalPrice = $request->totalPrice;
      
-dd($request);
+
       $precioTotal = $request->input("totalPrice");
       $amount = (int)$totalPrice * 100;
+
+      $id = time();
+      $fuc = '999008881';
+      $moneda = '978';
+      $trans = '0';
+      $terminal = '001';
+      $url = '';
+      $urlOK = route('entradaComprada');
+      $urlKO = route('entradaCompradaViewFallido');
   
       $miObj = new \RedsysAPI;
       $miObj->setParameter("DS_MERCHANT_AMOUNT", $amount);
- 
+      $miObj->setParameter("DS_MERCHANT_ORDER", $id);
+      $miObj->setParameter("DS_MERCHANT_MERCHANTCODE", $fuc);
+      $miObj->setParameter("DS_MERCHANT_CURRENCY", $moneda);
+      $miObj->setParameter("DS_MERCHANT_TRANSACTIONTYPE", $trans);
+      $miObj->setParameter("DS_MERCHANT_TERMINAL", $terminal);
+      $miObj->setParameter("DS_MERCHANT_MERCHANTURL", $url);
+      $miObj->setParameter("DS_MERCHANT_DIRECTPAYMENT", "true");
+      $miObj->setParameter("DS_REDSYS_ENVIROMENT", "true");
+      $miObj->setParameter("DS_MERCHANT_URLOK", $urlOK);
+      $miObj->setParameter("DS_MERCHANT_URLKO", $urlKO);  
       $params = $miObj->createMerchantParameters();
       $signature = $miObj->createMerchantSignature('sq7HjrUOBfKmC576ILgskD5srU870gJ7');
 
@@ -188,7 +206,6 @@ dd($request);
         }
 
        arrayEntradaTicket::forget('cantidadEntradasSesion');
-
         return redirect()->route('compra.compraExito');
       } else {
         return redirect()->route('compra.compraFallido');
@@ -202,7 +219,6 @@ dd($request);
     }
     public function entradaCompradaViewFallido()
     {
-      
       Log::info("Vista pagina compra fallida");
       return view('compra.compraFallido');
     }
