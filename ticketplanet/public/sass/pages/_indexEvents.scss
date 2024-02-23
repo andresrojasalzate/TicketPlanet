@@ -6,6 +6,19 @@
     margin: 2%;
 }
 
+.resultado-busqueda{
+
+        margin-left: 2%;
+
+        & p{
+            @include texto-resultado-busqueda; 
+        }
+
+        & span{
+            @include texto-resultado-busqueda;
+        }
+}
+
 @media screen and (max-width: 425px){
     .event-counter {
         display: grid;
@@ -14,5 +27,19 @@
         height: calc(85vh - 110px - 110px);
         overflow-y: auto;
     }
+
+    .resultado-busqueda{
+        display: flex;
+        justify-content: center;
+
+        & p{
+            font-size: 20px;
+        }
+
+        & span{
+            font-size: 20px;
+        }
+    }
+
 }
 

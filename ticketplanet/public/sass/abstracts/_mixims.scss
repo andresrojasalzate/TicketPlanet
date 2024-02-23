@@ -11,3 +11,9 @@
     border: 1px solid #000000;
     color: #000000;
 }
+
+@mixin texto-resultado-busqueda{
+    color: #0642F9;
+    font-weight: bold;
+    font-size: 27px;
+}
