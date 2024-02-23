@@ -19,6 +19,6 @@ class HttpRedirect
       // if(!$request->secure() && App::environment('server')){
       //   return redirect()->secure($request->getRequestUri());
       // }
-      // return $next($request);
+       return $next($request);
     }
 }
