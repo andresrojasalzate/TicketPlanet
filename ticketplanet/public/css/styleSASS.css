@@ -732,6 +732,19 @@ ul {
     font-size: 1rem;
     margin: 5%; }
 
+.btneditEvent {
+  position: absolute;
+  top: 1vh;
+  right: 1vh;
+  padding: 0.5vh;
+  background-color: #ebebeb;
+  border: 1px solid #000000;
+  border-radius: 1vh;
+  z-index: 3;
+  cursor: pointer; }
+  .btneditEvent:hover {
+    background-color: #D9D9D9; }
+
 @media screen and (max-width: 425px), (max-height: 720px) {
   .show-event-home {
     overflow: auto; }
@@ -1359,7 +1372,8 @@ ul {
       margin-top: 0.3vh; }
     .card-compra .contenedor-compra .compra-infoEntradas {
       display: grid;
-      justify-content: center; }
+      justify-content: center;
+      margin-top: 1vh; }
       .card-compra .contenedor-compra .compra-infoEntradas .contenedor-info {
         background-color: #D9D9D9;
         border-radius: 7px;
