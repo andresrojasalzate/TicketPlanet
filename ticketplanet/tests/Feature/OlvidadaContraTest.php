@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class ReseteoContraTest extends TestCase
+class OlvidadaContraTest extends TestCase
 {
 
     use RefreshDatabase;
