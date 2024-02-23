@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session as arrayEntradaTicket;
 use App\Mail\VentaMail;
+use Illuminate\Support\Facades\File;
 
 class CompraController extends Controller
 {
@@ -120,7 +121,9 @@ class CompraController extends Controller
         
     }
     public function datosRedsys(Request $request){
-      
+
+      $this->almacenarCompra($request);
+
       $totalPrice = $request->totalPrice;
      
 
@@ -214,15 +217,29 @@ class CompraController extends Controller
     }
     public function entradaCompradaView()
     {
+      
+      $idCompra = arrayEntradaTicket::get('idCompra');
+      $compra = Compra::find($idCompra);
+      $this->enviarMailCompra($compra);
+
       Log::info("Vista pagina compra exito");
       return view('compra.compraExito');
       
     }
     public function entradaCompradaViewFallido()
     {
-      
+      $idCompra = arrayEntradaTicket::get('idCompra');
+      $this->eliminarCompra($idCompra);
       Log::info("Vista pagina compra fallida");
       return view('compra.compraFallido');
+    }
+
+    private function eliminarCompra($idCompra)
+    {
+        $compra = Compra::find($idCompra);
+        File::delete(storage_path('app/pdfs/') . $compra->pdfTickets);
+        $compra->delete();
+
     }
 
     public function almacenarCompra(Request $request)
@@ -248,42 +265,6 @@ class CompraController extends Controller
         $compraId = $this->crearCompra($request);
         $this->crearAsistentes($request, $compraId);
         $compra = $this->generarPdfEntradas($compraId);
-        $this->enviarMailCompra($compra);
-
-
-        // $selectedDate = $request->input('selected_date');
-        // $selectedTime = $request->input('selected_time');
-        // $sessionId = $request->input('session_id');
-        // //$ticketId = $request->input('ticket_id');
-
-       
-
-
-        // foreach ($request->user_name as $key => $userName) {
-        //     $email = $request->email;
-        //     $date = $request->selected_date;
-        //     $time = $request->selected_time;
-        
-        //     $userName = isset($request->user_name[$key]) ? $request->user_name[$key] : null;
-        //     $ticketName = isset($request->ticket_name[$key]) ? $request->ticket_name[$key] : null;
-        //     $ticketQuantity = isset($request->ticket_quantity[$key]) ? $request->ticket_quantity[$key] : null;
-        //     $ticketId = isset($request->ticket_id[$key]) ? $request->ticket_id[$key] : null;
-
-        //     if ($ticketName !== null) {
-        //         Compra::create([
-        //             'email' => $email,
-        //             'date' => $date,
-        //             'time' => $time,
-        //             'ticket_name' => $ticketName,
-        //             'ticket_quantity' => $ticketQuantity,
-        //             'session_id' => $sessionId,
-        //             'ticket_id' => $ticketId,
-        //         ]);
-        //     }
-        // }
-
-        //return redirect()->route('events.mostrar', ['id' => $request->evento_id])->with('success', 'Compra almacenada correctamente.');
-        return redirect()->route('events.mostrar', $request->evento_id)->with('success', 'Compra almacenada correctamente.');
 
     }
 
@@ -303,6 +284,10 @@ class CompraController extends Controller
             'phonePurchaser' => $request->comprador_phone,
             'session_id' => $request->session_id,
         ]);
+
+        arrayEntradaTicket::forget('idCompra');
+
+        arrayEntradaTicket::put('idCompra', $compra->id);
 
         return $compra->id;
     }
