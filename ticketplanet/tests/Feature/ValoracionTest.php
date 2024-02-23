@@ -64,6 +64,46 @@ class ValoracionTest extends TestCase
 
     }
 
+    public function test_enviar_correo_sin_auth()
+    {
+        // Crear un usuario autenticado
+        $user = User::factory()->create();
+
+        // Crear un evento
+        $evento = Event::factory()->create([
+            'category_id' => Category::factory()->create()->id,
+        ]);
+
+        // Simular la solicitud HTTP para enviar el correo de valoración
+        $response = $this->post(route('enviar.correo.valoracion'), [
+            'evento' => $evento->id,
+        ]);
+
+        // Verificar que se redirige de vuelta con un mensaje de éxito
+        $response->assertRedirect();
+
+    }
+
+    public function test_enviar_correo_invalido()
+    {
+        // Crear un usuario autenticado
+        $user = User::factory()->create();
+
+        // Crear un evento
+        $evento = Event::factory()->create([
+            'category_id' => Category::factory()->create()->id,
+        ]);
+
+        // Simular la solicitud HTTP para enviar el correo de valoración
+        $response = $this->actingAs($user)->post(route('enviar.correo.valoracion'), [
+            'evento' => 30,
+        ]);
+
+        // Verificar que se redirige de vuelta con un mensaje de éxito
+        $response->assertRedirect();
+
+    }
+
     public function test_guardar_valoracion()
     {
         $user = User::factory()->create();
@@ -100,6 +140,28 @@ class ValoracionTest extends TestCase
         Log::info('Valoración guardada en la base de datos');
     }
 
+    public function test_guardar_valoracion_exception()
+    {
+        $user = User::factory()->create();
+        $evento = Event::factory()->create([
+            'category_id' => Category::factory()->create()->id,
+            'user_id' => $user->id, // Asignar el ID del usuario al evento
+        ]);
+
+        // Simular la solicitud HTTP para guardar la valoración
+        $response = $this->post(route('guardarValoracion'), [
+            'nombre' => 10,
+            'caraSeleccionada' => 5,
+            'puntuacionSeleccionada' => 'asadadsaada',
+            'tituloComentario' => false,
+            'comentario' => 'Realmente disfruté el evento. Fue una experiencia increíble.',
+            'evento_id' => '100',
+        ]);
+
+        // Verificar que se redirige de vuelta con un mensaje de éxito
+        $response->assertRedirect();
+
+    }
 }
 
 
