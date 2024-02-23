@@ -77,6 +77,6 @@ class CompraTest extends TestCase
         // Verificar que la vista devuelta sea la correcta
         $response->assertViewIs('compra.compra');
 
-       
+
     }
 }
