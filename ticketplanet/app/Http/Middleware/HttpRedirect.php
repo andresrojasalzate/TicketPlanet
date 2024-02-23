@@ -16,9 +16,9 @@ class HttpRedirect
      */
     public function handle(Request $request, Closure $next): Response
     {
-      if(!$request->secure() && App::environment('server')){
-        return redirect()->secure($request->getRequestUri());
-      }
-      return $next($request);
+      // if(!$request->secure() && App::environment('server')){
+      //   return redirect()->secure($request->getRequestUri());
+      // }
+      // return $next($request);
     }
 }
