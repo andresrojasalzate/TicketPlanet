@@ -73,6 +73,24 @@
     }
 }
 
+.btneditEvent {
+    position: absolute;
+    top: 1vh;
+    right: 1vh;
+    padding: 0.5vh;
+    background-color: #ebebeb;
+    border: 1px solid #000000;
+    border-radius: 1vh;
+    z-index: 3;
+    cursor: pointer;
+
+
+    &:hover{
+        background-color: #D9D9D9;
+    }
+}
+
+
 @media screen and (max-width:425px), (max-height:720px) {
 
     .show-event-home {
