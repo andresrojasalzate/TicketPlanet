@@ -13,10 +13,9 @@
             $images = json_decode($evento->image);
         @endphp
         @if (!empty($images))
-            <div class="img-showEvent">
-                <img src="{{ asset('images/fotos-subidas/' . json_decode($evento->image)[0]) }}" alt=""
-                    width="300" loading="lazy">
-            </div>
+            <img src="{{ asset('images/fotos-subidas/' . json_decode($evento->image)[0]) }}" alt="" width="300" loading="lazy">
+        @else
+            <img src="{{ asset('images/fotos-subidas/' . $evento->image) }}" alt="" width="300" loading="lazy">
         @endif
     @endif
 
