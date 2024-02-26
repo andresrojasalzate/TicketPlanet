@@ -172,7 +172,7 @@ class CompraController extends Controller
         $cantidadTicket = session('cantidadEntradasSesion');
 
     foreach ($cantidadTicket as $id => $ticketsVendidos) {
-      // dd($id);
+
       $ticket = Ticket::find($id);
       if ($ticket->price == 0) {
         Log::info("El precio de la entrada es 0 y la guarda");
@@ -209,7 +209,6 @@ class CompraController extends Controller
         }
 
        arrayEntradaTicket::forget('cantidadEntradasSesion');
-
         return redirect()->route('compra.compraExito');
       } else {
         return redirect()->route('compra.compraFallido');

@@ -170,6 +170,12 @@ image::Images/Logo.png[Logo principal, width=10%]
 - Diseño Mockups feedback cuando compras entrada
 - Implementacion feedback
 
+=== Semana 7
+
+==== Adria 
+ - Implementacion de la funcionalidad de la  pasarela de pago 
+ - Gestion de errores en el pago
+
 
 == DISEÑO
 

@@ -17,12 +17,6 @@ class ForgotPwdController extends Controller
         return view('auth.forgotPwd');
     }
 
-    //no usada?
-    // public function showLinkRequestForm()
-    // {
-    //     return view('auth.forgotPwd');
-    // }
-
     public function sendResetLinkEmail(Request $request)
     {
         $this->validateEmail($request);
@@ -34,9 +28,6 @@ class ForgotPwdController extends Controller
             $token = $this->generateToken();
 
             Log::info('Token generado: ' . $token);
-
-            //$user->update(['reset_token' => $token]);
-            //$user->update(['reset_token' => $token, 'reset_token_created_at' => now()]);
             
             // Actualiza el usuario con el token y la fecha de creación
             $user->update([
@@ -49,8 +40,6 @@ class ForgotPwdController extends Controller
             Mail::to($user->email)->send(new ResetPasswordMail($user, $token));
 
             Log::info('Correo de restablecimiento enviado a: ' . $user->email);
-
-            //return back()->with('status', '¡Enlace de restablecimiento de contraseña enviado con éxito!');
         }
 
         return back()->with('status', '¡Enlace de restablecimiento de contraseña enviado con éxito!');

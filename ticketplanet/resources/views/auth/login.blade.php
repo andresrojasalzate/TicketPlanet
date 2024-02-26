@@ -25,9 +25,6 @@
         @if ($errors->has('password'))
             <span class="passworderror">{{ $errors->first('password') }}</span>
         @endif
-        {{-- @if (session('status'))
-                <span class="credenciales">{{ session('status') }}</span>
-            @endif --}}
         @if (session('status') && session('status')['message'])
             <div class="mensaje-estado {{ session('status')['class'] ?? '' }}">
                 {{ session('status')['message'] }}
