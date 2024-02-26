@@ -901,13 +901,15 @@ ul {
     .nombreEntradasInput {
       width: 70%; } }
 
-.div1, .div2 {
+.div1,
+.div2 {
   font-size: 15px; }
 
 .contenedorLayout {
   display: flex;
   justify-content: center;
   margin: 3%;
+  padding: 21vh;
   flex-direction: column; }
 
 .formularioDescripcion {
@@ -958,15 +960,27 @@ ul {
     width: 70%; }
   .formularioFechaCelebracionSesion {
     display: flex;
-    flex-direction: column; }
+    flex-direction: column;
+    font-family: 'Work Sans'; }
+    .formularioFechaCelebracionSesion label {
+      margin-bottom: 0.5vh;
+      font-size: 1.1rem; }
 
 .formularioHoraCelebracionSesion {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  font-family: 'Work Sans'; }
+  .formularioHoraCelebracionSesion label {
+    margin-bottom: 0.5vh;
+    font-size: 1.1rem; }
 
 .formularioAforoMaximoSesion {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  font-family: 'Work Sans'; }
+  .formularioAforoMaximoSesion label {
+    margin-bottom: 0.5vh;
+    font-size: 1.1rem; }
 
 .parte1formulario {
   display: flex;
@@ -974,7 +988,8 @@ ul {
   flex-direction: column;
   margin-left: 1%;
   margin-bottom: 5%; }
-  .parte1formulario label, .parte1formulario input {
+  .parte1formulario label,
+  .parte1formulario input {
     display: block; }
 
 .parte2formulario {
@@ -1001,7 +1016,8 @@ ul {
   justify-content: space-between;
   margin-left: 1%;
   margin-bottom: 10%; }
-  .parte5formulario label, .parte5formulario input {
+  .parte5formulario label,
+  .parte5formulario input {
     display: block; }
 
 .parte6formulario {
@@ -1019,7 +1035,8 @@ ul {
   margin-bottom: 10%; }
 
 @media screen and (max-width: 380px) {
-  .div1, .div2 {
+  .div1,
+  .div2 {
     font-size: 13px; } }
 
 @media screen and (max-width: 425px) {

@@ -1,423 +1,549 @@
-.div1,.div2{
+.div1,
+.div2 {
   font-size: 15px;
 }
-.contenedorLayout{
+
+.contenedorLayout {
   display: flex;
   justify-content: center;
   margin: 3%;
+  padding: 21vh;
   flex-direction: column;
 }
-.formulario{
-  &Descripcion{
+
+.formulario {
+  &Descripcion {
     width: 40%;
-    &Input{
+
+    &Input {
       width: 70%;
     }
   }
-  &Imagen{
+
+  &Imagen {
     width: 50%;
     display: flex;
     flex-wrap: wrap;
   }
-  &Adreca{
+
+  &Adreca {
     width: 100%;
     display: flex;
     flex-direction: column;
   }
 }
-.formulario{
-  &NumeroDireccion{
+
+.formulario {
+  &NumeroDireccion {
     width: 33%;
-    &Input{
+
+    &Input {
       width: 70%;
     }
   }
-  &FechaFin{
+
+  &FechaFin {
     width: 33%;
     display: flex;
     flex-direction: column;
-    &Input{
+
+    &Input {
       width: 70%
     }
 
   }
-  &HoraFin{
+
+  &HoraFin {
     @extend .formularioFechaFin;
-    &Input{
-    @extend .formularioFechaFinInput;
+
+    &Input {
+      @extend .formularioFechaFinInput;
     }
   }
-  &NombreLocal{
+
+  &NombreLocal {
     width: 55%;
     display: flex;
     flex-direction: column;
-    &Input{
+
+    &Input {
       width: 70%;
     }
   }
-  &CapacidadLocal{
+
+  &CapacidadLocal {
     width: 45%;
-    &Input{
+
+    &Input {
       @extend .formularioNombreLocalInput
     }
   }
-  &Provincia{
+
+  &Provincia {
     width: 33%;
-    &Input{
+
+    &Input {
       width: 70%;
     }
   }
-  &CodigoPostal{
+
+  &CodigoPostal {
     @extend .formularioProvincia;
-    &Input{
+
+    &Input {
       @extend .formularioProvinciaInput;
     }
 
   }
-  &Ciudad{
+
+  &Ciudad {
     @extend .formularioProvincia;
-    &Input{
+
+    &Input {
       @extend .formularioProvinciaInput;
     }
   }
-  &FechaCelebracion{
+
+  &FechaCelebracion {
     width: 33%;
-    &Input{
+
+    &Input {
       width: 70%;
     }
-    &Sesion{
+
+    &Sesion {
       display: flex;
       flex-direction: column;
+      font-family: 'Work Sans';
+      
+      label{
+        margin-bottom: 0.5vh;
+        font-size: 1.1rem;
+      }
+
     }
   }
-  &HoraCelebracion{
+
+  &HoraCelebracion {
     @extend .formularioFechaCelebracion;
-    &Input{
+
+    &Input {
       @extend .formularioFechaCelebracionInput;
     }
-    &Sesion{
+
+    &Sesion {
       display: flex;
       flex-direction: column;
+      font-family: 'Work Sans';
+
+      label{
+        margin-bottom: 0.5vh;
+        font-size: 1.1rem;
+      }
+      
     }
   }
-  &AforoMaximo{
+
+  &AforoMaximo {
     @extend .formularioFechaCelebracion;
-    &Input{
+
+    &Input {
       @extend .formularioFechaCelebracionInput;
     }
-    &Sesion{
+
+    &Sesion {
       display: flex;
       flex-direction: column;
+      font-family: 'Work Sans';
+      
+      label{
+        margin-bottom: 0.5vh;
+        font-size: 1.1rem;
+      }
     }
   }
 }
-.parte{
-  &1formulario{
+
+.parte {
+  &1formulario {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     margin-left: 1%;
     margin-bottom: 5%;
-    & label, & input{
+
+    & label,
+    & input {
       display: block;
     }
 
   }
-  &2formulario{
+
+  &2formulario {
     display: flex;
     margin-left: 1%;
     margin-bottom: 5%;
-    & Input{
+
+    & Input {
       height: 50px;
     }
   }
-  &3formulario{
+
+  &3formulario {
     display: flex;
     flex-wrap: wrap;
     margin-left: 1%;
     margin-bottom: 5%;
   }
-  &4formulario{
+
+  &4formulario {
     display: flex;
     margin-left: 1%;
     margin-bottom: 10%;
   }
-  &5formulario{
+
+  &5formulario {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     margin-left: 1%;
     margin-bottom: 10%;
-    & label, & input{
+
+    & label,
+    & input {
       display: block;
     }
-    
+
   }
-  &6formulario{
+
+  &6formulario {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 1%;
   }
-  &6formularioSesion{
+
+  &6formularioSesion {
     display: flex;
     justify-content: space-evenly;
   }
-  &EntradasFormulario{
+
+  &EntradasFormulario {
     width: 100%;
     margin-bottom: 10%;
   }
 }
-@media screen and (max-width:380px){
-  .div1,.div2{
+
+@media screen and (max-width:380px) {
+
+  .div1,
+  .div2 {
     font-size: 13px;
   }
 }
+
 @media screen and (max-width:425px) {
-  .entradasVisibles{
+  .entradasVisibles {
     display: flex;
     justify-content: center;
     margin-top: 5%;
-  
-    &Eleccion{
+
+    &Eleccion {
       margin-top: 5%;
       margin-bottom: 5%;
       display: flex;
       justify-content: space-around;
     }
   }
-  .contenedorLayout{
+
+  .contenedorLayout {
     display: flex;
     justify-content: center;
     margin: 3%;
     flex-direction: column;
   }
-  .parte{
-    &1formulario{
+
+  .parte {
+    &1formulario {
       display: flex;
       flex-wrap: wrap;
       flex-direction: column;
       margin-left: 1%;
       margin-bottom: 10%;
-      & label{
+
+      & label {
         display: block;
       }
-      & input{
+
+      & input {
         display: block;
       }
     }
-    &2formulario{
+
+    &2formulario {
       display: flex;
       margin-left: 1%;
       margin-bottom: 10%;
       justify-content: space-between;
     }
-    &3formulario{
+
+    &3formulario {
       display: flex;
       flex-wrap: wrap;
       margin: 1%;
     }
-    &4formulario{
+
+    &4formulario {
       display: flex;
       margin-left: 1%;
       margin-bottom: 10%;
     }
-    &5formulario{
+
+    &5formulario {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       margin-left: 1%;
       margin-bottom: 10%;
-      & label{
+
+      & label {
         display: block;
       }
-      & input{
+
+      & input {
         display: block;
       }
     }
-    &6formulario{
+
+    &6formulario {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       margin: 1%;
-      &Sesion{
+
+      &Sesion {
         flex-direction: column;
         align-content: center;
         flex-wrap: wrap;
       }
     }
   }
-  .formulario{
-    &AforoMaximo{
+
+  .formulario {
+    &AforoMaximo {
       width: 33%;
-      & input{
+
+      & input {
         width: 70%;
       }
-      &Sesion{
+
+      &Sesion {
         margin: 3%;
       }
     }
-    &HoraCelebracion{
+
+    &HoraCelebracion {
       width: 33%;
-      & input{
+
+      & input {
         width: 70%;
       }
-    &Sesion{
-      margin: 3%;
-    }
-    }
-    &FechaCelebracion{
-      width: 33%;
-      & input{
-        width: 70%;
-      }
-      &Sesion{
+
+      &Sesion {
         margin: 3%;
       }
     }
-    &CodigoPostal{
+
+    &FechaCelebracion {
       width: 33%;
-      & input{
+
+      & input {
         width: 70%;
       }
+
+      &Sesion {
+        margin: 3%;
+      }
     }
-    &Ciudad{
+
+    &CodigoPostal {
       width: 33%;
-      & input{
-        width: 70%;
-      }
-    }
-    &Provincia{
-      width: 33%;
-      & input{
-        width: 70%;
-      }
-    }
-    &CapacidadLocal{
-      width: 50%;
-      & input{
-        width: 70%;
-      }
-    }
-    &NombreLocal{
-      width: 50%;
-      & input{
-        width: 70%;
-      }
-    }
-    &HoraFin{
-      width: 33%;
-      display: flex;
-      flex-direction: column;
-      & input{
-        width: 70%;
-      }
-    }
-    &FechaFin{
-      width: 33%;
-      display: flex;
-      flex-direction: column;
-      & input{
-        width: 70%;
-      }
-    }
-    &NumeroDireccion{
-      width: 33%;
+
       & input {
         width: 70%;
       }
     }
-    &ParteEntradas{
+
+    &Ciudad {
+      width: 33%;
+
+      & input {
+        width: 70%;
+      }
+    }
+
+    &Provincia {
+      width: 33%;
+
+      & input {
+        width: 70%;
+      }
+    }
+
+    &CapacidadLocal {
+      width: 50%;
+
+      & input {
+        width: 70%;
+      }
+    }
+
+    &NombreLocal {
+      width: 50%;
+
+      & input {
+        width: 70%;
+      }
+    }
+
+    &HoraFin {
+      width: 33%;
+      display: flex;
+      flex-direction: column;
+
+      & input {
+        width: 70%;
+      }
+    }
+
+    &FechaFin {
+      width: 33%;
+      display: flex;
+      flex-direction: column;
+
+      & input {
+        width: 70%;
+      }
+    }
+
+    &NumeroDireccion {
+      width: 33%;
+
+      & input {
+        width: 70%;
+      }
+    }
+
+    &ParteEntradas {
       width: 100%;
     }
-    &Adreca{
+
+    &Adreca {
       display: flex;
       flex-direction: column;
     }
-    &Descripcion{
+
+    &Descripcion {
       width: 40%;
-      & input{
+
+      & input {
         height: 50px;
         width: 120px;
       }
     }
-    &Imagen{
+
+    &Imagen {
       width: 50%;
       display: flex;
       flex-wrap: wrap;
     }
   }
 }
+
 @media screen and (min-width:720px) {
-  .div{
-    &1{
+  .div {
+    &1 {
       display: flex;
       flex-wrap: wrap;
       width: 50%;
       float: left;
     }
-    &2{
+
+    &2 {
       height: 250px;
       width: 50%;
       float: right;
     }
   }
-  .formulario{
-    &Adreca{
+
+  .formulario {
+    &Adreca {
       width: 76%;
     }
   }
-  .parte{
-    &1formulario{
+
+  .parte {
+    &1formulario {
       width: 76%;
     }
-    &3formulario{
+
+    &3formulario {
       width: 100%;
     }
-  
+
   }
-  .entradas{
-    &Nominales{
+
+  .entradas {
+    &Nominales {
       margin: 9%;
       display: flex;
       justify-content: center;
-      &Eleccion{
+
+      &Eleccion {
         display: flex;
         justify-content: space-around;
       }
     }
-    &Cantidad{
+
+    &Cantidad {
       width: 50%;
       display: flex;
       flex-direction: column;
     }
-    &Precio{
+
+    &Precio {
       width: 50%;
       display: flex;
       flex-direction: column;
-      &Cantidad{
+
+      &Cantidad {
         display: flex;
         padding-left: 10%;
-        & input{
+
+        & input {
           width: 70%;
         }
       }
     }
   }
 }
-@media screen and (min-width:860px){
-  .entradas{
-    &Nominales{
+
+@media screen and (min-width:860px) {
+  .entradas {
+    &Nominales {
       margin: 2%;
-      &Eleccion{
+
+      &Eleccion {
         justify-content: space-evenly;
       }
     }
-    &Cantidad{
+
+    &Cantidad {
       margin-bottom: 2%;
     }
-    &Precio{
-      &Cantidad{
+
+    &Precio {
+      &Cantidad {
         flex-direction: column-reverse;
         align-items: center;
       }
