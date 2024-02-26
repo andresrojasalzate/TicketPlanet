@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Show Events')
+@section('title', 'Información Evento')
 
 @section('content')
     <div class="card-margin">
@@ -13,18 +13,24 @@
                             <button class="prev-image" onclick="prevImage()">◀</button>
                         @endif
                     </div>
+
                     <div class="image-container">
                         @foreach (json_decode($evento->image) ?? [] as $imagen)
                             <img class="gallery-image" src="{{ asset('images/fotos-subidas/' . $imagen) }}"
                                 alt="Imagen del evento" loading="lazy">
                         @endforeach
                     </div>
+
                     <div class="btnPrevImg">
                         @if (count(json_decode($evento->image)) > 1)
                             <button class="next-image" onclick="nextImage()">▶</button>
                         @endif
                     </div>
-
+                @else
+                <div class="image-container">
+                    <img class="gallery-image" src="{{ asset('images/fotos-subidas/' . $evento->image) }}" alt=""
+                        loading="lazy">
+                </div>
                 @endif
             </div>
             <div class="info-showEvent">
@@ -58,7 +64,8 @@
                                 <select id="dropdownSesiones" name="sesion">
                                     <option value="" disabled selected>Selecciona un día...</option>
                                     @foreach ($evento->sessions as $sesion)
-                                        <option name="date" value="{{ $sesion->id }}" data-date="{{ $sesion->date }}">
+                                        <option name="date" value="{{ $sesion->id }}"
+                                            data-date="{{ $sesion->date }}">
                                             {{ $sesion->date }}
                                         </option>
                                     @endforeach
