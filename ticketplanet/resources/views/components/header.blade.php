@@ -1,7 +1,6 @@
 <nav>
 
     <div class="nav">
-        <!--Menu desplegable-->
         <div class="dropdown">
             <img id="menuIcon" class="menuIMG @yield('hide')" src="{{ asset('images/menu.png') }}" alt="" loading="lazy">
 
@@ -16,12 +15,6 @@
                     <a href="{{ route('links.homePromotors') }}">Home Promotor</a>
 
                 </div>
-                {{-- <hr>
-                <div class="categoriasMenu">
-                    @foreach ($categories as $category)
-                        <p>{{ $category->name }}</p>
-                    @endforeach
-                </div> --}}
 
                 <hr>
 
