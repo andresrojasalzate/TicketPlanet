@@ -23,7 +23,7 @@ class SessionController extends Controller
             $usuario = $this->recuperarSesiones();
         
             Log::info("Mostrado las sesiones del promotor");
-            return view('sesiones.sesionesPrometor', ['sessions' => $usuario->sessions]);
+            return view('sesiones.sesionesPrometor', ['sessions' => $usuario->sessions()->orderBy('date', 'desc')->get()]);
         } else{
             return redirect()->route('auth.login');
         }
