@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Show Events')
+@section('title', 'Información Evento')
 
 @section('content')
     <div class="card-margin">
