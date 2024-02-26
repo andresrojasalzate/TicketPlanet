@@ -7,14 +7,6 @@
         </a>
     </div>
 
-    {{-- <div class="btnEditarMultiplesSesiones">
-      <a href="{{ route('links.sesionesEventoMostrar', ['id' => $event->id]) }}">
-
-          <img src="{{ asset('images/eventos/edit.png') }}" alt="Editar evento" height="30">
-
-      </a>
-  </div> --}}
-
     <a href="{{ route('events.mostrar', ['id' => $event->id]) }}">
         <div class="show-event-home-img">
             @if ($event->image)

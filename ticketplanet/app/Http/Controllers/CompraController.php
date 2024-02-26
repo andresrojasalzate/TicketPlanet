@@ -172,7 +172,7 @@ class CompraController extends Controller
         $cantidadTicket = session('cantidadEntradasSesion');
 
     foreach ($cantidadTicket as $id => $ticketsVendidos) {
-      // dd($id);
+
       $ticket = Ticket::find($id);
       if ($ticket->price == 0) {
         Log::info("El precio de la entrada es 0 y la guarda");

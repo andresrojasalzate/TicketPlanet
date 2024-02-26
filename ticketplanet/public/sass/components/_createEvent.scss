@@ -2,7 +2,12 @@
 .div2 {
   font-size: 15px;
 }
-
+.contenedorLayoutCrearEvento {
+  display: flex;
+  justify-content: center;
+  margin: 3%;
+  flex-direction: column;
+}
 .contenedorLayout {
   display: flex;
   justify-content: center;

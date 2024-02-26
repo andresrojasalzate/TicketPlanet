@@ -3,7 +3,7 @@
 @section('title', 'Crear Evento')
 
 @section('content')
-    <div class="contenedorLayout">
+    <div class="contenedorLayoutCrearEvento">
         <form action="{{ route('links.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="div1">
@@ -43,7 +43,7 @@
                     <div class="formularioImagen">
                         <label for="Imagen Principal de l'esdeveniment">Imagen principal</label>
                         <input type="file" name="image[]" id="imagenEsdeveniment" multiple
-                            accept=".jpg,.jpeg,.png,.gif|image/*"
+                            accept=".jpg,.jpeg,.png,.gif"
                             value="{{ isset($evento) ? $evento->image : old('image') }}">
 
                         @error('image')

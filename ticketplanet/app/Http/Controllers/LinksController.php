@@ -28,7 +28,7 @@ class LinksController extends Controller
   {
     return view('links.legalnotice');
   }
-  public function crearEvento()
+  public function crearEvento(Request $request)
   {
     if (Auth::check()) {
 
@@ -127,7 +127,6 @@ class LinksController extends Controller
 
   public function store(Request $request)
   {
-
     if (Auth::check()) {
       ReinicarMaxCapacity::forget('capacidadMaxima');
       Log::info("Store");
@@ -173,12 +172,6 @@ class LinksController extends Controller
         }
     }
 
-    // $foto = $request->file('image');
-    // $nombre_foto = $foto->getClientOriginalName();
-    // $extension = $foto->getClientOriginalExtension();
-    // $nombre_unico = $nombre_foto . '_' . time() . '.' . $extension;
-    // $foto->move(public_path('images/fotos-subidas/'), $nombre_unico);
-
     $eventoCrear = Event::create([
       'name' => $request->name,
       'address' => $request->address,
@@ -210,18 +203,6 @@ class LinksController extends Controller
 
     $request->session()->put('sesionId', $sesionCreada->id);
   }
-  // public function administrarEvents()
-  // {
-  //   if (Auth()->user()) {
-  //     // Obtener los eventos del promotor
-  //     $events = Event::where('user_id', Auth()->user()->id)->with('sessions')->paginate(env('PAGINATION_LIMIT'));
-
-  //     // Pasar los eventos a la vista
-  //     return view('links.administrarEvents', ['events' => $events]);
-  //   }
-
-  //   return redirect()->route('auth.login');
-  // }
 
   public function administrarEvento()
   {
@@ -272,9 +253,6 @@ class LinksController extends Controller
 
     $event = Event::find($Id);
     $sessions = Session::where('event_id', $Id)->first();
-
-    // dd($sessions);
-
 
     return view('links.multiplesSesiones', compact('event','sessions'));
 
@@ -350,49 +328,6 @@ if ($existingSessions->isNotEmpty()) {
   
     return view('links.sesionesEventoMostrar', compact('events','sessions'));
   }
-  // public function sesionesEventoEditar($Id)
-  // {
-  //   if (Auth::check()) {
-
-  //     $user = Auth::user();
-
-  //   } else {
-  //     return redirect()->route('auth.login');
-  //   }
-
-  //   $sessions = Session::find($Id);
-
-  
-  //   return view('links.sesionesEventoEditar', compact('sessions'));
-  // }
-//   public function storeEditarSesionesPromotor(Request $request, $sessionId)
-//   {
-//     $evento = Event::findOrFail($eventId);
-//     $capacity = $evento->capacity;
-
-//     $existingSessions = Session::where('event_id', $eventId)
-//     ->where('date', $request->date)
-//     ->where('time', $request->time)
-//     ->get();
-
-// if ($existingSessions->isNotEmpty()) {
-//     return redirect()->back()->with('error', 'No puede haber dos sesiones con las mismas fechas.');
-// }
-    
-//     $crearSesion = Session::create([
-//       'date' => $request->date,
-//       'time' => $request->time,
-//       'maxCapacity' => $request->maxCapacity,
-//       'event_id' => $eventId,
-//       'ticketsSold' => 0
-//     ]);
-
-
-//     $request->session()->put('sesionId', $crearSesion->id);
-//     $request->session()->put('datosPrimerFormulario', $request->all());
-
-//     return redirect()->route('links.sessionEvents');
-//   }
   public function storeComprarEntradasSesion(Request $request)
   {
 

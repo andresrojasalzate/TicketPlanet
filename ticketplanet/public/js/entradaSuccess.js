@@ -7,8 +7,5 @@ document.addEventListener('DOMContentLoaded', function() {
   botonCerrarExito.addEventListener('click',function(){
     compraExito.style.display = 'none';
   });
-  
-  // setTimeout(function() {
-  //   compraExito.style.display = 'none';
-  // }, 3000);
+
   });
