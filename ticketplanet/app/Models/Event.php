@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Database\Eloquent\Builder; 
 
 class Event extends Model
 {
@@ -36,6 +37,11 @@ class Event extends Model
     public function valoraciones(): HasMany
     {
         return $this->hasMany(Valoracion::class);
+    }
+
+    public function scopeEventsLimited(Builder $query): Builder
+    {
+        return $query->take(env('EVENT_LIMIT_HOME'));
     }
 
     protected $fillable = [
