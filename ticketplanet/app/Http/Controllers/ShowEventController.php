@@ -19,8 +19,4 @@ class ShowEventController extends Controller
         return view('events.showEvents', compact('evento', 'valoraciones', 'tickets', 'eventoId'));
     }
 
-    // public function sesiones()
-    // {
-    //     return $this->hasMany(Session::class);
-    // }
 }

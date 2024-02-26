@@ -6,7 +6,4 @@ document.addEventListener('DOMContentLoaded', function() {
     compraFallido.style.display = 'none';
   });
   
-  // setTimeout(function() {
-  //   compraExito.style.display = 'none';
-  // }, 3000);
   });

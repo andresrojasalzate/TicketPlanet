@@ -1,6 +1,5 @@
 <div class="show-session-promotor"> 
     <div class="sesion-parte-superior">
-        {{-- <img class="imagen-sesion-promotor" src="{{ asset('images/fotos-subidas/' . $session->event->image) }}" alt="" loading="lazy"> --}}
         @if ($session->event->image)
             @php
                 $images = json_decode($session->event->image);
