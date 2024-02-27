@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Log;
 
+
 class Category extends Model
 {
     use HasFactory;
@@ -14,11 +15,6 @@ class Category extends Model
     public function events(): HasMany
     {
         return $this->hasMany(Event::class);
-    }
-
-    public function eventsLimited(): HasMany
-    {
-        return $this->hasMany(Event::class)->take(env('EVENT_LIMIT_HOME'));
     }
     
 }

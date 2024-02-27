@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Database\Eloquent\Builder; 
 
 class Event extends Model
 {
@@ -36,6 +37,16 @@ class Event extends Model
     public function valoraciones(): HasMany
     {
         return $this->hasMany(Valoracion::class);
+    }
+
+    public function scopeEventosLimitados(Builder $query): Builder
+    {
+        return $query->take(env('EVENT_LIMIT_HOME'));
+    }
+
+    public function scopeEventosVisibles(Builder $query): Builder
+    {
+        return $query->where('visible', true);
     }
 
     protected $fillable = [
@@ -68,7 +79,8 @@ class Event extends Model
             $eventos = Event::where(function($query) use ($inputText) {
                 $query->whereRaw('lower(unaccent(name)) LIKE unaccent(?)', ['%'. trim(strtolower($inputText)).'%'])
                     ->orWhereRaw('lower(unaccent(city)) LIKE unaccent(?)', ['%'. trim(strtolower($inputText)).'%'])
-                    ->orWhereRaw('lower(unaccent(name_site)) LIKE unaccent(?)', ['%'. trim(strtolower($inputText)).'%']);
+                    ->orWhereRaw('lower(unaccent(name_site)) LIKE unaccent(?)', ['%'. trim(strtolower($inputText)).'%'])
+                    ->eventosVisibles();
             });
             
             if(isset($category)){ 
