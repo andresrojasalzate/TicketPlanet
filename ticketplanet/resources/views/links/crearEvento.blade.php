@@ -88,7 +88,7 @@
 
                     <div class="entradasVisibles">
 
-                        <label for="entradasVisibles">Entradas Visibles</label>
+                        <label for="entradasVisibles">Evento Visible</label>
 
                     </div>
                     <div class="entradasVisiblesEleccion">
