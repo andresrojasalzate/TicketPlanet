@@ -31,11 +31,16 @@ class HomeController extends Controller
         
         Log::info("Guardamos los valores de 'busqueda' y 'category'");
         session(['categoria' => $categoria]);
+
+        $categorias = Category::all();
+        $nombreCategoriaFiltrada = $categorias->where('id', $categoria)->pluck(['name']);
         
         Log::info("Devolvemos la vista con los eventos encontrados y las categorias");
         return view('events.index')->with([
-            'events' => Event::where('category_id', $categoria)->with('sessions')->paginate(env('PAGINATION_LIMIT')),
-            'categories' => Category::all()
+            'events' =>  Event::where('category_id', $categoria)->eventosVisibles()->paginate(env('PAGINATION_LIMIT')),
+            'categories' => $categorias,
+            'textoIntroducido'=> null,
+            'categoriFiltrada' => $nombreCategoriaFiltrada[0] ?? null
         ]);
     }
 
@@ -48,11 +53,16 @@ class HomeController extends Controller
 
         Log::info("Recuperamos de sesion 'categoria'");
         $categoria = session('categoria');
+
+        $categorias = Category::all();
+        $nombreCategoriaFiltrada = $categorias->where('id', $categoria)->pluck(['name']);
         
         Log::info("Devolvemos la vista con los eventos encontrados y las categorias");
         return view('events.index')->with([
-            'events' => Event::where('category_id', $categoria)->with('sessions')->paginate(env('PAGINATION_LIMIT')),
-            'categories' => Category::all()
+            'events' => Event::where('category_id', $categoria)->eventosVisibles()->paginate(env('PAGINATION_LIMIT')),
+            'categories' => $categorias,
+            'textoIntroducido'=> null,
+            'categoriFiltrada' => $nombreCategoriaFiltrada[0] ?? null
         ]);
     }
 }
