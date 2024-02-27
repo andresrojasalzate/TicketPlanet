@@ -39,9 +39,14 @@ class Event extends Model
         return $this->hasMany(Valoracion::class);
     }
 
-    public function scopeEventsLimited(Builder $query): Builder
+    public function scopeEventosLimitados(Builder $query): Builder
     {
         return $query->take(env('EVENT_LIMIT_HOME'));
+    }
+
+    public function scopeEventosVisibles(Builder $query): Builder
+    {
+        return $query->where('visible', true);
     }
 
     protected $fillable = [
@@ -74,7 +79,8 @@ class Event extends Model
             $eventos = Event::where(function($query) use ($inputText) {
                 $query->whereRaw('lower(unaccent(name)) LIKE unaccent(?)', ['%'. trim(strtolower($inputText)).'%'])
                     ->orWhereRaw('lower(unaccent(city)) LIKE unaccent(?)', ['%'. trim(strtolower($inputText)).'%'])
-                    ->orWhereRaw('lower(unaccent(name_site)) LIKE unaccent(?)', ['%'. trim(strtolower($inputText)).'%']);
+                    ->orWhereRaw('lower(unaccent(name_site)) LIKE unaccent(?)', ['%'. trim(strtolower($inputText)).'%'])
+                    ->eventosVisibles();
             });
             
             if(isset($category)){ 
