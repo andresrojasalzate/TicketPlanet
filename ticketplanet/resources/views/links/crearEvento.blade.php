@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="contenedorLayoutCrearEvento">
-        <form action="{{ route('links.store') }}" method="post" enctype="multipart/form-data">
+        <form id="formulario" action="{{ route('links.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="div1">
                 <div class="parte1formulario">
@@ -42,12 +42,11 @@
 
                     <div class="formularioImagen">
                         <label for="Imagen Principal de l'esdeveniment">Imagen principal</label>
-                        <input type="file" name="image[]" id="imagenEsdeveniment" multiple
-                            accept=".jpg,.jpeg,.png,.gif"
+                        <input type="file" name="image[]" id="imagenEsdeveniment"
                             value="{{ isset($evento) ? $evento->image : old('image') }}">
-
-                        @error('image')
-                            <small style="color: red">{{ $message }}</small>
+                            <div id="errorImagen" style="color: red; display: none;">Por favor, selecciona una imagen.</div>
+                            @error('image')
+                                <small style="color: red">{{ $message }}</small>
                         @enderror
 
                         <!-- Mostrar la imagen si ya está definida -->
@@ -88,7 +87,7 @@
 
                     <div class="entradasVisibles">
 
-                        <label for="entradasVisibles">Evento Visible</label>
+                        <label for="entradasVisibles">Entradas Visibles</label>
 
                     </div>
                     <div class="entradasVisiblesEleccion">
@@ -246,4 +245,5 @@
         </form>
 
     </div>
+    <script src="{{ asset('js/crearEvento.js') }}"></script>
 @endsection
