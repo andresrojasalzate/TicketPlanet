@@ -169,6 +169,8 @@ class CompraController extends Controller
 
     public function paginaRedsys(Request $request){
 
+        $this->almacenarCompra($request);
+
         $cantidadTicket = session('cantidadEntradasSesion');
 
     foreach ($cantidadTicket as $id => $ticketsVendidos) {
