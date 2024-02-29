@@ -37,11 +37,11 @@
                 <h2>{{ $evento->name }}</h2>
 
                 <p>{{ $evento->description }}</p>
-                <form method="POST" action="{{ route('enviar.correo.valoracion') }}">
+                {{-- <form method="POST" action="{{ route('enviar.correo.valoracion') }}">
                     @csrf
                     <input type="hidden" name="evento" value="{{ $eventoId }}">
                     <button type="submit">Enviar correo Valoración</button>
-                </form>
+                </form> --}}
 
                 <div class="ubicacion-showEvent">
                     <div class="ubicacion-title-showEvent">

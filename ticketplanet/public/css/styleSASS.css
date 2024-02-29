@@ -197,7 +197,7 @@ ul {
     width: 5vh; }
 
 .separator {
-  width: 100%;
+  width: 99%;
   height: 3px;
   background-color: #0642F9;
   position: absolute;
@@ -252,7 +252,7 @@ ul {
   border-radius: 7px;
   background-color: #F9BD06;
   border-color: #0642F9;
-  margin-top: 5%;
+  margin-top: 30%;
   margin-bottom: 5%;
   margin-left: auto;
   margin-right: auto;
@@ -778,8 +778,8 @@ ul {
     color: white;
     width: 50%;
     justify-content: space-evenly;
-    margin: auto;
-    margin-bottom: 5%;
+    margin-top: 5%;
+    margin-left: 25%;
     font-size: 18px; }
   .alert-success {
     display: flex;
@@ -915,7 +915,8 @@ ul {
   display: flex;
   justify-content: center;
   margin: 3%;
-  padding: 21vh;
+  padding-top: 20vh;
+  padding-bottom: 21vh;
   flex-direction: column; }
 
 .formularioDescripcion {
@@ -1059,7 +1060,8 @@ ul {
     display: flex;
     justify-content: center;
     margin: 3%;
-    flex-direction: column; }
+    flex-direction: column;
+    padding-top: 15vh; }
   .parte1formulario {
     display: flex;
     flex-wrap: wrap;
@@ -1400,26 +1402,29 @@ ul {
   padding-bottom: 10px; }
 
 .compraExito {
-  width: 50%;
+  height: 100px;
   background-color: #01781cc7;
   color: white;
   display: flex;
   justify-content: center;
-  padding: 3%;
-  margin: 5% 0% 5% 20%;
   justify-content: space-evenly;
-  font-size: 18px; }
+  font-size: 18px;
+  align-items: center;
+  min-width: 100px; }
+
+.contenedorcompraFeedback {
+  padding: 23vh; }
 
 .compraFallido {
-  width: 50%;
+  height: 100px;
   background-color: #ff0000cf;
   color: white;
   display: flex;
   justify-content: center;
-  padding: 3%;
-  margin: 5% 0% 5% 20%;
   justify-content: space-evenly;
-  font-size: 18px; }
+  font-size: 18px;
+  align-items: center;
+  min-width: 100px; }
 
 .card-compra {
   margin: 5vh;
@@ -1473,6 +1478,20 @@ ul {
   @media screen and (max-width: 450px) {
     .card-compra .contenedor-info {
       width: 70vw !important; } }
+
+@media screen and (max-width: 400px) {
+  .compraExito {
+    height: auto;
+    font-size: 15px;
+    margin-left: -60px;
+    padding: 10px;
+    width: 150px; }
+  .compraFallido {
+    height: auto;
+    font-size: 15px;
+    margin-left: -60px;
+    padding: 10px;
+    width: 150px; } }
 
 .card-margin {
   margin: 5vh; }

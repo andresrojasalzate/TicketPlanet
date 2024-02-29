@@ -64,7 +64,7 @@
           <label for="cantidadEntradas">Cantidad Entradas</label>
           <input type="text" name="quantity" id="cantidadEntradas" placeholder="{{$entradasRestantes}}" value="{{old('quantity')}}">
           @error('quantity')
-          <small style="color: red">{{ $message }}</small>
+          <small style="color: red">La cantidad de entradas no puede ser mayor que la capacidad máxima.</small>
       @enderror
   
         </div>

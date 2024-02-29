@@ -3,9 +3,6 @@
 @section('title', 'Crear Sesiones')
 
 @section('content')
-    <div class="contenedorLayout">
-        <form action="{{ route('links.crearMultiplesSesiones', ['id' => $event->id])}}" method="post" enctype="multipart/form-data">
-            @csrf
 @if (session('error'))
     <div class="alert-danger">
         {{ session('error') }}
@@ -14,7 +11,9 @@
      </button>
    </div> 
 @endif
-
+    <div class="contenedorLayout">
+        <form action="{{ route('links.crearMultiplesSesiones', ['id' => $event->id])}}" method="post" enctype="multipart/form-data">
+            @csrf
             <div class="div1Sesion">
 
                 <div class="parte6formularioSesion">
