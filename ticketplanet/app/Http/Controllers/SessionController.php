@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Event;
 use App\Models\User;
+use App\Models\Session;
 
 class SessionController extends Controller
 {
@@ -39,5 +40,20 @@ class SessionController extends Controller
         $user = Auth::user();
         Log::info("Devolvemos el usuario con sus sesiones y evento");
         return User::with('sessions.event')->find($user->id);
+    }
+
+    public function cambiarEstadoSesion(Request $request){
+
+        $idSesion =  $request->idSesion;
+
+        $sesion = Session::find($idSesion);
+
+        $estadoSesion = $sesion->open;
+
+        $sesion->open = !$estadoSesion;
+
+        $sesion->save();
+
+        return back();
     }
 }
