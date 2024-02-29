@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Builder; 
 
 class Session extends Model
 {
@@ -25,6 +26,12 @@ class Session extends Model
     {
         return $this->hasMany(Compra::class);
     }
+
+    public function scopeSessionState (Builder $query): Builder
+    {
+        return $query->where('open', true);
+    }
+
 
     protected $fillable = [
       'date',

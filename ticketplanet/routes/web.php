@@ -47,7 +47,7 @@ Route::get('/links/crearEvento', [LinksController::class, 'crearEvento'])->name(
 Route::post('/links/guardarEvento', [LinksController::class, 'guardarEvento'])->name('links.guardarEvento');
 
 
-Route::get('/sessions-promotor', [SessionController::class, 'sessionsPromotor'])->name('sessions.promotor');
+
 Route::get('/links/comprarEntradas', [LinksController::class, 'comprarEntradas'])->name('links.comprarEntradas');
 
 Route::post('/links/crearEvento/save', [LinksController::class, 'store'])->name('links.store');
@@ -75,6 +75,9 @@ Route::post('/enviar-correo-valoracion', [ValoracionController::class, 'enviarCo
 
 
 /*SESIONES*/
+Route::get('/sessions-promotor', [SessionController::class, 'sessionsPromotor'])->name('sessions.promotor');
+Route::put('/sessions-promotor/cambiarEstadoSesion', [SessionController::class, 'cambiarEstadoSesion'])->name('sessions.promotor.cambiarEstado');
+
 Route::get('/links/sessionEvents', [LinksController::class, 'sessionEvents'])->name('links.sessionEvents');
 
 Route::get('/links/multiplesSesiones/{id}', [LinksController::class, 'multiplesSesiones'])->name('links.multiplesSesiones');

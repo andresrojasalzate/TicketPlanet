@@ -1322,6 +1322,9 @@ ul {
   width: 100%;
   margin-right: 10%; }
 
+.form-sessiones > button {
+  width: 90%; }
+
 @media screen and (max-width: 425px) {
   .show-session-promotor {
     flex-direction: column;
