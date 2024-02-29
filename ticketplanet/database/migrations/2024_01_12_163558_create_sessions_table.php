@@ -18,6 +18,7 @@ return new class extends Migration
             $table->time('time');
             $table->integer('maxCapacity');
             $table->integer('ticketsSold');
+            $table->boolean('open');
             $table->foreignId('event_id')->references('id')->on('events')->onDelete('cascade')
             ->onUpdate('cascade');
 
