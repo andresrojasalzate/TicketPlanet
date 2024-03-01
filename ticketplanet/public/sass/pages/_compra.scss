@@ -1,24 +1,27 @@
 .compraExito{
-  width: 50%;
+  height: 100px;
   background-color: #01781cc7;
   color: white;
   display: flex;
   justify-content: center;
-  padding: 3%;
-  margin: 5% 0% 5% 20%;
   justify-content: space-evenly;
   font-size: 18px;
+  align-items: center;
+  min-width: 100px;
+}
+.contenedorcompraFeedback{
+  padding: 23vh;
 }
 .compraFallido{
-  width: 50%;
+  height: 100px;
   background-color: #ff0000cf;
   color: white;
   display: flex;
   justify-content: center;
-  padding: 3%;
-  margin: 5% 0% 5% 20%;
   justify-content: space-evenly;
   font-size: 18px;
+  align-items: center;
+  min-width: 100px;
 }
 
 .card-compra {
@@ -124,6 +127,24 @@
             width: 70vw !important;
         }
 
+
     }
 
+}
+@media screen and (max-width: 400px){
+  .compraExito{
+    height: auto;
+    font-size: 15px;
+    margin-left: -60px;
+    padding: 10px;
+    width: 150px;
+
+  }
+  .compraFallido{
+    height: auto;
+    font-size: 15px ;
+    margin-left: -60px;
+    padding: 10px;
+    width: 150px;
+  }
 }

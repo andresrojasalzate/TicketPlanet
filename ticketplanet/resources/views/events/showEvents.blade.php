@@ -43,6 +43,7 @@
                     <input type="hidden" name="evento" value="{{ $eventoId }}">
                     <button type="submit">Enviar correo Valoración</button>
                 </form> --}}
+                
 
                 <div class="ubicacion-showEvent">
                     <div class="ubicacion-title-showEvent">
@@ -64,8 +65,9 @@
                             <div class="select-wrapper">
                                 <select id="dropdownSesiones" name="sesion">
                                     <option value="" disabled selected>Selecciona un día...</option>
-                                    @foreach ($evento->sessions as $sesion)
-                                        <option name="date" value="{{ $sesion->id }}" data-date="{{ $sesion->date }}">
+                                    @foreach ($evento->sessions()->sessionState()->get() as $sesion)
+                                        <option name="date" value="{{ $sesion->id }}"
+                                            data-date="{{ $sesion->date }}">
                                             {{ $sesion->date }}
                                         </option>
                                     @endforeach

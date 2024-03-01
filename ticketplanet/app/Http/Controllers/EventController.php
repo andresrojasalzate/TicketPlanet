@@ -49,10 +49,15 @@ class EventController extends Controller
         $busqueda = session('busqueda');
         $categoria = session('category');
 
+        $categorias = Category::all();
+        $nombreCategoriaFiltrada = $categorias->where('id', $categoria)->pluck(['name']);
+
         Log::info("Devolvemos la vista con los eventos encontrados y las categorias");
         return view('events.index')->with([
         'events' => Event::eventosBuscados($busqueda, $categoria),
-        'categories' => Category::all()
+        'categories' => $categorias,
+        'textoIntroducido'=> $busqueda,
+        'categoriFiltrada' => $nombreCategoriaFiltrada[0] ?? null
        ]);
     }
 }
