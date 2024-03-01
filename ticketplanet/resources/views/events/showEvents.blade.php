@@ -43,6 +43,7 @@
                     <input type="hidden" name="evento" value="{{ $eventoId }}">
                     <button type="submit">Enviar correo Valoración</button>
                 </form> --}}
+                
 
                 <div class="ubicacion-showEvent">
                     <div class="ubicacion-title-showEvent">

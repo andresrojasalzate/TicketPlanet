@@ -1329,6 +1329,11 @@ ul {
 .form-sessiones > button {
   width: 90%; }
 
+.btnCSVcontainer {
+  margin: 1vh 1vh 0vh 0vh; }
+  .btnCSVcontainer button {
+    cursor: pointer; }
+
 @media screen and (max-width: 425px) {
   .show-session-promotor {
     flex-direction: column;
