@@ -10,7 +10,7 @@
                 <div class="parte1formulario">
 
                     <label for="title">Titulo</label>
-                    <input type="text" name="name" id="title"
+                    <input type="text" name="name" id="title" maxlength="250"
                         value="{{ isset($evento) ? $evento->name : old('name') }}">
 
                     @error('name')
@@ -33,7 +33,7 @@
                 <div class="parte2formulario">
                     <div class="formularioDescripcion">
                         <label for="descripcionEsdeveniment">Descripción Esdeveniment</label>
-                        <textarea name="description" id="descripcionEsdeveniment" rows="5" style="resize: none;">{{ isset($evento) ? $evento->description : old('description') }}</textarea>
+                        <textarea name="description" id="descripcionEsdeveniment" rows="5" maxlength="250" style="resize: none;">{{ isset($evento) ? $evento->description : old('description') }}</textarea>
                         <br>
                         @error('description')
                             <small style="color: red">{{ $message }}</small>
@@ -67,7 +67,7 @@
                     <div class="formularioAdreca">
 
                         <label for="numeroDireccion">Numero Direccion | Codigo Postal | Provincia</label>
-                        <input type="text" name="address" list="addresses" id="numeroDireccion"
+                        <input type="text" name="address" list="addresses" id="numeroDireccion" maxlength="250"
                             value="{{ isset($evento) ? $evento->address : old('address') }}">
                         <datalist id="addresses">
                             @foreach ($addresses as $address)
@@ -118,7 +118,7 @@
                     <div class="formularioNombreLocal">
 
                         <label for="Nombre del local">Nombre del Local</label>
-                        <input class="formularioNombreLocalInput" type="text" list="nameSites" name="name_site"
+                        <input class="formularioNombreLocalInput" type="text" list="nameSites" name="name_site" maxlength="250"
                             id="nombreLocal" value="{{ isset($evento) ? $evento->name_site : old('name_site') }}">
                         <datalist id="nameSites">
                             @foreach ($nameSites as $nameSite)
@@ -156,7 +156,7 @@
                     <div class="formularioCiudad">
 
                         <label for="Ciudad">Ciudad</label>
-                        <input class="formularioCiudadInput" type="text" list="citys" name="city" id="ciudad"
+                        <input class="formularioCiudadInput" type="text" list="citys" name="city" id="ciudad" maxlength="250"
                             value="{{ isset($evento) ? $evento->city : old('city') }}">
                         <datalist id="citys">
                             @foreach ($citys as $city)

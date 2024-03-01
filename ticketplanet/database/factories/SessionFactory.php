@@ -27,6 +27,7 @@ class SessionFactory extends Factory
             'time' => fake()->time(),
             'maxCapacity' => $maxCapacity,
             'ticketsSold' => mt_rand(0, 200),
+            'open' => fake()->randomElement([true, false]),
             'event_id' => $evento->id
         ];
     }

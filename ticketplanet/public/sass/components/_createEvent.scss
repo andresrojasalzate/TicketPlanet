@@ -12,7 +12,8 @@
   display: flex;
   justify-content: center;
   margin: 3%;
-  padding: 21vh;
+  padding-top: 20vh;
+  padding-bottom: 21vh;
   flex-direction: column;
 }
 
@@ -266,6 +267,7 @@
     justify-content: center;
     margin: 3%;
     flex-direction: column;
+    padding-top: 15vh;
   }
 
   .parte {

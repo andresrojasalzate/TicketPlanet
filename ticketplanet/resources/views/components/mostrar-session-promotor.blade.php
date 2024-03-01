@@ -32,5 +32,15 @@
         <button class="btnSesionesPromotor" onclick="window.location='{{ route('events.mostrar', ['id' => $session->event->id]) }}'">Mostar evento</button>
         <button class="btnSesionesPromotor">Administrar Evento</button>
         <button class="btnSesionesPromotor">Listado Entradas</button>
+        <form class="form-sessiones" action="{{route('sessions.promotor.cambiarEstado')}}" method="POST">
+            @method('PUT')
+            @csrf
+            <input type="hidden" name="idSesion" value="{{$session->id}}">
+        @if($session->open)
+            <button class="btnSesionesPromotor">Cerrar sesion</button>
+        @else
+            <button class="btnSesionesPromotor">Abrir sesion</button>
+        @endif
+        </form>
     </div>
 </div>
