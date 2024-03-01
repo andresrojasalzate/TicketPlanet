@@ -13,7 +13,8 @@ class ShowEventController extends Controller
     {
         $evento = Event::findOrFail($id);
         $valoraciones = $evento->valoraciones;
-        $tickets = $evento->tickets;
+        // $tickets = $evento->tickets;
+        $tickets = $evento->tickets()->with('session')->get();
         $eventoId = $evento->id;
 
         return view('events.showEvents', compact('evento', 'valoraciones', 'tickets', 'eventoId'));
