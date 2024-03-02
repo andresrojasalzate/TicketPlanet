@@ -64,6 +64,16 @@
     }
 }
 
+.btnCSVcontainer{
+    margin: 1vh 1vh 0vh 0vh;
+    
+
+    button{
+        cursor: pointer;
+    }
+
+}
+
 @media screen and (max-width: 425px){
     .show-session-promotor {
         display: flex;

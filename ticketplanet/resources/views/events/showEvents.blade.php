@@ -27,21 +27,23 @@
                         @endif
                     </div>
                 @else
-                <div class="image-container">
-                    <img class="gallery-image" src="{{ asset('images/fotos-subidas/' . $evento->image) }}" alt=""
-                        loading="lazy">
-                </div>
+                    <div class="image-container">
+                        <img class="gallery-image" src="{{ asset('images/fotos-subidas/' . $evento->image) }}"
+                            alt="" loading="lazy">
+                    </div>
                 @endif
             </div>
             <div class="info-showEvent">
                 <h2>{{ $evento->name }}</h2>
 
                 <p>{{ $evento->description }}</p>
+                {{-- NO BORRAR ESTE BLOQUE COMENTADO --}}
                 {{-- <form method="POST" action="{{ route('enviar.correo.valoracion') }}">
                     @csrf
                     <input type="hidden" name="evento" value="{{ $eventoId }}">
                     <button type="submit">Enviar correo Valoración</button>
                 </form> --}}
+                
 
                 <div class="ubicacion-showEvent">
                     <div class="ubicacion-title-showEvent">
@@ -91,8 +93,12 @@
             @foreach ($tickets as $ticket)
                 <div class="ticket-container">
                     <h3>{{ $ticket->name }}, {{ $ticket->price }}€</h3>
+                    @php
+                        // Obtenemos el maxCapacity de la sesión correspondiente al ticket
+                        $maxCapacity = $ticket->session->maxCapacity;
+                    @endphp
                     <input type="number" name="sold_tickets[{{ $ticket->id }}]" value="0" min="0"
-                        max="9999" maxlength="4" oninput="limitarLongitud(this);">
+                        max="{{ $maxCapacity }}" maxlength="4" oninput="limitarLongitud(this);">
                 </div>
             @endforeach
             <div id="total-price-container">

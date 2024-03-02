@@ -92,6 +92,9 @@ Route::get('/links/sesionesEventoMostrar/{id}', [LinksController::class, 'sesion
 
 Route::post('/links/storeEditarSesionesPromotor/{id}', [LinksController::class, 'storeEditarSesionesPromotor'])->name('links.storeEditarSesionesPromotor');
 
+Route::get('/sessions/{id}/download-csv', [SessionController::class, 'exportarCSV'])->name('sessions.download.csv');
+
+
 /*Compra */
 
 Route::get('/entradas/pdf', [CompraController::class, 'generarPdfEntradas'])->name('entradas.pdf');

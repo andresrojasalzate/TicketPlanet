@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         $schedule->command('app:recordatorio-evento')->everySecond();
+        $schedule->command('app:enviar-correos-valoracion')->everySecond();
     }
 
     /**
