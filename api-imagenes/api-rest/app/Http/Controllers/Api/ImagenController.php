@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 use App\Rules\ExistsInDatabase;
+use Illuminate\Support\Facades\Log;
 
 class ImagenController extends Controller
 {
@@ -38,6 +39,7 @@ class ImagenController extends Controller
             ]);
 
             if ($validator->fails()) {
+               
                 return response()->json(['errors' => $validator->errors()], 422);
             }
 
@@ -93,13 +95,14 @@ class ImagenController extends Controller
      */
     public function show($type, $imageHash)
     {
+        Log::info("entramos el metdo show");
         $validator = Validator::make(compact('type', 'imageHash'), [
             'type' => 'required|in:small,medium,large', 
             'imageHash' =>  ['required', 'string', new ExistsInDatabase()],
         ]);
 
         if ($validator->fails()) {
-            
+            Log::info("falla la validacion");
             $imagenPath = public_path('imagenes/large/event_default.jpg');
             return response()->file($imagenPath);
         }
@@ -111,8 +114,10 @@ class ImagenController extends Controller
         $imagenPath = public_path('imagenes/' . $imagenVsersion->path);            
 
         if (file_exists($imagenPath)) {
+            Log::info("encuentra la imagen");
             return response()->file($imagenPath);
         } else {
+            Log::info("no encuentra la imagen");
             return response()->json(['error' => 'Imagen no encontrada'], 404);
         }
         
