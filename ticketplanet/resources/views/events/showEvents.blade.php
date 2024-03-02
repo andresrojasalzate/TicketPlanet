@@ -16,7 +16,7 @@
 
                     <div class="image-container">
                         @foreach (json_decode($evento->image) ?? [] as $imagen)
-                            <img class="gallery-image" src="{{ asset('images/fotos-subidas/' . $imagen) }}"
+                            <img class="gallery-image" src="http://127.0.0.1:9000/api/images/retrieve/large/{{$imagen}}"
                                 alt="Imagen del evento" loading="lazy">
                         @endforeach
                     </div>
