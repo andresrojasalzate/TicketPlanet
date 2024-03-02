@@ -11,7 +11,7 @@
                     $images = json_decode($event->image);
                 @endphp
                 @if (!empty($images))
-                    <img src="{{ asset('images/fotos-subidas/' . json_decode($event->image)[0]) }}" alt=""
+                <img src="http://127.0.0.1:9000/api/images/retrieve/medium/{{json_decode($event->image)[0]}}" alt=""
                         loading="lazy">
                 @else
                     <img src="{{ asset('images/fotos-subidas/' . $event->image) }}" alt="" loading="lazy">

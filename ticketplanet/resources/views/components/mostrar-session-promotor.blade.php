@@ -5,8 +5,7 @@
                 $images = json_decode($session->event->image);
             @endphp
             @if (!empty($images))
-                <img class="imagen-sesion-promotor"
-                    src="{{ asset('images/fotos-subidas/' . json_decode($session->event->image)[0]) }}" alt=""
+                <img class="imagen-sesion-promotor" src="http://127.0.0.1:9000/api/images/retrieve/large/{{json_decode($session->event->image)[0]}}" alt=""
                     loading="lazy">
             @else
                 <img class="imagen-sesion-promotor" src="{{ asset('images/fotos-subidas/' . $session->event->image) }}"

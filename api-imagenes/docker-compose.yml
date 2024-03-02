@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  db:
+    image: postgres
+    container_name: pg_api
+    restart: always
+    environment:
+      POSTGRES_USER: usuario
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: api-rest
+    volumes:
+    - ./PostgresDb:/var/lib/postgresql/data
+    ports:
+      - "9001:5432"
+  pgadmin:
+    container_name: pgadmin4_api
+    image: dpage/pgadmin4:latest
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: password
+    volumes:
+      - ./pgadmin:/var/lib/pgadmin
+    ports:
+      - "8888:80"
+     
+

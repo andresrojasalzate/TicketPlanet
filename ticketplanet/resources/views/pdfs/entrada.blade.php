@@ -18,7 +18,7 @@
                 <tr>
                     <td>
                         <div class="img-evento-etrada">
-                            <img src="{{ public_path('images/fotos-subidas/' . $compra->session->event->image) }}" alt="" loading="lazy">
+                            <img src="http://127.0.0.1:9000/api/images/retrieve/medium/{{json_decode($compra->session->event->image)[0]}}" alt="" loading="lazy">
                         </div>
                      </td>
                     <td class="info-entrada">

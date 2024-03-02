@@ -1282,8 +1282,8 @@ ul {
     margin-left: 5%; } }
 
 .show-session-promotor {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
   background-color: #B5B5B5;
   border: 5px solid;
   border-color: #F9BD06;
@@ -1294,7 +1294,7 @@ ul {
   flex-direction: row; }
 
 .imagen-sesion-promotor {
-  max-width: 30%;
+  max-width: 20vh;
   margin-right: 10%; }
 
 .info-session {
@@ -1336,6 +1336,7 @@ ul {
 
 @media screen and (max-width: 425px) {
   .show-session-promotor {
+    display: flex;
     flex-direction: column;
     margin-left: 5%;
     margin-right: 5%;
