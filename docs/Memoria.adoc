@@ -30,65 +30,129 @@ image::Images/Logo.png[Logo principal, width=10%]
 
 === Objetivo de la aplicación
 
-== PLANIFICACIÓN Y SEGUIMIENTO
-
-=== Semana 1
-
-==== Salma
-- Diseño Mockups pantalla home, versión movil y Web, Figma
-- Implementación Header y Footer
-- Diagrama de clases
-- Diagrama entorno Docker
-- Creación del Logo de la aplicación y favicon
-
-==== Andres
-
-==== Adria
-
-=== Semana 2
-
-=== Semana 3
-
-=== Semana 4
+TicketPlanet facilita a los usuarios la compra de entradas de diferentes tipos de eventos, gracias a su plataforma intuitiva y segura.
 
 
 == DISEÑO
 
 === Base de datos
 
+==== Diagrama de clases
+
 [plantuml,,png]
 ----
-class Eventos{
-id: int
-nombre: string
-imagen: string
-precio: float               
-idCategoria: int
-idRecinto: int         
-}
 
-class Categoria{
-idCategoria: int                      
-nombre: string  
-}
-
-class Sesion{
-idSesion: int   
-fecha: Date
-hora: Time
-}
-
-class Recinto{
-idRecinto: int      
-nombre: string
-dirección: string
-capacidad: int
-}   
-
-Eventos "0...n" -- "1" Categoria
-Eventos "0...n" -- "1" Recinto  
-Eventos "1" - "1...n" Sesion 
+class Assistant {
+        nameAssistant: string
+        dniAssistant: string
+        phoneAssistant: string
+        compra_id: integer
+        ticket_id: integer
+        
+        + compra() : Compra
+        + ticket() : Ticket
+    }
+    
+    class Category {
+        id: int
+        name: string
+        
+        + events() : List<Event>    
+    }
+    
+    class Compra {
+        id: int
+        emailPurchaser: string
+        namePurchaser: string
+        dniPurchaser: string
+        phonePurchaser: string
+        pdfTickets: string
+        session_id: integer
+        
+        + session() : Session
+    }
+    
+    class Event {
+        id: int
+        name: string
+        address: string
+        city: string
+        name_site: string
+        image: string
+        description: string
+        finishDate: date
+        finishTime: time
+        visible: boolean
+        capacity: integer
+        category_id: integer
+        user_id: integer
+        
+        + category() : Category
+        + user() : User
+        + sessions() : List<Session>
+        + valoraciones() : List<Valoracion>
+    }
+    
+    class Session {
+        id: int
+        date: date
+        time: time
+        maxCapacity: integer
+        ticketsSold: integer
+        open: boolean
+        event_id: integer
+        
+         + tickets() : List<Ticket>
+    }
+    
+    class Ticket {
+        id: int
+        name: string
+        quantity: integer
+        price: float
+        sold_tickets: integer
+        nominal: boolean
+        session_id: integer
+        
+        + session() : Session
+    }
+    
+    class User {
+        id: int
+        name: string
+        email: string
+        password: string
+        reset_token: string
+        reset_token_created_at: datetime
+    }
+    
+    class Valoracion {
+        id: int
+        nombre: string
+        caraSeleccionada: string
+        puntuacionSeleccionada: integer
+        tituloComentario: string
+        comentario: string
+        event_id: integer
+        
+        + event() : Event
+    }
+    
+    Assistant "1" -- "0..1" Compra
+    Assistant "1" -- "0..1" Ticket
+    
+    Compra "1" -- "0..1" Session
+    
+    Event "0..n" -- "1" Category
+    Event "1" -- "1" User
+    Event "1" -- "0..n" Session
+    Event "1" -- "0..n" Valoracion
+    
+    Session "1" -- "0..n" Ticket
 ----
+
+==== Diagrama E-R:
+image::Images/diagrama.png[Logo principal, width=50%]
 
 === Interfícies
     
@@ -100,7 +164,7 @@ Link a las interfícies de Figma https://www.figma.com/file/V47MqQzp5biMSzsQ5m7g
 === Guía de estilos
 Link a la guía de estilos de Figma https://www.figma.com/file/7RISOKUOjvDXdzufahisrv/Gu%C3%ADa-de-estilos?type=design&node-id=0%3A1&mode=design&t=QgHjfUcq2g73B829-1[aquí]. 
 
-== MANUAL DE INSTALACIÓN
+== MANUAL DE INSTALACIÓN SERVER
 
 === Paso 1: Instalar Apache
 
@@ -147,6 +211,34 @@ DB_USERNAME=usuario
 DB_PASSWORD=1234
 ```
 
+Añadimos uns parámetros de configuración necesarios para el proyecto en el .env
+
+```bash
+PAGINATION_LIMIT=10
+EVENT_LIMIT_HOME=6
+PASARELA_PAGAMENT = true
+API_LOCAL= false
+```
+
+=== Paso 5: Configurar mailtrap
+
+Para poder ver como se envian los correr con el app usaremos mailtrap. Para habilitar el mailtrap deberemos ir a la pagina de mailtrap 
+"https://mailtrap.io/". Nos registramos y deberemos acceder a Email Testing > Inboxes > My Inbox > SMTP Settings. En Intregations 
+Seleccionamos PHP >Laravel 9+ Y se motrara un parametros que deberan ponerse en el archivo env de la app.
+
+Deberia quedar algo asi:
+
+```bash
+/var/www/gr3-bernabeu-rojas-picazo/ticketplanet/.env
+
+MAIL_MAILER=smtp
+MAIL_HOST=sandbox.smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=aed969b821e664
+MAIL_PASSWORD=*********77831
+```
+
+
 === Paso 6: Instalar Dependencias de Composer
 
 Instala las dependencias de Composer para tu proyecto Laravel.
@@ -179,7 +271,7 @@ chmod -R 755 bootstrap/cache
 Crea un archivo de configuración de Virtual Host para tu proyecto Laravel
 
 ```bash
-sudo nano /etc/apache2/sites-available/laravel.conf
+sudo nano /etc/apache2/sites-available/ticketplanet.conf
 ```
 Pon el siguiente contenido:
 
@@ -205,7 +297,336 @@ Guarda y cierra el archivo. Luego, habilita el Virtual Host y reinicia Apache.
 sudo a2ensite laravel
 sudo systemctl restart apache2
 ```
+=== Paso 10: Activar Docker
+```bash
+cd /var/www/gr3-bernabeu-rojas-picazo/docker/server
+sudo docker compose up -d
+```
 
+=== Paso 11: Crear base de datos
+
+```bash
+cd /var/www/gr3-bernabeu-rojas-picazo/ticketplante
+```
+
+Ejecutamos el siguiente comando para crear base de datos.
+
+```bash
+sudo php artisan migrate
+```
+
+=== Paso 12: Instalar unaccent en Postgresql
+
+Ejecutamos el siguiente comando para entrar a la terminal de postgresql 
+
+```bash
+sudo docker exec -it pg_container psql -U usuario  ticketplanet
+```
+
+Una vez en la terminal de postgresql ejecutamos el siguiente comando
+
+```bash
+CREATE EXTENSION unaccent;
+```
+
+=== Paso 13: Configurar docker con la base de datos del proyecto de la API
+
+Accedemos a la carpeta api-imagenes y ejecutamos el siguiente comando:
+```bash
+cd api-imagenes
+docker-compose up -d
+```
+
+=== Paso 14: Instalar composer en el proyecto de la api
+
+```bash
+cd api-imagenes/api-rest/
+composer install
+```
+
+=== Paso 15: Configurar .env del proyecto api
+Creamos el archivo .env
+
+```bash
+cd api-imagenes/api-rest/
+cp .env.example .env
+```
+Editamos el archivo para congiurar el acceso a la base de datos en el proyecto
+
+```bash
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=9001
+DB_DATABASE=api-rest
+DB_USERNAME=usuario
+DB_PASSWORD=1234
+```
+Añadimos un ultimo parámetro para configurar el puerto del proyecto en el 9000
+
+```bash
+SERVER_PORT=9000
+```
+=== Paso 16: Generar app_key para el proyecto de la api 
+
+```bash
+cd api-imagenes/api-rest/
+php artisan key:generate
+```
+=== Paso 17: Hacer la migracion del proyecto 
+
+```bash
+cd api-imagenes/api-rest/
+php artisan migrate
+```
+=== Paso 17: Generar un token para acceder a la api desde la app
+Accedemos al proyecto y ejecutamos el proyecto "php artisan db:seed"
+
+```bash
+cd api-imagenes/api-rest/
+php artisan db:seed
+```
+El comando debolvera un token. Este token lo deberdemos poner en el archivo .env del proyecto ticketplanet de la siguiene manera:
+
+```bash
+cd ticketplanet/
+```
+archivo .env:
+```bash
+API_KEY="a9yKqIWD4hqiLdBA0sat7ogQOVIwiRGYsu51XNEOa3a582a5"
+```
+=== Paso 18:Cambiar permisos del proyecto de la API
+
+```bash
+cd /var/www/gr3-bernabeu-rojas-picazo/api-imagenes/api-rest/
+chown -R www-data storage
+chown -R www-data bootstrap/cache
+```
+```bash
+chmod -R 755 storage
+chmod -R 755 bootstrap/cache
+```
+
+=== Paso 19: Añadir el proyecto a la configuracion de apache
+
+Primero añadiremos un nuevo virtual host en el archivo ticketplanet.conf
+
+```bash
+sudo nano /etc/apache2/sites-available/ticketplanet.conf
+```
+
+```bash
+<VirtualHost *:8080>
+    ServerName api-imagenes.com
+    DocumentRoot /var/www/gr3-bernabeu-rojas-picazo/api-imagenes/api-rest/public
+
+    <Directory /var/www/gr3-bernabeu-rojas-picazo/api-imagenes/api-rest/public>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/demo-error.log
+    CustomLog ${APACHE_LOG_DIR}/demo-access.log combined
+</VirtualHost>
+```
+Editamos el archivo ports.conf para configurar que el servicio de apache escuche el puerto 8080
+
+```bash
+sudo nano /etc/apache2/ports.conf
+```
+En el archivo ports.conf añadimos la siguiente linea:
+
+```bash
+Listen 8080
+```
+
+=== Paso 20: Activar API
+
+Para que se pueda utilizar la API para guardar imagenes se tiene que activar el proyecto 
+
+```bash
+cd /var/www/gr3-bernabeu-rojas-picazo/api-imagenes/api-rest
+```
+
+```bash
+sudo php artisan serve
+```
+
+== MANUAL DE INSTALACIÓN LOCAL
+
+=== Paso 1: Descargar el proyecto de GitLab
+
+```bash
+git pull https://git.copernic.cat/abernabeu/gr3-bernabeu-rojas-picazo.git
+```
+=== Paso 2: Configurar docker con la base de datos del proyecto de la API
+
+Accedemos a la carpeta api-imagenes y ejecutamos el siguiente comando:
+```bash
+cd api-imagenes
+docker-compose up -d
+```
+
+=== Paso 3: Instalar composer en el proyecto de la api
+
+```bash
+cd api-imagenes/api-rest/
+composer install
+```
+
+=== Paso 4: Configurar .env del proyecto api
+Creamos el archivo .env
+
+```bash
+cd api-imagenes/api-rest/
+cp .env.example .env
+```
+Editamos el archivo para congiurar el acceso a la base de datos en el proyecto
+
+```bash
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=9001
+DB_DATABASE=api-rest
+DB_USERNAME=usuario
+DB_PASSWORD=1234
+```
+Añadimos un ultimo parámetro para configurar el puerto del proyecto en el 9000
+
+```bash
+SERVER_PORT=9000
+```
+=== Paso 4: Generar app_key para el proyecto de la api 
+
+```bash
+cd api-imagenes/api-rest/
+php artisan key:generate
+```
+=== Paso 5: Hacer la migracion del proyecto 
+
+```bash
+cd api-imagenes/api-rest/
+php artisan migrate
+```
+=== Paso 6: Configurar docker con la base de datos del proyecto de la app
+
+Accedemos a la carpeta docker/dev y ejecutamos el siguiente comando:
+```bash
+cd docker/dev
+docker-compose up -d
+```
+
+=== Paso 7: Instalar composer en el proyecto de la app
+
+```bash
+cd ticketplanet/
+composer install
+```
+
+=== Paso 8: Configurar .env del proyecto app
+Creamos el archivo .env
+
+```bash
+cd ticketplanet/
+cp .env.example .env
+```
+Editamos el archivo para congiurar el acceso a la base de datos en el proyecto
+
+```bash
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=ticketplanet
+DB_USERNAME=usuario
+DB_PASSWORD=1234
+```
+Añadimos uns parámetros de configuración necesarios en el .env
+
+```bash
+PAGINATION_LIMIT=10
+EVENT_LIMIT_HOME=6
+PASARELA_PAGAMENT = true
+API_LOCAL= true
+```
+=== Paso 9: Configurar mailtrap
+
+Para poder ver como se envian los correr con el app usaremos mailtrap. Para habilitar el mailtrap deberemos ir a la pagina de mailtrap 
+"https://mailtrap.io/". Nos registramos y deberemos acceder a Email Testing > Inboxes > My Inbox > SMTP Settings. En Intregations 
+Seleccionamos PHP >Laravel 9+ Y se motrara un parametros que deberan ponerse en el archivo env de la app.
+
+Deberia quedar algo asi:
+
+```bash
+/var/www/gr3-bernabeu-rojas-picazo/ticketplanet/.env
+
+MAIL_MAILER=smtp
+MAIL_HOST=sandbox.smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=aed969b821e664
+MAIL_PASSWORD=*********77831
+```
+
+
+=== Paso 10: Generar app_key para el proyecto de la app 
+
+```bash
+cd ticketplanet/
+php artisan key:generate
+```
+=== Paso 11: Hacer la migracion del proyecto 
+
+```bash
+cd ticketplanet/
+php artisan migrate
+```
+
+=== Paso 12: Instalar unaccent en Postgresql
+
+Ejecutamos el siguiente comando para entrar a la terminal de postgresql 
+
+```bash
+sudo docker exec -it pg_container psql -U usuario  ticketplanet
+```
+
+Una vez en la terminal de postgresql ejecutamos el siguiente comando
+
+```bash
+CREATE EXTENSION unaccent;
+```
+
+=== Paso 13: Generar un token para acceder a la api desde la app
+Accedemos al proyecto y ejecutamos el proyecto "php artisan db:seed"
+
+```bash
+cd api-imagenes/api-rest/
+php artisan db:seed
+```
+El comando debolvera un token. Este token lo deberdemos poner en el archivo .env del proyecto ticketplanet de la siguiene manera:
+
+```bash
+cd ticketplanet/
+```
+archivo .env:
+```bash
+API_KEY="a9yKqIWD4hqiLdBA0sat7ogQOVIwiRGYsu51XNEOa3a582a5"
+```
+
+=== Paso 14: Activar el proyecto
+
+Para activiar el proyecto primero activamos la API
+
+```bash
+cd api-imagenes/api-rest/
+php artisan serve
+```
+
+Una vez activamos la API activamos activamos la app
+
+```bash
+cd ticketplanet/
+php artisan serve
+```
+Y en el navegador buscamos 127.0.0.1:8000
 
 == CONCLUSIÓN   
 

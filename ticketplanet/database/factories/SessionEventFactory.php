@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Event;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,10 +17,14 @@ class SessionEventFactory extends Factory
      */
     public function definition(): array
     {
+      $event = Event::inRandomOrder()->first();
+        $maxCapacity = mt_rand(0, $event->capacity);
+
         return [
             'date' => fake()->date(),
             'time' => fake()->time(),
-            'price' =>  mt_rand(10.0 * 10, 20.0 * 10) / 10,
+            'maxCapacity' => $maxCapacity,
+            'ticketsSold' => mt_rand(0, 200),
         ];
     }
 }

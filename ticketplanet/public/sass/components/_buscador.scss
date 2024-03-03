@@ -1,0 +1,92 @@
+.buscador{
+    width: 30vw;
+    padding: 1vh;
+    border-radius: 10px;
+    margin-right: 0.5%;
+    font-size: 1.25rem;
+    padding-left: 5vh;
+    background-color: rgba(6, 66, 249, 0.133);
+  
+    &Contenedor{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1.5%;
+      position: relative;
+    }
+  
+    &-Form{
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+  
+  }
+
+  .imagen{
+    &Lupa{
+      position: absolute;
+      margin-left: 0.5vw;
+    }
+    &Filtrar{
+      position: absolute;
+      right: 39vw;
+    }
+  }
+
+  .filtro{
+    background-color: #ebeaea;
+    border-radius: 0;
+    width: 100%;
+  
+    &-div{
+      border: 1px solid #000000;
+      background-color: #B5B5B5;
+      margin: auto;
+      margin-top: 1%;
+      padding: 2.5vh;
+      width: 30vh;
+      display: none;
+  
+      & p {
+        margin: 0px;
+        padding: 0px;
+      }
+    }
+  }
+
+  @media screen and (max-width:425px) {
+
+    .buscador{
+        width: 50vw;
+      
+        &Contenedor{
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          width: 100%;
+          margin-top: 3%;
+        }
+      }
+
+      .div_filtro{
+        border: 1px solid #000000;
+        background-color: #B5B5B5;
+        margin: auto;
+        margin-top: 1%;
+        padding: 2vh;
+        width: 24vh;
+        display: none; 
+      }
+
+      .imagen{
+        &Lupa{
+          position: absolute;
+          margin-left: 1.5vw;
+        }
+      }
+  }
+  

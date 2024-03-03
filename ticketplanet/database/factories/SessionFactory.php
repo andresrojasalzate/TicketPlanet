@@ -17,15 +17,18 @@ class SessionFactory extends Factory
      */
     public function definition(): array
     {
-        $eventsIdsArray = Event::pluck('id');
-        $lengthEventId = count($eventsIdsArray);
-        $positionRandom = random_int(0, $lengthEventId - 1);
 
+        $evento = Event::inRandomOrder()->first();
+        
+        $maxCapacity = mt_rand(0, $evento->capacity);
+        $maxCapacity = $maxCapacity < 0 ? 0 : $maxCapacity;
         return [
             'date' => fake()->date(),
             'time' => fake()->time(),
-            'price' =>  mt_rand(10.0 * 10, 20.0 * 10) / 10,
-            'event_id' => $eventsIdsArray[$positionRandom] ,
+            'maxCapacity' => $maxCapacity,
+            'ticketsSold' => mt_rand(0, 200),
+            'open' => fake()->randomElement([true, false]),
+            'event_id' => $evento->id
         ];
     }
 }

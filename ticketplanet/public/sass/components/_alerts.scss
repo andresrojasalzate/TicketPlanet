@@ -1,0 +1,51 @@
+.alert {
+  display: none;
+  padding: 10px;
+  background-color: #f44336;
+  color: white;
+  margin-bottom: 15px;
+  &-danger{
+    display: flex;
+    padding: 10px;
+    background-color: #ff0000cf; 
+    color: white;
+    width: 50%;
+    justify-content: space-evenly;
+    margin-top: 5%;
+    margin-left: 25%;
+    // margin-bottom: 5%;
+    font-size: 18px;
+  }
+  &-success{
+    display: flex;
+    padding: 10px;
+    background-color: #01781cc7; 
+    color: white;
+    margin-top: 2%;
+    width: 50%;
+    justify-content: space-evenly;
+    margin-left: 20%;
+    font-size: 18px;
+  }
+}
+.cerrarFeedbackSuccess{
+  background-color:#01781c00; 
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+}
+.cerrarFeedbackFallido{
+  background-color: #01781c00;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+}
+.cerrarFeedback{
+  background-color: #01781c00;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+}

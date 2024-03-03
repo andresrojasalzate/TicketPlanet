@@ -1,0 +1,45 @@
+.event-counter {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30vh, 1fr));
+    justify-items: center;
+    gap: 20px;
+    margin: 2%;
+}
+
+.resultado-busqueda{
+
+        margin-left: 2%;
+
+        & p{
+            @include texto-resultado-busqueda; 
+        }
+
+        & span{
+            @include texto-resultado-busqueda;
+        }
+}
+
+@media screen and (max-width: 425px){
+    .event-counter {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(29vh, 1fr));
+        gap: 20px;
+        height: calc(85vh - 110px - 110px);
+        overflow-y: auto;
+    }
+
+    .resultado-busqueda{
+        display: flex;
+        justify-content: center;
+
+        & p{
+            font-size: 20px;
+        }
+
+        & span{
+            font-size: 20px;
+        }
+    }
+
+}
+

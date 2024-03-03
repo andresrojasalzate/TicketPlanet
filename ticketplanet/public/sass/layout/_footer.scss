@@ -1,0 +1,100 @@
+.footer {
+  display: grid;
+  justify-content: flex-start;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: 0.2fr 1fr;
+  align-items: center;
+  height: 20vh;
+  background-color: #424242;
+
+}
+
+
+.logo {
+  margin-left: 1%;
+  width: 5vh;
+
+  &Nombre {
+    width: 20vh;
+  }
+
+  &Footer{
+    margin: 0.5vh;
+    display: flex;
+    grid-row: 1 / span 2;
+  }
+}
+
+.linksFooter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+ 
+
+  & a {
+    font-size: 1.10rem;
+    text-decoration: none;
+    font-family: 'Work Sans';
+    color: white;
+  }
+}
+
+
+
+.linksRRSS {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+
+  .item {
+    &-4 {
+      
+      img {
+        width: 4vh;
+        cursor: pointer;
+        margin-left: 2vh;
+        margin-right: 2vh;
+      }
+    
+  }
+  }
+}
+
+@media screen and (max-width:475px) {
+
+  .footer {
+    grid-template-columns: 1fr; /* Cambia a una sola columna */
+    height: 30vh;
+  }
+
+  .logo {
+    margin-left: 1%;
+    width: 5vh; /* Ocupa todo el ancho disponible */
+    text-align: center; /* Centra el contenido */
+    margin: 10px 0; /* Espaciado entre elementos */
+
+    &Nombre {
+      width: 20vh;
+    }
+
+    &Footer{
+      margin: 0.5vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .linksFooter {
+    justify-content: space-evenly; /* Centra los enlaces */
+  }
+
+  .linksRRSS {
+    justify-content: center; /* Centra los elementos */
+  }
+}
+

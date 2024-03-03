@@ -1,0 +1,181 @@
+.nav{
+  display: grid;
+  grid-template-columns: 0.3fr 0.2fr 4fr 0.5fr;
+  align-items: center;
+  padding: 0.8vh;
+  background-color: #0642F9;
+
+  &Logo{
+    display: grid;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    justify-items: center;
+
+    & img{
+      width: 50vh;
+    }
+  }
+}
+
+.logoNav{
+  width: 10vh;
+}
+
+.menuIMG{
+  cursor: pointer;
+  width: 8vh;
+  margin-left: 15%;
+}
+
+.dropdown{
+    display: flex;
+    justify-content: start;
+    grid-row: 1;
+    background-color: #0642F9;
+  
+    &-content{
+      position: fixed;
+      top: 12.7vh;
+      left: 0;
+      width: 35vh;
+      height: 100vh;
+      display: none;
+      overflow: auto;
+      background-color: #0642F9;
+      border-top: 0.5px solid black;
+      z-index: 10;
+  
+      & a{
+        display: block;
+        color: #FFFFFF;
+        text-decoration: none;
+        font-size: 1.25rem;
+        font-family: 'Work Sans';
+      }
+  
+      & p{
+        display: block;
+        color: #FFFFFF;
+        padding: 10px 0px 10px 50px;
+        text-decoration: none;
+        font-size: 1.25rem;
+        font-family: 'Work Sans';
+      }
+    }
+}
+
+.imagenUsuarioDespegable {
+  margin-top: 1vh;
+  padding-left: 40px;
+}
+
+.logout,
+.homeMenu,
+.homePromotorMenu,
+.aboutusMenu,
+.legalnoticeMenu {
+    display: flex;
+    align-items: center;
+    padding: 7% 0% 5% 10%;
+    transition: box-shadow 0.3s ease;
+}
+
+.logout:hover,
+.homeMenu:hover,
+.homePromotorMenu:hover,
+.aboutusMenu:hover,
+.legalnoticeMenu:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+}
+
+.logout img,
+.homeMenu img,
+.homePromotorMenu img {
+    padding-right: 1vh;
+}
+
+.logout{
+  & a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-family: 'Work Sans';
+    padding-right: 3%;
+  }
+}
+
+.auth{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &User{
+    margin-top: 0.5rem;
+    color: white;
+    font-size: 1.25rem;
+    font-family: 'Work Sans';
+    text-decoration: none;
+  }
+
+  & a,& span{
+    margin-top: 0.5rem;
+    color: white;
+    font-size: 1.25rem;
+    font-family: 'Work Sans';
+    text-decoration: none;
+  }
+  & img{
+    width: 5vh;
+  }
+}
+
+.separator{
+  width: 99%;
+  height: 3px;
+  background-color: #0642F9;
+  position: absolute;
+  bottom: -10%;
+}
+
+@media screen and (max-width:450px) {
+
+  .menuIMG{
+    width: 8vh;
+  }
+  
+  .navLogo img {
+    width: 90vw;
+  }
+
+  .dropdown{
+    &-content{
+      width: 30vh;
+    }
+  }
+
+  .logout{
+    display: flex;
+    align-items: center;
+    padding: 5% 0% 5% 10%;
+  
+    & a{
+      color: #FFFFFF;
+      text-decoration: none;
+      font-size: 1rem;
+      font-family: 'Work Sans';
+    }
+  }
+
+.logout,
+.homeMenu,
+.homePromotorMenu,
+.aboutusMenu,
+.legalnoticeMenu {
+    display: flex;
+    align-items: center;
+    padding: 5% 0% 5% 10%;
+}
+
+}

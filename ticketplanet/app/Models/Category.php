@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Log;
+
 
 class Category extends Model
 {
@@ -14,29 +16,5 @@ class Category extends Model
     {
         return $this->hasMany(Event::class);
     }
-
-    public static function recuperarCategoriasHome(){
-
-        /*$idsCategoria = Category::pluck('id');
-        $categories = [];
-        for ($i = 0; $i < count($idsCategoria); $i++) {
-            $categoria = Category::with(['events' => function($querry){
-                $querry->take(5)
-                        ->with(['sessions' => function ($querySessions){
-                            $querySessions->take(1);
-                }]);
-            }])->
-            find($idsCategoria[$i]);
-
-            array_push($categories, $categoria);
-        }
-
-        return $categories;*/
-
-        $categories = Category::with(['events' => function($query){
-            $query->with('sessions');
-        }])->get();
-
-        return $categories;
-    }
+    
 }
