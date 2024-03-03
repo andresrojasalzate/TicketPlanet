@@ -165,12 +165,18 @@ class LinksController extends Controller
     $imagenes = [];
     if ($request->hasFile('image')) {
         foreach ($request->file('image') as $imagen) {
-          $response = Http::withToken(env('API_KEY'))->attach(
-            'image', $imagen->get(), $imagen->getClientOriginalName()
-        )->post('http://127.0.0.1:9000/api/images/store');
+
+          if(env('API_LOCAL')){
+            $response = Http::withToken(env('API_KEY'))->attach(
+              'image', $imagen->get(), $imagen->getClientOriginalName()
+            )->post('http://127.0.0.1:9000/api/images/store');
+          }else{
+            $response = Http::withToken(env('API_KEY'))->attach(
+              'image', $imagen->get(), $imagen->getClientOriginalName()
+            )->post('http://localhost:8080/api/images/store');
+          }      
           $data = $response->json();
           $imagenes[] = $response['imageId'];
-
         }
     }
 
