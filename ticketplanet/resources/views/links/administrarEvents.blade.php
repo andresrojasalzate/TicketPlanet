@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Eventos del Promotor')
+@section('meta_description', 'Eventos creados por el promotor')
 
 @section('content')
     <div class="layout">

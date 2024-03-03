@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Entrada')
+@section('meta_description', 'Compra realizada con éxito')
 @section('content')
 <div class="contenedorcompraFeedback">
   <div class="compraExito">

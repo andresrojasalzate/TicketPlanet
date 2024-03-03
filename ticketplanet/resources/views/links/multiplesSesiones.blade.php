@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Crear Sesiones')
+@section('meta_description', 'Añadir sesiones a un evento')
 
 @section('content')
 @if (session('error'))
