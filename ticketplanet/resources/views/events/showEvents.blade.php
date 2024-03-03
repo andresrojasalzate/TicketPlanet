@@ -18,10 +18,10 @@
                     <div class="image-container">
                         @foreach (json_decode($evento->image) ?? [] as $imagen)
                             @if(env('API_LOCAL'))
-                                <img src="http://127.0.0.1:9000/api/images/retrieve/medium/{{json_decode($event->image)[0]}}" alt=""
+                                <img src="http://127.0.0.1:9000/api/images/retrieve/medium/{{$imagen}}" alt=""
                                 loading="lazy">
                              @else
-                                <img src="http://10.2.129.105:8080/api/images/retrieve/medium/{{json_decode($event->image)[0]}}" alt=""
+                                <img src="http://10.2.129.105:8080/api/images/retrieve/medium/{{$imagen}}" alt=""
                                 loading="lazy">
                             @endif
                         @endforeach
