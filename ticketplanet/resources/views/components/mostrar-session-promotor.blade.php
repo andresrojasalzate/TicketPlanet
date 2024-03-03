@@ -6,10 +6,10 @@
             @endphp
             @if (!empty($images))
             @if(env('API_LOCAL'))
-                    <img src="http://127.0.0.1:9000/api/images/retrieve/medium/{{json_decode($event->image)[0]}}" alt=""
+                    <img class="imagen-sesion-promotor" src="http://127.0.0.1:9000/api/images/retrieve/medium/{{json_decode($session->event->image)[0]}}" alt=""
                         loading="lazy">
                 @else
-                <img src="http://10.2.129.105:8080/api/images/retrieve/medium/{{json_decode($event->image)[0]}}" alt=""
+                <img class="imagen-sesion-promotor" src="http://10.2.129.105:8080/api/images/retrieve/medium/{{json_decode($session->event->image)[0]}}" alt=""
                         loading="lazy">
                 @endif
             @else
