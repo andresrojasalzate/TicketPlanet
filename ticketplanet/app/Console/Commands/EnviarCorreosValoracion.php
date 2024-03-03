@@ -29,52 +29,37 @@ class EnviarCorreosValoracion extends Command
     /**
      * Execute the console command.
      */
-    // public function handle()
-    // {
-    //     // Obtener la fecha de hoy y la fecha de mañana
-    //     $hoy = Carbon::now()->toDateString();
-    //     $diaSiguiente = Carbon::tomorrow()->toDateString();
-
-    //     // Obtener las sesiones que ocurrieron ayer
-    //     $sesiones = Session::whereDate('date', $hoy)->get();
-
-    //     foreach ($sesiones as $sesion) {
-    //         // Obtener las compras asociadas a esta sesión
-    //         $compras = Compra::where('session_id', $sesion->id)->get();
-
-    //         foreach ($compras as $compra) {
-    //             // Envía el correo de recordatorio un día después del evento a los usuarios que han realizado compras para esta sesión
-    //             $usuario = $compra->usuario; // Asumiendo que tienes una relación definida para obtener el usuario asociado a la compra
-    //             Mail::to($compra->emailPurchaser)->send(new ValidacionMail($usuario, $sesion));
-    //         }
-    //     }
-
-    //     // Registrar actividad
-    //     Log::info('Comando de enviar correos de valoración ejecutado correctamente.');
-    // }
-
+    
     public function handle()
     {
-        // Obtener la fecha de hoy
+        // Obtener la fecha de hoy y la fecha de mañana
         $hoy = Carbon::now()->toDateString();
+        $diaSiguiente = Carbon::tomorrow()->toDateString();
 
-        // Obtener la fecha de hace un día
-        $ayer = Carbon::yesterday()->toDateString();
+        // Registro de log para verificar las fechas obtenidas
+        Log::info('Fecha de hoy: ' . $hoy);
+        Log::info('Fecha de mañana: ' . $diaSiguiente);
 
-        // Obtener las sesiones que ocurrieron hace un día
-        $sesiones = Session::whereDate('date', $ayer)->get();
+        // Obtener las sesiones que ocurrieron hoy
+        $sesiones = Session::whereDate('date', $hoy)->get();
+
+        // Registro de log para verificar las sesiones obtenidas
+        Log::info('Número de sesiones encontradas para hoy: ' . $sesiones->count());
 
         foreach ($sesiones as $sesion) {
             // Obtener las compras asociadas a esta sesión
             $compras = Compra::where('session_id', $sesion->id)->get();
 
+            // Registro de log para verificar las compras obtenidas
+            Log::info('Número de compras encontradas para la sesión ' . $sesion->id . ': ' . $compras->count());
+
             foreach ($compras as $compra) {
-                if ($compra->usuario) {
-                    // Envía el correo de valoración a los usuarios que han realizado compras para la sesión de ayer
-                    Mail::to($compra->emailPurchaser)->send(new ValidacionMail($compra->usuario, $sesion));
-                } else {
-                    Log::warning('Se encontró una compra sin usuario asociado.');
-                }
+                // Envía el correo de recordatorio un día después del evento a los usuarios que han realizado compras para esta sesión
+                $usuario = $compra->usuario; // Asumiendo que tienes una relación definida para obtener el usuario asociado a la compra
+                Mail::to($compra->emailPurchaser)->send(new ValidacionMail($usuario, $sesion));
+
+                // Registro de log para verificar el envío de correos
+                Log::info('Correo de valoración enviado a ' . $compra->emailPurchaser . ' para la sesión ' . $sesion->id);
             }
         }
 
