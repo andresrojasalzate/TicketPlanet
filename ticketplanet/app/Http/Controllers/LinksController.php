@@ -167,13 +167,15 @@ class LinksController extends Controller
         foreach ($request->file('image') as $imagen) {
 
           if(env('API_LOCAL')){
+            Log::info("api local");
             $response = Http::withToken(env('API_KEY'))->attach(
               'image', $imagen->get(), $imagen->getClientOriginalName()
             )->post('http://127.0.0.1:9000/api/images/store');
           }else{
+            Log::info("api server");
             $response = Http::withToken(env('API_KEY'))->attach(
               'image', $imagen->get(), $imagen->getClientOriginalName()
-            )->post('http://localhost:8080/api/images/store');
+            )->post('http:///127.0.0.1:8080/api/images/store');
           }      
           $data = $response->json();
           $imagenes[] = $response['imageId'];
