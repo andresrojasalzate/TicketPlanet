@@ -287,7 +287,8 @@ if ($existingSessions->isNotEmpty()) {
       'time' => $request->time,
       'maxCapacity' => $request->maxCapacity,
       'event_id' => $eventId,
-      'ticketsSold' => 0
+      'ticketsSold' => 0,
+      'open' => true,
     ]);
 
 
