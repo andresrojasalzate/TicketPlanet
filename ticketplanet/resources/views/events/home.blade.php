@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Home')
+@section('meta_description', 'Pantalla de inicio de la app TicketPlanet, ¡descubre nuestros eventos!')
 
 @section('content')
 

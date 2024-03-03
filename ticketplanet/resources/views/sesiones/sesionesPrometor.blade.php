@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', "Tus sesiones") 
+@section('meta_description', 'Listado de tus sesiones')
 
 @section('content')
 <h1 class="titulo-sessions-promotor">TUS SESIONES</h1>
