@@ -30,224 +30,128 @@ image::Images/Logo.png[Logo principal, width=10%]
 
 === Objetivo de la aplicación
 
-== PLANIFICACIÓN Y SEGUIMIENTO
-
-=== Semana 1
-
-==== Salma
-- Diseño Mockups pantalla home, versión movil y Web, Figma
-- Implementación Header y Footer
-- Diagrama de clases
-- Diagrama entorno Docker
-- Creación del Logo de la aplicación y favicon
-
-==== Andres
-- Diseño de la guia de estilos
-- Configuración del Docker
-- Congiguración de las migraciones 
-- Configuración de los factorys y seeders 
-- Función para mostrar todos los eventos en home
-- Función para el buscador 
-- Configuración del Isard
-
-==== Adrian
-- Diseño de la guia de estilos
-- Diseño Mockups pantalla home, version movil y web
-- Figma y trello
-- Test funcionales
-
-=== Semana 2
-
-==== Salma
-- Diseño Mockups pantalla Login, version movil y web, Figma
-- Implementación Funcionalidad Login
-- Diseño Mockups pantalla "Restablecer contraseña", versión movil y web, Figma
-- Implementación Funcionalidad Cerrar Sesión.
-- Arreglar CSS de la pantalla Home.
-
-==== Andres
-- Diseño de mockups para pantalla de movil y web de la nueva pantalla home
-- Creación de la nueva tabla Cateorias y modificación de la base de datos para ajustarse a la nueva tabla
-- Plantilla para las vistas de la web
-- Funcion para mostar las categorias y sus eventos en la nueva pantalla home
-
-==== Adrian
-- Diseño de la pagina crear Esdeveniments en el figma version movil y web
-- Implementacion funcionalidad de la pagina home Promotors
-- Test funcionales
-
-=== Semana 3
-
-==== Salma
-- Diseño Mockups pantalla Mostrar info evento, version movil y web, Figma
-- Implementación Funcionalidad Restablecer contraseña
-- Arreglar CSS de varias pantallas.
-- Implementación Mostrar Información del Evento en pantalla "ShowEvent". (Pendiente implementación entradas, etc.).
-- Modificadas migraciones de eventos y sesiones para funcionalidad Crear Eventos.
-
-==== Andrés
-- Diseño mockup para pantalla "Pàgina resum Llistat de sessions obertes"
-- En crear evento funciónde poder seleccionar direcciones de eventos pasados. 
-- Ajustes en el buscador
-- Ajustes en la migración de eventos y sesiones 
-- Ajustes en los factorys 
-
-==== Adria
-- Diseño pagina crear Esdeveniments version movil, web
-- Funcionalidad pagina crear Esdeveniments
-- Funcionalidad en crear Esdeveniments validacion  
-
-=== Semana 4
-
-==== Salma
-- Modificar css pantalla Login
-- Modifcar css pantalla recuperar contraseña
-- Token no funciona, restablecer contraseña
-- Modificar css header
-- Modificar css footer
-- Modificar css del menú desplegable
-- Arreglar css Buscador pantalla home, etc.
-- Acabar funcionalidad mostrar eventos, añadida lista entradas
-- Funcionalidad administrar eventos
-- Modificar Pantalla Home Promotor, añadidos botones
-- Creación de Test, LoginTest
-
-==== Andres 
-- Funcion para subir imagen al crear evento
-- Solucion de problema con la paginación en la pantalla de resultado de busqueda. 
-- Implementación de la pantalla ""Pàgina resum Llistat de sessions obertes"
-- Test de buscador y home. 
-
-==== Adria
-- Test funcionales en link controllers
-- Modificar css pagina crear evento y entradas
-- Mejorar funcionalidad crear evento y entradas
-- Arreglar validaciones
-
-
-=== Semana 5
-
-==== Salma
-- Creación de Test, ValoracionTest
-- Diseño Mockups pantalla 'ShowEvent', mostrar valoraciones, versión Web
-- Diseño Mockups pantalla 'ShowEvent', mostrar valoraciones, versión movil
-- Diseño Mockups pantalla 'Compra', versión Web
-- Implementación creación de correo electrónico para valorar evento
-- Implementación creación del formulario para valorar evento
-- Implementación mostrar las valoraciones en la pantalla de 'ShowEvents'
-- Implementación pantalla 'Compra', mostrar contador 10 minutos.
-
-==== Andrés
-- Ajusts en tests
-- Diseño de mockup de entradas
-- Implementación de creación de entradas en pdf
-- Ajustes en el buscador
-- Ajuste en los factorys
-
-==== Adria
-- Mockups mejorados de crear evento y entrada version mobil y desktop
-- Creacion pagina crear multiples sesiones
-- Diseño pagina multiples sesiones, funcionamiento y validaciones 
-- Creacion test funcionales en link controller
-
-=== Semana 6
-
-==== Salma
-- Modificado css pantalla 'Home Promotor'
-- Implementar botón accesible para la edición de eventos
-- Diseño Mockups pantalla 'Compra', versión Web, Figma
-- Diseño Mockups pantalla 'Compra', versión movil, Figma
-- Creación de nueva tabla en la bbdd, 'Compra'
-- Implementación de la funcionalidad de Compra. (Contar con entradas nominales, mostrados datos y guardado en base de datos)
-
-==== Andrés
-- Implementación SASS 7-1 pattern
-- Implentación de crear entradas en pdf con información dinamica
-
-==== Adria 
-- Implementacion primera version SASS 
-- Test funcionales de la parte de Tickets y controlador link
-- Diseño Mockups feedback cuando compras entrada
-- Implementacion feedback
-
-=== Semana 7
-
-==== Adria 
- - Implementacion de la funcionalidad de la  pasarela de pago 
- - Gestion de errores en el pago
+TicketPlanet facilita a los usuarios la compra de entradas de diferentes tipos de eventos, gracias a su plataforma intuitiva y segura.
 
 
 == DISEÑO
 
 === Base de datos
 
+==== Diagrama de clases
+
 [plantuml,,png]
 ----
 
-class events{
-id: int 
-created_at: Timestamp
-updated_at: Timestamp
-name: string
-description: string
-address: string
-imagen: string   
-city: string
-name_site: string  
-finishDate: Date
-finishTime: Time
-visible: boolean
-capacity: int
-category_id: int
-user_id: int     
-}
-
-class categories{
-id: int                      
-name: string
-created_at: Timestamp
-updated_at: Timestamp
-}
-
-class sessions{
-id: int  
-created_at: Timestamp
-updated_at: Timestamp
-date: Date
-time: Time
-maxCapacity: int
-event_id: int
-}
-
-class tickets{
-id: int      
-created_at: Timestamp
-updated_at: Timestamp
-name: string
-quantity: int
-price: int
-nominal: boolean
-session_id: int
-}   
-
-class users{
-id: int      
-created_at: Timestamp
-updated_at: Timestamp
-name: string
-email: string
-email_verified_at: Timestamp
-password: string
-reset_token: string
-remember_token: string
-} 
-
-
-events "0...n" -- "1" categories 
-events "1" -- "1" users 
-events "1" -- "0...n" sessions
-sessions "1" -- "0...n" tickets 
+class Assistant {
+        nameAssistant: string
+        dniAssistant: string
+        phoneAssistant: string
+        compra_id: integer
+        ticket_id: integer
+        
+        + compra() : Compra
+        + ticket() : Ticket
+    }
+    
+    class Category {
+        id: int
+        name: string
+        
+        + events() : List<Event>    
+    }
+    
+    class Compra {
+        id: int
+        emailPurchaser: string
+        namePurchaser: string
+        dniPurchaser: string
+        phonePurchaser: string
+        pdfTickets: string
+        session_id: integer
+        
+        + session() : Session
+    }
+    
+    class Event {
+        id: int
+        name: string
+        address: string
+        city: string
+        name_site: string
+        image: string
+        description: string
+        finishDate: date
+        finishTime: time
+        visible: boolean
+        capacity: integer
+        category_id: integer
+        user_id: integer
+        
+        + category() : Category
+        + user() : User
+        + sessions() : List<Session>
+        + valoraciones() : List<Valoracion>
+    }
+    
+    class Session {
+        id: int
+        date: date
+        time: time
+        maxCapacity: integer
+        ticketsSold: integer
+        open: boolean
+        event_id: integer
+        
+         + tickets() : List<Ticket>
+    }
+    
+    class Ticket {
+        id: int
+        name: string
+        quantity: integer
+        price: float
+        sold_tickets: integer
+        nominal: boolean
+        session_id: integer
+        
+        + session() : Session
+    }
+    
+    class User {
+        id: int
+        name: string
+        email: string
+        password: string
+        reset_token: string
+        reset_token_created_at: datetime
+    }
+    
+    class Valoracion {
+        id: int
+        nombre: string
+        caraSeleccionada: string
+        puntuacionSeleccionada: integer
+        tituloComentario: string
+        comentario: string
+        event_id: integer
+        
+        + event() : Event
+    }
+    
+    Assistant "1" -- "0..1" Compra
+    Assistant "1" -- "0..1" Ticket
+    
+    Compra "1" -- "0..1" Session
+    
+    Event "0..n" -- "1" Category
+    Event "1" -- "1" User
+    Event "1" -- "0..n" Session
+    Event "1" -- "0..n" Valoracion
+    
+    Session "1" -- "0..n" Ticket
 ----
+
+==== Diagrama E-R:
 
 === Interfícies
     
