@@ -211,6 +211,15 @@ DB_USERNAME=usuario
 DB_PASSWORD=1234
 ```
 
+Añadimos uns parámetros de configuración necesarios para el proyecto en el .env
+
+```bash
+PAGINATION_LIMIT=10
+EVENT_LIMIT_HOME=6
+PASARELA_PAGAMENT = true
+API_LOCAL= false
+```
+
 === Paso 6: Instalar Dependencias de Composer
 
 Instala las dependencias de Composer para tu proyecto Laravel.
@@ -299,6 +308,129 @@ Una vez en la terminal de postgresql ejecutamos el siguiente comando
 
 ```bash
 CREATE EXTENSION unaccent;
+```
+
+=== Paso 13: Configurar docker con la base de datos del proyecto de la API
+
+Accedemos a la carpeta api-imagenes y ejecutamos el siguiente comando:
+```bash
+cd api-imagenes
+docker-compose up -d
+```
+
+=== Paso 14: Instalar composer en el proyecto de la api
+
+```bash
+cd api-imagenes/api-rest/
+composer install
+```
+
+=== Paso 15: Configurar .env del proyecto api
+Creamos el archivo .env
+
+```bash
+cd api-imagenes/api-rest/
+cp .env.example .env
+```
+Editamos el archivo para congiurar el acceso a la base de datos en el proyecto
+
+```bash
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=9001
+DB_DATABASE=api-rest
+DB_USERNAME=usuario
+DB_PASSWORD=1234
+```
+Añadimos un ultimo parámetro para configurar el puerto del proyecto en el 9000
+
+```bash
+SERVER_PORT=9000
+```
+=== Paso 16: Generar app_key para el proyecto de la api 
+
+```bash
+cd api-imagenes/api-rest/
+php artisan key:generate
+```
+=== Paso 17: Hacer la migracion del proyecto 
+
+```bash
+cd api-imagenes/api-rest/
+php artisan migrate
+```
+=== Paso 17: Generar un token para acceder a la api desde la app
+Accedemos al proyecto y ejecutamos el proyecto "php artisan db:seed"
+
+```bash
+cd api-imagenes/api-rest/
+php artisan db:seed
+```
+El comando debolvera un token. Este token lo deberdemos poner en el archivo .env del proyecto ticketplanet de la siguiene manera:
+
+```bash
+cd ticketplanet/
+```
+archivo .env:
+```bash
+API_KEY="a9yKqIWD4hqiLdBA0sat7ogQOVIwiRGYsu51XNEOa3a582a5"
+```
+=== Paso 18:Cambiar permisos del proyecto de la API
+
+```bash
+cd /var/www/gr3-bernabeu-rojas-picazo/api-imagenes/api-rest/
+chown -R www-data storage
+chown -R www-data bootstrap/cache
+```
+```bash
+chmod -R 755 storage
+chmod -R 755 bootstrap/cache
+```
+
+=== Paso 19: Añadir el proyecto a la configuracion de apache
+
+Primero añadiremos un nuevo virtual host en el archivo ticketplanet.conf
+
+```bash
+sudo nano /etc/apache2/sites-available/ticketplanet.conf
+```
+
+```bash
+<VirtualHost *:8080>
+    ServerName api-imagenes.com
+    DocumentRoot /var/www/gr3-bernabeu-rojas-picazo/api-imagenes/api-rest/public
+
+    <Directory /var/www/gr3-bernabeu-rojas-picazo/api-imagenes/api-rest/public>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/demo-error.log
+    CustomLog ${APACHE_LOG_DIR}/demo-access.log combined
+</VirtualHost>
+```
+Editamos el archivo ports.conf para configurar que el servicio de apache escuche el puerto 8080
+
+```bash
+sudo nano /etc/apache2/ports.conf
+```
+En el archivo ports.conf añadimos la siguiente linea:
+
+```bash
+Listen 8080
+```
+
+=== Paso 20: Activar API
+
+Para que se pueda utilizar la API para guardar imagenes se tiene que activar el proyecto 
+
+```bash
+cd /var/www/gr3-bernabeu-rojas-picazo/api-imagenes/api-rest
+```
+
+```bash
+sudo php artisan serve
 ```
 
 == MANUAL DE INSTALACIÓN LOCAL
