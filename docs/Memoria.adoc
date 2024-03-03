@@ -259,7 +259,7 @@ Link a las interfícies de Figma https://www.figma.com/file/V47MqQzp5biMSzsQ5m7g
 === Guía de estilos
 Link a la guía de estilos de Figma https://www.figma.com/file/7RISOKUOjvDXdzufahisrv/Gu%C3%ADa-de-estilos?type=design&node-id=0%3A1&mode=design&t=QgHjfUcq2g73B829-1[aquí]. 
 
-== MANUAL DE INSTALACIÓN
+== MANUAL DE INSTALACIÓN SERVER
 
 === Paso 1: Instalar Apache
 
@@ -395,6 +395,163 @@ Una vez en la terminal de postgresql ejecutamos el siguiente comando
 ```bash
 CREATE EXTENSION unaccent;
 ```
+
+== MANUAL DE INSTALACIÓN LOCAL
+
+=== Paso 1: Descargar el proyecto de GitLab
+
+```bash
+git pull https://git.copernic.cat/abernabeu/gr3-bernabeu-rojas-picazo.git
+```
+=== Paso 2: Configurar docker con la base de datos del proyecto de la API
+
+Accedemos a la carpeta api-imagenes y ejecutamos el siguiente comando:
+```bash
+cd api-imagenes
+docker-compose up -d
+```
+
+=== Paso 3: Instalar composer en el proyecto de la api
+
+```bash
+cd api-imagenes/api-rest/
+composer install
+```
+
+=== Paso 4: Configurar .env del proyecto api
+Creamos el archivo .env
+
+```bash
+cd api-imagenes/api-rest/
+cp .env.example .env
+```
+Editamos el archivo para congiurar el acceso a la base de datos en el proyecto
+
+```bash
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=9001
+DB_DATABASE=api-rest
+DB_USERNAME=usuario
+DB_PASSWORD=1234
+```
+Añadimos un ultimo parámetro para configurar el puerto del proyecto en el 9000
+
+```bash
+SERVER_PORT=9000
+```
+=== Paso 4: Generar app_key para el proyecto de la api 
+
+```bash
+cd api-imagenes/api-rest/
+php artisan key:generate
+```
+=== Paso 5: Hacer la migracion del proyecto 
+
+```bash
+cd api-imagenes/api-rest/
+php artisan migrate
+```
+=== Paso 6: Configurar docker con la base de datos del proyecto de la app
+
+Accedemos a la carpeta docker/dev y ejecutamos el siguiente comando:
+```bash
+cd docker/dev
+docker-compose up -d
+```
+
+=== Paso 7: Instalar composer en el proyecto de la app
+
+```bash
+cd ticketplanet/
+composer install
+```
+
+=== Paso 8: Configurar .env del proyecto app
+Creamos el archivo .env
+
+```bash
+cd ticketplanet/
+cp .env.example .env
+```
+Editamos el archivo para congiurar el acceso a la base de datos en el proyecto
+
+```bash
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=ticketplanet
+DB_USERNAME=usuario
+DB_PASSWORD=1234
+```
+Añadimos uns parámetros de configuración necesarios en el .env
+
+```bash
+PAGINATION_LIMIT=10
+EVENT_LIMIT_HOME=6
+PASARELA_PAGAMENT = true
+API_LOCAL= true
+```
+=== Paso 9: Generar app_key para el proyecto de la app 
+
+```bash
+cd ticketplanet/
+php artisan key:generate
+```
+=== Paso 10: Hacer la migracion del proyecto 
+
+```bash
+cd ticketplanet/
+php artisan migrate
+```
+
+=== Paso 11: Instalar unaccent en Postgresql
+
+Ejecutamos el siguiente comando para entrar a la terminal de postgresql 
+
+```bash
+sudo docker exec -it pg_container psql -U usuario  ticketplanet
+```
+
+Una vez en la terminal de postgresql ejecutamos el siguiente comando
+
+```bash
+CREATE EXTENSION unaccent;
+```
+
+=== Paso 12: Generar un token para acceder a la api desde la app
+Accedemos al proyecto y ejecutamos el proyecto "php artisan db:seed"
+
+```bash
+cd api-imagenes/api-rest/
+php artisan db:seed
+```
+El comando debolvera un token. Este token lo deberdemos poner en el archivo .env del proyecto ticketplanet de la siguiene manera:
+
+```bash
+cd ticketplanet/
+```
+archivo .env:
+```bash
+API_KEY="a9yKqIWD4hqiLdBA0sat7ogQOVIwiRGYsu51XNEOa3a582a5"
+```
+
+=== Paso 13: Activar el proyecto
+
+Para activiar el proyecto primero activamos la API
+
+```bash
+cd api-imagenes/api-rest/
+php artisan serve
+```
+
+Una vez activamos la API activamos activamos la app
+
+```bash
+cd ticketplanet/
+php artisan serve
+```
+Y en el navegador buscamos 127.0.0.1:8000
 
 == CONCLUSIÓN   
 
