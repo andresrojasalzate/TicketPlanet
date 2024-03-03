@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Inicio Sesión')
+@section('meta_description', 'Inicio de sesión en la app TicketPlanet')
 
 @section('hide')
     hide

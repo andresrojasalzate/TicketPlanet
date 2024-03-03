@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Home Promotor')
+@section('meta_description', 'Pantalla de inicio para los promotores de la app TicketPlanet')
 
 @section('content')
 @if(Session::has('success'))

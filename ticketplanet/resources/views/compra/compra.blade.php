@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Compra')
+@section('meta_description', 'Pantalla de compra')
 
 @section('content')
     <div class="card-compra">
