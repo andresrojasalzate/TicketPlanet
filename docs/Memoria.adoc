@@ -220,6 +220,25 @@ PASARELA_PAGAMENT = true
 API_LOCAL= false
 ```
 
+=== Paso 5: Configurar mailtrap
+
+Para poder ver como se envian los correr con el app usaremos mailtrap. Para habilitar el mailtrap deberemos ir a la pagina de mailtrap 
+"https://mailtrap.io/". Nos registramos y deberemos acceder a Email Testing > Inboxes > My Inbox > SMTP Settings. En Intregations 
+Seleccionamos PHP >Laravel 9+ Y se motrara un parametros que deberan ponerse en el archivo env de la app.
+
+Deberia quedar algo asi:
+
+```bash
+/var/www/gr3-bernabeu-rojas-picazo/ticketplanet/.env
+
+MAIL_MAILER=smtp
+MAIL_HOST=sandbox.smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=aed969b821e664
+MAIL_PASSWORD=*********77831
+```
+
+
 === Paso 6: Instalar Dependencias de Composer
 
 Instala las dependencias de Composer para tu proyecto Laravel.
@@ -252,7 +271,7 @@ chmod -R 755 bootstrap/cache
 Crea un archivo de configuración de Virtual Host para tu proyecto Laravel
 
 ```bash
-sudo nano /etc/apache2/sites-available/laravel.conf
+sudo nano /etc/apache2/sites-available/ticketplanet.conf
 ```
 Pon el siguiente contenido:
 
@@ -529,20 +548,39 @@ EVENT_LIMIT_HOME=6
 PASARELA_PAGAMENT = true
 API_LOCAL= true
 ```
-=== Paso 9: Generar app_key para el proyecto de la app 
+=== Paso 9: Configurar mailtrap
+
+Para poder ver como se envian los correr con el app usaremos mailtrap. Para habilitar el mailtrap deberemos ir a la pagina de mailtrap 
+"https://mailtrap.io/". Nos registramos y deberemos acceder a Email Testing > Inboxes > My Inbox > SMTP Settings. En Intregations 
+Seleccionamos PHP >Laravel 9+ Y se motrara un parametros que deberan ponerse en el archivo env de la app.
+
+Deberia quedar algo asi:
+
+```bash
+/var/www/gr3-bernabeu-rojas-picazo/ticketplanet/.env
+
+MAIL_MAILER=smtp
+MAIL_HOST=sandbox.smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=aed969b821e664
+MAIL_PASSWORD=*********77831
+```
+
+
+=== Paso 10: Generar app_key para el proyecto de la app 
 
 ```bash
 cd ticketplanet/
 php artisan key:generate
 ```
-=== Paso 10: Hacer la migracion del proyecto 
+=== Paso 11: Hacer la migracion del proyecto 
 
 ```bash
 cd ticketplanet/
 php artisan migrate
 ```
 
-=== Paso 11: Instalar unaccent en Postgresql
+=== Paso 12: Instalar unaccent en Postgresql
 
 Ejecutamos el siguiente comando para entrar a la terminal de postgresql 
 
@@ -556,7 +594,7 @@ Una vez en la terminal de postgresql ejecutamos el siguiente comando
 CREATE EXTENSION unaccent;
 ```
 
-=== Paso 12: Generar un token para acceder a la api desde la app
+=== Paso 13: Generar un token para acceder a la api desde la app
 Accedemos al proyecto y ejecutamos el proyecto "php artisan db:seed"
 
 ```bash
@@ -573,7 +611,7 @@ archivo .env:
 API_KEY="a9yKqIWD4hqiLdBA0sat7ogQOVIwiRGYsu51XNEOa3a582a5"
 ```
 
-=== Paso 13: Activar el proyecto
+=== Paso 14: Activar el proyecto
 
 Para activiar el proyecto primero activamos la API
 
