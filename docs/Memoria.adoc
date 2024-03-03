@@ -152,6 +152,7 @@ class Assistant {
 ----
 
 ==== Diagrama E-R:
+image::Images/diagrama.png[Logo principal, width=50%]
 
 === Interfícies
     
