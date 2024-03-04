@@ -628,6 +628,21 @@ php artisan serve
 ```
 Y en el navegador buscamos 127.0.0.1:8000
 
+== DATOS DE PRUEBA REDYS
+
+Tarjetas de crédito 
+|===
+|Numeración | Caducidad | CVV
+
+|4918019160034602
+|12/34
+|123
+
+|4548814479727229
+|12/24
+|123
+|===
+
 == CONCLUSIÓN   
 
 === Líneas futuras
