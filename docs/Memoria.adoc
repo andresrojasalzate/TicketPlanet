@@ -165,7 +165,7 @@ Link de los sketching de los Mockups https://www.figma.com/file/V47MqQzp5biMSzsQ
 Link a las interfícies de Figma https://www.figma.com/file/V47MqQzp5biMSzsQ5m7gZU/Mockups?type=design&node-id=0-1&mode=design&t=IMIfO6zr6hBVFlYG-0[aquí]. 
 
 === Guía de estilos
-Link a la guía de estilos de Figma https://www.figma.com/file/7RISOKUOjvDXdzufahisrv/Gu%C3%ADa-de-estilos?type=design&node-id=0%3A1&mode=design&t=QgHjfUcq2g73B829-1[aquí]. 
+Link a la guía de estilos de Figma https://www.figma.com/file/V47MqQzp5biMSzsQ5m7gZU/Mockups?type=design&node-id=0-1&mode=design&t=IMIfO6zr6hBVFlYG-0[aquí].
 
 == MANUAL DE INSTALACIÓN SERVER
 
@@ -646,7 +646,9 @@ Tarjetas de crédito
 |123
 |===
 
-== CONCLUSIÓN   
+== CONCLUSIÓN 
+=== Adrian Bernabeu
+Lo que he aprendido de este proyecto ha sido la creacion de una pagina con laravel utilizando docker, y utilizar el Redsys y configurarlo, lo que me esperaba aprender era lo basico del docker la creacion de contenedores y almacenar los datos y en laravel tambien lo basico.
 
 === Líneas futuras
 - Añadir estilos al formulario para recuperar la contraseña.
