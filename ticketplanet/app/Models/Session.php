@@ -38,6 +38,7 @@ class Session extends Model
       'time',
       'maxCapacity',
       'ticketsSold',
-      'event_id'
+      'event_id',
+      'open'
     ];
 }

@@ -27,12 +27,15 @@ class EventFactory extends Factory
         // Asegurarse de que maxCapacity no sea negativo
         $capacity = $capacity < 0 ? 0 : $capacity;
 
+        $imagenes = [];
+        $imagenes[] = "event_default.jpeg";
+
         return [
             'name' =>  fake()->name(),
             'address' => fake()->address(),
             'city' => fake()->city(),
             'name_site' => fake()->name(),
-            'image' => "event_default.jpeg",
+            'image' => json_encode($imagenes),
             'description' => fake()->text(),
             'finishDate' => fake()->date(),
             'finishTime' => fake()->time(),

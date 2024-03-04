@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', "Eventos") 
+@section('meta_description', 'Listado de eventos')
 
 @section('content')
 

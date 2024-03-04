@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+@section('meta_description', 'Compra fallida')
 <div class="contenedorcompraFeedback">
   <div class="compraFallido">
     No se ha podido hacer la compra de la entrada 

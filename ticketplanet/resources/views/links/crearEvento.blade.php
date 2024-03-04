@@ -52,8 +52,13 @@
                         <!-- Mostrar la imagen si ya está definida -->
                         @if (isset($evento) && $evento->images)
                             @foreach (json_decode($evento->images) as $imagen)
-                                <img src="{{ asset('images/fotos-subidas/' . $imagen) }}" alt="Imagen principal"
-                                    width="150" loading="lazy">
+                                @if(env('API_LOCAL'))
+                                    <img src="http://127.0.0.1:9000/api/images/retrieve/medium/{{json_decode($event->image)[0]}}" alt=""
+                                        loading="lazy">
+                                @else
+                                    <img src="http://10.2.129.105:8080/api/images/retrieve/medium/{{json_decode($event->image)[0]}}" alt=""
+                                        loading="lazy">
+                                @endif
                             @endforeach
                         @endif
 
@@ -87,7 +92,7 @@
 
                     <div class="entradasVisibles">
 
-                        <label for="entradasVisibles">Entradas Visibles</label>
+                        <label for="entradasVisibles">Evento Visibles</label>
 
                     </div>
                     <div class="entradasVisiblesEleccion">

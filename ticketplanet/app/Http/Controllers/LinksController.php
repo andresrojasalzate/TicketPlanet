@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Http;
 
 class LinksController extends Controller
 {
@@ -164,11 +165,13 @@ class LinksController extends Controller
     $imagenes = [];
     if ($request->hasFile('image')) {
         foreach ($request->file('image') as $imagen) {
-            $nombre_imagen = $imagen->getClientOriginalName();
-            $extension = $imagen->getClientOriginalExtension();
-            $nombre_unico = $nombre_imagen . '_' . time() . '.' . $extension;
-            $imagen->move(public_path('images/fotos-subidas/'), $nombre_unico);
-            $imagenes[] = $nombre_unico;
+
+            $response = Http::withToken(env('API_KEY'))->attach(
+              'image', $imagen->get(), $imagen->getClientOriginalName()
+            )->post('http://127.0.0.1:9000/api/images/store');
+          $data = $response->json();
+          
+          $imagenes[] = $response['imageId'];
         }
     }
 
@@ -198,7 +201,8 @@ class LinksController extends Controller
       'time' => $request->time,
       'maxCapacity' => $request->maxCapacity,
       'event_id' => $eventId,
-      'ticketsSold' => 0
+      'ticketsSold' => 0,
+      'open' => true
     ]);
 
     $request->session()->put('sesionId', $sesionCreada->id);
@@ -283,7 +287,8 @@ if ($existingSessions->isNotEmpty()) {
       'time' => $request->time,
       'maxCapacity' => $request->maxCapacity,
       'event_id' => $eventId,
-      'ticketsSold' => 0
+      'ticketsSold' => 0,
+      'open' => true,
     ]);
 
 

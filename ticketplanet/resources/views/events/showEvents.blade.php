@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Información Evento')
+@section('meta_description', 'Información de los eventos')
 
 @section('content')
     <div class="card-margin">
@@ -16,8 +17,13 @@
 
                     <div class="image-container">
                         @foreach (json_decode($evento->image) ?? [] as $imagen)
-                            <img class="gallery-image" src="{{ asset('images/fotos-subidas/' . $imagen) }}"
-                                alt="Imagen del evento" loading="lazy">
+                            @if(env('API_LOCAL'))
+                                <img src="http://127.0.0.1:9000/api/images/retrieve/medium/{{$imagen}}" alt=""
+                                loading="lazy">
+                             @else
+                                <img src="http://10.2.129.105:8080/api/images/retrieve/medium/{{$imagen}}" alt=""
+                                loading="lazy">
+                            @endif
                         @endforeach
                     </div>
 
@@ -27,21 +33,23 @@
                         @endif
                     </div>
                 @else
-                <div class="image-container">
-                    <img class="gallery-image" src="{{ asset('images/fotos-subidas/' . $evento->image) }}" alt=""
-                        loading="lazy">
-                </div>
+                    <div class="image-container">
+                        <img class="gallery-image" src="{{ asset('images/fotos-subidas/' . $evento->image) }}"
+                            alt="" loading="lazy">
+                    </div>
                 @endif
             </div>
             <div class="info-showEvent">
                 <h2>{{ $evento->name }}</h2>
 
                 <p>{{ $evento->description }}</p>
+                {{-- NO BORRAR ESTE BLOQUE COMENTADO --}}
                 {{-- <form method="POST" action="{{ route('enviar.correo.valoracion') }}">
                     @csrf
                     <input type="hidden" name="evento" value="{{ $eventoId }}">
                     <button type="submit">Enviar correo Valoración</button>
                 </form> --}}
+                
 
                 <div class="ubicacion-showEvent">
                     <div class="ubicacion-title-showEvent">
@@ -91,8 +99,12 @@
             @foreach ($tickets as $ticket)
                 <div class="ticket-container">
                     <h3>{{ $ticket->name }}, {{ $ticket->price }}€</h3>
+                    @php
+                        // Obtenemos el maxCapacity de la sesión correspondiente al ticket
+                        $maxCapacity = $ticket->session->maxCapacity;
+                    @endphp
                     <input type="number" name="sold_tickets[{{ $ticket->id }}]" value="0" min="0"
-                        max="9999" maxlength="4" oninput="limitarLongitud(this);">
+                        max="{{ $maxCapacity }}" maxlength="4" oninput="limitarLongitud(this);">
                 </div>
             @endforeach
             <div id="total-price-container">
