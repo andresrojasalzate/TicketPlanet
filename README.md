@@ -12,4 +12,4 @@
 
 ## Portfolios
 - Adrian Bernabeu: https://adrianbernabeuportafolio.netlify.app/
-
+- Salma Picazo: https://salmaa258.github.io/Portfolio/
