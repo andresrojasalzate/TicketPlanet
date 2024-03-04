@@ -159,6 +159,7 @@ image::Images/diagrama.png[Diagrama Relacional, width=50%]
 === Interfícies
     
 ==== Sketching
+Link de los sketching de los Mockups https://www.figma.com/file/V47MqQzp5biMSzsQ5m7gZU/Mockups?type=design&node-id=0-1&mode=design&t=IMIfO6zr6hBVFlYG-0[aquí]. 
 
 ==== Figma
 Link a las interfícies de Figma https://www.figma.com/file/V47MqQzp5biMSzsQ5m7gZU/Mockups?type=design&node-id=0-1&mode=design&t=IMIfO6zr6hBVFlYG-0[aquí]. 
