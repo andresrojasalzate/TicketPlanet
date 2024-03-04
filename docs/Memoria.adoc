@@ -646,6 +646,313 @@ Tarjetas de crédito
 |123
 |===
 
+== DOCUMENTACIÓN API
+
+ Las medidas de las imagenes generadas por la api son de 300, 600 y 1200 px. 
+ 
+ Para implementar la función de redimensionar hemos utilzado la libreia Intervention Image. Utilizamos la clases Intervention\Image\ImageManager y Intervention\Image\Drivers\Gd\Driver, para crear un ImageManger.
+ 
+```bash
+$manager = new ImageManager(new Driver());
+```
+
+ Mediante el metodo read del manager recogemos la imagen recibida.
+
+```bash
+$imagen = $manager->read( $request->file('image'));
+```
+
+Usando el metodo resize del manager redimensionamos las imagenes indicando el with y heigth como parametros del metodo. 
+
+```bash
+ $size = 300
+ $imagen->resize($size, $size);
+```
+Una vez redimensionada la imaagen utilizamos el metodo save para guardar la imagen en la ruta indicada en el parametro del metodo.
+
+```bash
+  $imagen->save($ruta);
+```
+
+Las imagenes se guardan en diferentes carpetas large, medium y small dependiendo de su tamaño. 
+
+Para recuperar la imagenes se utiliza una URL /images/retrieve/{type}/{imageHash}. Donde "type" es el tamaño de la imagen y "imageHash" es el hash recibido al guardar la imagenes en la api.
+
+Primero validamos si los parametros enviaados son correctos.
+```bash
+Validator::make(compact('type', 'imageHash'), [
+            'type' => 'required|in:small,medium,large', 
+            'imageHash' =>  ['required', 'string', new ExistsInDatabase()],
+        ]);
+```
+
+Una vez validados los parametros buscamos la imagen solcitada y la enviamos.
+
+```bash
+  return response()->file($imagenPath);
+```
+
+En caso de que falle la validación devolvemos una imagen por defecto.
+
+```bash
+  $imagenPath = public_path('imagenes/large/event_default.jpg');
+  return response()->file($imagenPath);
+```
+
+=== Docimentacion API OpenAPI
+
+```bash
+openapi: 3.1.0
+info:
+  title: api-imagenes
+  description: |
+    Esta API permite subir una imagen generando tres versiones de la imagen
+    y pedir una de las versiones de una imagen subida.
+  version: 1.0.0
+
+paths:
+  /images/store:
+    post:
+      summary: Recibe una imagen
+      description: Recibe una imagen, genera tres versiones redimensionadas de la imagen 
+      y las guarda para que puedan ser accesibles.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+             schema:
+               type: object
+               properties:
+                  image:
+                    $ref: "#/components/schemas/imageData"
+      responses:
+        '200':
+          description: Imagen subida exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/imageUploadSuccess"
+        '422':
+          description:  Error de validacion
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/imageUploadSuccess"
+                
+      security:
+        - bearerAuth: []
+  
+  /images/retrieve/{type}/{imageHash}:
+    get:
+      summary: Obtener una imagen
+      description: Permite obtener una imagen del servidor segun su tipo y hash.
+      parameters:
+        - $ref: "#/components/parameters/typeParam"
+        - $ref: "#/components/parameters/imageHashParam"
+      responses:
+        '200':
+          description: Imagen obtenida
+          content:
+            image/*:
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: Imagen no encontrada
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/notFoundError"
+
+  /login:
+    post:
+      summary: Iniciar sesion
+      description: Este endpoint permite a los usuarios iniciar sesion y obtener un token de acceso.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: "#/components/schemas/loginRequest"
+      responses:
+        '200':
+          description: Sesion iniciada exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/loginResponse"
+        '422':
+          description: Credenciales incorrectas
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/validationErrorLogin"
+
+  /logout:
+    delete:
+      summary: Cerrar sesion
+      description: Permite a los usuarios cerrar sesion y revocar todos los tokens de acceso.
+      
+      responses:
+        '200':
+          description: Sesion cerrada exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/logoutSuccess"
+      
+      security:
+        - bearerAuth: []
+
+  /images/delete/{hash}:
+    delete:
+      summary: Eliminar imagenes por hash
+      description: Permite eliminar todas las imagenes relacionadas con el hash proporcionado.
+      parameters:
+        - $ref: "#/components/parameters/hashParam"
+  
+      responses:
+        '200':
+          description: Imagenes eliminadas exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/deleteSuccess"
+        '404':
+          description: No se encontraron imagenes relacionadas con el hash proporcionado
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/notFoundErrorDestroy"
+      security:
+        - bearerAuth: []
+
+components:
+  schemas:
+    imageData:
+       type: string
+       format: binary
+
+    imageUploadSuccess:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Mensaje de exito
+        imageId:
+          type: string
+          description: ID unico de la imagen subida
+
+    validationError:
+      type: object
+      properties:
+        errors:
+          type: object
+          description: Detalles de los errores de validacion
+
+    notFoundError:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Mensaje de error indicando que la imagen no fue encontrada
+
+     loginRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          description: Correo electrónico del usuario
+        password:
+          type: string
+          description: Contraseña del usuario
+      required:
+        - email
+        - password
+
+    loginRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          description: Correo electronico del usuario
+        password:
+          type: string
+          description: Contraseña del usuario
+      required:
+        - email
+        - password
+
+    loginResponse:
+      type: object
+      properties:
+        token:
+          type: string
+          description: Token de acceso generado para el usuario
+
+    validationErrorLogin:
+      type: object
+      properties:
+        errors:
+          type: object
+          description: Mensaje de error indicando que las credenciales proporcionadas son incorrectas
+
+    logoutSuccess:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Mensaje indicando que se ha cerrado sesion exitosamente
+
+    deleteSuccess:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Mensaje indicando que las imagenes se han eliminado exitosamente
+
+     notFoundErrorDestroy:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Mensaje indicando que no se encontraron imagenes relacionadas con el hash proporcionado
+
+  parameters:
+     typeParam:
+      description: Tipo de la imagen (small, medium, large)
+      name: type
+      in: path
+      required: true
+      schema:
+        type: string
+        enum: [small, medium, large]
+    
+    imageHashParam:
+      description: Hash unico de la imagen
+      name: imageHash
+      in: path
+      required: true
+      schema:
+        type: string
+    
+    hashParam:
+      description: Hash único de la imagen
+      name: hash
+      in: path
+      required: true
+      schema:
+        type: string
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+```
+
 == CONCLUSIÓN 
 === Adrian Bernabeu
 Lo que he aprendido de este proyecto ha sido la creacion de una pagina con laravel utilizando docker, y utilizar el Redsys y configurarlo, lo que me esperaba aprender era lo basico del docker la creacion de contenedores y almacenar los datos y en laravel tambien lo basico.
