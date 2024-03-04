@@ -19,7 +19,7 @@
 
 *TicketPlanet*
 
-image::docs/Images/Logo.png[Logo principal,width=10%]image::docs/Images/diagrama.png[]
+image::Images/Logo.PNG[Logo principal, width=10%]
 
 *Miembros*  
 
