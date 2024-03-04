@@ -1,0 +1,126 @@
+== Guia Estilos
+
+=== Paleta de colores
+image::Images/ImagenesGuiaEstilos/PaletaColores.png[]
+
+=== Tipografia
+image::Images/ImagenesGuiaEstilos/Tipografia.png[]
+
+=== Logo i nombre
+image::Images/ImagenesGuiaEstilos/LogoNombre.png[]
+
+=== Iconografia
+image::Images/ImagenesGuiaEstilos/Iconografia.png[]
+
+=== Botones
+image::Images/ImagenesGuiaEstilos/Botones.png[]
+
+=== Enlaces
+image::Images/ImagenesGuiaEstilos/Enlaces.png[]
+
+=== Inputs
+image::Images/ImagenesGuiaEstilos/Inputs.png[]
+
+=== Checkbox
+image::Images/ImagenesGuiaEstilos/Checkbox.png[]
+
+=== Selectors
+image::Images/ImagenesGuiaEstilos/Selectors.png[]
+
+== Mockups
+
+== Pagina Home
+=== Mobile
+image::Images/ImagenesMockups/Mobile/Mobile-PaginaHome.png[]
+=== Desktop
+image::Images/ImagenesMockups/Desktop/Desktop-PaginaHome.png[]
+
+== Pagina Home Menu
+=== Mobile
+image::Images/ImagenesMockups/Mobile/Mobile-MenuPaginaHome.png[]
+=== Desktop
+image::Images/ImagenesMockups/Desktop/Desktop-MenuPaginaHome.png[]
+
+== Pagina Home Filtro
+=== Mobile
+image::Images/ImagenesMockups/Mobile/Mobile-FiltroPaginaHome.png[]
+=== Desktop
+image::Images/ImagenesMockups/Desktop/Desktop-FiltroPaginaHome.png[]
+
+== Pagina Login
+=== Mobile
+image::Images/ImagenesMockups/Mobile/Mobile-PaginaLogin.png[]
+=== Desktop
+image::Images/ImagenesMockups/Desktop/Desktop-PaginaLogin.png[]
+
+== Pagina Restablecer Contraseña 
+=== Mobile
+image::Images/ImagenesMockups/Mobile/Mobile-PaginaRestablecerContraseña.png[]
+=== Desktop
+image::Images/ImagenesMockups/Desktop/Desktop-PaginaRestablecerContraseña.png[]
+
+== Pagina Crear Evento
+=== Mobile
+image::Images/ImagenesMockups/Mobile/Mobile-PaginaCrearEvento.png[]
+=== Desktop
+image::Images/ImagenesMockups/Desktop/Desktop-PaginaCrearEvento.png[]
+
+== Pagina Crear Entrada
+=== Mobile
+image::Images/ImagenesMockups/Mobile/Mobile-PaginaCrearEntrada.png[]
+=== Desktop
+image::Images/ImagenesMockups/Desktop/Desktop-PaginaCrearEntrada.png[]
+
+== Pagina Crear Entrada Feedback
+=== Mobile
+image::Images/ImagenesMockups/Mobile/Mobile-PaginaCrearEntradaFeedback.png[]
+=== Desktop
+image::Images/ImagenesMockups/Desktop/Desktop-PaginaCrearEntradaFeedback.png[]
+
+== Pagina Comprar Entradas
+=== Mobile
+image::Images/ImagenesMockups/Mobile/Mobile-PaginaComprarEntradas.png[]
+=== Desktop
+image::Images/ImagenesMockups/Desktop/Desktop-PaginaComprarEntrada.png[]
+
+== Pagina Comprar Entradas Feedback Exito
+=== Mobile
+image::Images/ImagenesMockups/Mobile/Mobile-PaginaComprarEntradasFeedbackExito.png[]
+=== Desktop
+image::Images/ImagenesMockups/Desktop/Desktop-PaginaComprarEntradasFeedbackExito.png[]
+
+== Pagina Comprar Entradas Feedback Fallido
+=== Mobile
+image::Images/ImagenesMockups/Mobile/Mobile-PaginaComprarEntradasFeedbackFallido.png[]
+=== Desktop
+image::Images/ImagenesMockups/Desktop/Desktop-PaginaComprarEntradasFeedbackFallido.png[]
+
+== Pagina Listar Sesiones
+=== Mobile
+image::Images/ImagenesMockups/Mobile/Mobile-PaginaListarSesiones.png[]
+=== Desktop
+image::Images/ImagenesMockups/Desktop/Desktop-PaginaListarSesiones.png[]
+
+== Pagina Home Promotor
+=== Mobile
+image::Images/ImagenesMockups/Mobile/Mobile-PaginaHomePromotors.png[]
+=== Desktop
+image::Images/ImagenesMockups/Desktop/Desktop-PaginaHomePromotors.png[]
+
+== Pagina Crear Sesion Feedback
+=== Mobile
+image::Images/ImagenesMockups/Mobile/Mobile-PaginaCrearSesionFeedback.png[]
+=== Desktop
+image::Images/ImagenesMockups/Desktop/Desktop-PaginaCrearSesionFeedback.png[]
+
+== Pagina Entradas Reseñas
+=== Mobile
+image::Images/ImagenesMockups/Mobile/Mobile-PaginaListarEntradasReseñas.png[]
+=== Desktop
+image::Images/ImagenesMockups/Desktop/Desktop-PaginaListarEntradasReseñas.png[]
+
+== Pagina Crear Sesion
+image::Images/ImagenesMockups/Desktop/Desktop-PaginaCrearSesion.png[]
+
+== Pagina Entradas PDF
+image::Images/ImagenesMockups/Desktop/Desktop-PaginaEntradasPDF.png[]
