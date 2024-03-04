@@ -19,7 +19,7 @@
 
 *TicketPlanet*
 
-image::Images/Logo.png[Logo principal, width=10%]
+image::docs/Images/Logo.png[Logo principal,width=10%]image::docs/Images/diagrama.png[]
 
 *Miembros*  
 
@@ -154,7 +154,8 @@ Session "1" -- "0..n" Ticket
 ----
 
 ==== Diagrama E-R:
-image::Images/diagrama.png[Diagrama Relacional, width=50%]
+image::docs/Images/diagrama.png[Diagrama Relacional, width=50%]
+
 
 === Interfícies
     
