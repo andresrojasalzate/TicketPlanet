@@ -1,5 +1,5 @@
 # gr3-bernabeu-rojas-picazo
-![Logo](Images/Logo.png){:width="100px" height="100px"}
+![Logo](docs/Images/Logo.PNG){:width="100px" height="100px"}
 
 ## Miembros
 - Adria Bernabeu
@@ -7,7 +7,7 @@
 - Andres Rojas
 
 ## Diagrama de red
-![Diagrama](Images/diagrama-de-red.PNG){:width="400px" height="400px"}
+![Diagrama](docs/Images/diagrama-de-red.PNG){:width="400px" height="400px"}
 
 ## Links
 - [Trello](https://trello.com/b/Z116unqK/gr3-bernabeu-rojas-picazo)
