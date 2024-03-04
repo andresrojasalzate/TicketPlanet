@@ -954,14 +954,11 @@ components:
 ```
 
 == CONCLUSIÓN 
-=== Adrian Bernabeu
-Lo que he aprendido de este proyecto ha sido la creacion de una pagina con laravel utilizando docker, y utilizar el Redsys y configurarlo, lo que me esperaba aprender era lo basico del docker la creacion de contenedores y almacenar los datos y en laravel tambien lo basico.
+Lo que hemos aprendido de este proyecto ha sido la creación de una página con Laravel utilizando Docker, y utilizar el Redsys y configurarlo. Lo que esperábamos aprender era lo básico del Docker, la creación de contenedores y almacenar los datos, y en Laravel también lo básico.
 
 === Líneas futuras
 - Añadir estilos al formulario para recuperar la contraseña.
 
 - API de validación de entradas
 
-=== Webgrafia
 
-=== Presentación
