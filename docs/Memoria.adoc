@@ -1,10 +1,11 @@
 = TICKETPLANET 
-Adria Bernabeu, Salma Picazo, Andres Rojas
 
 :toc-title: ÍNDICE
 :figure-caption: Figura
-:table-caption: Taula
+:table-caption: Taula   
 :example-caption: Exemple
+:author: Adria Bernabeu, Salma Picazo, Andres Rojas
+:revnumber: 1.12
 :doctype: book
 :encoding: utf-8
 :lang: es
@@ -39,124 +40,126 @@ TicketPlanet facilita a los usuarios la compra de entradas de diferentes tipos d
 
 ==== Diagrama de clases
 
+
 [plantuml,,png]
 ----
 
 class Assistant {
-        nameAssistant: string
-        dniAssistant: string
-        phoneAssistant: string
-        compra_id: integer
-        ticket_id: integer
+    nameAssistant: string
+    dniAssistant: string
+    phoneAssistant: string
+    compra_id: integer
+    ticket_id: integer
         
-        + compra() : Compra
-        + ticket() : Ticket
-    }
+    + compra() : Compra
+    + ticket() : Ticket
+}
     
-    class Category {
-        id: int
-        name: string
+class Category {
+    id: int
+    name: string
         
-        + events() : List<Event>    
-    }
+    + events() : List<Event>    
+}
     
-    class Compra {
-        id: int
-        emailPurchaser: string
-        namePurchaser: string
-        dniPurchaser: string
-        phonePurchaser: string
-        pdfTickets: string
-        session_id: integer
+class Compra {
+    id: int
+    emailPurchaser: string
+    namePurchaser: string
+    dniPurchaser: string
+    phonePurchaser: string
+    pdfTickets: string
+    session_id: integer
         
-        + session() : Session
-    }
+    + session() : Session
+}
     
-    class Event {
-        id: int
-        name: string
-        address: string
-        city: string
-        name_site: string
-        image: string
-        description: string
-        finishDate: date
-        finishTime: time
-        visible: boolean
-        capacity: integer
-        category_id: integer
-        user_id: integer
+class Event {
+    id: int
+    name: string
+    address: string
+    city: string
+    name_site: string
+    image: string
+    description: string
+    finishDate: date
+    finishTime: time
+    visible: boolean
+    capacity: integer
+    category_id: integer
+    user_id: integer
         
-        + category() : Category
-        + user() : User
-        + sessions() : List<Session>
-        + valoraciones() : List<Valoracion>
-    }
+    + category() : Category
+    + user() : User
+    + sessions() : List<Session>
+    + valoraciones() : List<Valoracion>
+}
     
-    class Session {
-        id: int
-        date: date
-        time: time
-        maxCapacity: integer
-        ticketsSold: integer
-        open: boolean
-        event_id: integer
+class Session {
+    id: int
+    date: date
+    time: time
+    maxCapacity: integer
+    ticketsSold: integer
+    open: boolean
+    event_id: integer
         
-         + tickets() : List<Ticket>
-    }
+    + tickets() : List<Ticket>
+}
     
-    class Ticket {
-        id: int
-        name: string
-        quantity: integer
-        price: float
-        sold_tickets: integer
-        nominal: boolean
-        session_id: integer
+class Ticket {
+    id: int
+    name: string
+    quantity: integer
+    price: float
+    sold_tickets: integer
+    nominal: boolean
+    session_id: integer
         
-        + session() : Session
-    }
+    + session() : Session
+}
     
-    class User {
-        id: int
-        name: string
-        email: string
-        password: string
-        reset_token: string
-        reset_token_created_at: datetime
-    }
+class User {
+    id: int
+    name: string
+    email: string
+    password: string
+    reset_token: string
+    reset_token_created_at: datetime
+}
     
-    class Valoracion {
-        id: int
-        nombre: string
-        caraSeleccionada: string
-        puntuacionSeleccionada: integer
-        tituloComentario: string
-        comentario: string
-        event_id: integer
+class Valoracion {
+    id: int
+    nombre: string
+    caraSeleccionada: string
+    puntuacionSeleccionada: integer
+    tituloComentario: string
+    comentario: string
+    event_id: integer
         
-        + event() : Event
-    }
+    + event() : Event
+}
     
-    Assistant "1" -- "0..1" Compra
-    Assistant "1" -- "0..1" Ticket
+Assistant "1" -- "0..1" Compra
+Assistant "1" -- "0..1" Ticket
     
-    Compra "1" -- "0..1" Session
+Compra "1" -- "0..1" Session
     
-    Event "0..n" -- "1" Category
-    Event "1" -- "1" User
-    Event "1" -- "0..n" Session
-    Event "1" -- "0..n" Valoracion
+Event "0..n" -- "1" Category
+Event "1" -- "1" User
+Event "1" -- "0..n" Session
+Event "1" -- "0..n" Valoracion
     
-    Session "1" -- "0..n" Ticket
+Session "1" -- "0..n" Ticket
 ----
 
 ==== Diagrama E-R:
-image::Images/diagrama.png[Logo principal, width=50%]
+image::Images/diagrama.png[Diagrama Relacional, width=50%]
 
 === Interfícies
     
 ==== Sketching
+Link de los sketching de los Mockups https://www.figma.com/file/V47MqQzp5biMSzsQ5m7gZU/Mockups?type=design&node-id=0-1&mode=design&t=IMIfO6zr6hBVFlYG-0[aquí]. 
 
 ==== Figma
 Link a las interfícies de Figma https://www.figma.com/file/V47MqQzp5biMSzsQ5m7gZU/Mockups?type=design&node-id=0-1&mode=design&t=IMIfO6zr6hBVFlYG-0[aquí]. 
@@ -628,11 +631,29 @@ php artisan serve
 ```
 Y en el navegador buscamos 127.0.0.1:8000
 
+== DATOS DE PRUEBA REDYS
+
+Tarjetas de crédito 
+|===
+|Numeración | Caducidad | CVV
+
+|4918019160034602
+|12/34
+|123
+
+|4548814479727229
+|12/24
+|123
+|===
+
 == CONCLUSIÓN 
 === Adrian Bernabeu
 Lo que he aprendido de este proyecto ha sido la creacion de una pagina con laravel utilizando docker, y utilizar el Redsys y configurarlo, lo que me esperaba aprender era lo basico del docker la creacion de contenedores y almacenar los datos y en laravel tambien lo basico.
 
 === Líneas futuras
+- Añadir estilos al formulario para recuperar la contraseña.
+
+- API de validación de entradas
 
 === Webgrafia
 
