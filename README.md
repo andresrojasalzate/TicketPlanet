@@ -1,5 +1,5 @@
 # gr3-bernabeu-rojas-picazo
-![Logo](docs/Images/Logo.PNG){:width="100px" height="100px"}
+![Logo](docs/Images/Logo.PNG)
 
 ## Miembros
 - Adria Bernabeu
